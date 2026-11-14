@@ -25,7 +25,7 @@ UA = "nisar-hackathon-media/0.1 (NISAR hackathon research; dpdnolan.office@gmail
 SECRET_PARAMS = {"access_token", "token", "key"}
 
 # Minimum seconds between requests per host (service usage policies).
-MIN_INTERVAL = {"nominatim.openstreetmap.org": 1.1, "api.gdeltproject.org": 5.5, "api.openverse.org": 3.1,
+MIN_INTERVAL = {"nominatim.openstreetmap.org": 1.1, "api.gdeltproject.org": 8.0, "api.openverse.org": 3.1,
                 "overpass-api.de": 2.0}
 _last: dict[str, float] = {}
 _session = requests.Session()
@@ -80,6 +80,8 @@ def get(url: str, params: dict | None = None, *, data=None, headers: dict | None
                 ra = r.headers.get("Retry-After")
                 if ra and ra.isdigit():
                     time.sleep(min(int(ra), 60))
+                elif r.status_code == 429:
+                    time.sleep((20 if "gdelt" in host else 10) * (attempt + 1))
             else:
                 raise FetchError(f"HTTP {r.status_code} {host}: {r.text[:160]!r}")
         time.sleep(min(2 ** attempt * 2, 40))

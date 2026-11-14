@@ -12,7 +12,7 @@ from datetime import date, timedelta
 from .common import FetchError, bbox_around, env_token, get, item, km, log, parse_date
 
 API = "https://graph.mapillary.com/images"
-FIELDS = "id,captured_at,geometry,thumb_1024_url,compass_angle,is_pano,creator"
+FIELDS = "id,captured_at,geometry,thumb_1024_url,compass_angle,is_pano,creator,sequence"
 
 
 def harvest(centres, ref: str | None, per_period=3, before_years=3) -> list[dict]:
@@ -45,13 +45,13 @@ def harvest(centres, ref: str | None, per_period=3, before_years=3) -> list[dict
             for x in imgs:
                 lon, lat = x["geometry"]["coordinates"]
                 x["_d"] = km(lat, lon, c["lat"], c["lon"])
-            # Nearest few, but from different sequences/days so they aren't all one drive-by.
-            picked, days = [], set()
+            # Nearest few, one per sequence, so they aren't all one drive-by.
+            picked, seqs = [], set()
             for x in sorted(imgs, key=lambda x: x["_d"]):
-                day = parse_date(x["captured_at"])
-                if day in days and len(imgs) > per_period * 3:
+                seq = x.get("sequence") or parse_date(x["captured_at"])
+                if seq in seqs:
                     continue
-                days.add(day)
+                seqs.add(seq)
                 picked.append(x)
                 if len(picked) >= per_period:
                     break

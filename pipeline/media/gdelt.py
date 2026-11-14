@@ -14,15 +14,24 @@ API = "https://api.gdeltproject.org/api/v2/doc/doc"
 LANG = {"spanish": "es", "japanese": "ja", "english": "en"}
 
 
+_fails = 0          # consecutive rate-limited queries; after 2 GDELT is skipped for the run
+
+
 def search(q: str, sourcelang: str | None, start: str, end: str, maxrecords=150) -> list[dict]:
+    global _fails
+    if _fails >= 2:
+        log(f"    gdelt {q!r}: skipped (rate-limited twice in a row)")
+        return []
     query = q + (f" sourcelang:{sourcelang}" if sourcelang else "")
     try:
         r = get(API, {"query": query, "mode": "artlist", "format": "json", "maxrecords": maxrecords, "sort": "hybridrel",
                       "startdatetime": start.replace("-", "") + "000000", "enddatetime": end.replace("-", "") + "235959"},
-                retries=4, timeout=60)
+                retries=2, timeout=60)
     except FetchError as e:
+        _fails += 1
         log(f"    gdelt {q!r}: {e}")
         return []
+    _fails = 0
     if isinstance(r, str) or not isinstance(r, dict):
         return []
     out = []

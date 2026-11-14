@@ -443,9 +443,9 @@
    "q": "八代市役所",
    "conf": "low",
    "side": null,
-   "lat": 32.562773,
-   "lon": 130.648922,
-   "geocoded": "八代市　鏡支所, 県道14号八代鏡宇土線, 鏡町内田, 八代市, 熊本県, 869-4703, 日本"
+   "lat": 32.5077,
+   "lon": 130.6018,
+   "geocoded": "Yatsushiro City Hall (manual; Nominatim matched the Kagami branch office)"
   },
   {
    "name": "Nippon Paper Yatsushiro mill 日本製紙八代工場",
@@ -508,15 +508,15 @@
  ],
  "gdelt": [
   {
-   "query": "(熊本 OR 八代 OR 氷川町 OR 宇城) 地震 断層",
+   "query": "(Yatsushiro OR Hikawa OR Uki OR Mifune OR Kumamoto) earthquake fault",
    "sourcelang": "japanese"
   },
   {
-   "query": "(八代 OR 氷川町 OR 宇城) (地割れ OR 段差 OR 液状化 OR 隆起)",
+   "query": "(Yatsushiro OR Hikawa OR Uki OR Kumamoto) earthquake (liquefaction OR crack OR uplift OR subsidence OR rupture)",
    "sourcelang": "japanese"
   },
   {
-   "query": "Kumamoto earthquake (fault OR rupture OR Yatsushiro)",
+   "query": "Kumamoto earthquake (fault OR rupture OR Yatsushiro OR Hikawa)",
    "sourcelang": "english"
   }
  ],
@@ -585,5 +585,6 @@
    "step_cm": 10.4,
    "near": "鏡町両出, 八代市"
   }
- ]
+ ],
+ "gdelt_note": "GDELT DOC searches the English translation of foreign-language articles, so queries are English even for sourcelang:japanese; titles come back in the original language."
 }

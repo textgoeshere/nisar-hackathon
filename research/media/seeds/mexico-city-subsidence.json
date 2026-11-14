@@ -340,11 +340,11 @@
  ],
  "gdelt": [
   {
-   "query": "hundimiento (CDMX OR \"Ciudad de México\" OR Iztapalapa OR Tláhuac OR Chalco)",
+   "query": "(sinking OR subsidence) (Iztapalapa OR Tlahuac OR Chalco OR Xochimilco OR Nezahualcoyotl OR \"Mexico City\")",
    "sourcelang": "spanish"
   },
   {
-   "query": "(grieta OR socavón) (Iztapalapa OR Tláhuac OR \"Valle de Chalco\" OR Xochimilco)",
+   "query": "(crack OR sinkhole) (Iztapalapa OR Tlahuac OR \"Valle de Chalco\" OR Xochimilco)",
    "sourcelang": "spanish"
   },
   {
@@ -441,5 +441,6 @@
    "rate_cm_yr": -20.7,
    "near": "Colonia La Conchita Zapotitlán, La Ciénega"
   }
- ]
+ ],
+ "gdelt_note": "GDELT DOC searches the English translation of foreign-language articles, so queries are English even with sourcelang:spanish; titles come back in the original language."
 }

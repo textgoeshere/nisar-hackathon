@@ -367,15 +367,15 @@
  ],
  "gdelt": [
   {
-   "query": "(Búcaro OR Tonosí OR \"Isla Cañas\" OR Azuero) (terremoto OR sismo)",
+   "query": "(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake",
    "sourcelang": "spanish"
   },
   {
-   "query": "(terremoto OR sismo) Panamá (grieta OR falla OR hundimiento OR deslizamiento)",
+   "query": "Panama earthquake (crack OR fault OR sank OR landslide OR uplift)",
    "sourcelang": "spanish"
   },
   {
-   "query": "Panama earthquake (Tonosi OR Azuero OR Los Santos)",
+   "query": "Panama earthquake (Tonosi OR Azuero OR \"Los Santos\")",
    "sourcelang": "english"
   }
  ],
@@ -444,5 +444,6 @@
    "step_cm": 16.4,
    "near": "Los Pozos, Herrera, Panamá"
   }
- ]
+ ],
+ "gdelt_note": "GDELT DOC searches the English translation of foreign-language articles, so queries are English even with sourcelang:spanish; titles come back in the original language."
 }

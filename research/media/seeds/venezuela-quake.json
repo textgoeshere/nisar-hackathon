@@ -311,11 +311,11 @@
  ],
  "gdelt": [
   {
-   "query": "(Morón OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama) (terremoto OR sismo)",
+   "query": "(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
    "sourcelang": "spanish"
   },
   {
-   "query": "(terremoto OR sismo) Venezuela (grieta OR falla OR licuefacción OR hundimiento)",
+   "query": "Venezuela earthquake (crack OR fault OR liquefaction OR sand OR bridge)",
    "sourcelang": "spanish"
   },
   {
@@ -388,5 +388,6 @@
    "step_cm": 8.6,
    "near": "Parroquia Boca de Aroa, Municipio Silva, Estado Falcón, Venezuela"
   }
- ]
+ ],
+ "gdelt_note": "GDELT DOC searches the English translation of foreign-language articles, so queries are English even with sourcelang:spanish; titles come back in the original language."
 }

@@ -7,6 +7,7 @@ Flickr from the photo page's embedded geo data), else locate.py matches seed pla
 from __future__ import annotations
 
 import re
+import time
 from urllib.parse import unquote
 
 from . import commons
@@ -36,10 +37,11 @@ def _flickr_geo(url: str) -> tuple[float, float] | None:
 _fails = 0          # consecutive failed queries; after 3 the service is treated as down for this run
 
 
-def search(q: str, pages=2) -> list[dict]:
+def search(q: str, pages=2, deadline: float | None = None) -> list[dict]:
+    """deadline (time.time()) skips the query once the caller's time budget is spent."""
     global _fails
     out = []
-    if _fails >= 3:
+    if _fails >= 3 or (deadline and time.time() > deadline):
         return out
     for page in range(1, pages + 1):
         try:

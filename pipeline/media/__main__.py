@@ -12,7 +12,9 @@ from __future__ import annotations
 import difflib
 import hashlib
 import json
+import os
 import sys
+import time
 from collections import Counter
 from datetime import date, timedelta
 
@@ -25,6 +27,7 @@ PRIORITY = {s: k for k, s in enumerate(SOURCES)}         # who wins a duplicate
 EVENT_WORDS = ["地震", "震災", "被害", "earthquake", "quake", "damage", "terremoto", "sismo", "daños", "danos", "colaps",
                "derrumb", "hundimiento", "subsidence", "sinking"]
 OUT = ROOT / "research" / "media"
+OPENVERSE_BUDGET_S = int(os.environ.get("MEDIA_OPENVERSE_BUDGET_S", 420))
 
 
 def research_items(slug: str) -> list[dict]:
@@ -83,10 +86,15 @@ def tier_of(it: dict, s: dict, anchors, places, step_thr) -> int:
     if near_anchor and it["loc_confidence"] in ("high", "medium"):
         return 1
     text = norm(f"{it['title']} {it['caption']}")
-    if any(norm(t) in text for t in s["terms"]["match"]):
+    if it["type"] != "street" and any(norm(t) in text for t in s["terms"]["match"]):   # street titles name the centre
         return 2
+    # Tier 3 needs a real position: an item pinned to a town centroid by its caption says nothing
+    # about whether it sits on the boundary.
+    if it["loc_confidence"] == "low" and str(it.get("loc_method", "")).startswith(("text:", "nominatim:")):
+        return 4
     n = it["nisar"]
-    if (n.get("local_step_cm") or 0) >= step_thr or any(km(it["lat"], it["lon"], p["lat"], p["lon"]) < 1.0 for p in places):
+    if (n.get("local_step_cm") or 0) >= step_thr or any(
+            km(it["lat"], it["lon"], p["lat"], p["lon"]) < 1.0 for p in places if p.get("conf") != "low" or "step_cm" in p):
         return 3
     return 4
 
@@ -167,8 +175,12 @@ def harvest(slug: str, only: set[str] | None = None):
     def _openverse():
         got = []
         where = s.get("openverse_place") or s["context"][0]
-        for q in s["context"][:4] + [f"{t} {where}" for t in s["terms"]["en"][:3]] + s["terms"]["local"][:3]:
-            got += openverse.search(q, pages=1)
+        deadline = time.time() + OPENVERSE_BUDGET_S          # Openverse often takes minutes per query
+        qs = s["context"][:3] + [f"{t} {where}" for t in s["terms"]["en"][:2]] + s["terms"]["local"][:2]
+        for q in qs:
+            got += openverse.search(q, pages=1, deadline=deadline)
+        if time.time() > deadline:
+            log(f"    openverse: time budget ({OPENVERSE_BUDGET_S} s) spent; later queries skipped")
         return got
     run("openverse", _openverse)
 
@@ -193,10 +205,13 @@ def harvest(slug: str, only: set[str] | None = None):
         locate.by_text(it, gaz)
     news = [i for i in raw if i["source"] == "gdelt"]
     n_geo = gdelt.geocode_titles(news, b, lang) if news else 0
-    items, dropped = [], Counter()
+    items, dropped, unlocated = [], Counter(), []
     for it in raw:
         if it.get("lat") is None:
             dropped[f"{it['source']}: not located"] += 1
+            if it["source"] in ("gdelt", "openverse") or (it["source"] == "commons" and relevant(it, s, ref, anchors)):
+                unlocated.append({k: it.get(k) for k in ("source", "type", "title", "caption", "date", "page_url", "thumb_url",
+                                                         "credit", "licence")} | {"found_by": it.get("_found_by")})
             continue
         if not in_bounds(it["lat"], it["lon"], b):
             dropped[f"{it['source']}: outside grid"] += 1
@@ -228,6 +243,11 @@ def harvest(slug: str, only: set[str] | None = None):
     items.sort(key=lambda i: (i["tier"], not i["showable"], PRIORITY[i["source"]], -(i["nisar"].get("local_step_cm") or 0)))
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / f"{slug}.json").write_text(json.dumps(items, indent=1, ensure_ascii=False) + "\n")
+    # Relevant hits we couldn't place: the editor may locate some by hand (not part of the output).
+    seen = set()
+    unlocated = [u for u in unlocated if not (canon_url(u["page_url"]) in seen or seen.add(canon_url(u["page_url"])))]
+    (OUT / "unlocated").mkdir(exist_ok=True)
+    (OUT / "unlocated" / f"{slug}.json").write_text(json.dumps(unlocated, indent=1, ensure_ascii=False) + "\n")
     log(f"{slug}: {len(items)} items -> research/media/{slug}.json  (raw {len(raw)}; news geocoded {n_geo})")
     for k, v in sorted(dropped.items()):
         log(f"  dropped {k}: {v}")
