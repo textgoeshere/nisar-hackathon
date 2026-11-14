@@ -49,15 +49,81 @@ def pick_pairs(ev: dict) -> tuple[cmr.Granule, cmr.Granule | None]:
     return co, (pre[-1] if pre else None)
 
 
+def chain(ev: dict) -> list[cmr.Granule]:
+    """Consecutive interferograms on the best-covered stack: each pair starts where the last ended,
+    taking the shortest pair from each start date, so the steps add up to a continuous record."""
+    st = cmr.stacks(cmr.search(cmr.GUNW, ev["lat"], ev["lon"]))
+    gs = next(iter(st.values()))
+    by_start: dict[str, cmr.Granule] = {}
+    for g in sorted(gs, key=lambda g: g.days):
+        by_start.setdefault(g.start, g)
+    out, day = [], min(by_start)
+    while day in by_start:
+        out.append(by_start[day])
+        day = by_start[day].end
+    return out
+
+
+def fetch_chain(ev: dict, s) -> tuple[dict, dict]:
+    """Subsidence: read every pair in the chain and fit one sinking rate per pixel.
+
+    Adding up 12-day pairs also adds up each pair's ~0.5-1 cm of atmospheric and unwrapping noise,
+    so a raw running total jitters. Subsidence from groundwater pumping is steady over a year, so we
+    fit cumulative motion c(t) = rate x t by least squares through the origin and keep the rate.
+    """
+    from concurrent.futures import ThreadPoolExecutor
+    pairs = chain(ev)
+    half = ev["half_km"] * 1000
+    print(f"  chain of {len(pairs)} pairs, {pairs[0].start} -> {pairs[-1].end} on T{pairs[0].track}", flush=True)
+
+    def get(g):
+        try:
+            return gunw.read_window(g, ev["lat"], ev["lon"], half, s)
+        except Exception as e:                               # a bad granule shouldn't sink the chain
+            print(f"    skip {g.start}: {e}", flush=True)
+            return None
+    with ThreadPoolExecutor(4) as ex:
+        reads = list(ex.map(get, pairs))
+    good = [(g, r) for g, r in zip(pairs, reads) if r is not None]
+    h = min(r["los_m"].shape[0] for _, r in good)
+    w = min(r["los_m"].shape[1] for _, r in good)
+    t0 = date.fromisoformat(good[0][0].start)
+    days = np.array([(date.fromisoformat(g.end) - t0).days for g, _ in good], np.float64)
+    cum = np.zeros((h, w)); seen = np.zeros((h, w)); stack = []
+    for _, r in good:
+        d = r["los_m"][:h, :w]
+        cum = cum + np.nan_to_num(d)
+        seen += np.isfinite(d)
+        stack.append(cum.copy())
+    stack = np.stack(stack)                                  # cumulative motion at each pair's end date
+    rate = np.tensordot(days, stack, axes=1) / (days ** 2).sum()   # m/day
+    resid = stack - rate[None] * days[:, None, None]
+    valid = seen >= 0.8 * len(good)
+    r0 = good[0][1]
+    out = {"los": np.where(valid, rate * days[-1], np.nan).astype(np.float32),
+           "coh": np.mean([r["coh"][:h, :w] for _, r in good], 0).astype(np.float32),
+           "valid": valid, "x": r0["x"][:w], "y": r0["y"][:h],
+           "rate_m_yr": (rate * 365.25).astype(np.float32), "cum": stack.astype(np.float32)}
+    info = {"granules": [g.id for g, _ in good], "pair": [good[0][0].start, good[-1][0].end],
+            "dates": [good[0][0].start] + [g.end for g, _ in good], "stack": list(good[0][0].stack),
+            "epsg": r0["epsg"], "wavelength_m": r0["wavelength_m"],
+            "fit_rms_cm": round(float(np.sqrt(np.nanmean(resid[:, valid] ** 2))) * 100, 2),
+            "mb_read": round(sum(r["bytes_read"] for _, r in good) / 1e6, 1)}
+    return out, info
+
+
 def fetch(ev: dict, refetch=False) -> dict:
     path = CACHE / f"{ev['slug']}.npz"
     if path.exists() and not refetch:
         z = np.load(path, allow_pickle=True)
         return {k: z[k] for k in z.files} | {"info": z["info"].item()}
     CACHE.mkdir(exist_ok=True)
+    s = remote.session()
+    if ev["date"] is None:
+        out, info = fetch_chain(ev, s)
+        return _context(ev, out, info, path, date.fromisoformat(info["pair"][1]) - timedelta(days=60))
     half = ev["half_km"] * 1000
     co, pre = pick_pairs(ev)
-    s = remote.session()
     print(f"  interferogram {co.start} -> {co.end} on T{co.track} F{co.frame} {co.direction}", flush=True)
     a = gunw.read_window(co, ev["lat"], ev["lon"], half, s)
     out = {"los": a["los_m"], "coh": a["coh"], "valid": a["valid"], "x": a["x"], "y": a["y"]}
@@ -72,11 +138,14 @@ def fetch(ev: dict, refetch=False) -> dict:
         out["x"], out["y"] = out["x"][:w], out["y"][:h]
         out["los_pre"], out["coh_pre"], out["valid_pre"] = b["los_m"][:h, :w], b["coh"][:h, :w], b["valid"][:h, :w]
         info |= {"pre_granule": pre.id, "pre_pair": [pre.start, pre.end], "mb_read": info["mb_read"] + round(b["bytes_read"] / 1e6, 1)}
+    return _context(ev, out, info, path, date.fromisoformat(ev["date"]))
+
+
+def _context(ev, out, info, path, ev_day):
     grid = context.Grid.from_centres(info["epsg"], out["x"], out["y"])
     print("  terrain", flush=True)
     out["dem"] = context.dem(grid)
     img = grid.scaled(grid.dx / 2) if grid.dx > 40 else grid      # optical at twice the radar resolution
-    ev_day = date.fromisoformat(ev["date"])
     for tag, a0, a1 in (("before", ev_day - timedelta(days=75), ev_day - timedelta(days=1)),
                         ("after", ev_day + timedelta(days=1), ev_day + timedelta(days=45))):
         print(f"  sentinel-2 {tag}", flush=True)
@@ -137,11 +206,18 @@ def build(slug: str, refetch=False):
         save_img(out / name, arr)
         images.append({"file": name, "caption": caption, "source": source})
     nisar = "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC"
-    add("interferogram.png", fringes(los, coh, valid),
-        f"Interferogram spanning the event, {info['pair'][0]} → {info['pair'][1]}. One colour cycle = {CYCLE_M * 100:.0f} cm "
-        "of line-of-sight motion; brightness = coherence; dim = not measured.", f"{nisar}: {info['granule']}")
-    add("coherence.png", grey(coh), f"Coherence {info['pair'][0]} → {info['pair'][1]}. Dark = the surface changed.",
-        f"{nisar}: {info['granule']}")
+    if "rate_m_yr" in A:
+        span = f"{info['pair'][0]} → {info['pair'][1]}"
+        src = f"{nisar}: {len(info['granules'])} chained interferograms, track {info['stack'][0]}"
+        add("interferogram.png", fringes(los, coh, valid),
+            f"Fitted line-of-sight motion over {span}, rewrapped at {CYCLE_M * 100:.0f} cm per colour cycle.", src)
+        add("coherence.png", grey(coh), f"Mean coherence of the chained pairs, {span}.", src)
+    else:
+        add("interferogram.png", fringes(los, coh, valid),
+            f"Interferogram spanning the event, {info['pair'][0]} → {info['pair'][1]}. One colour cycle = {CYCLE_M * 100:.0f} cm "
+            "of line-of-sight motion; brightness = coherence; dim = not measured.", f"{nisar}: {info['granule']}")
+        add("coherence.png", grey(coh), f"Coherence {info['pair'][0]} → {info['pair'][1]}. Dark = the surface changed.",
+            f"{nisar}: {info['granule']}")
     if "los_pre" in A:
         add("interferogram-before.png", fringes(A["los_pre"], A["coh_pre"], A["valid_pre"].astype(bool)),
             f"Baseline interferogram before the event, {info['pre_pair'][0]} → {info['pre_pair'][1]}: what 'quiet' looks like.",
@@ -157,6 +233,12 @@ def build(slug: str, refetch=False):
     stats = {"motion_range_cm": round(float(np.percentile(m, 98) - np.percentile(m, 2)) * 100, 1),
              "measured_pct": round(100 * float(valid.mean()), 1),
              "coherence_mean": round(float(coh.mean()), 2)}
+    if "rate_m_yr" in A:
+        r = np.where(valid, A["rate_m_yr"], np.nan)
+        k = np.unravel_index(np.nanargmin(r), r.shape)
+        stats |= {"max_sinking_cm_yr": round(float(-np.nanpercentile(r, 0.1)) * 100, 1), "fit_rms_cm": info["fit_rms_cm"],
+                  "fastest_uv": [round((k[1] + 0.5) / grid.nx, 4), round((k[0] + 0.5) / grid.ny, 4)],
+                  "fastest_series_cm": [0.0] + [round(float(c) * 100, 1) for c in A["cum"][:, k[0], k[1]]]}
     if "los_pre" in A:
         mp = np.nan_to_num(A["los_pre"])[A["valid_pre"].astype(bool)]
         stats["baseline_range_cm"] = round(float(np.percentile(mp, 98) - np.percentile(mp, 2)) * 100, 1)

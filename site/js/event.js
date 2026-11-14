@@ -8,7 +8,10 @@ const meta = await (await fetch(base + "meta.json")).json();
 
 document.title = `${meta.name} · Either side of the line`;
 $("#title").textContent = meta.name;
-$("#sub").textContent = `${meta.date ?? "ongoing"} · ${meta.kind} · NISAR pass ${meta.nisar.pair.join(" → ")}`;
+const multi = !!meta.nisar.dates;
+$("#sub").textContent = multi ? `${meta.kind} · ${meta.nisar.granules.length} NISAR interferograms, ${meta.nisar.pair.join(" → ")}`
+  : `${meta.date} · ${meta.kind} · NISAR pass ${meta.nisar.pair.join(" → ")}`;
+if (multi) $("#fringes").checked = false;
 
 const v = await createViewer($("#hero"), base, meta);
 $("#loading").remove();
@@ -19,7 +22,10 @@ const [d0, d1] = meta.nisar.pair;
 const showT = () => {
   const x = t.value / 1000;
   v.setT(x);
-  tOut.textContent = x === 0 ? `before (${d0})` : x === 1 ? `after (${d1})` : `${Math.round(x * 100)}% of the measured motion`;
+  if (multi) {
+    const a = Date.parse(d0), b = Date.parse(d1);
+    tOut.textContent = `${new Date(a + x * (b - a)).toISOString().slice(0, 10)} (steady rate fitted to all passes)`;
+  } else tOut.textContent = x === 0 ? `before (${d0})` : x === 1 ? `after (${d1})` : `${Math.round(x * 100)}% of the measured motion`;
 };
 t.addEventListener("input", () => { playing = false; play.textContent = "Play"; showT(); });
 let playing = false, last = 0;
@@ -44,6 +50,7 @@ const s = meta.stats;
 $("#numbers").innerHTML = `<table>
 <tr><th>Ground motion across the scene (2nd-98th percentile, line of sight)</th><td>${s.motion_range_cm} cm</td></tr>
 ${s.baseline_range_cm != null ? `<tr><th>Same, in the quiet baseline pair before the event</th><td>${s.baseline_range_cm} cm</td></tr>` : ""}
+${s.max_sinking_cm_yr != null ? `<tr><th>Fastest sinking (line of sight)</th><td>${s.max_sinking_cm_yr} cm/year</td></tr><tr><th>Scatter of the passes around the fitted steady rate</th><td>${s.fit_rms_cm} cm</td></tr>` : ""}
 <tr><th>Area where motion was measured (coherent)</th><td>${s.measured_pct}%</td></tr></table>`;
 
 $("#images").innerHTML = meta.images.map((im) => `<figure><a href="${base + im.file}"><img src="${base + im.file}" alt="${esc(im.caption)}" loading="lazy"></a>
@@ -51,7 +58,7 @@ $("#images").innerHTML = meta.images.map((im) => `<figure><a href="${base + im.f
 
 $("#sources").innerHTML = [
   `NISAR: NASA/JPL-Caltech and ISRO, provisional L2 GUNW via the Alaska Satellite Facility DAAC. Track ${meta.nisar.stack[0]}, frame ${meta.nisar.stack[1]}, ${meta.nisar.stack[2] === "A" ? "ascending" : "descending"}.`,
-  `<code>${esc(meta.nisar.granule)}</code>`, meta.nisar.pre_granule ? `<code>${esc(meta.nisar.pre_granule)}</code>` : "",
+  ...(meta.nisar.granules ?? [meta.nisar.granule]).map((g) => `<code>${esc(g)}</code>`), meta.nisar.pre_granule ? `<code>${esc(meta.nisar.pre_granule)}</code>` : "",
   "Terrain: Copernicus GLO-30 DEM © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA, via AWS Open Data.",
   "Optical: contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search.",
   "3D: three.js.",
