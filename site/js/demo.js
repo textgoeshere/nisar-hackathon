@@ -184,7 +184,7 @@ function keyFor(meta, still) {
 
 // ---------- kiosk: manual takeover, idle cursor, fullscreen ----------
 let manualUntil = 0, cur = null;
-const label = $("#label"), nameEl = $("#name"), key = $("#key"), hint = $("#hint");
+const label = $("#label"), nameEl = $("#name"), credit = $("#credit"), scrub = $("#scrub"), tIn = $("#t"), key = $("#key"), hint = $("#hint");
 setTimeout(() => hint.classList.add("off"), 6000);
 // A tap or drag anywhere (except Next) stops the tour and hands over the multitouch orbit controls:
 // one finger orbits, pinch zooms, two fingers pan. The event's clock is frozen meanwhile.
@@ -198,6 +198,9 @@ const takeOver = (e) => {
 addEventListener("pointerdown", takeOver, { capture: true });
 addEventListener("pointermove", (e) => { if (e.buttons || e.pointerType === "touch") takeOver(e); });
 $("#next").addEventListener("click", () => { skip = true; manualUntil = 0; });
+// Scrubber: dragging it is a takeover too (capture listener above); it then sets before -> after directly.
+let scrubbing = false;
+tIn.addEventListener("input", () => { scrubbing = true; cur?.v.setT(tIn.value / 1000); });
 addEventListener("contextmenu", (e) => e.preventDefault()); // long-press menu on touch panels
 addEventListener("wheel", takeOver, { passive: true, capture: true });
 let idleTimer;
@@ -218,7 +221,7 @@ for (;;) {
   try {
     const data = await pre;
     if (cur) { // fade the old event to black and free its GPU context first
-      cur.el.classList.remove("on"); label.classList.remove("on"); key.classList.remove("on");
+      cur.el.classList.remove("on"); label.classList.remove("on"); key.classList.remove("on"); scrub.classList.remove("on");
       await sleep(FADE_S * 1000);
       cur.v.dispose(); cur.el.remove(); cur = null;
     }
@@ -234,7 +237,16 @@ for (;;) {
   let path = makePath(ev, null, EVENT_S), pathT0 = 0, pathLen = EVENT_S;
   let clock = AT, last = 0, wasManual = false;
   if (STATS) console.log(`${ev.slug}: path ${(performance.now() - t1).toFixed(0)} ms, ${ev.edges.length} edge blocks`);
-  const grow = () => ev.v.setT(smooth((clock - 3) / (ev.still ? 12 : 16)));
+  // The autopilot grows the change in; after a visitor scrubbed, it eases back rather than snapping.
+  let tNow = smooth((clock - 3) / (ev.still ? 12 : 16));
+  const grow = (dt = 0) => {
+    const target = smooth((clock - 3) / (ev.still ? 12 : 16));
+    tNow = scrubbing ? tNow + (target - tNow) * Math.min(1, dt * 1.2) : target;
+    if (scrubbing && Math.abs(target - tNow) < 0.002) scrubbing = false;
+    ev.v.setT(tNow);
+    tIn.value = Math.round(tNow * 1000);
+  };
+  scrubbing = false;
   grow();
   place(ev, path(clock / pathLen), ev.v.camera);
   ev.v.onFrame(() => {
@@ -243,14 +255,14 @@ for (;;) {
     last = now;
     const manual = now < manualUntil;
     ev.v.controls.enabled = manual;
-    if (manual) { wasManual = true; return; }
+    if (manual) { wasManual = true; tNow = tIn.value / 1000; return; }
     if (wasManual) { // visitor let go: fly on from where they left it
       wasManual = false;
       pathT0 = clock; pathLen = Math.max(15, EVENT_S - clock);
       path = makePath(ev, poseNow(ev), pathLen);
     }
     clock += dt;
-    grow();
+    grow(dt);
     place(ev, path((clock - pathT0) / pathLen), ev.v.camera);
     ev.v.controls.target.copy(tgt);
   });
@@ -263,6 +275,12 @@ for (;;) {
   nameEl.innerHTML = `${ev.meta.name.replace(/[&<>]/g, "")}<small>${ev.meta.date ?? ""}</small>`;
   label.classList.add("on");
   key.innerHTML = keyFor(ev.meta, ev.still);
+  const bs = !!ev.meta.nisar.passes_after;
+  credit.textContent = `NISAR ${bs ? "radar backscatter" : "interferometry"}: NASA/JPL-Caltech & ISRO via ASF DAAC · Copernicus DEM · Sentinel-2 imagery (ESA)`;
+  const [d0, d1] = ev.meta.nisar.pair;
+  $("#s0").textContent = ev.meta.date ? `before ${d0}` : d0;
+  $("#s1").textContent = ev.meta.date ? `after ${d1}` : d1;
+  scrub.classList.add("on");
   key.classList.add("on");
   // Wait out the event's time on the autopilot clock (paused while a visitor drives).
   skip = false;

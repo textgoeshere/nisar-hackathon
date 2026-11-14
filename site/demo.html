@@ -10,14 +10,20 @@
   .stage { position: fixed; inset: 0; opacity: 0; transition: opacity 2s ease; }
   .stage.on { opacity: 1; }
   #label { position: fixed; left: 1.5rem; bottom: 1.2rem; font-size: .95rem; color: #fffc; text-shadow: 0 1px 4px #000;
-    opacity: 0; transition: opacity 2s ease; pointer-events: none; display: flex; align-items: center; gap: .6em; }
+    opacity: 0; transition: opacity 2s ease; pointer-events: none; }
+  #label .row { display: flex; align-items: center; gap: .6em; }
+  #credit { font-size: .72rem; color: #fff9; margin-top: .25rem; }
   #label.on { opacity: 1; }
   #label.on #next { pointer-events: auto; }
   #next { font: inherit; font-size: .85rem; color: #fffc; background: #0006; border: 1px solid #fff4; border-radius: 999px;
     padding: .3em .9em; margin-left: .6em; cursor: pointer; }
   #next:active { background: #fff3; }
   #label small { color: #fff8; margin-left: .6em; }
-  #hint { position: fixed; right: 1.5rem; bottom: 1.2rem; font-size: .85rem; color: #fff8; transition: opacity 1.5s ease; pointer-events: none; }
+  #scrub { position: fixed; right: 1.5rem; bottom: 1.2rem; display: flex; align-items: center; gap: .6em; font-size: .8rem;
+    color: #fffc; text-shadow: 0 1px 3px #000; opacity: 0; transition: opacity 2s ease; pointer-events: none; }
+  #scrub.on { opacity: 1; pointer-events: auto; }
+  #scrub input { width: min(28vw, 360px); accent-color: #ffd257; height: 2rem; touch-action: none; }
+  #hint { position: fixed; right: 1.5rem; bottom: 3.6rem; font-size: .85rem; color: #fff8; transition: opacity 1.5s ease; pointer-events: none; }
   #hint.off { opacity: 0; }
   #key { position: fixed; top: 1.2rem; right: 1.5rem; font-size: .85rem; color: #fffd; background: #0008; padding: .45rem .7rem;
     border-radius: 6px; text-shadow: 0 1px 3px #000; opacity: 0; transition: opacity 2s ease; pointer-events: none; }
@@ -26,7 +32,8 @@
   body.idle, body.idle * { cursor: none !important; }
 </style>
 <body>
-<div id="label"><span id="name"></span><button id="next" type="button" aria-label="Next event">Next ›</button></div>
+<div id="label"><div class="row"><span id="name"></span><button id="next" type="button" aria-label="Next event">Next ›</button></div><div id="credit"></div></div>
+<div id="scrub"><span id="s0"></span><input id="t" type="range" min="0" max="1000" value="0" aria-label="Before to after"><span id="s1"></span></div>
 <div id="key"></div>
 <div id="hint">F fullscreen · touch or drag to explore, the tour resumes after 30 s · Esc back to events</div>
 <script type="module" src="js/demo.js"></script>
