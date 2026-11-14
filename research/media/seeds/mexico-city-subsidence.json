@@ -1,54 +1,445 @@
 {
  "slug": "mexico-city-subsidence",
- "lang": ["es", "en"],
+ "lang": [
+  "es",
+  "en"
+ ],
  "ref_date": "2025-10-30",
  "note": "No event date: 'when' is relative to the start of the NISAR stack (2025-10-30). Old photos are still useful, since the sinking is steady.",
  "news_window_days": null,
- "news_span": ["2025-10-01", "2026-11-14"],
+ "news_span": [
+  "2025-10-01",
+  "2026-11-14"
+ ],
  "anchors": [
-  {"name": "NGL GNSS MMX1, AICM airport (old Texcoco lakebed)", "kind": "gnss", "lat": 19.4317, "lon": -99.0684, "side": "affected",
-   "value": "MIDAS vertical −26.5 cm/yr (2008–2024); fit over the NISAR window −26.8 cm/yr", "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/MMX1.sta", "credit": "Nevada Geodetic Laboratory"},
-  {"name": "NGL GNSS ICMX, Roma/Condesa", "kind": "gnss", "lat": 19.4056, "lon": -99.1709, "side": "affected",
-   "value": "MIDAS vertical −2.1 cm/yr (2017.6–2021.4)", "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/ICMX.sta", "credit": "Nevada Geodetic Laboratory"},
-  {"name": "NGL GNSS UTUL, Tulyehualco (historical, to 2020)", "kind": "gnss", "lat": 19.2558, "lon": -99.0163, "side": "affected",
-   "value": "series ends 2020; historical rate only", "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/UTUL.sta", "credit": "Nevada Geodetic Laboratory"},
-  {"name": "NGL GNSS MXTM (historical, to 2019)", "kind": "gnss", "lat": 19.4844, "lon": -98.9785, "side": null,
-   "value": "series ends 2019; historical rate only", "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/MXTM.sta", "credit": "Nevada Geodetic Laboratory"},
-  {"name": "Ángel de la Independencia: 14 steps added since 1910", "kind": "offset", "lat": 19.427, "lon": -99.1677, "conf": "high", "side": "affected",
-   "value": "14 steps added to the base as the ground around it sank (NASA PIA26709 caption)", "page_url": "https://commons.wikimedia.org/wiki/File:US-Indian_Spacecraft_Captures_Mexico_City_Subsidence_(PIA26709).jpg", "credit": "NASA/JPL-Caltech"},
-  {"name": "Tláhuac–Valle de Chalco crack, Santa Catarina Yecahuízotl", "kind": "offset", "lat": 19.311, "lon": -98.9655, "conf": "medium", "side": "affected",
-   "value": "kilometre-long crack under homes, where the sinking lakebed meets the Santa Catarina volcanic ridge", "page_url": "https://www.milenio.com/politica/comunidad/tlahuac-valle-chalco-enorme-grieta-afecta-calles-viviendas", "credit": "Milenio"},
-  {"name": "Templo de la Santísima Trinidad, below street level", "kind": "offset", "lat": 19.433164, "lon": -99.12665, "conf": "high", "side": "affected",
-   "value": "the church floor sits well below the street that has been raised around it", "credit": "Commons"}
+  {
+   "name": "NGL GNSS MMX1, AICM airport (old Texcoco lakebed)",
+   "kind": "gnss",
+   "lat": 19.4317,
+   "lon": -99.0684,
+   "side": "affected",
+   "value": "MIDAS vertical −26.5 cm/yr (2008–2024); fit over the NISAR window −26.8 cm/yr",
+   "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/MMX1.sta",
+   "credit": "Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "NGL GNSS ICMX, Roma/Condesa",
+   "kind": "gnss",
+   "lat": 19.4056,
+   "lon": -99.1709,
+   "side": "affected",
+   "value": "MIDAS vertical −2.1 cm/yr (2017.6–2021.4)",
+   "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/ICMX.sta",
+   "credit": "Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "NGL GNSS UTUL, Tulyehualco (historical, to 2020)",
+   "kind": "gnss",
+   "lat": 19.2558,
+   "lon": -99.0163,
+   "side": "affected",
+   "value": "series ends 2020; historical rate only",
+   "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/UTUL.sta",
+   "credit": "Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "NGL GNSS MXTM (historical, to 2019)",
+   "kind": "gnss",
+   "lat": 19.4844,
+   "lon": -98.9785,
+   "side": null,
+   "value": "series ends 2019; historical rate only",
+   "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/MXTM.sta",
+   "credit": "Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "Ángel de la Independencia: 14 steps added since 1910",
+   "kind": "offset",
+   "lat": 19.427,
+   "lon": -99.1677,
+   "conf": "high",
+   "side": "affected",
+   "value": "14 steps added to the base as the ground around it sank (NASA PIA26709 caption)",
+   "page_url": "https://commons.wikimedia.org/wiki/File:US-Indian_Spacecraft_Captures_Mexico_City_Subsidence_(PIA26709).jpg",
+   "credit": "NASA/JPL-Caltech"
+  },
+  {
+   "name": "Tláhuac–Valle de Chalco crack, Santa Catarina Yecahuízotl",
+   "kind": "offset",
+   "lat": 19.311,
+   "lon": -98.9655,
+   "conf": "medium",
+   "side": "affected",
+   "value": "kilometre-long crack under homes, where the sinking lakebed meets the Santa Catarina volcanic ridge",
+   "page_url": "https://www.milenio.com/politica/comunidad/tlahuac-valle-chalco-enorme-grieta-afecta-calles-viviendas",
+   "credit": "Milenio"
+  },
+  {
+   "name": "Templo de la Santísima Trinidad, below street level",
+   "kind": "offset",
+   "lat": 19.433164,
+   "lon": -99.12665,
+   "conf": "high",
+   "side": "affected",
+   "value": "the church floor sits well below the street that has been raised around it",
+   "credit": "Commons"
+  }
  ],
  "terms": {
-  "local": ["hundimiento Ciudad de México", "hundimiento diferencial", "grieta Iztapalapa", "grieta Tláhuac", "socavón", "edificio inclinado", "pozo sobresaliente", "brocal pozo hundimiento", "agrietamiento suelo", "fractura del suelo", "escalones Ángel de la Independencia", "iglesia hundida"],
-  "en": ["Mexico City subsidence", "Mexico City sinking", "tilted building Mexico City", "protruding well casing", "ground crack Iztapalapa", "sinking church"],
-  "match": ["hundi", "grieta", "agriet", "fractur", "socav", "inclin", "ladead", "pozo", "brocal", "escalon", "desnivel", "sink", "subsid", "tilt", "lean", "crack", "well casing", "fissure", "sunk"]
+  "local": [
+   "hundimiento Ciudad de México",
+   "hundimiento diferencial",
+   "grieta Iztapalapa",
+   "grieta Tláhuac",
+   "socavón",
+   "edificio inclinado",
+   "pozo sobresaliente",
+   "brocal pozo hundimiento",
+   "agrietamiento suelo",
+   "fractura del suelo",
+   "escalones Ángel de la Independencia",
+   "iglesia hundida"
+  ],
+  "en": [
+   "Mexico City subsidence",
+   "Mexico City sinking",
+   "tilted building Mexico City",
+   "protruding well casing",
+   "ground crack Iztapalapa",
+   "sinking church"
+  ],
+  "match": [
+   "hundi",
+   "grieta",
+   "agriet",
+   "fractur",
+   "socav",
+   "inclin",
+   "ladead",
+   "pozo",
+   "brocal",
+   "escalon",
+   "desnivel",
+   "sink",
+   "subsid",
+   "tilt",
+   "lean",
+   "crack",
+   "well casing",
+   "fissure",
+   "sunk"
+  ]
  },
  "places": [
-  {"name": "Valle de Chalco", "aliases": ["Valle de Chalco", "Chalco"], "q": "Valle de Chalco Solidaridad", "conf": "low", "side": "affected"},
-  {"name": "Tláhuac", "aliases": ["Tláhuac", "Tlahuac"], "q": "Tláhuac, Ciudad de México", "conf": "low", "side": "affected"},
-  {"name": "Santa Catarina Yecahuízotl", "aliases": ["Yecahuízotl", "Yecahuizotl"], "lat": 19.30883, "lon": -98.96844, "conf": "medium", "side": "affected"},
-  {"name": "San Francisco Tlaltenco", "aliases": ["Tlaltenco"], "q": "San Francisco Tlaltenco, Tláhuac", "conf": "low", "side": "affected"},
-  {"name": "Nezahualcóyotl", "aliases": ["Nezahualcóyotl", "Neza", "Nezahualcoyotl"], "q": "Ciudad Nezahualcóyotl", "conf": "low", "side": "affected"},
-  {"name": "AICM airport", "aliases": ["AICM", "Aeropuerto Internacional Benito Juárez", "Mexico City airport"], "lat": 19.4361, "lon": -99.0719, "conf": "low", "side": "affected"},
-  {"name": "Lago Nabor Carrillo", "aliases": ["Nabor Carrillo"], "q": "Lago Nabor Carrillo", "conf": "low", "side": "affected"},
-  {"name": "Iztapalapa", "aliases": ["Iztapalapa"], "q": "Iztapalapa, Ciudad de México", "conf": "low", "side": "affected"},
-  {"name": "Xochimilco", "aliases": ["Xochimilco"], "q": "Xochimilco, Ciudad de México", "conf": "low", "side": "affected"},
-  {"name": "Centro Histórico / Zócalo", "aliases": ["Zócalo", "Centro Histórico", "Catedral Metropolitana", "Metropolitan Cathedral"], "lat": 19.4326, "lon": -99.1332, "conf": "low", "side": "affected"},
-  {"name": "Tulyehualco", "aliases": ["Tulyehualco"], "lat": 19.2558, "lon": -99.0163, "conf": "low", "side": "affected"},
-  {"name": "Peñón de los Baños (volcanic hill in the lakebed)", "aliases": ["Peñón de los Baños"], "q": "Peñón de los Baños", "conf": "low", "side": "unaffected"},
-  {"name": "Cerro de la Estrella", "aliases": ["Cerro de la Estrella"], "q": "Cerro de la Estrella, Iztapalapa", "conf": "low", "side": "unaffected"},
-  {"name": "Sierra de Santa Catarina", "aliases": ["Sierra de Santa Catarina", "Yuhualixqui"], "lat": 19.31667, "lon": -99.03333, "conf": "low", "side": "unaffected"},
-  {"name": "Ciudad Universitaria (Pedregal lava)", "aliases": ["Ciudad Universitaria", "UNAM", "Pedregal"], "lat": 19.332769, "lon": -99.188325, "conf": "low", "side": "unaffected"},
-  {"name": "Chapultepec", "aliases": ["Chapultepec", "Lomas de Chapultepec"], "q": "Bosque de Chapultepec", "conf": "low", "side": "unaffected"}
+  {
+   "name": "Valle de Chalco",
+   "aliases": [
+    "Valle de Chalco",
+    "Chalco"
+   ],
+   "q": "Valle de Chalco Solidaridad",
+   "conf": "low",
+   "side": "affected",
+   "lat": 19.282153,
+   "lon": -98.941612,
+   "geocoded": "Valle de Chalco Solidaridad, Estado de México, México"
+  },
+  {
+   "name": "Tláhuac",
+   "aliases": [
+    "Tláhuac",
+    "Tlahuac"
+   ],
+   "q": "Tláhuac, Ciudad de México",
+   "conf": "low",
+   "side": "affected",
+   "lat": 19.270391,
+   "lon": -99.00475,
+   "geocoded": "Tláhuac, Ciudad de México, México"
+  },
+  {
+   "name": "Santa Catarina Yecahuízotl",
+   "aliases": [
+    "Yecahuízotl",
+    "Yecahuizotl"
+   ],
+   "lat": 19.30883,
+   "lon": -98.96844,
+   "conf": "medium",
+   "side": "affected"
+  },
+  {
+   "name": "San Francisco Tlaltenco",
+   "aliases": [
+    "Tlaltenco"
+   ],
+   "q": "San Francisco Tlaltenco, Tláhuac",
+   "conf": "low",
+   "side": "affected",
+   "lat": 19.297541,
+   "lon": -99.016226,
+   "geocoded": "San Francisco Tlaltenco, Ciudad de México, Tláhuac, La Ciénega, Ciudad de México, 13400, México"
+  },
+  {
+   "name": "Nezahualcóyotl",
+   "aliases": [
+    "Nezahualcóyotl",
+    "Neza",
+    "Nezahualcoyotl"
+   ],
+   "q": "Ciudad Nezahualcóyotl",
+   "conf": "low",
+   "side": "affected",
+   "lat": 19.407903,
+   "lon": -99.018155,
+   "geocoded": "Nezahualcóyotl, Estado de México, 57500, México"
+  },
+  {
+   "name": "AICM airport",
+   "aliases": [
+    "AICM",
+    "Aeropuerto Internacional Benito Juárez",
+    "Mexico City airport"
+   ],
+   "lat": 19.4361,
+   "lon": -99.0719,
+   "conf": "low",
+   "side": "affected"
+  },
+  {
+   "name": "Lago Nabor Carrillo",
+   "aliases": [
+    "Nabor Carrillo"
+   ],
+   "q": "Lago Nabor Carrillo",
+   "conf": "low",
+   "side": "affected",
+   "lat": 19.481261,
+   "lon": -99.031683,
+   "geocoded": "Lago Nabor Carrillo, Colonia Bosques de Viena, Nezahualcóyotl, Estado de México, 57139, México"
+  },
+  {
+   "name": "Iztapalapa",
+   "aliases": [
+    "Iztapalapa"
+   ],
+   "q": "Iztapalapa, Ciudad de México",
+   "conf": "low",
+   "side": "affected",
+   "lat": 19.358863,
+   "lon": -99.09254,
+   "geocoded": "Iztapalapa, Ciudad de México, México"
+  },
+  {
+   "name": "Xochimilco",
+   "aliases": [
+    "Xochimilco"
+   ],
+   "q": "Xochimilco, Ciudad de México",
+   "conf": "low",
+   "side": "affected",
+   "lat": 19.263361,
+   "lon": -99.104738,
+   "geocoded": "Xochimilco, Ciudad de México, México"
+  },
+  {
+   "name": "Centro Histórico / Zócalo",
+   "aliases": [
+    "Zócalo",
+    "Centro Histórico",
+    "Catedral Metropolitana",
+    "Metropolitan Cathedral"
+   ],
+   "lat": 19.4326,
+   "lon": -99.1332,
+   "conf": "low",
+   "side": "affected"
+  },
+  {
+   "name": "Tulyehualco",
+   "aliases": [
+    "Tulyehualco"
+   ],
+   "lat": 19.2558,
+   "lon": -99.0163,
+   "conf": "low",
+   "side": "affected"
+  },
+  {
+   "name": "Peñón de los Baños (volcanic hill in the lakebed)",
+   "aliases": [
+    "Peñón de los Baños"
+   ],
+   "q": "Peñón de los Baños",
+   "conf": "low",
+   "side": "unaffected",
+   "lat": 19.441046,
+   "lon": -99.082743,
+   "geocoded": "Peñón de los baños, Ciudad de México, 15520, México"
+  },
+  {
+   "name": "Cerro de la Estrella",
+   "aliases": [
+    "Cerro de la Estrella"
+   ],
+   "q": "Cerro de la Estrella, Iztapalapa",
+   "conf": "low",
+   "side": "unaffected",
+   "lat": 19.355989,
+   "lon": -99.085688,
+   "geocoded": "Cerro de la Estrella, Calzada Ermita Iztapalapa, Colonia 8a. Ampliación San Miguel, Ciudad de México, Iztapalapa, Ciudad"
+  },
+  {
+   "name": "Sierra de Santa Catarina",
+   "aliases": [
+    "Sierra de Santa Catarina",
+    "Yuhualixqui"
+   ],
+   "lat": 19.31667,
+   "lon": -99.03333,
+   "conf": "low",
+   "side": "unaffected"
+  },
+  {
+   "name": "Ciudad Universitaria (Pedregal lava)",
+   "aliases": [
+    "Ciudad Universitaria",
+    "UNAM",
+    "Pedregal"
+   ],
+   "lat": 19.332769,
+   "lon": -99.188325,
+   "conf": "low",
+   "side": "unaffected"
+  },
+  {
+   "name": "Chapultepec",
+   "aliases": [
+    "Chapultepec",
+    "Lomas de Chapultepec"
+   ],
+   "q": "Bosque de Chapultepec",
+   "conf": "low",
+   "side": "unaffected",
+   "lat": 19.4204,
+   "lon": -99.1819,
+   "geocoded": "Bosque de Chapultepec (manual: Nominatim matched a namesake in Ecatepec)"
+  }
  ],
- "context": ["Mexico City subsidence", "hundimiento CDMX", "Mexico City sinking", "hundimiento Ciudad de México", "Lake Texcoco", "Iztapalapa grietas"],
- "commons_categories": ["Category:Subsidence in Mexico", "Category:Templo de la Santísima Trinidad (Mexico City)"],
+ "context": [
+  "Mexico City subsidence",
+  "hundimiento CDMX",
+  "Mexico City sinking",
+  "hundimiento Ciudad de México",
+  "Lake Texcoco",
+  "Iztapalapa grietas"
+ ],
+ "commons_categories": [
+  "Category:Subsidence in Mexico",
+  "Category:Templo de la Santísima Trinidad (Mexico City)"
+ ],
  "gdelt": [
-  {"query": "hundimiento (CDMX OR \"Ciudad de México\" OR Iztapalapa OR Tláhuac OR Chalco)", "sourcelang": "spanish"},
-  {"query": "(grieta OR socavón) (Iztapalapa OR Tláhuac OR \"Valle de Chalco\" OR Xochimilco)", "sourcelang": "spanish"},
-  {"query": "\"Mexico City\" (sinking OR subsidence)", "sourcelang": "english"}
+  {
+   "query": "hundimiento (CDMX OR \"Ciudad de México\" OR Iztapalapa OR Tláhuac OR Chalco)",
+   "sourcelang": "spanish"
+  },
+  {
+   "query": "(grieta OR socavón) (Iztapalapa OR Tláhuac OR \"Valle de Chalco\" OR Xochimilco)",
+   "sourcelang": "spanish"
+  },
+  {
+   "query": "\"Mexico City\" (sinking OR subsidence)",
+   "sourcelang": "english"
+  }
+ ],
+ "steps": [
+  {
+   "name": "NISAR step 41 cm/yr within 500 m",
+   "lat": 19.264,
+   "lon": -99.04606,
+   "conf": "low",
+   "step_cm": 39.0,
+   "near": "San Luis Tlaxialtemalco, San Sebastián"
+  },
+  {
+   "name": "NISAR step 33 cm/yr within 500 m",
+   "lat": 19.25822,
+   "lon": -98.96688,
+   "conf": "low",
+   "step_cm": 31.2,
+   "near": "Calzada Chalco - Tláhuac, Barrio San Miguel, San Pedro Tláhuac"
+  },
+  {
+   "name": "NISAR step 32 cm/yr within 500 m",
+   "lat": 19.55899,
+   "lon": -98.97903,
+   "conf": "low",
+   "step_cm": 30.7,
+   "near": "Granjas El Arenal"
+  },
+  {
+   "name": "NISAR step 31 cm/yr within 500 m",
+   "lat": 19.44331,
+   "lon": -99.00343,
+   "conf": "low",
+   "step_cm": 29.9,
+   "near": "Texcoco de Mora"
+  },
+  {
+   "name": "NISAR step 28 cm/yr within 500 m",
+   "lat": 19.50115,
+   "lon": -98.99733,
+   "conf": "low",
+   "step_cm": 26.8,
+   "near": "Atenco, Texcoco, Estado de México, 55264, México"
+  },
+  {
+   "name": "NISAR step 25 cm/yr within 500 m",
+   "lat": 19.24664,
+   "lon": -98.93035,
+   "conf": "low",
+   "step_cm": 23.6,
+   "near": "Calzada Chalco - Tláhuac, Valle de Chalco Solidaridad"
+  },
+  {
+   "name": "NISAR step 23 cm/yr within 500 m",
+   "lat": 19.48378,
+   "lon": -98.91805,
+   "conf": "low",
+   "step_cm": 22.4,
+   "near": "San Bernardino"
+  },
+  {
+   "name": "NISAR step 23 cm/yr within 500 m",
+   "lat": 19.35076,
+   "lon": -99.03999,
+   "conf": "low",
+   "step_cm": 21.9,
+   "near": "Avenida Cuauhtémoc, Pueblo Santiago Acahualtepec, Ciudad de México"
+  },
+  {
+   "name": "NISAR fastest sinking -21 cm/yr",
+   "lat": 19.40572,
+   "lon": -99.01638,
+   "conf": "low",
+   "rate_cm_yr": -20.7,
+   "near": "La Negra, Nezahualcóyotl"
+  },
+  {
+   "name": "NISAR fastest sinking -21 cm/yr",
+   "lat": 19.47295,
+   "lon": -99.0484,
+   "conf": "low",
+   "rate_cm_yr": -20.7,
+   "near": "Boulevard Bosque de África, Colonia Bosques de Aragón, Nezahualcóyotl"
+  },
+  {
+   "name": "NISAR fastest sinking -21 cm/yr",
+   "lat": 19.28714,
+   "lon": -99.02475,
+   "conf": "low",
+   "rate_cm_yr": -20.7,
+   "near": "Colonia La Conchita Zapotitlán, La Ciénega"
+  }
  ]
 }

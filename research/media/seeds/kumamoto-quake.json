@@ -1,81 +1,589 @@
 {
  "slug": "kumamoto-quake",
- "lang": ["ja", "en"],
+ "lang": [
+  "ja",
+  "en"
+ ],
  "news_window_days": 100,
  "anchors": [
-  {"name": "GEONET 940093 千丁 Senchō (NGL J093)", "kind": "gnss", "lat": 32.5464, "lon": 130.6456, "side": "affected",
+  {
+   "name": "GEONET 940093 千丁 Senchō (NGL J093)",
+   "kind": "gnss",
+   "lat": 32.5464,
+   "lon": 130.6456,
+   "side": "affected",
    "value": "GSI: 86.6 cm NE, −31.7 cm vertical (NGL 7-day medians: E +62.3, N +61.7, U −32.7 cm). NW of the fault, on the Yatsushiro plain.",
-   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf", "credit": "GSI via HERP; Nevada Geodetic Laboratory"},
-  {"name": "GEONET 960702 泉 Izumi (NGL J702)", "kind": "gnss", "lat": 32.5767, "lon": 130.7949, "side": "affected",
+   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf",
+   "credit": "GSI via HERP; Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "GEONET 960702 泉 Izumi (NGL J702)",
+   "kind": "gnss",
+   "lat": 32.5767,
+   "lon": 130.7949,
+   "side": "affected",
    "value": "GSI: 17.5 cm S, +3.4 cm vertical (NGL: E −5.6, N −17.0, U +2.9 cm). SE of the fault, in the hills: moved the opposite way to 千丁.",
-   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf", "credit": "GSI via HERP; Nevada Geodetic Laboratory"},
-  {"name": "GEONET 021071 城南 Jōnan (NGL G071)", "kind": "gnss", "lat": 32.7092, "lon": 130.7484, "side": "affected",
+   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf",
+   "credit": "GSI via HERP; Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "GEONET 021071 城南 Jōnan (NGL G071)",
+   "kind": "gnss",
+   "lat": 32.7092,
+   "lon": 130.7484,
+   "side": "affected",
    "value": "GSI: 43.1 cm N, +9.6 cm vertical (NGL: E +4.4, N +44.6, U +10.7 cm).",
-   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf", "credit": "GSI via HERP; Nevada Geodetic Laboratory"},
-  {"name": "GEONET 950465 熊本 Kumamoto (NGL J465)", "kind": "gnss", "lat": 32.8421, "lon": 130.7648, "side": "unaffected",
+   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf",
+   "credit": "GSI via HERP; Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "GEONET 950465 熊本 Kumamoto (NGL J465)",
+   "kind": "gnss",
+   "lat": 32.8421,
+   "lon": 130.7648,
+   "side": "unaffected",
    "value": "GSI: 10.0 cm (NGL: E −1.0, N +10.6, U +0.4 cm). 15 km from the rupture: a reference for small motion.",
-   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf", "credit": "GSI via HERP; Nevada Geodetic Laboratory"},
-  {"name": "GEONET 960773 大矢野 Ōyano (NGL J773)", "kind": "gnss", "lat": 32.5817, "lon": 130.4304, "side": "unaffected",
+   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf",
+   "credit": "GSI via HERP; Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "GEONET 960773 大矢野 Ōyano (NGL J773)",
+   "kind": "gnss",
+   "lat": 32.5817,
+   "lon": 130.4304,
+   "side": "unaffected",
    "value": "GSI: 12.6 cm (NGL: E +12.2, N +4.7, U −0.2 cm). Far west of the fault.",
-   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf", "credit": "GSI via HERP; Nevada Geodetic Laboratory"},
-  {"name": "GSJ photo 1: 御船町 paved road, 6 cm right-lateral (white line)", "kind": "offset", "q": "御船町, 上益城郡, 熊本県", "conf": "low",
-   "value": "6 cm right-lateral", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-07.png"},
-  {"name": "GSJ photo 3: 城南町鰐瀬 paddy over the 鰐瀬 trench, 23 cm", "kind": "offset", "q": "鰐瀬, 城南町, 熊本市南区", "conf": "medium",
-   "value": "23 cm right-lateral (paddy bund)", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-09.png"},
-  {"name": "GSJ photo 4: 宇城市豊野町下郷 paddy → road, 43 cm", "kind": "offset", "q": "豊野町下郷, 宇城市", "conf": "medium",
-   "value": "43 cm right-lateral, 39 cm NW-side down", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-10.png"},
-  {"name": "GSJ photo 5: 豊野町 娑婆神峠 road, 98 cm", "kind": "offset", "q": "娑婆神峠", "conf": "medium",
-   "value": "98 cm right-lateral", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-11.png"},
-  {"name": "GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm", "kind": "offset", "q": "道の駅竜北", "conf": "medium",
-   "value": "115 cm right-lateral, 19 cm NW-side down", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-13.png"},
-  {"name": "GSJ photo 8: 氷川町宮原 road, 184 cm (the largest offset)", "kind": "offset", "q": "宮原, 氷川町", "conf": "medium",
-   "value": "184 cm right-lateral (maximum measured), W side down", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-15.png"},
-  {"name": "GSJ photo 9: 八代市岡町中 road → paddy, 120 cm", "kind": "offset", "q": "岡町中, 八代市", "conf": "medium",
-   "value": "120 cm right-lateral, 16 cm E-side down", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-16.png"},
-  {"name": "GSJ photo 10: 龍峯小学校 schoolyard, 94 cm + mole track", "kind": "offset", "lat": 32.53, "lon": 130.664, "conf": "high",
-   "value": "94 cm right-lateral with a mole track", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png"},
-  {"name": "GSJ photo 11: 八代市上片町 near 八代JCT, ~130 cm vertical", "kind": "offset", "q": "上片町, 八代市", "conf": "medium",
-   "value": "about 130 cm vertical", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-18.png"},
-  {"name": "GSJ photo 12: 八代神社 (Myoken-gu), 95 cm", "kind": "offset", "lat": 32.5, "lon": 130.641, "conf": "high",
-   "value": "95 cm right-lateral, 39 cm W-side down", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png"},
-  {"name": "GSJ photo 13: 八代市渡町 field, 25 cm", "kind": "offset", "q": "渡町, 八代市", "conf": "medium",
-   "value": "25 cm right-lateral, 17 cm NW-side down", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-20.png"},
-  {"name": "GSJ photo 14: 八代市豊原上町 road, 17 cm", "kind": "offset", "q": "豊原上町, 八代市", "conf": "medium",
-   "value": "17 cm right-lateral, NE side down", "side": "affected", "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-21.png"},
-  {"name": "GSJ 第6報: 山出 trench, 甲佐町白旗, 12 cm", "kind": "offset", "q": "白旗, 甲佐町", "conf": "low",
-   "value": "12 cm right-lateral, 2 cm NW-side down", "side": "affected", "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-03.html"},
-  {"name": "GSJ 第6報: 守山八幡宮 (宇城市小川町), foundations lifted", "kind": "offset", "q": "守山八幡宮, 宇城市", "conf": "medium",
-   "value": "open cracks, W/NW side down; foundations lifted ~200 m from the 南部田 trench", "side": "affected", "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-03.html"}
+   "page_url": "https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf",
+   "credit": "GSI via HERP; Nevada Geodetic Laboratory"
+  },
+  {
+   "name": "GSJ photo 1: 御船町 paved road, 6 cm right-lateral (white line)",
+   "kind": "offset",
+   "q": "御船町, 上益城郡, 熊本県",
+   "conf": "low",
+   "value": "6 cm right-lateral",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-07.png",
+   "lat": 32.714594,
+   "lon": 130.80187,
+   "geocoded": "御船町, 上益城郡, 熊本県, 日本"
+  },
+  {
+   "name": "GSJ photo 3: 城南町鰐瀬 paddy over the 鰐瀬 trench, 23 cm",
+   "kind": "offset",
+   "q": "鰐瀬, 城南町, 熊本市南区",
+   "conf": "medium",
+   "value": "23 cm right-lateral (paddy bund)",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-09.png",
+   "lat": 32.684411,
+   "lon": 130.756109,
+   "geocoded": "鰐瀬郵便局, 小川嘉島線, 城南町陳内, 南区, 熊本市, 熊本県, 860-8601, 日本"
+  },
+  {
+   "name": "GSJ photo 4: 宇城市豊野町下郷 paddy → road, 43 cm",
+   "kind": "offset",
+   "q": "豊野町下郷, 宇城市",
+   "conf": "medium",
+   "value": "43 cm right-lateral, 39 cm NW-side down",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-10.png",
+   "lat": 32.636232,
+   "lon": 130.691709,
+   "geocoded": "宇城市道, 松橋町久具, 宇城市, 熊本県, 869-0524, 日本"
+  },
+  {
+   "name": "GSJ photo 5: 豊野町 娑婆神峠 road, 98 cm",
+   "kind": "offset",
+   "q": "娑婆神峠",
+   "conf": "medium",
+   "value": "98 cm right-lateral",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-11.png",
+   "geocoded": null,
+   "note": "not located by Nominatim; not used as a search centre"
+  },
+  {
+   "name": "GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm",
+   "kind": "offset",
+   "q": "道の駅竜北",
+   "conf": "medium",
+   "value": "115 cm right-lateral, 19 cm NW-side down",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-13.png",
+   "lat": 32.576772,
+   "lon": 130.694645,
+   "geocoded": "道の駅竜北, 国道3号, 河原, 氷川町, 八代郡, 熊本県, 869-4805, 日本"
+  },
+  {
+   "name": "GSJ photo 8: 氷川町宮原 road, 184 cm (the largest offset)",
+   "kind": "offset",
+   "q": "宮原, 氷川町",
+   "conf": "medium",
+   "value": "184 cm right-lateral (maximum measured), W side down",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-15.png",
+   "lat": 32.554554,
+   "lon": 130.685042,
+   "geocoded": "宮原, 氷川町, 八代郡, 熊本県, 869-4805, 日本"
+  },
+  {
+   "name": "GSJ photo 9: 八代市岡町中 road → paddy, 120 cm",
+   "kind": "offset",
+   "q": "岡町中, 八代市",
+   "conf": "medium",
+   "value": "120 cm right-lateral, 16 cm E-side down",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-16.png",
+   "lat": 32.535928,
+   "lon": 130.670057,
+   "geocoded": "岡町中, 八代市, 熊本県, 日本"
+  },
+  {
+   "name": "GSJ photo 10: 龍峯小学校 schoolyard, 94 cm + mole track",
+   "kind": "offset",
+   "lat": 32.53,
+   "lon": 130.664,
+   "conf": "high",
+   "value": "94 cm right-lateral with a mole track",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png"
+  },
+  {
+   "name": "GSJ photo 11: 八代市上片町 near 八代JCT, ~130 cm vertical",
+   "kind": "offset",
+   "q": "上片町, 八代市",
+   "conf": "medium",
+   "value": "about 130 cm vertical",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-18.png",
+   "lat": 32.506915,
+   "lon": 130.645264,
+   "geocoded": "上片町, 八代市, 熊本県, 866-0805, 日本"
+  },
+  {
+   "name": "GSJ photo 12: 八代神社 (Myoken-gu), 95 cm",
+   "kind": "offset",
+   "lat": 32.5,
+   "lon": 130.641,
+   "conf": "high",
+   "value": "95 cm right-lateral, 39 cm W-side down",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png"
+  },
+  {
+   "name": "GSJ photo 13: 八代市渡町 field, 25 cm",
+   "kind": "offset",
+   "q": "渡町, 八代市",
+   "conf": "medium",
+   "value": "25 cm right-lateral, 17 cm NW-side down",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-20.png",
+   "lat": 32.489438,
+   "lon": 130.626519,
+   "geocoded": "渡町, 八代市, 熊本県, 866-0805, 日本"
+  },
+  {
+   "name": "GSJ photo 14: 八代市豊原上町 road, 17 cm",
+   "kind": "offset",
+   "q": "豊原上町, 八代市",
+   "conf": "medium",
+   "value": "17 cm right-lateral, NE side down",
+   "side": "affected",
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-21.png",
+   "lat": 32.489289,
+   "lon": 130.624405,
+   "geocoded": "豊原上町, 八代市, 熊本県, 866-0805, 日本"
+  },
+  {
+   "name": "GSJ 第6報: 山出 trench, 甲佐町白旗, 12 cm",
+   "kind": "offset",
+   "q": "白旗, 甲佐町",
+   "conf": "low",
+   "value": "12 cm right-lateral, 2 cm NW-side down",
+   "side": "affected",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-03.html",
+   "lat": 32.704779,
+   "lon": 130.7805,
+   "geocoded": "白旗, 甲佐町, 上益城郡, 熊本県, 861-3201, 日本"
+  },
+  {
+   "name": "GSJ 第6報: 守山八幡宮 (宇城市小川町), foundations lifted",
+   "kind": "offset",
+   "q": "守山八幡宮, 宇城市",
+   "conf": "medium",
+   "value": "open cracks, W/NW side down; foundations lifted ~200 m from the 南部田 trench",
+   "side": "affected",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-03.html",
+   "geocoded": null,
+   "note": "not located by Nominatim; not used as a search centre"
+  }
  ],
  "terms": {
-  "local": ["地表地震断層", "地表断層", "断層 ずれ", "横ずれ", "段差", "地割れ", "亀裂", "隆起", "沈下", "液状化", "噴砂", "傾いた", "道路 段差", "断層が出現", "地面 ずれ"],
-  "en": ["surface rupture", "fault scarp", "ground displacement", "fault offset", "ground fissure", "liquefaction", "sand boil", "mole track", "road step", "fault"],
-  "match": ["断層", "ずれ", "段差", "地割れ", "亀裂", "隆起", "沈下", "液状化", "噴砂", "変状", "傾", "rupture", "fault", "scarp", "fissure", "displacement", "offset", "liquefaction", "crack", "step", "uplift", "subsidence"]
+  "local": [
+   "地表地震断層",
+   "地表断層",
+   "断層 ずれ",
+   "横ずれ",
+   "段差",
+   "地割れ",
+   "亀裂",
+   "隆起",
+   "沈下",
+   "液状化",
+   "噴砂",
+   "傾いた",
+   "道路 段差",
+   "断層が出現",
+   "地面 ずれ"
+  ],
+  "en": [
+   "surface rupture",
+   "fault scarp",
+   "ground displacement",
+   "fault offset",
+   "ground fissure",
+   "liquefaction",
+   "sand boil",
+   "mole track",
+   "road step",
+   "fault"
+  ],
+  "match": [
+   "断層",
+   "ずれ",
+   "段差",
+   "地割れ",
+   "亀裂",
+   "隆起",
+   "沈下",
+   "液状化",
+   "噴砂",
+   "変状",
+   "傾",
+   "rupture",
+   "fault",
+   "scarp",
+   "fissure",
+   "displacement",
+   "offset",
+   "liquefaction",
+   "crack",
+   "step",
+   "uplift",
+   "subsidence"
+  ]
  },
  "places": [
-  {"name": "Myoken Daiichi Bridge 妙見第一橋", "aliases": ["妙見第一橋", "Myoken Daiichi", "Myoken"], "lat": 32.502, "lon": 130.645, "conf": "high", "side": "affected"},
-  {"name": "Yatsushiro Shrine 八代神社 (妙見宮)", "aliases": ["八代神社", "妙見宮", "Yatsushiro Shrine", "Myoken-gu", "Myōken-gū"], "lat": 32.49998, "lon": 130.64108, "conf": "high", "side": "affected"},
-  {"name": "Ryuho Elementary 龍峯小学校", "aliases": ["龍峯小学校", "龍峯小", "Ryuho"], "lat": 32.52995, "lon": 130.66357, "conf": "high", "side": "affected"},
-  {"name": "Yatsushiro JCT 八代JCT", "aliases": ["八代JCT", "八代ジャンクション", "Yatsushiro JCT", "Yatsushiro Junction"], "q": "八代ジャンクション", "conf": "medium", "side": "affected"},
-  {"name": "Hikawa 氷川町", "aliases": ["氷川町", "Hikawa"], "q": "氷川町, 八代郡, 熊本県", "conf": "low", "side": "affected"},
-  {"name": "Ryūhoku 竜北", "aliases": ["竜北", "Ryuhoku"], "q": "道の駅竜北", "conf": "low", "side": "affected"},
-  {"name": "Ogawa 宇城市小川町", "aliases": ["小川町", "Ogawa"], "q": "小川町, 宇城市", "conf": "low", "side": "affected"},
-  {"name": "Toyono 豊野町", "aliases": ["豊野町", "Toyono"], "q": "豊野町, 宇城市", "conf": "low", "side": "affected"},
-  {"name": "Matsubase 松橋", "aliases": ["松橋", "Matsubase"], "q": "松橋駅, 宇城市", "conf": "low", "side": null},
-  {"name": "Mifune 御船町", "aliases": ["御船町", "Mifune"], "q": "御船町, 上益城郡", "conf": "low", "side": "affected"},
-  {"name": "Kōsa 甲佐町", "aliases": ["甲佐町", "Kōsa", "Kosa"], "q": "甲佐町, 上益城郡", "conf": "low", "side": null},
-  {"name": "Uki 宇城市", "aliases": ["宇城市", "Uki City", "Uki"], "q": "宇城市役所", "conf": "low", "side": null},
-  {"name": "Yatsushiro 八代市", "aliases": ["八代市", "Yatsushiro"], "q": "八代市役所", "conf": "low", "side": null},
-  {"name": "Nippon Paper Yatsushiro mill 日本製紙八代工場", "aliases": ["日本製紙", "Nippon Paper"], "lat": 32.5067, "lon": 130.6212, "conf": "medium", "side": "affected"},
-  {"name": "AEON Mall Kumamoto イオンモール熊本", "aliases": ["イオンモール熊本", "AEON MALL Kumamoto", "AEON Mall Kumamoto"], "lat": 32.7395, "lon": 130.744, "conf": "medium", "side": "affected"},
-  {"name": "AEON Mall Uki イオンモール宇城", "aliases": ["イオンモール宇城", "AEON Mall Uki"], "lat": 32.5965, "lon": 130.7069, "conf": "medium", "side": "affected"},
-  {"name": "Kumamoto Castle 熊本城", "aliases": ["熊本城", "Kumamoto Castle"], "lat": 32.8054, "lon": 130.7055, "conf": "medium", "side": "unaffected"}
+  {
+   "name": "Myoken Daiichi Bridge 妙見第一橋",
+   "aliases": [
+    "妙見第一橋",
+    "Myoken Daiichi",
+    "Myoken"
+   ],
+   "lat": 32.502,
+   "lon": 130.645,
+   "conf": "high",
+   "side": "affected"
+  },
+  {
+   "name": "Yatsushiro Shrine 八代神社 (妙見宮)",
+   "aliases": [
+    "八代神社",
+    "妙見宮",
+    "Yatsushiro Shrine",
+    "Myoken-gu",
+    "Myōken-gū"
+   ],
+   "lat": 32.49998,
+   "lon": 130.64108,
+   "conf": "high",
+   "side": "affected"
+  },
+  {
+   "name": "Ryuho Elementary 龍峯小学校",
+   "aliases": [
+    "龍峯小学校",
+    "龍峯小",
+    "Ryuho"
+   ],
+   "lat": 32.52995,
+   "lon": 130.66357,
+   "conf": "high",
+   "side": "affected"
+  },
+  {
+   "name": "Yatsushiro JCT 八代JCT",
+   "aliases": [
+    "八代JCT",
+    "八代ジャンクション",
+    "Yatsushiro JCT",
+    "Yatsushiro Junction"
+   ],
+   "q": "八代JCT",
+   "conf": "medium",
+   "side": "affected",
+   "geocoded": "八代JCT, 妙見町, 八代市 (Nominatim)",
+   "lat": 32.50019,
+   "lon": 130.64453
+  },
+  {
+   "name": "Hikawa 氷川町",
+   "aliases": [
+    "氷川町",
+    "Hikawa"
+   ],
+   "q": "氷川町, 八代郡, 熊本県",
+   "conf": "low",
+   "side": "affected",
+   "lat": 32.582443,
+   "lon": 130.673746,
+   "geocoded": "氷川町, 八代郡, 熊本県, 日本"
+  },
+  {
+   "name": "Ryūhoku 竜北",
+   "aliases": [
+    "竜北",
+    "Ryuhoku"
+   ],
+   "q": "道の駅竜北",
+   "conf": "low",
+   "side": "affected",
+   "lat": 32.576772,
+   "lon": 130.694645,
+   "geocoded": "道の駅竜北, 国道3号, 河原, 氷川町, 八代郡, 熊本県, 869-4805, 日本"
+  },
+  {
+   "name": "Ogawa 宇城市小川町",
+   "aliases": [
+    "小川町",
+    "Ogawa"
+   ],
+   "q": "小川町, 宇城市",
+   "conf": "low",
+   "side": "affected",
+   "lat": 32.569845,
+   "lon": 130.717502,
+   "geocoded": "小川町東小川, 宇城市, 熊本県, 869-4803, 日本"
+  },
+  {
+   "name": "Toyono 豊野町",
+   "aliases": [
+    "豊野町",
+    "Toyono"
+   ],
+   "q": "豊野町, 宇城市",
+   "conf": "low",
+   "side": "affected",
+   "lat": 32.661036,
+   "lon": 130.759957,
+   "geocoded": "豊野町安見, 宇城市, 熊本県, 861-4402, 日本"
+  },
+  {
+   "name": "Matsubase 松橋",
+   "aliases": [
+    "松橋",
+    "Matsubase"
+   ],
+   "q": "松橋駅, 宇城市",
+   "conf": "low",
+   "side": null,
+   "lat": 32.652302,
+   "lon": 130.670542,
+   "geocoded": "松橋, 松橋停車場線, 不知火町御領, 宇城市, 熊本県, 日本"
+  },
+  {
+   "name": "Mifune 御船町",
+   "aliases": [
+    "御船町",
+    "Mifune"
+   ],
+   "q": "御船町, 上益城郡",
+   "conf": "low",
+   "side": "affected",
+   "lat": 32.714594,
+   "lon": 130.80187,
+   "geocoded": "御船町, 上益城郡, 熊本県, 日本"
+  },
+  {
+   "name": "Kōsa 甲佐町",
+   "aliases": [
+    "甲佐町",
+    "Kōsa",
+    "Kosa"
+   ],
+   "q": "甲佐町, 上益城郡",
+   "conf": "low",
+   "side": null,
+   "lat": 32.651576,
+   "lon": 130.811406,
+   "geocoded": "甲佐町, 上益城郡, 熊本県, 日本"
+  },
+  {
+   "name": "Uki 宇城市",
+   "aliases": [
+    "宇城市",
+    "Uki City",
+    "Uki"
+   ],
+   "q": "宇城市役所",
+   "conf": "low",
+   "side": null,
+   "lat": 32.59646,
+   "lon": 130.703883,
+   "geocoded": "宇城市 小川支所, 国道3号, 小川町江頭, 宇城市, 熊本県, 869-4803, 日本"
+  },
+  {
+   "name": "Yatsushiro 八代市",
+   "aliases": [
+    "八代市",
+    "Yatsushiro"
+   ],
+   "q": "八代市役所",
+   "conf": "low",
+   "side": null,
+   "lat": 32.562773,
+   "lon": 130.648922,
+   "geocoded": "八代市　鏡支所, 県道14号八代鏡宇土線, 鏡町内田, 八代市, 熊本県, 869-4703, 日本"
+  },
+  {
+   "name": "Nippon Paper Yatsushiro mill 日本製紙八代工場",
+   "aliases": [
+    "日本製紙",
+    "Nippon Paper"
+   ],
+   "lat": 32.5067,
+   "lon": 130.6212,
+   "conf": "medium",
+   "side": "affected"
+  },
+  {
+   "name": "AEON Mall Kumamoto イオンモール熊本",
+   "aliases": [
+    "イオンモール熊本",
+    "AEON MALL Kumamoto",
+    "AEON Mall Kumamoto"
+   ],
+   "lat": 32.7395,
+   "lon": 130.744,
+   "conf": "medium",
+   "side": "affected"
+  },
+  {
+   "name": "AEON Mall Uki イオンモール宇城",
+   "aliases": [
+    "イオンモール宇城",
+    "AEON Mall Uki"
+   ],
+   "lat": 32.5965,
+   "lon": 130.7069,
+   "conf": "medium",
+   "side": "affected"
+  },
+  {
+   "name": "Kumamoto Castle 熊本城",
+   "aliases": [
+    "熊本城",
+    "Kumamoto Castle"
+   ],
+   "lat": 32.8054,
+   "lon": 130.7055,
+   "conf": "medium",
+   "side": "unaffected"
+  }
  ],
- "context": ["2026 Kumamoto earthquake", "熊本地震 2026", "八代 地震", "Yatsushiro earthquake", "日奈久断層", "Hinagu fault", "氷川町 地震", "宇城 地震"],
- "commons_categories": ["Category:2026 Kumamoto earthquake"],
+ "context": [
+  "2026 Kumamoto earthquake",
+  "熊本地震 2026",
+  "八代 地震",
+  "Yatsushiro earthquake",
+  "日奈久断層",
+  "Hinagu fault",
+  "氷川町 地震",
+  "宇城 地震"
+ ],
+ "commons_categories": [
+  "Category:2026 Kumamoto earthquake"
+ ],
  "gdelt": [
-  {"query": "(熊本 OR 八代 OR 氷川町 OR 宇城) 地震 断層", "sourcelang": "japanese"},
-  {"query": "(八代 OR 氷川町 OR 宇城) (地割れ OR 段差 OR 液状化 OR 隆起)", "sourcelang": "japanese"},
-  {"query": "Kumamoto earthquake (fault OR rupture OR Yatsushiro)", "sourcelang": "english"}
+  {
+   "query": "(熊本 OR 八代 OR 氷川町 OR 宇城) 地震 断層",
+   "sourcelang": "japanese"
+  },
+  {
+   "query": "(八代 OR 氷川町 OR 宇城) (地割れ OR 段差 OR 液状化 OR 隆起)",
+   "sourcelang": "japanese"
+  },
+  {
+   "query": "Kumamoto earthquake (fault OR rupture OR Yatsushiro)",
+   "sourcelang": "english"
+  }
+ ],
+ "steps": [
+  {
+   "name": "NISAR step 32 cm within 500 m",
+   "lat": 32.55601,
+   "lon": 130.68501,
+   "conf": "low",
+   "step_cm": 31.8,
+   "near": "国道443号, 宮原栄久, 氷川町"
+  },
+  {
+   "name": "NISAR step 23 cm within 500 m",
+   "lat": 32.71627,
+   "lon": 130.78361,
+   "conf": "low",
+   "step_cm": 23.1,
+   "near": "秋只, 陣, 御船町"
+  },
+  {
+   "name": "NISAR step 23 cm within 500 m",
+   "lat": 32.52752,
+   "lon": 130.65722,
+   "conf": "low",
+   "step_cm": 22.7,
+   "near": "興善寺町, 八代市"
+  },
+  {
+   "name": "NISAR step 22 cm within 500 m",
+   "lat": 32.47068,
+   "lon": 130.58809,
+   "conf": "low",
+   "step_cm": 22.5,
+   "near": "揚町, 八代市"
+  },
+  {
+   "name": "NISAR step 17 cm within 500 m",
+   "lat": 32.75637,
+   "lon": 130.8049,
+   "conf": "low",
+   "step_cm": 16.6,
+   "near": "小池竜田線, 島田, 益城町"
+  },
+  {
+   "name": "NISAR step 14 cm within 500 m",
+   "lat": 32.48748,
+   "lon": 130.62925,
+   "conf": "low",
+   "step_cm": 14.3,
+   "near": "渡町, 八代市"
+  },
+  {
+   "name": "NISAR step 13 cm within 500 m",
+   "lat": 32.53985,
+   "lon": 130.59612,
+   "conf": "low",
+   "step_cm": 12.8,
+   "near": "古閑浜町, 八代市"
+  },
+  {
+   "name": "NISAR step 10 cm within 500 m",
+   "lat": 32.5625,
+   "lon": 130.6306,
+   "conf": "low",
+   "step_cm": 10.4,
+   "near": "鏡町両出, 八代市"
+  }
  ]
 }

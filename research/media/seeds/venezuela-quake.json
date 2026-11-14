@@ -1,53 +1,392 @@
 {
  "slug": "venezuela-quake",
- "lang": ["es", "en"],
+ "lang": [
+  "es",
+  "en"
+ ],
  "news_window_days": 60,
  "anchors": [
-  {"name": "Pueblo Farriar: 380 m river-bank fissure", "kind": "offset", "lat": 10.465698, "lon": -68.561734, "conf": "high", "side": "affected",
+  {
+   "name": "Pueblo Farriar: 380 m river-bank fissure",
+   "kind": "offset",
+   "lat": 10.465698,
+   "lon": -68.561734,
+   "conf": "high",
+   "side": "affected",
    "value": "fissure ~380 m long, ≤3 m from the channel: bank spreading, not a fault offset (GEER-087, 12 Jul 2026)",
-   "page_url": "https://geerassociation.org/?view=geerreports&id=117", "credit": "GEER-087 (R. Mata, E. Núñez et al.)"},
-  {"name": "Boca de Aroa: sand ejecta (liquefaction)", "kind": "offset", "lat": 10.69839, "lon": -68.30473, "conf": "low", "side": "affected",
+   "page_url": "https://geerassociation.org/?view=geerreports&id=117",
+   "credit": "GEER-087 (R. Mata, E. Núñez et al.)"
+  },
+  {
+   "name": "Boca de Aroa: sand ejecta (liquefaction)",
+   "kind": "offset",
+   "lat": 10.69839,
+   "lon": -68.30473,
+   "conf": "low",
+   "side": "affected",
    "value": "sand ejecta and settlement of light structures; eyewitness ejecta during shaking (StEER, not ground-truthed)",
-   "page_url": "https://geerassociation.org/?view=geerreports&id=117", "credit": "GEER-087 / StEER"},
-  {"name": "EMSR884 AOI06 Morón: building damage on the NISAR step", "kind": "damage", "lat": 10.495, "lon": -68.215, "conf": "medium", "side": "affected",
+   "page_url": "https://geerassociation.org/?view=geerreports&id=117",
+   "credit": "GEER-087 / StEER"
+  },
+  {
+   "name": "EMSR884 AOI06 Morón: building damage on the NISAR step",
+   "kind": "damage",
+   "lat": 10.495,
+   "lon": -68.215,
+   "conf": "medium",
+   "side": "affected",
    "value": "96 graded building points: 8 destroyed, 39 damaged, 49 possibly damaged (photo-interpreted)",
-   "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR884/", "credit": "© European Union, Copernicus EMS"},
-  {"name": "Las Colinas de Morón: 16 houses fell", "kind": "damage", "lat": 10.4757, "lon": -68.20962, "conf": "medium", "side": "affected",
-   "value": "16 houses collapsed, 2 dead; EMS GRM LOS class 0.2–0.5 m", "credit": "news; Copernicus EMS"},
-  {"name": "Urama: EMS LOS 0.2–0.5 m (south of the step)", "kind": "damage", "q": "Urama, Carabobo", "conf": "low", "side": "affected",
-   "value": "EMS GRM Sentinel-1 LOS class 0.2–0.5 m", "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR884/", "credit": "© European Union, Copernicus EMS"},
-  {"name": "Morón–Tucacas highway bridges: ~10 cm lateral, ~6 cm vertical", "kind": "offset", "q": "Puente Río Aroa, Troncal 3, Falcón", "conf": "low", "side": "affected",
+   "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR884/",
+   "credit": "© European Union, Copernicus EMS"
+  },
+  {
+   "name": "Las Colinas de Morón: 16 houses fell",
+   "kind": "damage",
+   "lat": 10.4757,
+   "lon": -68.20962,
+   "conf": "medium",
+   "side": "affected",
+   "value": "16 houses collapsed, 2 dead; EMS GRM LOS class 0.2–0.5 m",
+   "credit": "news; Copernicus EMS"
+  },
+  {
+   "name": "Urama: EMS LOS 0.2–0.5 m (south of the step)",
+   "kind": "damage",
+   "q": "Urama, Carabobo",
+   "conf": "low",
+   "side": "affected",
+   "value": "EMS GRM Sentinel-1 LOS class 0.2–0.5 m",
+   "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR884/",
+   "credit": "© European Union, Copernicus EMS",
+   "lat": 10.45647,
+   "lon": -68.320195,
+   "geocoded": "Urama, Parroquia Urama, Municipio Mora, Estado Carabobo, Venezuela"
+  },
+  {
+   "name": "Morón–Tucacas highway bridges: ~10 cm lateral, ~6 cm vertical",
+   "kind": "offset",
+   "q": "Puente Río Aroa, Troncal 3, Falcón",
+   "conf": "low",
+   "side": "affected",
    "value": "about 10 cm lateral (landsliding) and 6 cm vertical displacement; bridges not individually located (GEER ch. 13)",
-   "page_url": "https://geerassociation.org/?view=geerreports&id=117", "credit": "GEER-087"},
-  {"name": "San Felipe: EMS LOS 0.05–0.1 m, NISAR ~3 cm", "kind": "damage", "lat": 10.33948, "lon": -68.7417, "conf": "low", "side": "unaffected",
-   "value": "13 homes heavily damaged but small ground motion", "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR884/", "credit": "© European Union, Copernicus EMS"}
+   "page_url": "https://geerassociation.org/?view=geerreports&id=117",
+   "credit": "GEER-087",
+   "geocoded": null,
+   "note": "bridges not individually located (GEER); not used as a search centre"
+  },
+  {
+   "name": "San Felipe: EMS LOS 0.05–0.1 m, NISAR ~3 cm",
+   "kind": "damage",
+   "lat": 10.33948,
+   "lon": -68.7417,
+   "conf": "low",
+   "side": "unaffected",
+   "value": "13 homes heavily damaged but small ground motion",
+   "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR884/",
+   "credit": "© European Union, Copernicus EMS"
+  }
  ],
  "terms": {
-  "local": ["grieta terremoto", "grietas en la carretera", "falla geológica", "ruptura", "licuefacción", "volcanes de arena", "brotó arena", "hundimiento", "agrietamiento", "puente dañado", "desplazamiento del suelo", "terreno se abrió"],
-  "en": ["ground crack", "fault rupture", "liquefaction", "sand boil", "subsidence", "bridge damage"],
-  "match": ["grieta", "fisura", "agriet", "ruptura", "falla", "licuefac", "arena", "hundi", "desplaz", "levant", "se abrió", "puente", "socav", "crack", "fissure", "rupture", "fault", "liquefaction", "sand", "subsid", "uplift", "bridge"]
+  "local": [
+   "grieta terremoto",
+   "grietas en la carretera",
+   "falla geológica",
+   "ruptura",
+   "licuefacción",
+   "volcanes de arena",
+   "brotó arena",
+   "hundimiento",
+   "agrietamiento",
+   "puente dañado",
+   "desplazamiento del suelo",
+   "terreno se abrió"
+  ],
+  "en": [
+   "ground crack",
+   "fault rupture",
+   "liquefaction",
+   "sand boil",
+   "subsidence",
+   "bridge damage"
+  ],
+  "match": [
+   "grieta",
+   "fisura",
+   "agriet",
+   "ruptura",
+   "falla",
+   "licuefac",
+   "arena",
+   "hundi",
+   "desplaz",
+   "levant",
+   "se abrió",
+   "puente",
+   "socav",
+   "crack",
+   "fissure",
+   "rupture",
+   "fault",
+   "liquefaction",
+   "sand",
+   "subsid",
+   "uplift",
+   "bridge"
+  ]
  },
  "places": [
-  {"name": "Morón", "aliases": ["Morón", "Moron"], "q": "Morón, Carabobo", "conf": "low", "side": "affected"},
-  {"name": "Las Colinas de Morón", "aliases": ["Las Colinas", "Colinas de Morón"], "lat": 10.4757, "lon": -68.20962, "conf": "medium", "side": "affected"},
-  {"name": "Urama", "aliases": ["Urama"], "q": "Urama, Carabobo", "conf": "low", "side": "affected"},
-  {"name": "Boca de Aroa", "aliases": ["Boca de Aroa"], "lat": 10.69839, "lon": -68.30473, "conf": "low", "side": "affected"},
-  {"name": "Tucacas", "aliases": ["Tucacas"], "lat": 10.7695, "lon": -68.3272, "conf": "low", "side": "affected"},
-  {"name": "Palma Sola", "aliases": ["Palma Sola"], "q": "Palma Sola, Falcón, Venezuela", "conf": "low", "side": null},
-  {"name": "Farriar", "aliases": ["Farriar", "El Farriar"], "lat": 10.4702, "lon": -68.5587, "conf": "low", "side": "affected"},
-  {"name": "Yumare", "aliases": ["Yumare"], "q": "Yumare, Yaracuy", "conf": "low", "side": null},
-  {"name": "Boca de Yaracuy", "aliases": ["Boca de Yaracuy"], "q": "Boca de Yaracuy", "conf": "low", "side": null},
-  {"name": "Veroes", "aliases": ["Veroes"], "q": "Municipio Veroes, Yaracuy", "conf": "low", "side": "affected"},
-  {"name": "Aroa", "aliases": ["Aroa"], "q": "Aroa, Yaracuy", "conf": "low", "side": null},
-  {"name": "San Felipe", "aliases": ["San Felipe"], "lat": 10.33948, "lon": -68.7417, "conf": "low", "side": "unaffected"},
-  {"name": "Chivacoa", "aliases": ["Chivacoa"], "q": "Chivacoa, Yaracuy", "conf": "low", "side": null},
-  {"name": "Sanchón", "aliases": ["Sanchón"], "q": "Sanchón, Falcón", "conf": "low", "side": null}
+  {
+   "name": "Morón",
+   "aliases": [
+    "Morón",
+    "Moron"
+   ],
+   "q": "Morón, Carabobo",
+   "conf": "low",
+   "side": "affected",
+   "lat": 10.486173,
+   "lon": -68.202717,
+   "geocoded": "Morón, Parroquia Morón, Municipio Mora, Estado Carabobo, Venezuela"
+  },
+  {
+   "name": "Las Colinas de Morón",
+   "aliases": [
+    "Las Colinas",
+    "Colinas de Morón"
+   ],
+   "lat": 10.4757,
+   "lon": -68.20962,
+   "conf": "medium",
+   "side": "affected"
+  },
+  {
+   "name": "Urama",
+   "aliases": [
+    "Urama"
+   ],
+   "q": "Urama, Carabobo",
+   "conf": "low",
+   "side": "affected",
+   "lat": 10.45647,
+   "lon": -68.320195,
+   "geocoded": "Urama, Parroquia Urama, Municipio Mora, Estado Carabobo, Venezuela"
+  },
+  {
+   "name": "Boca de Aroa",
+   "aliases": [
+    "Boca de Aroa"
+   ],
+   "lat": 10.69839,
+   "lon": -68.30473,
+   "conf": "low",
+   "side": "affected"
+  },
+  {
+   "name": "Tucacas",
+   "aliases": [
+    "Tucacas"
+   ],
+   "lat": 10.7695,
+   "lon": -68.3272,
+   "conf": "low",
+   "side": "affected"
+  },
+  {
+   "name": "Palma Sola",
+   "aliases": [
+    "Palma Sola"
+   ],
+   "q": "Palma Sola, Falcón, Venezuela",
+   "conf": "low",
+   "side": null,
+   "lat": 10.603431,
+   "lon": -68.549647,
+   "geocoded": "Palma Sola, Parroquia Palma Sola, Municipio Palma Sola, Estado Falcón, Venezuela"
+  },
+  {
+   "name": "Farriar",
+   "aliases": [
+    "Farriar",
+    "El Farriar"
+   ],
+   "lat": 10.4702,
+   "lon": -68.5587,
+   "conf": "low",
+   "side": "affected"
+  },
+  {
+   "name": "Yumare",
+   "aliases": [
+    "Yumare"
+   ],
+   "q": "Yumare, Yaracuy",
+   "conf": "low",
+   "side": null,
+   "lat": 10.597494,
+   "lon": -68.673864,
+   "geocoded": "Yumare, Parroquia Yumare, Municipio Manuel Monge, Estado Yaracuy, Venezuela"
+  },
+  {
+   "name": "Boca de Yaracuy",
+   "aliases": [
+    "Boca de Yaracuy"
+   ],
+   "q": "Boca de Yaracuy",
+   "conf": "low",
+   "side": null,
+   "lat": 10.590113,
+   "lon": -68.246241,
+   "geocoded": "Boca de Yaracuy, Parroquia Boca de Aroa, Municipio Silva, Estado Falcón, Venezuela"
+  },
+  {
+   "name": "Veroes",
+   "aliases": [
+    "Veroes"
+   ],
+   "q": "Municipio Veroes, Yaracuy",
+   "conf": "low",
+   "side": "affected",
+   "lat": 10.409207,
+   "lon": -68.514446,
+   "geocoded": "Municipio Veroes, Estado Yaracuy, 3223, Venezuela"
+  },
+  {
+   "name": "Aroa",
+   "aliases": [
+    "Aroa"
+   ],
+   "q": "Aroa, Yaracuy",
+   "conf": "low",
+   "side": null,
+   "lat": 10.605739,
+   "lon": -68.564349,
+   "geocoded": "Río Aroa, Estado Yaracuy, Venezuela"
+  },
+  {
+   "name": "San Felipe",
+   "aliases": [
+    "San Felipe"
+   ],
+   "lat": 10.33948,
+   "lon": -68.7417,
+   "conf": "low",
+   "side": "unaffected"
+  },
+  {
+   "name": "Chivacoa",
+   "aliases": [
+    "Chivacoa"
+   ],
+   "q": "Chivacoa, Yaracuy",
+   "conf": "low",
+   "side": null,
+   "lat": 10.142132,
+   "lon": -68.80854,
+   "geocoded": "Carretera Panamericana Chivacoa - Nirgua, Los Corozos, El Caliche, Parroquia Cumaripa, Municipio Bruzual, Estado Yaracuy"
+  },
+  {
+   "name": "Sanchón",
+   "aliases": [
+    "Sanchón"
+   ],
+   "q": "Sanchón, Venezuela",
+   "conf": "low",
+   "side": null,
+   "geocoded": "Sanchón, Parroquia Morón (Nominatim)",
+   "lat": 10.45354,
+   "lon": -68.16317
+  }
  ],
- "context": ["terremoto Venezuela junio 2026", "sismo Yaracuy", "terremoto Morón", "2026 Venezuela earthquake", "terremoto Tucacas", "sismo Falcón 2026"],
- "commons_categories": ["Category:2026 earthquakes in Venezuela", "Category:2026 earthquakes in Venezuela damages"],
+ "context": [
+  "terremoto Venezuela junio 2026",
+  "sismo Yaracuy",
+  "terremoto Morón",
+  "2026 Venezuela earthquake",
+  "terremoto Tucacas",
+  "sismo Falcón 2026"
+ ],
+ "commons_categories": [
+  "Category:2026 earthquakes in Venezuela",
+  "Category:2026 earthquakes in Venezuela damages"
+ ],
  "gdelt": [
-  {"query": "(Morón OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama) (terremoto OR sismo)", "sourcelang": "spanish"},
-  {"query": "(terremoto OR sismo) Venezuela (grieta OR falla OR licuefacción OR hundimiento)", "sourcelang": "spanish"},
-  {"query": "Venezuela earthquake (Moron OR Tucacas OR Yaracuy)", "sourcelang": "english"}
+  {
+   "query": "(Morón OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama) (terremoto OR sismo)",
+   "sourcelang": "spanish"
+  },
+  {
+   "query": "(terremoto OR sismo) Venezuela (grieta OR falla OR licuefacción OR hundimiento)",
+   "sourcelang": "spanish"
+  },
+  {
+   "query": "Venezuela earthquake (Moron OR Tucacas OR Yaracuy)",
+   "sourcelang": "english"
+  }
+ ],
+ "steps": [
+  {
+   "name": "NISAR step 21 cm within 500 m",
+   "lat": 10.53078,
+   "lon": -68.23631,
+   "conf": "low",
+   "step_cm": 20.5,
+   "near": "Palma Sola, Morón"
+  },
+  {
+   "name": "NISAR step 15 cm within 500 m",
+   "lat": 10.51333,
+   "lon": -68.20126,
+   "conf": "low",
+   "step_cm": 15.3,
+   "near": "Palma Sola, Morón"
+  },
+  {
+   "name": "NISAR step 14 cm within 500 m",
+   "lat": 10.51929,
+   "lon": -68.27143,
+   "conf": "low",
+   "step_cm": 14.2,
+   "near": "Parroquia Urama, Municipio Mora, Estado Carabobo, Venezuela"
+  },
+  {
+   "name": "NISAR step 14 cm within 500 m",
+   "lat": 10.51359,
+   "lon": -68.31238,
+   "conf": "low",
+   "step_cm": 13.9,
+   "near": "Parroquia Urama, Municipio Mora, Estado Carabobo, Venezuela"
+  },
+  {
+   "name": "NISAR step 14 cm within 500 m",
+   "lat": 10.55409,
+   "lon": -68.30644,
+   "conf": "low",
+   "step_cm": 13.5,
+   "near": "Costa del Yaracuy III, El Eneal"
+  },
+  {
+   "name": "NISAR step 11 cm within 500 m",
+   "lat": 10.51946,
+   "lon": -68.35331,
+   "conf": "low",
+   "step_cm": 10.9,
+   "near": "Costa del Yaracuy IV"
+  },
+  {
+   "name": "NISAR step 9 cm within 500 m",
+   "lat": 10.50799,
+   "lon": -68.40597,
+   "conf": "low",
+   "step_cm": 9.0,
+   "near": "La Hoya, La Hoyita"
+  },
+  {
+   "name": "NISAR step 9 cm within 500 m",
+   "lat": 10.63508,
+   "lon": -68.28871,
+   "conf": "low",
+   "step_cm": 8.6,
+   "near": "Parroquia Boca de Aroa, Municipio Silva, Estado Falcón, Venezuela"
+  }
  ]
 }
