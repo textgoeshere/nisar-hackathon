@@ -95,6 +95,7 @@ if (stories) {
   const what = meta.kind === "flood" ? "HH" : "HV";
   const nisarLine = (n) => bs ? (n.db_change == null ? "NISAR: not seen by both passes here."
     : `NISAR: ${what} backscatter ${n.db_change > 0 ? "+" : ""}${n.db_change} dB between the passes; ${n.change > 0.5 ? (meta.kind === "flood" ? "mapped as new open water" : "mapped as burnt") : "not mapped as changed"}.`)
+    : n.rate_fastest_cm_yr != null ? `NISAR: ${n.rate_cm_yr != null ? `${n.rate_cm_yr > 0 ? "+" : ""}${n.rate_cm_yr} cm/yr along the line of sight here` : "no motion measured at the spot"}; fastest within 500 m ${n.rate_fastest_cm_yr} cm/yr; coherence ${n.coherence}.`
     : !n.measured ? `NISAR: no motion measured here (coherence ${n.coherence}: the surface changed or the signal was lost).`
     : `NISAR: ${n.motion_cm > 0 ? "+" : ""}${n.motion_cm} cm along the line of sight${n.local_step_cm != null ? `; ${n.local_step_cm} cm of change within 500 m` : ""}; coherence ${n.coherence}.`;
   $("#cards").innerHTML = items.map((it, k) => `

@@ -24,7 +24,9 @@
     "coherence": 0.61,
     "measured": true,
     "motion_cm": -0.1,
-    "local_step_cm": 15.6
+    "local_step_cm": 15.6,
+    "rate_cm_yr": -0.1,
+    "rate_fastest_cm_yr": -13.1
    },
    "show_image": false,
    "status": "candidate",
@@ -52,7 +54,10 @@
     "inside": true,
     "coherence": 0.12,
     "measured": false,
-    "local_step_cm": 7.3
+    "local_step_cm": 7.3,
+    "motion_cm": 3.3,
+    "rate_cm_yr": 3.5,
+    "rate_fastest_cm_yr": -2.0
    },
    "show_image": true,
    "status": "candidate",
@@ -80,8 +85,10 @@
     "inside": true,
     "coherence": 0.78,
     "measured": true,
-    "motion_cm": -5.9,
-    "local_step_cm": 3.2
+    "motion_cm": -6.2,
+    "local_step_cm": 3.2,
+    "rate_cm_yr": -6.5,
+    "rate_fastest_cm_yr": -8.5
    },
    "show_image": true,
    "status": "candidate",
@@ -109,8 +116,10 @@
     "inside": true,
     "coherence": 0.74,
     "measured": true,
-    "motion_cm": -3.5,
-    "local_step_cm": 2.2
+    "motion_cm": -5.0,
+    "local_step_cm": 2.2,
+    "rate_cm_yr": -5.2,
+    "rate_fastest_cm_yr": -6.8
    },
    "show_image": true,
    "status": "candidate",
@@ -138,8 +147,10 @@
     "inside": true,
     "coherence": 0.51,
     "measured": true,
-    "motion_cm": -0.1,
-    "local_step_cm": 3.0
+    "motion_cm": -0.8,
+    "local_step_cm": 3.0,
+    "rate_cm_yr": -0.8,
+    "rate_fastest_cm_yr": -2.3
    },
    "show_image": true,
    "status": "candidate",
@@ -167,8 +178,10 @@
     "inside": true,
     "coherence": 0.82,
     "measured": true,
-    "motion_cm": 3.8,
-    "local_step_cm": 2.2
+    "motion_cm": 3.4,
+    "local_step_cm": 2.2,
+    "rate_cm_yr": 3.6,
+    "rate_fastest_cm_yr": 2.0
    },
    "show_image": true,
    "status": "candidate",

@@ -10,11 +10,19 @@ For each candidate we compute its (u, v) position on the event grid and sample t
 in a small neighbourhood: line-of-sight motion, coherence, and the **local step**, the spread of
 motion within ~500 m. A large step means the point sits on the boundary the hypothesis is about;
 low coherence means the ground surface there was destroyed or changed.
+
+Subsidence events store the fitted cumulative motion over the whole stack in los.i16, so for them
+we report the **rate** (cm/yr): a 5x5 median at the point (as build_event's fastest-pixel stat, so
+one bad pixel can't pose as the answer) and the fastest-sinking rate within the radius. A point on
+the lakebed/hill edge (the Tláhuac crack) reads ~0 at the pixel and ~-13 cm/yr a few hundred
+metres away; both numbers matter there.
 """
 from __future__ import annotations
 
 import json
 import sys
+from datetime import date
+from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
@@ -24,6 +32,24 @@ from .context import Grid
 ROOT = Path(__file__).resolve().parent.parent
 
 
+@lru_cache(maxsize=64)
+def _layer(path: str, dtype: str, ny: int, nx: int) -> np.ndarray:
+    return np.fromfile(path, dtype).reshape(ny, nx)
+
+
+def layer(meta: dict, d: Path, name: str, dtype) -> np.ndarray:
+    g = meta["grid"]
+    return _layer(str(d / meta["layers"][name]), np.dtype(dtype).str, g["ny"], g["nx"])
+
+
+def span_years(meta: dict) -> float | None:
+    """Length of a subsidence stack in years (None for single-pair events)."""
+    if meta.get("kind") != "subsidence":
+        return None
+    a, b = (date.fromisoformat(s) for s in meta["nisar"]["pair"])
+    return (b - a).days / 365.25
+
+
 def sample(meta: dict, d: Path, lon: float, lat: float, radius_m: float = 500) -> dict | None:
     g = meta["grid"]
     grid = Grid(g["epsg"], g["left"], g["top"], g["dx"], g["nx"], g["ny"])
@@ -31,18 +57,17 @@ def sample(meta: dict, d: Path, lon: float, lat: float, radius_m: float = 500) -
     out = {"u": round(u, 4), "v": round(v, 4)}
     if not (0 <= u <= 1 and 0 <= v <= 1):
         return out | {"inside": False}
-    shape = (g["ny"], g["nx"])
-    los = np.fromfile(d / meta["layers"]["los"], "<i2").reshape(shape) / 10.0          # cm
-    valid = np.fromfile(d / meta["layers"]["valid"], np.uint8).reshape(shape).astype(bool)
-    coh = np.fromfile(d / meta["layers"]["coh"], np.uint8).reshape(shape) / 255.0
+    los = layer(meta, d, "los", "<i2") / 10.0                                         # cm
+    valid = layer(meta, d, "valid", np.uint8).astype(bool)
+    coh = layer(meta, d, "coh", np.uint8) / 255.0
     i, j = min(g["ny"] - 1, int(v * g["ny"])), min(g["nx"] - 1, int(u * g["nx"]))
     r = max(1, int(radius_m / g["dx"]))
     win = (slice(max(0, i - r), i + r + 1), slice(max(0, j - r), j + r + 1))
     vals = los[win][valid[win]]
     out |= {"inside": True, "coherence": round(float(coh[i, j]), 2), "measured": bool(valid[i, j])}
     if "dbchange" in meta["layers"]:                       # flood / fire: backscatter change, not motion
-        ddb = np.fromfile(d / meta["layers"]["dbchange"], "<i2").reshape(shape) / 10.0
-        ch = np.fromfile(d / meta["layers"]["change"], np.uint8).reshape(shape) / 255.0
+        ddb = layer(meta, d, "dbchange", "<i2") / 10.0
+        ch = layer(meta, d, "change", np.uint8) / 255.0
         w = ddb[win][ddb[win] != 0]
         out = {k: v for k, v in out.items() if k not in ("coherence", "measured")}
         if len(w):
@@ -53,6 +78,15 @@ def sample(meta: dict, d: Path, lon: float, lat: float, radius_m: float = 500) -
         out["motion_cm"] = round(float(los[i, j]), 1)
     if len(vals) >= 5:
         out["local_step_cm"] = round(float(np.percentile(vals, 95) - np.percentile(vals, 5)), 1)
+    yrs = span_years(meta)
+    if yrs:                                                # subsidence: report the sinking rate
+        w5 = (slice(max(0, i - 2), i + 3), slice(max(0, j - 2), j + 3))
+        near = los[w5][valid[w5]]
+        if len(near) >= 5:
+            out["motion_cm"] = round(float(np.median(near)), 1)
+            out["rate_cm_yr"] = round(float(np.median(near)) / yrs, 1)
+        if len(vals) >= 5:
+            out["rate_fastest_cm_yr"] = round(float(np.percentile(vals, 5)) / yrs, 1)
     return out
 
 
@@ -85,8 +119,9 @@ def build(slug: str):
         if "change" in n:
             print(f"  {it['id']} {it['side']:10} {it['status']:9} dB {n.get('db_change', '-'):>6} change {n['change']:.2f}  {it['title'][:60]}")
             continue
+        rate = f"rate {n.get('rate_cm_yr', '-'):>6} fastest {n.get('rate_fastest_cm_yr', '-'):>6} cm/yr " if "rate_fastest_cm_yr" in n else ""
         print(f"  {it['id']} {it['side']:10} {it['status']:9} motion {n.get('motion_cm', '-'):>6} step {n.get('local_step_cm', '-'):>6} "
-              f"coh {n.get('coherence', '-')}  {it['title'][:60]}")
+              f"{rate}coh {n.get('coherence', '-')}  {it['title'][:60]}")
 
 
 if __name__ == "__main__":

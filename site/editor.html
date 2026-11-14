@@ -55,7 +55,7 @@ for (const it of data.items) {
       <small class="muted">${esc(it.place)} · ${esc(it.date)} · location ${esc(it.confidence)} · <a href="${esc(it.page_url)}" target="_blank" rel="noopener">source</a> · ${esc(it.licence)}</small>
       <p>${esc(it.what_it_shows)}</p>
       <p class="small"><strong>NISAR here:</strong> ${n.inside === false ? "outside the scene" :
-        `${n.measured ? `motion ${n.motion_cm} cm` : "motion not measured"}, step within 500 m ${n.local_step_cm ?? "–"} cm, coherence ${n.coherence}`}</p>
+        `${n.rate_fastest_cm_yr != null ? `rate ${n.rate_cm_yr ?? "–"} cm/yr (fastest within 500 m ${n.rate_fastest_cm_yr})` : n.measured ? `motion ${n.motion_cm} cm` : "motion not measured"}, step within 500 m ${n.local_step_cm ?? "–"} cm, coherence ${n.coherence}`}</p>
       ${it.notes ? `<p class="small muted">${esc(it.notes)}</p>` : ""}</div>
     <div><label><input type="radio" name="${it.id}" value="selected"> Select</label>
       <label><input type="radio" name="${it.id}" value="rejected"> Reject</label>

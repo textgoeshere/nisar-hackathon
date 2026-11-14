@@ -1,0 +1,61 @@
+{
+ "slug": "panama-quake",
+ "lang": ["es", "en"],
+ "news_window_days": 40,
+ "anchors": [
+  {"name": "Búcaro surface rupture: 1–1.2 m sideways, ~1 m up", "kind": "offset", "lat": 7.34335, "lon": -80.35248, "conf": "medium", "side": "affected",
+   "value": "1–1.2 m horizontal and about 1 m vertical surface rupture (Guerra Araúz, preliminary); the rupture crossing itself is not located",
+   "page_url": "https://www.infobae.com/panama/2026/10/22/hasta-120-metros-se-desplazo-el-suelo-durante-el-terremoto-de-75-que-sacudio-panama/", "credit": "Isaac Guerra Araúz via Infobae / La Estrella"},
+  {"name": "Isla Cañas sank 15–30 cm", "kind": "offset", "lat": 7.404, "lon": -80.326, "conf": "low", "side": "affected",
+   "value": "15–30 cm subsidence; island cut in two by a ~4 m deep channel",
+   "page_url": "https://www.laestrella.com.pa/panama/nacional/terremoto-hundio-30-centimetros-de-isla-canas-de-acuerdo-a-estudios-preliminares-MB26639225", "credit": "Isaac Guerra Araúz via La Estrella"},
+  {"name": "La Pitaloza surface rupture (no value published)", "kind": "offset", "lat": 7.6424, "lon": -80.6688, "conf": "low", "side": "affected",
+   "value": "surface rupture identified; no measurement published",
+   "page_url": "https://www.laestrella.com.pa/vida-y-cultura/ciencia/cientifico-chiricano-estudia-las-rupturas-que-dejo-el-sismo-AH26746251", "credit": "Isaac Guerra Araúz via La Estrella"},
+  {"name": "EMSR934 AOI05 Tonosí: damaged building", "kind": "damage", "lat": 7.40065, "lon": -80.44399, "conf": "high", "side": "affected",
+   "value": "Damaged (1 of only 3 affected among 958 buildings graded; Pléiades Neo 2026-10-16)",
+   "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR934/", "credit": "© European Union, Copernicus EMS"},
+  {"name": "EMSR934 AOI05 Tonosí: damaged building (2)", "kind": "damage", "lat": 7.40518, "lon": -80.43579, "conf": "high", "side": "affected",
+   "value": "Damaged (Pléiades Neo 2026-10-16)", "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR934/", "credit": "© European Union, Copernicus EMS"},
+  {"name": "EMSR934 AOI08 Llano de Piedras: destroyed buildings", "kind": "damage", "lat": 7.6718, "lon": -80.5597, "conf": "high", "side": "affected",
+   "value": "3 destroyed + 2 damaged in one cluster (7 of 793 graded; Pléiades Neo 2026-10-17)",
+   "page_url": "https://rapidmapping.emergency.copernicus.eu/EMSR934/", "credit": "© European Union, Copernicus EMS"},
+  {"name": "NGL GNSS ACHO (no post-event data yet)", "kind": "gnss", "lat": 7.4147, "lon": -80.1731, "side": null,
+   "value": "data to 2026-10-03 only: no co-seismic offset yet; re-check NGL holdings", "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/ACHO.sta", "credit": "Nevada Geodetic Laboratory"},
+  {"name": "NGL GNSS AZUT (no post-event data)", "kind": "gnss", "lat": 7.4048, "lon": -80.4355, "side": null,
+   "value": "data to 2026-03-12 only", "page_url": "https://geodesy.unr.edu/NGLStationPages/stations/AZUT.sta", "credit": "Nevada Geodetic Laboratory"},
+  {"name": "El Pital: Búcaro road collapse, 70 m long, 4 m deep", "kind": "damage", "q": "El Pital, Tonosí, Los Santos", "conf": "low", "side": "affected",
+   "value": "access road collapse 70 m long, 4 m deep", "page_url": "https://www.telemetro.com/nacionales/carretera-bucaro-los-santos-colapsa-y-pone-riesgo-conductores-n6094962", "credit": "Telemetro"}
+ ],
+ "terms": {
+  "local": ["ruptura superficial", "falla geológica", "grieta terremoto", "se levantó la carretera", "hundimiento", "se hundió", "deslizamiento", "derrumbe", "licuefacción", "isla partida", "arrecife expuesto", "carretera agrietada", "desplazamiento del suelo"],
+  "en": ["surface rupture", "fault", "ground crack", "landslide", "uplift", "subsidence", "liquefaction"],
+  "match": ["ruptura", "falla", "grieta", "fisura", "agriet", "levant", "hundi", "desliz", "derrumbe", "licuefac", "desplaz", "partida", "arrecife", "socav", "rupture", "fault", "crack", "fissure", "landslide", "uplift", "subsid", "liquefaction", "offset"]
+ },
+ "places": [
+  {"name": "Búcaro", "aliases": ["Búcaro", "Bucaro"], "lat": 7.34335, "lon": -80.35248, "conf": "medium", "side": "affected"},
+  {"name": "Isla Cañas", "aliases": ["Isla Cañas", "Isla de Cañas", "Isla Canas"], "lat": 7.41513, "lon": -80.31419, "conf": "medium", "side": "affected"},
+  {"name": "Tonosí", "aliases": ["Tonosí", "Tonosi"], "lat": 7.40869, "lon": -80.4377, "conf": "low", "side": "affected"},
+  {"name": "El Cacao", "aliases": ["El Cacao"], "lat": 7.45096, "lon": -80.40324, "conf": "low", "side": "affected"},
+  {"name": "Cañas (Tonosí)", "aliases": ["Cañas"], "q": "Cañas, Tonosí, Los Santos", "conf": "low", "side": "affected"},
+  {"name": "Altos de Güera", "aliases": ["Altos de Güera", "Güera"], "q": "Altos de Güera, Tonosí", "conf": "low", "side": null},
+  {"name": "Flores (Tonosí)", "aliases": ["Flores de Tonosí"], "q": "Flores, Tonosí, Los Santos", "conf": "low", "side": null},
+  {"name": "La Tronosa", "aliases": ["Tronosa"], "q": "La Tronosa, Tonosí", "conf": "low", "side": null},
+  {"name": "El Pital", "aliases": ["El Pital"], "q": "El Pital, Tonosí, Los Santos", "conf": "low", "side": "affected"},
+  {"name": "Macaracas", "aliases": ["Macaracas"], "lat": 7.73176, "lon": -80.55205, "conf": "low", "side": null},
+  {"name": "Llano de Piedras", "aliases": ["Llano de Piedras"], "lat": 7.6716, "lon": -80.5597, "conf": "low", "side": "affected"},
+  {"name": "Las Minas", "aliases": ["Las Minas"], "q": "Las Minas, Herrera, Panamá", "conf": "low", "side": null},
+  {"name": "La Pitaloza", "aliases": ["Pitaloza", "Pitaloza Arriba"], "lat": 7.6424, "lon": -80.6688, "conf": "low", "side": "affected"},
+  {"name": "Oria Arriba / Río Oria", "aliases": ["Río Oria", "Oria Arriba", "Rio Oria"], "lat": 7.50702, "lon": -80.20592, "conf": "low", "side": "affected"},
+  {"name": "Pedasí", "aliases": ["Pedasí", "Pedasi"], "q": "Pedasí, Los Santos", "conf": "low", "side": null},
+  {"name": "Guararé", "aliases": ["Guararé"], "q": "Guararé, Los Santos", "conf": "low", "side": null},
+  {"name": "Las Tablas", "aliases": ["Las Tablas"], "q": "Las Tablas, Los Santos", "conf": "low", "side": null}
+ ],
+ "context": ["terremoto Azuero", "terremoto Panamá 2026", "sismo Tonosí", "2026 Panama earthquake", "terremoto Los Santos", "sismo Azuero octubre"],
+ "commons_categories": ["Category:2026 Panama earthquake"],
+ "gdelt": [
+  {"query": "(Búcaro OR Tonosí OR \"Isla Cañas\" OR Azuero) (terremoto OR sismo)", "sourcelang": "spanish"},
+  {"query": "(terremoto OR sismo) Panamá (grieta OR falla OR hundimiento OR deslizamiento)", "sourcelang": "spanish"},
+  {"query": "Panama earthquake (Tonosi OR Azuero OR Los Santos)", "sourcelang": "english"}
+ ]
+}
