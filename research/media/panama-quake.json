@@ -19,11 +19,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5663,
+   "v": 0.855,
    "motion_cm": 17.8,
    "local_step_cm": 1.8,
    "coherence": 0.6,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -46,11 +49,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4513,
+   "v": 0.7697,
    "motion_cm": 65.3,
    "local_step_cm": 8.5,
    "coherence": 0.55,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -73,11 +79,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4517,
+   "v": 0.7703,
    "motion_cm": 63.6,
    "local_step_cm": 8.0,
    "coherence": 0.69,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -100,10 +109,13 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.44,
+   "v": 0.776,
    "local_step_cm": 7.1,
    "coherence": 0.37,
    "measured": false
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -126,11 +138,14 @@
   "tier": 1,
   "side_hint": null,
   "nisar": {
+   "u": 0.8137,
+   "v": 0.756,
    "motion_cm": -4.1,
    "local_step_cm": 6.1,
    "coherence": 0.42,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -153,11 +168,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.1296,
+   "v": 0.4423,
    "motion_cm": 53.4,
    "local_step_cm": 5.2,
    "coherence": 0.41,
    "measured": true
   },
+  "approx": true,
   "found_by": "validation"
  },
  {
@@ -180,11 +198,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.28,
+   "v": 0.4015,
    "motion_cm": 25.9,
    "local_step_cm": 3.1,
    "coherence": 0.49,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -207,11 +228,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5663,
+   "v": 0.855,
    "motion_cm": 17.8,
    "local_step_cm": 1.8,
    "coherence": 0.6,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -234,9 +258,12 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.6027,
+   "v": 0.7712,
    "coherence": 0.29,
    "measured": false
   },
+  "approx": true,
   "found_by": "validation"
  },
  {
@@ -259,11 +286,14 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.2904,
+   "v": 0.3186,
    "motion_cm": 7.0,
    "local_step_cm": 2.8,
    "coherence": 0.65,
    "measured": true
   },
+  "approx": true,
   "found_by": "research"
  },
  {
@@ -286,9 +316,12 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.619,
+   "v": 0.7558,
    "coherence": 0.86,
    "measured": false
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -311,10 +344,15 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.619,
+   "v": 0.7558,
    "coherence": 0.86,
    "measured": false
   },
-  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake",
+  "preview_url": "media/panama-gdel-95d9a159.png",
+  "preview": "pixelated"
  },
  {
   "id": "panama-03",
@@ -336,11 +374,14 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4961,
+   "v": 0.7064,
    "motion_cm": 72.1,
    "local_step_cm": 11.5,
    "coherence": 0.45,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -363,39 +404,15 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4486,
+   "v": 0.7649,
    "motion_cm": 68.0,
    "local_step_cm": 15.8,
    "coherence": 0.52,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
- },
- {
-  "id": "panama-comm-7f8e0425",
-  "source": "commons",
-  "type": "photo",
-  "title": "Alimentos para afectados del terremoto de Panamá en Búcaro y El Cacao",
-  "caption": "Envío de alimentos preparados por la World Central Kitchen a afectados del terremoto de Panamá a los pueblos de Búcaro y El Cacao.",
-  "lat": 7.45096,
-  "lon": -80.40324,
-  "loc_method": "text: El Cacao",
-  "loc_confidence": "low",
-  "date": "2026-10-18",
-  "when": "after",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Alimentos_para_afectados_del_terremoto_de_Panam%C3%A1_en_B%C3%BAcaro_y_El_Cacao.jpg/960px-Alimentos_para_afectados_del_terremoto_de_Panam%C3%A1_en_B%C3%BAcaro_y_El_Cacao.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Alimentos_para_afectados_del_terremoto_de_Panam%C3%A1_en_B%C3%BAcaro_y_El_Cacao.jpg",
-  "credit": "wckitchen",
-  "licence": "CC BY 4.0",
-  "showable": true,
-  "tier": 4,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": 72.1,
-   "local_step_cm": 11.5,
-   "coherence": 0.45,
-   "measured": true
-  },
-  "found_by": "category:Category:2026 Panama earthquake"
  },
  {
   "id": "panama-comm-0a9835b3",
@@ -417,11 +434,44 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4961,
+   "v": 0.7064,
    "motion_cm": 72.1,
    "local_step_cm": 11.5,
    "coherence": 0.45,
    "measured": true
   },
+  "approx": true,
+  "found_by": "category:Category:2026 Panama earthquake"
+ },
+ {
+  "id": "panama-comm-7f8e0425",
+  "source": "commons",
+  "type": "photo",
+  "title": "Alimentos para afectados del terremoto de Panamá en Búcaro y El Cacao",
+  "caption": "Envío de alimentos preparados por la World Central Kitchen a afectados del terremoto de Panamá a los pueblos de Búcaro y El Cacao.",
+  "lat": 7.34335,
+  "lon": -80.35248,
+  "loc_method": "text: Búcaro",
+  "loc_confidence": "low",
+  "date": "2026-10-18",
+  "when": "after",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Alimentos_para_afectados_del_terremoto_de_Panam%C3%A1_en_B%C3%BAcaro_y_El_Cacao.jpg/960px-Alimentos_para_afectados_del_terremoto_de_Panam%C3%A1_en_B%C3%BAcaro_y_El_Cacao.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Alimentos_para_afectados_del_terremoto_de_Panam%C3%A1_en_B%C3%BAcaro_y_El_Cacao.jpg",
+  "credit": "wckitchen",
+  "licence": "CC BY 4.0",
+  "showable": true,
+  "tier": 4,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.5663,
+   "v": 0.855,
+   "motion_cm": 17.8,
+   "local_step_cm": 1.8,
+   "coherence": 0.6,
+   "measured": true
+  },
+  "approx": true,
   "found_by": "category:Category:2026 Panama earthquake"
  },
  {
@@ -444,9 +494,12 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.0086,
+   "v": 0.4914,
    "coherence": 0.18,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:Maps of 2026 Panama earthquake"
  },
  {
@@ -469,9 +522,12 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.2622,
+   "v": 0.6697,
    "coherence": 0.48,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:Maps of 2026 Panama earthquake"
  },
  {
@@ -494,9 +550,12 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.2622,
+   "v": 0.6697,
    "coherence": 0.48,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:Maps of 2026 Panama earthquake"
  },
  {
@@ -519,9 +578,12 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.0241,
+   "v": 0.2244,
    "coherence": 0.75,
    "measured": false
   },
+  "approx": true,
   "found_by": "category:Category:2026 Panama earthquake"
  },
  {
@@ -544,11 +606,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.7681,
+   "v": 0.6285,
    "motion_cm": 5.0,
    "local_step_cm": 3.0,
    "coherence": 0.66,
    "measured": true
   },
+  "approx": true,
   "found_by": "research"
  },
  {
@@ -571,38 +636,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4486,
+   "v": 0.7649,
    "motion_cm": 68.0,
    "local_step_cm": 15.8,
    "coherence": 0.52,
    "measured": true
   },
-  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake"
- },
- {
-  "id": "panama-gdel-e07f6152",
-  "source": "gdelt",
-  "type": "news",
-  "title": "MOP reabre puente en Pedasí y confirma tres rutas habilitadas hacia Tonosí tras el terremoto",
-  "caption": "telemetro.com (Spanish)",
-  "lat": 7.40869,
-  "lon": -80.4377,
-  "loc_method": "text: Tonosí",
-  "loc_confidence": "low",
-  "date": "2026-10-17",
-  "when": "after",
-  "thumb_url": "https://media.telemetro.com/p/1354547758b5626cf5ae91db96ca963d/adjuntos/311/imagenes/019/143/0019143945/1200x675/smart/image.png",
-  "page_url": "https://www.telemetro.com/nacionales/mop-reabre-puente-pedasi-y-confirma-tres-rutas-habilitadas-tonosi-el-terremoto-n6095598",
-  "credit": "telemetro.com",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": 68.0,
-   "local_step_cm": 15.8,
-   "coherence": 0.52,
-   "measured": true
-  },
+  "approx": true,
   "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake"
  },
  {
@@ -625,66 +666,49 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.5987,
+   "v": 0.5556,
    "motion_cm": 21.2,
    "local_step_cm": 3.9,
    "coherence": 0.37,
    "measured": true
   },
-  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake",
+  "preview_url": "media/panama-gdel-c3d20c9e.png",
+  "preview": "pixelated"
  },
  {
-  "id": "panama-gdel-934d93c4",
+  "id": "panama-gdel-e07f6152",
   "source": "gdelt",
   "type": "news",
-  "title": "Impacto del terremoto de Azuero de 1913",
-  "caption": "laestrella.com.pa (Spanish)",
-  "lat": 7.692093,
-  "lon": -80.55459,
-  "loc_method": "nominatim: Azuero",
-  "loc_confidence": "low",
-  "date": "2026-10-24",
-  "when": "after",
-  "thumb_url": "https://www.laestrella.com.pa/binrepository/1315x802/56c0/1203d802/none/199516884/BWTX/azuero-1910-1_181-14817568_20261023165258.jpg",
-  "page_url": "https://www.laestrella.com.pa/vida-y-cultura/cultura/impacto-del-terremoto-de-azuero-de-1913-CF26760662",
-  "credit": "laestrella.com.pa",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 18.8,
-   "local_step_cm": 2.9,
-   "coherence": 0.51,
-   "measured": true
-  },
-  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake"
- },
- {
-  "id": "panama-gdel-39fa612f",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Panamá reporta primer fallecimiento tras el terremoto que golpeó la península de Azuero",
-  "caption": "telesurtv.net (Spanish)",
-  "lat": 7.692093,
-  "lon": -80.55459,
-  "loc_method": "nominatim: Azuero",
+  "title": "MOP reabre puente en Pedasí y confirma tres rutas habilitadas hacia Tonosí tras el terremoto",
+  "caption": "telemetro.com (Spanish)",
+  "lat": 7.53145,
+  "lon": -80.070099,
+  "loc_method": "text: Pedasí",
   "loc_confidence": "low",
   "date": "2026-10-17",
   "when": "after",
-  "thumb_url": "https://ikona.telesurtv.net/content/uploads/2026/10/efe-muerta.jpg.webp",
-  "page_url": "https://www.telesurtv.net/panama-reporta-primer-fallecimiento-terremoto/",
-  "credit": "telesurtv.net",
+  "thumb_url": "https://media.telemetro.com/p/1354547758b5626cf5ae91db96ca963d/adjuntos/311/imagenes/019/143/0019143945/1200x675/smart/image.png",
+  "page_url": "https://www.telemetro.com/nacionales/mop-reabre-puente-pedasi-y-confirma-tres-rutas-habilitadas-tonosi-el-terremoto-n6095598",
+  "credit": "telemetro.com",
   "licence": "news, link only",
   "showable": false,
   "tier": 4,
   "side_hint": null,
   "nisar": {
-   "motion_cm": 18.8,
-   "local_step_cm": 2.9,
-   "coherence": 0.51,
+   "u": 0.9554,
+   "v": 0.5944,
+   "motion_cm": -7.8,
+   "local_step_cm": 1.3,
+   "coherence": 0.78,
    "measured": true
   },
-  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake",
+  "preview_url": "media/panama-gdel-e07f6152.png",
+  "preview": "pixelated"
  },
  {
   "id": "panama-gdel-38db671d",
@@ -692,9 +716,9 @@
   "type": "news",
   "title": "Terremoto de 7 . 5 lleva al Idaan a intervenir Chitré , Isla Cañas y Soná",
   "caption": "laestrella.com.pa (Spanish)",
-  "lat": 7.41513,
-  "lon": -80.31419,
-  "loc_method": "text: Isla Cañas",
+  "lat": 7.960179,
+  "lon": -80.431997,
+  "loc_method": "text: Chitré",
   "loc_confidence": "low",
   "date": "2026-11-12",
   "when": "after",
@@ -704,12 +728,19 @@
   "licence": "news, link only",
   "showable": false,
   "tier": 4,
-  "side_hint": "affected",
+  "side_hint": null,
   "nisar": {
-   "coherence": 0.86,
-   "measured": false
+   "u": 0.4555,
+   "v": 0.0028,
+   "motion_cm": -25.1,
+   "local_step_cm": 1.0,
+   "coherence": 0.65,
+   "measured": true
   },
-  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake",
+  "preview_url": "media/panama-gdel-38db671d.png",
+  "preview": "pixelated"
  },
  {
   "id": "panama-gdel-bdf165f5",
@@ -731,9 +762,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.619,
+   "v": 0.7558,
    "coherence": 0.86,
    "measured": false
   },
-  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Tonosi OR Bucaro OR \"Isla Canas\" OR Azuero OR \"El Cacao\" OR Macaracas) earthquake",
+  "preview_url": "media/panama-gdel-bdf165f5.png",
+  "preview": "pixelated"
  }
 ]

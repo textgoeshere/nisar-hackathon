@@ -19,6 +19,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5069,
+   "v": 0.4936,
    "motion_cm": -6.2,
    "local_step_cm": 3.2,
    "coherence": 0.78,
@@ -26,6 +28,7 @@
    "rate_cm_yr": -6.5,
    "rate_fastest_cm_yr": -8.5
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -48,6 +51,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4197,
+   "v": 0.5077,
    "motion_cm": -0.8,
    "local_step_cm": 3.0,
    "coherence": 0.51,
@@ -55,121 +60,8 @@
    "rate_cm_yr": -0.8,
    "rate_fastest_cm_yr": -2.3
   },
+  "approx": false,
   "found_by": "research"
- },
- {
-  "id": "mexico-comm-6a2b0833",
-  "source": "commons",
-  "type": "photo",
-  "title": "Volaris A320-233, XA-VLG, named Stephany (15732700507)",
-  "caption": "MSN: 5988 / Delivery: 6 Mar 2014 / Location: Mexico City - MEX",
-  "lat": 19.432974,
-  "lon": -99.068913,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2014-11-17",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Volaris_A320-233%2C_XA-VLG%2C_named_Stephany_%2815732700507%29.jpg/960px-Volaris_A320-233%2C_XA-VLG%2C_named_Stephany_%2815732700507%29.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Volaris_A320-233,_XA-VLG,_named_Stephany_(15732700507).jpg",
-  "credit": "Charles from Port Chester, New York",
-  "licence": "CC BY 2.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "local_step_cm": 4.7,
-   "coherence": 0.16,
-   "measured": false,
-   "rate_fastest_cm_yr": -19.4
-  },
-  "found_by": "geosearch:NGL GNSS MMX1, AICM airport (old Texcoco lakebed)"
- },
- {
-  "id": "mexico-comm-a82777e0",
-  "source": "commons",
-  "type": "photo",
-  "title": "Aeromexico B777-2Q8(ER), N774AM, as AM 2 MAD-MEX (15730004197)",
-  "caption": "MSN: 365 / Delivery: 2 Nov 2001 (Varig) / Location: Mexico City-MEX",
-  "lat": 19.432934,
-  "lon": -99.066317,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2014-11-21",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Aeromexico_B777-2Q8%28ER%29%2C_N774AM%2C_as_AM_2_MAD-MEX_%2815730004197%29.jpg/960px-Aeromexico_B777-2Q8%28ER%29%2C_N774AM%2C_as_AM_2_MAD-MEX_%2815730004197%29.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Aeromexico_B777-2Q8(ER),_N774AM,_as_AM_2_MAD-MEX_(15730004197).jpg",
-  "credit": "Charles from Port Chester, New York",
-  "licence": "CC BY 2.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -18.1,
-   "local_step_cm": 3.9,
-   "coherence": 0.36,
-   "measured": false,
-   "rate_cm_yr": -19.0,
-   "rate_fastest_cm_yr": -19.8
-  },
-  "found_by": "geosearch:NGL GNSS MMX1, AICM airport (old Texcoco lakebed)"
- },
- {
-  "id": "mexico-comm-9800eb85",
-  "source": "commons",
-  "type": "photo",
-  "title": "Aero Union B767-241(ERF), XA-LRC, MSN 172 (07 1987), as 6R 303 Los Angeles (LAX) - Mexico City (MEX) (15728292100)",
-  "caption": "MSN: 172 / Delivery: 2 Jul 1987 (Varig) / Location: Mexico City-MEX",
-  "lat": 19.432934,
-  "lon": -99.066317,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2014-11-17",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Aero_Union_B767-241%28ERF%29%2C_XA-LRC%2C_MSN_172_%2807_1987%29%2C_as_6R_303_Los_Angeles_%28LAX%29_-_Mexico_City_%28MEX%29_%2815728292100%29.jpg/960px-Aero_Union_B767-241%28ERF%29%2C_XA-LRC%2C_MSN_172_%2807_1987%29%2C_as_6R_303_Los_Angeles_%28LAX%29_-_Mexico_City_%28MEX%29_%2815728292100%29.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Aero_Union_B767-241(ERF),_XA-LRC,_MSN_172_(07_1987),_as_6R_303_Los_Angeles_(LAX)_-_Mexico_City_(MEX)_(15728292100).jpg",
-  "credit": "Charles from Port Chester, New York",
-  "licence": "CC BY 2.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -18.1,
-   "local_step_cm": 3.9,
-   "coherence": 0.36,
-   "measured": false,
-   "rate_cm_yr": -19.0,
-   "rate_fastest_cm_yr": -19.8
-  },
-  "found_by": "geosearch:NGL GNSS MMX1, AICM airport (old Texcoco lakebed)"
- },
- {
-  "id": "mexico-comm-0d2b76b0",
-  "source": "commons",
-  "type": "photo",
-  "title": "Aeromexico B767-283(ER), XA-FRJ, as AM 444 CUN-MEX (15293493874)",
-  "caption": "MSN: 305 / Delivery: 5 Nov 1990 (SAS) / Location: Mexico City-MEX",
-  "lat": 19.432934,
-  "lon": -99.066317,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2014-11-21",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Aeromexico_B767-283%28ER%29%2C_XA-FRJ%2C_as_AM_444_CUN-MEX_%2815293493874%29.jpg/960px-Aeromexico_B767-283%28ER%29%2C_XA-FRJ%2C_as_AM_444_CUN-MEX_%2815293493874%29.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Aeromexico_B767-283(ER),_XA-FRJ,_as_AM_444_CUN-MEX_(15293493874).jpg",
-  "credit": "Charles from Port Chester, New York",
-  "licence": "CC BY 2.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -18.1,
-   "local_step_cm": 3.9,
-   "coherence": 0.36,
-   "measured": false,
-   "rate_cm_yr": -19.0,
-   "rate_fastest_cm_yr": -19.8
-  },
-  "found_by": "geosearch:NGL GNSS MMX1, AICM airport (old Texcoco lakebed)"
  },
  {
   "id": "mexico-comm-8db1818a",
@@ -191,6 +83,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5063,
+   "v": 0.4932,
    "motion_cm": -6.2,
    "local_step_cm": 3.2,
    "coherence": 0.78,
@@ -198,6 +92,7 @@
    "rate_cm_yr": -6.5,
    "rate_fastest_cm_yr": -8.5
   },
+  "approx": false,
   "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
  },
  {
@@ -220,6 +115,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5062,
+   "v": 0.4938,
    "motion_cm": -6.2,
    "local_step_cm": 3.2,
    "coherence": 0.78,
@@ -227,6 +124,7 @@
    "rate_cm_yr": -6.5,
    "rate_fastest_cm_yr": -8.5
   },
+  "approx": false,
   "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
  },
  {
@@ -249,6 +147,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.508,
+   "v": 0.4933,
    "motion_cm": -6.4,
    "local_step_cm": 3.2,
    "coherence": 0.74,
@@ -256,6 +156,7 @@
    "rate_cm_yr": -6.7,
    "rate_fastest_cm_yr": -8.7
   },
+  "approx": false,
   "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
  },
  {
@@ -278,6 +179,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5061,
+   "v": 0.4936,
    "motion_cm": -6.2,
    "local_step_cm": 3.2,
    "coherence": 0.78,
@@ -285,6 +188,7 @@
    "rate_cm_yr": -6.5,
    "rate_fastest_cm_yr": -8.5
   },
+  "approx": false,
   "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
  },
  {
@@ -307,6 +211,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5069,
+   "v": 0.4936,
    "motion_cm": -6.2,
    "local_step_cm": 3.2,
    "coherence": 0.78,
@@ -314,36 +220,8 @@
    "rate_cm_yr": -6.5,
    "rate_fastest_cm_yr": -8.5
   },
+  "approx": false,
   "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
- },
- {
-  "id": "mexico-comm-e76c6027",
-  "source": "commons",
-  "type": "photo",
-  "title": "Luz y hojas - panoramio (1)",
-  "caption": "Luz y hojas",
-  "lat": 19.405564,
-  "lon": -99.170649,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2013-01-01",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Luz_y_hojas_-_panoramio_%281%29.jpg/960px-Luz_y_hojas_-_panoramio_%281%29.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Luz_y_hojas_-_panoramio_(1).jpg",
-  "credit": "Carlos Perez Chavez",
-  "licence": "CC BY-SA 3.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 0.0,
-   "local_step_cm": 3.0,
-   "coherence": 0.93,
-   "measured": true,
-   "rate_cm_yr": 0.0,
-   "rate_fastest_cm_yr": -1.3
-  },
-  "found_by": "geosearch:NGL GNSS ICMX, Roma/Condesa"
  },
  {
   "id": "mexico-comm-be9cad68",
@@ -365,6 +243,8 @@
   "tier": 1,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.4208,
+   "v": 0.5071,
    "motion_cm": -0.9,
    "local_step_cm": 2.9,
    "coherence": 0.62,
@@ -372,6 +252,7 @@
    "rate_cm_yr": -0.9,
    "rate_fastest_cm_yr": -2.2
   },
+  "approx": false,
   "found_by": "geosearch:Ángel de la Independencia: 14 steps added since 1910"
  },
  {
@@ -394,6 +275,8 @@
   "tier": 1,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.4206,
+   "v": 0.5071,
    "motion_cm": -0.9,
    "local_step_cm": 2.9,
    "coherence": 0.62,
@@ -401,6 +284,7 @@
    "rate_cm_yr": -0.9,
    "rate_fastest_cm_yr": -2.2
   },
+  "approx": false,
   "found_by": "geosearch:Ángel de la Independencia: 14 steps added since 1910"
  },
  {
@@ -423,6 +307,8 @@
   "tier": 1,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.4208,
+   "v": 0.5071,
    "motion_cm": -0.9,
    "local_step_cm": 2.9,
    "coherence": 0.62,
@@ -430,65 +316,8 @@
    "rate_cm_yr": -0.9,
    "rate_fastest_cm_yr": -2.2
   },
+  "approx": false,
   "found_by": "geosearch:Ángel de la Independencia: 14 steps added since 1910"
- },
- {
-  "id": "mexico-comm-61920495",
-  "source": "commons",
-  "type": "photo",
-  "title": "LaSoledadStreetEastDF",
-  "caption": "Looking east along La Soledad Street in the historic center of Mexico City. La Soledad Church in the background.",
-  "lat": 19.432044,
-  "lon": -99.125153,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2010-08-14",
-  "when": "before",
-  "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/LaSoledadStreetEastDF.JPG",
-  "page_url": "https://commons.wikimedia.org/wiki/File:LaSoledadStreetEastDF.JPG",
-  "credit": "Thelmadatter",
-  "licence": "CC BY-SA 3.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -6.8,
-   "local_step_cm": 2.8,
-   "coherence": 0.87,
-   "measured": true,
-   "rate_cm_yr": -7.1,
-   "rate_fastest_cm_yr": -8.8
-  },
-  "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
- },
- {
-  "id": "mexico-comm-e55e6fbf",
-  "source": "commons",
-  "type": "photo",
-  "title": "Metrobus eje 4 en construcción eterna - panoramio",
-  "caption": "Metrobus eje 4 en construcción eterna",
-  "lat": 19.40357,
-  "lon": -99.169448,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2008-01-01",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Metrobus_eje_4_en_construcci%C3%B3n_eterna_-_panoramio.jpg/960px-Metrobus_eje_4_en_construcci%C3%B3n_eterna_-_panoramio.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Metrobus_eje_4_en_construcci%C3%B3n_eterna_-_panoramio.jpg",
-  "credit": "Malomalverde",
-  "licence": "CC BY-SA 3.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 0.4,
-   "local_step_cm": 2.6,
-   "coherence": 0.92,
-   "measured": true,
-   "rate_cm_yr": 0.4,
-   "rate_fastest_cm_yr": -0.9
-  },
-  "found_by": "geosearch:NGL GNSS ICMX, Roma/Condesa"
  },
  {
   "id": "mexico-comm-4e022e50",
@@ -510,6 +339,8 @@
   "tier": 1,
   "side_hint": null,
   "nisar": {
+   "u": 0.4208,
+   "v": 0.507,
    "motion_cm": -1.1,
    "local_step_cm": 2.6,
    "coherence": 0.5,
@@ -517,355 +348,8 @@
    "rate_cm_yr": -1.2,
    "rate_fastest_cm_yr": -2.4
   },
+  "approx": false,
   "found_by": "geosearch:Ángel de la Independencia: 14 steps added since 1910"
- },
- {
-  "id": "mexico-comm-9838a476",
-  "source": "commons",
-  "type": "photo",
-  "title": "JLCMuseumDF",
-  "caption": "Jose Luis Cuevas Museum on Academia Street in the historic center of Mexico City",
-  "lat": 19.433603,
-  "lon": -99.128856,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2009-03-29",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/JLCMuseumDF.JPG/960px-JLCMuseumDF.JPG",
-  "page_url": "https://commons.wikimedia.org/wiki/File:JLCMuseumDF.JPG",
-  "credit": "Thelmadatter",
-  "licence": "Public domain",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -5.6,
-   "local_step_cm": 2.5,
-   "coherence": 0.77,
-   "measured": true,
-   "rate_cm_yr": -5.9,
-   "rate_fastest_cm_yr": -7.3
-  },
-  "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
- },
- {
-  "id": "mexico-comm-0e20a0f9",
-  "source": "commons",
-  "type": "photo",
-  "title": "Construyendo el futuro... (6988664833)",
-  "caption": "el futuro teatro: el foro Blackberry.",
-  "lat": 19.406843,
-  "lon": -99.168743,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2011-03-17",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Construyendo_el_futuro..._%286988664833%29.jpg/960px-Construyendo_el_futuro..._%286988664833%29.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Construyendo_el_futuro..._(6988664833).jpg",
-  "credit": "Eneas De Troya from Mexico City, México",
-  "licence": "CC BY 2.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": -0.3,
-   "local_step_cm": 2.5,
-   "coherence": 0.93,
-   "measured": true,
-   "rate_cm_yr": -0.3,
-   "rate_fastest_cm_yr": -1.4
-  },
-  "found_by": "geosearch:NGL GNSS ICMX, Roma/Condesa"
- },
- {
-  "id": "mexico-mapi-b7fc57b8",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 141 m from NGL GNSS MXTM (historical, to 2019)",
-  "caption": "Mapillary image, heading 275°.",
-  "lat": 19.483171,
-  "lon": -98.978158,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2024-09-22",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQMF3wRIB4LXGz0Jn0qS0x8GZq3vxP9e9cI0vd5k8spui19xdA2JTnqgHZ4JlCPHmRX70lxLEfev1-ZitiuxHiLpe_dB_7NyAVQsb9sbvDnRrl02t4Fm3s2_KeCZb-bnNgkQ5H23M_ft_HT8aI5l4JHPi8vvYSL3ppL01ZXy_ZGemQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=D1ya58dGsU1wPkAHsVtwCQ&_nc_oc=AdqiQgG68L3n49XtX-sPhien1a2pRu5rMK_jRoIfS8dZo_p4s6AyVTNx6k-tiI0vSvHnggtB53-7HKnTfvLry47e&ccb=10-5&oh=00_AQSrBiYjQyqLiJ1ttGdmhyQo1DPd_ZD1AzT26sDA4oCeaw&oe=6B1FFC75&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1927857224355832",
-  "credit": "mapeadora / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -9.0,
-   "local_step_cm": 7.8,
-   "coherence": 0.62,
-   "measured": true,
-   "rate_cm_yr": -9.4,
-   "rate_fastest_cm_yr": -12.2
-  },
-  "found_by": "mapillary:NGL GNSS MXTM (historical, to 2019)"
- },
- {
-  "id": "mexico-mapi-7376e240",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 9 m from NGL GNSS MXTM (historical, to 2019)",
-  "caption": "Mapillary image, heading 96°.",
-  "lat": 19.484327,
-  "lon": -98.978456,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2024-09-22",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPT1oGRguJ55qGshLBb43jDwkmNxE54Uzp6yTWBBWQjsWcQGdwxfxu5f8D9OW2cujII_-n9h9EIp_FkkafCJs7umdkoI6_6AgFjyO-ddrdUC4IQSg15GrEGrYzv6cossnbQQb1ZCGd2fGWSrRq6IX-pVzgzbX2BED1eviNGGV9Ah1E?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=D1ya58dGsU1wPkAHsVtwCQ&_nc_oc=Adp6m04H_GagRu1_46i0-Bh1_BEYHTxALltKqlhN-EjNcjVmbdBXiO_LagUIP-7f4W1LgFmv9i3qpGaVxswzSQY6&ccb=10-5&oh=00_AQS604kUyZ116t8VwYdhcu9qnP0ut3INV1iWCQ-YEyen3A&oe=6B20003F&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1032489141956700",
-  "credit": "mapeadora / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -9.0,
-   "local_step_cm": 7.2,
-   "coherence": 0.49,
-   "measured": true,
-   "rate_cm_yr": -9.4,
-   "rate_fastest_cm_yr": -12.2
-  },
-  "found_by": "mapillary:NGL GNSS MXTM (historical, to 2019)"
- },
- {
-  "id": "mexico-mapi-8cba9afb",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 29 m from NGL GNSS MXTM (historical, to 2019)",
-  "caption": "Mapillary image, heading 100°.",
-  "lat": 19.484317,
-  "lon": -98.97876,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2024-09-22",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOgj_ZDLf6zyaFFmhc0h4iXEHLwfCYhh_-sgIRjOJyUWC1_ZXjQgtm-_I4e-rJMrdicnsCYvtopo5ePnnjbFwJd61VC1PZ7c_UwtaHvL-kFZi5OK4mo-PvlydzzFz9-XieCPAluPC7zwyAq5KiYWDqs8ntWkDFUEr9AsS36YD_B7w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=D1ya58dGsU1wPkAHsVtwCQ&_nc_oc=Ado6JVGRIYubrxDadPdyvCSN6UsiVZ3HoF52nbFlCr1VxNW2ngqiOOCnoJsFkaJJLLYIuVypHTJig3AtS5HIqTYw&ccb=10-5&oh=00_AQQT5fXAFgNhfHT2_1wXLw8wDuU2zg_Tmvad3ft9Gq1z6g&oe=6B201343&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1269484524467938",
-  "credit": "mapeadora / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -9.0,
-   "local_step_cm": 6.7,
-   "coherence": 0.65,
-   "measured": true,
-   "rate_cm_yr": -9.4,
-   "rate_fastest_cm_yr": -12.2
-  },
-  "found_by": "mapillary:NGL GNSS MXTM (historical, to 2019)"
- },
- {
-  "id": "mexico-mapi-1fa3593c",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 67 m from NGL GNSS ICMX, Roma/Condesa",
-  "caption": "Mapillary image, heading 359°.",
-  "lat": 19.40538,
-  "lon": -99.171497,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2023-09-20",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQMO6SSZsFkGlz39s4JP_9JgpdqpLqLilbwLJp4hcYj6A3IhWwc2157wQlZ_gvjH8A6GSZP4UdxfZatPzQjvrvT3OQq8UqjsbG1G38rIZLKVBDSIcuMymdAcDfa8U5b_juJ7SeEBAcGccSOrmjPjm9Y8nOFJ96Ij54ZQWw-khDnASjk?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4GHaqzVC1r699hBXuxCbZg&_nc_oc=AdoUxIaksoy92gpVc_P8GWy46sTL_x-EDSM7pcb_f6KMcTF-PwlcgD0xcxOuRAVWKAG-My4xPpDNb42v36Guw6ht&ccb=10-5&oh=00_AQRf6_pB0So65HnqnCVsQEfcUIUDsDMm1suV7hS2EMy4MQ&oe=6B2010FF&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=686430286397705",
-  "credit": "BatmanIsReal / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 0.6,
-   "local_step_cm": 3.3,
-   "coherence": 0.76,
-   "measured": true,
-   "rate_cm_yr": 0.6,
-   "rate_fastest_cm_yr": -1.2
-  },
-  "found_by": "mapillary:NGL GNSS ICMX, Roma/Condesa"
- },
- {
-  "id": "mexico-mapi-b1dc162e",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 101 m from NGL GNSS ICMX, Roma/Condesa",
-  "caption": "Mapillary image, heading 342°.",
-  "lat": 19.405982,
-  "lon": -99.171777,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2026-08-08",
-  "when": "after",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOMr8RztzSPQDZc5URmTBET4-hv7OlVV203W7DVkqTKayhrfwnH4iPvnLDK2dieMUwpCFNwW7WBf0fH_evbx3udtIJbZZ3mdOlj0MralkgeSR3BOUNNfa9eJDcISBSvxV0l3ssToes4Cq9GZyi4HSoHekH9uBEKo4EvKrWrCVF0hak?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=AbNTi7FTJDFemEN9VUEBsg&_nc_oc=AdqLX0UluVam-RVNSx49vukLv2u6iXkXoHO8503fLxszh9h-uB78hUCPIscs3aybXlOkNWPxEowKSyIqrnOBAqeC&ccb=10-5&oh=00_AQTF3vkYgBX-wsjnCnPoWrVOhTyL5GB0LLAjOaNgGF_JBA&oe=6B200220&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1079905577789853",
-  "credit": "vsalgado / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 0.6,
-   "local_step_cm": 3.3,
-   "coherence": 0.76,
-   "measured": true,
-   "rate_cm_yr": 0.6,
-   "rate_fastest_cm_yr": -1.2
-  },
-  "found_by": "mapillary:NGL GNSS ICMX, Roma/Condesa"
- },
- {
-  "id": "mexico-mapi-323252b1",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 270 m from Templo de la Santísima Trinidad, below street level",
-  "caption": "Mapillary image, heading 103°.",
-  "lat": 19.435345,
-  "lon": -99.127778,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2026-08-28",
-  "when": "after",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQO6p9Rgck_ga5DdgEjeC64hDcgrJnk7NeF0zhWqajPsIv1cTWX29F3g9eWM9ncZCorioh0oRwlB5fNe3HKLksBp-0yno3y4hVkb3YALcvevCTU4fYGI92h_qkkx4fWU-EFkoiwu9q3qgnGZSSKwTI16z5HFxkMQWIpVtOJpflL11Mw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=1UPuLUmVHQYo8iUoMt6Yrg&_nc_oc=AdpWyqONo_Mtw4XdmeSX0sVOBHJ1gQV81pEpBfqzLKQq_Txeq5pMHNrwAropdVhQt6eTtswNDcENb8H88mcdDK5d&ccb=10-5&oh=00_AQTisJ8hSCrQC5WNzh-eRQ1cDizICg0-g1CrDu_8B-X4jw&oe=6B1FF338&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=2137925700409206",
-  "credit": "mapeadora / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -5.9,
-   "local_step_cm": 3.2,
-   "coherence": 0.76,
-   "measured": true,
-   "rate_cm_yr": -6.2,
-   "rate_fastest_cm_yr": -8.0
-  },
-  "found_by": "mapillary:Templo de la Santísima Trinidad, below street level"
- },
- {
-  "id": "mexico-mapi-1109cd79",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 31 m from NGL GNSS ICMX, Roma/Condesa",
-  "caption": "Mapillary image, heading 263°.",
-  "lat": 19.405879,
-  "lon": -99.170909,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2026-08-08",
-  "when": "after",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPZHKhPN4504QfvsqdK9HLKuAVEiHBLQhWDfImtORo7eE-FGt9dcj6W3DNuNpM3A3GIds14WXJ-rzGtjUX_J7A7x-nq7D3MV_hxmLYj4etVUp8auw2W51abIBtEOQapduqGi3L0AZiFgOz7K-SSAXpdXSfj_QIPwWpuDLT_f9bRw4E?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=AbNTi7FTJDFemEN9VUEBsg&_nc_oc=AdqN9PYIp8woK14o8NZJ4fmwlb0SC1TGTnsw06oa5RDAwNeYmE3psY3ut6uMEw7v1eue6WW6-GwGWB3cr51qZeNA&ccb=10-5&oh=00_AQRUO8aboy6QdEr7xsXHZ8wNkzmyvM-d9EVBw8UsWKNDmA&oe=6B1FFBF1&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=911086628280049",
-  "credit": "vsalgado / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 0.2,
-   "local_step_cm": 3.1,
-   "coherence": 0.94,
-   "measured": true,
-   "rate_cm_yr": 0.2,
-   "rate_fastest_cm_yr": -1.3
-  },
-  "found_by": "mapillary:NGL GNSS ICMX, Roma/Condesa"
- },
- {
-  "id": "mexico-mapi-0911bd71",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 52 m from NGL GNSS ICMX, Roma/Condesa",
-  "caption": "Mapillary image, heading 260°.",
-  "lat": 19.405886,
-  "lon": -99.170512,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2023-10-17",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOEor2qTfzf4gCkDpY9jO_xU-HOCCcSJSTICr-OKOutq5hkNkMXGIx9dyYJAyl4Em8paLVFZ9Omr8015bGtbafLNbTnirkyqkrIuvnQlboNVPZ_KqluoOUs97-1o6BMqIXb32wK1j37tLuiq-Bl64KIRClLt2eJpQrTCyZuwXZBQQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4GHaqzVC1r699hBXuxCbZg&_nc_oc=Adq8KDZDj7kSepGiCMlFMd_LpHrvlNA4ZhJGNZ62p2Hbc1QgyBDZFvDxAWqwqnnpWkJPGCOssmBVhlMkDKSTZAnv&ccb=10-5&oh=00_AQRYv-YkgIDqOBG7w8HlGhmqp8fV_xJCXzw3INT7IHAFJw&oe=6B1FE20E&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=362316356221670",
-  "credit": "BatmanIsReal / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 0.0,
-   "local_step_cm": 3.0,
-   "coherence": 0.93,
-   "measured": true,
-   "rate_cm_yr": 0.0,
-   "rate_fastest_cm_yr": -1.3
-  },
-  "found_by": "mapillary:NGL GNSS ICMX, Roma/Condesa"
- },
- {
-  "id": "mexico-mapi-4c7a5221",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 70 m from Ángel de la Independencia: 14 steps added since 1910",
-  "caption": "Mapillary image, heading 46°.",
-  "lat": 19.426519,
-  "lon": -99.16727,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2023-09-20",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQNMrLrfU-olLeyZrRJTruAU79b54Jw9NDqcTGaiBQh7eDdu2TbpKkBBgHRTfLA9hhY5Wegvjrb9hcyXrj-pwifsDt92HDpPU2QuGvdKpjCxwXJHBxiVsAqhwE7bxY8TluWzvJgS9wzRaaA9te1j9F2aeGTzJ23IkV_g_t2PxUvmcg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4mFtOY3oXWf4-H0i3AvzBw&_nc_oc=AdrEBqnziSr53f8SZiAp2R7L-F4tHXhzNd-UKRfd0pysMC6JJU3SB0Bul8L7Es5zUO_UFSNvxYNXCjoT5Gf0AyU0&ccb=10-5&oh=00_AQRE4BYpUo4cHcZ0e7paUJXbjCVLpg5ex3HZq-CZeLGX6w&oe=6B1FEBF5&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=255248133602644",
-  "credit": "BatmanIsReal / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": -0.9,
-   "local_step_cm": 3.0,
-   "coherence": 0.62,
-   "measured": true,
-   "rate_cm_yr": -0.9,
-   "rate_fastest_cm_yr": -2.5
-  },
-  "found_by": "mapillary:Ángel de la Independencia: 14 steps added since 1910"
- },
- {
-  "id": "mexico-mapi-31a5cc5c",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 73 m from Ángel de la Independencia: 14 steps added since 1910",
-  "caption": "Mapillary image, heading 58°.",
-  "lat": 19.427225,
-  "lon": -99.167048,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2023-01-08",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQP1Y1OWXnQvnCQQI8ZGElOp7KXnJdJUe1gjiP3YkGqFl0VoCCnIQviqxHpWhxwvLHb_MjxgQmHkYupDwH9XHOLiGrU11JGpChg9Hm0GRjO4QL20ebUOTwz4FadEo2-DwQoov5BhXZZI_aHfXvGgcQrB7ORoP7TeWRi1kr4-V4YfEhs?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=4mFtOY3oXWf4-H0i3AvzBw&_nc_oc=AdojoDwFfhR8xA6ucPEFdVk5OuxK_hlW6Qo81D8sUqdJeitb-vSHfy7WcCv6lWcK_6fKc63y42VDnlW4TFvcQTrd&ccb=10-5&oh=00_AQRjQmVGFy9dPYXfKkLGHk6xEeGDfBzEbQyv2wDN9g89Kw&oe=6B1FEE89&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1409451489868725",
-  "credit": "toebee / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": -1.1,
-   "local_step_cm": 2.6,
-   "coherence": 0.5,
-   "measured": true,
-   "rate_cm_yr": -1.2,
-   "rate_fastest_cm_yr": -2.4
-  },
-  "found_by": "mapillary:Ángel de la Independencia: 14 steps added since 1910"
  },
  {
   "id": "mexico-01",
@@ -887,6 +371,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8453,
+   "v": 0.764,
    "motion_cm": -0.1,
    "local_step_cm": 15.6,
    "coherence": 0.61,
@@ -894,6 +380,7 @@
    "rate_cm_yr": -0.1,
    "rate_fastest_cm_yr": -13.1
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -916,6 +403,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8453,
+   "v": 0.764,
    "motion_cm": -0.1,
    "local_step_cm": 15.6,
    "coherence": 0.61,
@@ -923,6 +412,7 @@
    "rate_cm_yr": -0.1,
    "rate_fastest_cm_yr": -13.1
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -945,6 +435,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.7385,
+   "v": 0.8862,
    "motion_cm": 0.2,
    "local_step_cm": 13.9,
    "coherence": 0.77,
@@ -952,6 +444,7 @@
    "rate_cm_yr": 0.2,
    "rate_fastest_cm_yr": -10.7
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -974,6 +467,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8179,
+   "v": 0.3803,
    "motion_cm": -9.0,
    "local_step_cm": 7.2,
    "coherence": 0.49,
@@ -981,6 +476,7 @@
    "rate_cm_yr": -9.4,
    "rate_fastest_cm_yr": -12.2
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -1003,6 +499,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.6292,
+   "v": 0.4969,
    "motion_cm": -17.4,
    "local_step_cm": 3.6,
    "coherence": 0.63,
@@ -1010,6 +508,7 @@
    "rate_cm_yr": -18.3,
    "rate_fastest_cm_yr": -19.6
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -1032,6 +531,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5069,
+   "v": 0.4936,
    "motion_cm": -6.2,
    "local_step_cm": 3.2,
    "coherence": 0.78,
@@ -1039,6 +540,7 @@
    "rate_cm_yr": -6.5,
    "rate_fastest_cm_yr": -8.5
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -1061,6 +563,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4139,
+   "v": 0.5545,
    "motion_cm": 0.2,
    "local_step_cm": 3.1,
    "coherence": 0.94,
@@ -1068,6 +572,7 @@
    "rate_cm_yr": 0.2,
    "rate_fastest_cm_yr": -1.3
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -1090,6 +595,8 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4207,
+   "v": 0.5071,
    "motion_cm": -0.9,
    "local_step_cm": 2.9,
    "coherence": 0.62,
@@ -1097,6 +604,7 @@
    "rate_cm_yr": -0.9,
    "rate_fastest_cm_yr": -2.2
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -1119,6 +627,8 @@
   "tier": 2,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.7028,
+   "v": 0.7515,
    "motion_cm": 3.3,
    "local_step_cm": 7.3,
    "coherence": 0.12,
@@ -1126,6 +636,7 @@
    "rate_cm_yr": 3.5,
    "rate_fastest_cm_yr": -2.0
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -1148,6 +659,8 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4934,
+   "v": 0.4908,
    "motion_cm": -5.0,
    "local_step_cm": 2.2,
    "coherence": 0.74,
@@ -1155,7 +668,40 @@
    "rate_cm_yr": -5.2,
    "rate_fastest_cm_yr": -6.8
   },
+  "approx": false,
   "found_by": "research"
+ },
+ {
+  "id": "mexico-comm-c8136a2f",
+  "source": "commons",
+  "type": "photo",
+  "title": "Torre Latinoamericana Ovedc 29",
+  "caption": "Torre Latinoamericana mexico city",
+  "lat": 19.434129,
+  "lon": -99.140369,
+  "loc_method": "commons geotag",
+  "loc_confidence": "high",
+  "date": "2015-07-13",
+  "when": "before",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Torre_Latinoamericana_Ovedc_29.jpg/960px-Torre_Latinoamericana_Ovedc_29.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Torre_Latinoamericana_Ovedc_29.jpg",
+  "credit": "Ovedc",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 2,
+  "side_hint": null,
+  "nisar": {
+   "u": 0.4781,
+   "v": 0.4914,
+   "motion_cm": -4.3,
+   "local_step_cm": 2.7,
+   "coherence": 0.83,
+   "measured": true,
+   "rate_cm_yr": -4.5,
+   "rate_fastest_cm_yr": -5.7
+  },
+  "approx": false,
+  "found_by": "search:Mexico City sinking"
  },
  {
   "id": "mexico-comm-5216f22e",
@@ -1177,6 +723,8 @@
   "tier": 2,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.4867,
+   "v": 0.8231,
    "motion_cm": 1.8,
    "local_step_cm": 2.6,
    "coherence": 0.45,
@@ -1184,6 +732,7 @@
    "rate_cm_yr": 1.9,
    "rate_fastest_cm_yr": 0.0
   },
+  "approx": false,
   "found_by": "search:Mexico City sinking"
  },
  {
@@ -1206,6 +755,8 @@
   "tier": 2,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.4603,
+   "v": 0.6662,
    "motion_cm": 0.1,
    "local_step_cm": 2.6,
    "coherence": 0.47,
@@ -1213,6 +764,7 @@
    "rate_cm_yr": 0.1,
    "rate_fastest_cm_yr": -1.0
   },
+  "approx": false,
   "found_by": "search:Mexico City sinking"
  },
  {
@@ -1235,6 +787,8 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5784,
+   "v": 0.658,
    "motion_cm": 3.0,
    "local_step_cm": 2.4,
    "coherence": 0.67,
@@ -1242,6 +796,7 @@
    "rate_cm_yr": 3.1,
    "rate_fastest_cm_yr": 1.6
   },
+  "approx": true,
   "found_by": "search:grieta Iztapalapa"
  },
  {
@@ -1264,6 +819,8 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4963,
+   "v": 0.4925,
    "motion_cm": -4.9,
    "local_step_cm": 2.1,
    "coherence": 0.79,
@@ -1271,6 +828,7 @@
    "rate_cm_yr": -5.1,
    "rate_fastest_cm_yr": -6.9
   },
+  "approx": false,
   "found_by": "openverse:Mexico City subsidence"
  },
  {
@@ -1293,6 +851,8 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4924,
+   "v": 0.4891,
    "motion_cm": -5.4,
    "local_step_cm": 1.9,
    "coherence": 0.71,
@@ -1300,7 +860,104 @@
    "rate_cm_yr": -5.7,
    "rate_fastest_cm_yr": -6.5
   },
+  "approx": false,
   "found_by": "openverse:Mexico City subsidence"
+ },
+ {
+  "id": "mexico-comm-e76c6027",
+  "source": "commons",
+  "type": "photo",
+  "title": "Luz y hojas - panoramio (1)",
+  "caption": "Luz y hojas",
+  "lat": 19.405564,
+  "lon": -99.170649,
+  "loc_method": "commons geotag",
+  "loc_confidence": "high",
+  "date": "2013-01-01",
+  "when": "before",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Luz_y_hojas_-_panoramio_%281%29.jpg/960px-Luz_y_hojas_-_panoramio_%281%29.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Luz_y_hojas_-_panoramio_(1).jpg",
+  "credit": "Carlos Perez Chavez",
+  "licence": "CC BY-SA 3.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "unaffected",
+  "nisar": {
+   "u": 0.4145,
+   "v": 0.5546,
+   "motion_cm": 0.0,
+   "local_step_cm": 3.0,
+   "coherence": 0.93,
+   "measured": true,
+   "rate_cm_yr": 0.0,
+   "rate_fastest_cm_yr": -1.3
+  },
+  "approx": false,
+  "found_by": "geosearch:NGL GNSS ICMX, Roma/Condesa"
+ },
+ {
+  "id": "mexico-comm-61920495",
+  "source": "commons",
+  "type": "photo",
+  "title": "LaSoledadStreetEastDF",
+  "caption": "Looking east along La Soledad Street in the historic center of Mexico City. La Soledad Church in the background.",
+  "lat": 19.432044,
+  "lon": -99.125153,
+  "loc_method": "commons geotag",
+  "loc_confidence": "high",
+  "date": "2010-08-14",
+  "when": "before",
+  "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/LaSoledadStreetEastDF.JPG",
+  "page_url": "https://commons.wikimedia.org/wiki/File:LaSoledadStreetEastDF.JPG",
+  "credit": "Thelmadatter",
+  "licence": "CC BY-SA 3.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.51,
+   "v": 0.496,
+   "motion_cm": -6.8,
+   "local_step_cm": 2.8,
+   "coherence": 0.87,
+   "measured": true,
+   "rate_cm_yr": -7.1,
+   "rate_fastest_cm_yr": -8.8
+  },
+  "approx": false,
+  "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
+ },
+ {
+  "id": "mexico-comm-9838a476",
+  "source": "commons",
+  "type": "photo",
+  "title": "JLCMuseumDF",
+  "caption": "Jose Luis Cuevas Museum on Academia Street in the historic center of Mexico City",
+  "lat": 19.433603,
+  "lon": -99.128856,
+  "loc_method": "commons geotag",
+  "loc_confidence": "high",
+  "date": "2009-03-29",
+  "when": "before",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/JLCMuseumDF.JPG/960px-JLCMuseumDF.JPG",
+  "page_url": "https://commons.wikimedia.org/wiki/File:JLCMuseumDF.JPG",
+  "credit": "Thelmadatter",
+  "licence": "Public domain",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.5023,
+   "v": 0.4926,
+   "motion_cm": -5.6,
+   "local_step_cm": 2.5,
+   "coherence": 0.77,
+   "measured": true,
+   "rate_cm_yr": -5.9,
+   "rate_fastest_cm_yr": -7.3
+  },
+  "approx": false,
+  "found_by": "geosearch:Templo de la Santísima Trinidad, below street level"
  },
  {
   "id": "mexico-mapi-5dc468fc",
@@ -1322,6 +979,8 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8167,
+   "v": 0.2185,
    "motion_cm": -5.7,
    "local_step_cm": 32.6,
    "coherence": 0.51,
@@ -1329,6 +988,7 @@
    "rate_cm_yr": -6.0,
    "rate_fastest_cm_yr": -36.3
   },
+  "approx": false,
   "found_by": "mapillary:NISAR step 32 cm/yr within 500 m"
  },
  {
@@ -1351,6 +1011,8 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.6859,
+   "v": 0.6752,
    "motion_cm": -12.9,
    "local_step_cm": 19.7,
    "coherence": 0.73,
@@ -1358,6 +1020,7 @@
    "rate_cm_yr": -13.5,
    "rate_fastest_cm_yr": -27.5
   },
+  "approx": false,
   "found_by": "mapillary:NISAR step 23 cm/yr within 500 m"
  },
  {
@@ -1380,6 +1043,8 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.6857,
+   "v": 0.6772,
    "motion_cm": -10.0,
    "local_step_cm": 19.2,
    "coherence": 0.85,
@@ -1387,7 +1052,332 @@
    "rate_cm_yr": -10.5,
    "rate_fastest_cm_yr": -26.1
   },
+  "approx": false,
   "found_by": "mapillary:NISAR step 23 cm/yr within 500 m"
+ },
+ {
+  "id": "mexico-mapi-b7fc57b8",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 141 m from NGL GNSS MXTM (historical, to 2019)",
+  "caption": "Mapillary image, heading 275°.",
+  "lat": 19.483171,
+  "lon": -98.978158,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2024-09-22",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQMF3wRIB4LXGz0Jn0qS0x8GZq3vxP9e9cI0vd5k8spui19xdA2JTnqgHZ4JlCPHmRX70lxLEfev1-ZitiuxHiLpe_dB_7NyAVQsb9sbvDnRrl02t4Fm3s2_KeCZb-bnNgkQ5H23M_ft_HT8aI5l4JHPi8vvYSL3ppL01ZXy_ZGemQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=D1ya58dGsU1wPkAHsVtwCQ&_nc_oc=AdqiQgG68L3n49XtX-sPhien1a2pRu5rMK_jRoIfS8dZo_p4s6AyVTNx6k-tiI0vSvHnggtB53-7HKnTfvLry47e&ccb=10-5&oh=00_AQSrBiYjQyqLiJ1ttGdmhyQo1DPd_ZD1AzT26sDA4oCeaw&oe=6B1FFC75&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1927857224355832",
+  "credit": "mapeadora / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.8186,
+   "v": 0.383,
+   "motion_cm": -9.0,
+   "local_step_cm": 7.8,
+   "coherence": 0.62,
+   "measured": true,
+   "rate_cm_yr": -9.4,
+   "rate_fastest_cm_yr": -12.2
+  },
+  "approx": false,
+  "found_by": "mapillary:NGL GNSS MXTM (historical, to 2019)"
+ },
+ {
+  "id": "mexico-mapi-7376e240",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 9 m from NGL GNSS MXTM (historical, to 2019)",
+  "caption": "Mapillary image, heading 96°.",
+  "lat": 19.484327,
+  "lon": -98.978456,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2024-09-22",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPT1oGRguJ55qGshLBb43jDwkmNxE54Uzp6yTWBBWQjsWcQGdwxfxu5f8D9OW2cujII_-n9h9EIp_FkkafCJs7umdkoI6_6AgFjyO-ddrdUC4IQSg15GrEGrYzv6cossnbQQb1ZCGd2fGWSrRq6IX-pVzgzbX2BED1eviNGGV9Ah1E?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=D1ya58dGsU1wPkAHsVtwCQ&_nc_oc=Adp6m04H_GagRu1_46i0-Bh1_BEYHTxALltKqlhN-EjNcjVmbdBXiO_LagUIP-7f4W1LgFmv9i3qpGaVxswzSQY6&ccb=10-5&oh=00_AQS604kUyZ116t8VwYdhcu9qnP0ut3INV1iWCQ-YEyen3A&oe=6B20003F&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1032489141956700",
+  "credit": "mapeadora / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.818,
+   "v": 0.3804,
+   "motion_cm": -9.0,
+   "local_step_cm": 7.2,
+   "coherence": 0.49,
+   "measured": true,
+   "rate_cm_yr": -9.4,
+   "rate_fastest_cm_yr": -12.2
+  },
+  "approx": false,
+  "found_by": "mapillary:NGL GNSS MXTM (historical, to 2019)"
+ },
+ {
+  "id": "mexico-mapi-8cba9afb",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 29 m from NGL GNSS MXTM (historical, to 2019)",
+  "caption": "Mapillary image, heading 100°.",
+  "lat": 19.484317,
+  "lon": -98.97876,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2024-09-22",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOgj_ZDLf6zyaFFmhc0h4iXEHLwfCYhh_-sgIRjOJyUWC1_ZXjQgtm-_I4e-rJMrdicnsCYvtopo5ePnnjbFwJd61VC1PZ7c_UwtaHvL-kFZi5OK4mo-PvlydzzFz9-XieCPAluPC7zwyAq5KiYWDqs8ntWkDFUEr9AsS36YD_B7w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=D1ya58dGsU1wPkAHsVtwCQ&_nc_oc=Ado6JVGRIYubrxDadPdyvCSN6UsiVZ3HoF52nbFlCr1VxNW2ngqiOOCnoJsFkaJJLLYIuVypHTJig3AtS5HIqTYw&ccb=10-5&oh=00_AQQT5fXAFgNhfHT2_1wXLw8wDuU2zg_Tmvad3ft9Gq1z6g&oe=6B201343&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1269484524467938",
+  "credit": "mapeadora / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.8174,
+   "v": 0.3804,
+   "motion_cm": -9.0,
+   "local_step_cm": 6.7,
+   "coherence": 0.65,
+   "measured": true,
+   "rate_cm_yr": -9.4,
+   "rate_fastest_cm_yr": -12.2
+  },
+  "approx": false,
+  "found_by": "mapillary:NGL GNSS MXTM (historical, to 2019)"
+ },
+ {
+  "id": "mexico-mapi-1fa3593c",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 67 m from NGL GNSS ICMX, Roma/Condesa",
+  "caption": "Mapillary image, heading 359°.",
+  "lat": 19.40538,
+  "lon": -99.171497,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2023-09-20",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQMO6SSZsFkGlz39s4JP_9JgpdqpLqLilbwLJp4hcYj6A3IhWwc2157wQlZ_gvjH8A6GSZP4UdxfZatPzQjvrvT3OQq8UqjsbG1G38rIZLKVBDSIcuMymdAcDfa8U5b_juJ7SeEBAcGccSOrmjPjm9Y8nOFJ96Ij54ZQWw-khDnASjk?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4GHaqzVC1r699hBXuxCbZg&_nc_oc=AdoUxIaksoy92gpVc_P8GWy46sTL_x-EDSM7pcb_f6KMcTF-PwlcgD0xcxOuRAVWKAG-My4xPpDNb42v36Guw6ht&ccb=10-5&oh=00_AQRf6_pB0So65HnqnCVsQEfcUIUDsDMm1suV7hS2EMy4MQ&oe=6B2010FF&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=686430286397705",
+  "credit": "BatmanIsReal / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "unaffected",
+  "nisar": {
+   "u": 0.4127,
+   "v": 0.555,
+   "motion_cm": 0.6,
+   "local_step_cm": 3.3,
+   "coherence": 0.76,
+   "measured": true,
+   "rate_cm_yr": 0.6,
+   "rate_fastest_cm_yr": -1.2
+  },
+  "approx": false,
+  "found_by": "mapillary:NGL GNSS ICMX, Roma/Condesa"
+ },
+ {
+  "id": "mexico-mapi-b1dc162e",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 101 m from NGL GNSS ICMX, Roma/Condesa",
+  "caption": "Mapillary image, heading 342°.",
+  "lat": 19.405982,
+  "lon": -99.171777,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2026-08-08",
+  "when": "after",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOMr8RztzSPQDZc5URmTBET4-hv7OlVV203W7DVkqTKayhrfwnH4iPvnLDK2dieMUwpCFNwW7WBf0fH_evbx3udtIJbZZ3mdOlj0MralkgeSR3BOUNNfa9eJDcISBSvxV0l3ssToes4Cq9GZyi4HSoHekH9uBEKo4EvKrWrCVF0hak?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=AbNTi7FTJDFemEN9VUEBsg&_nc_oc=AdqLX0UluVam-RVNSx49vukLv2u6iXkXoHO8503fLxszh9h-uB78hUCPIscs3aybXlOkNWPxEowKSyIqrnOBAqeC&ccb=10-5&oh=00_AQTF3vkYgBX-wsjnCnPoWrVOhTyL5GB0LLAjOaNgGF_JBA&oe=6B200220&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1079905577789853",
+  "credit": "vsalgado / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "unaffected",
+  "nisar": {
+   "u": 0.4121,
+   "v": 0.5536,
+   "motion_cm": 0.6,
+   "local_step_cm": 3.3,
+   "coherence": 0.76,
+   "measured": true,
+   "rate_cm_yr": 0.6,
+   "rate_fastest_cm_yr": -1.2
+  },
+  "approx": false,
+  "found_by": "mapillary:NGL GNSS ICMX, Roma/Condesa"
+ },
+ {
+  "id": "mexico-mapi-323252b1",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 270 m from Templo de la Santísima Trinidad, below street level",
+  "caption": "Mapillary image, heading 103°.",
+  "lat": 19.435345,
+  "lon": -99.127778,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2026-08-28",
+  "when": "after",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQO6p9Rgck_ga5DdgEjeC64hDcgrJnk7NeF0zhWqajPsIv1cTWX29F3g9eWM9ncZCorioh0oRwlB5fNe3HKLksBp-0yno3y4hVkb3YALcvevCTU4fYGI92h_qkkx4fWU-EFkoiwu9q3qgnGZSSKwTI16z5HFxkMQWIpVtOJpflL11Mw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=1UPuLUmVHQYo8iUoMt6Yrg&_nc_oc=AdpWyqONo_Mtw4XdmeSX0sVOBHJ1gQV81pEpBfqzLKQq_Txeq5pMHNrwAropdVhQt6eTtswNDcENb8H88mcdDK5d&ccb=10-5&oh=00_AQTisJ8hSCrQC5WNzh-eRQ1cDizICg0-g1CrDu_8B-X4jw&oe=6B1FF338&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=2137925700409206",
+  "credit": "mapeadora / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.5045,
+   "v": 0.4887,
+   "motion_cm": -5.9,
+   "local_step_cm": 3.2,
+   "coherence": 0.76,
+   "measured": true,
+   "rate_cm_yr": -6.2,
+   "rate_fastest_cm_yr": -8.0
+  },
+  "approx": false,
+  "found_by": "mapillary:Templo de la Santísima Trinidad, below street level"
+ },
+ {
+  "id": "mexico-mapi-1109cd79",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 31 m from NGL GNSS ICMX, Roma/Condesa",
+  "caption": "Mapillary image, heading 263°.",
+  "lat": 19.405879,
+  "lon": -99.170909,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2026-08-08",
+  "when": "after",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPZHKhPN4504QfvsqdK9HLKuAVEiHBLQhWDfImtORo7eE-FGt9dcj6W3DNuNpM3A3GIds14WXJ-rzGtjUX_J7A7x-nq7D3MV_hxmLYj4etVUp8auw2W51abIBtEOQapduqGi3L0AZiFgOz7K-SSAXpdXSfj_QIPwWpuDLT_f9bRw4E?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=AbNTi7FTJDFemEN9VUEBsg&_nc_oc=AdqN9PYIp8woK14o8NZJ4fmwlb0SC1TGTnsw06oa5RDAwNeYmE3psY3ut6uMEw7v1eue6WW6-GwGWB3cr51qZeNA&ccb=10-5&oh=00_AQRUO8aboy6QdEr7xsXHZ8wNkzmyvM-d9EVBw8UsWKNDmA&oe=6B1FFBF1&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=911086628280049",
+  "credit": "vsalgado / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "unaffected",
+  "nisar": {
+   "u": 0.4139,
+   "v": 0.5539,
+   "motion_cm": 0.2,
+   "local_step_cm": 3.1,
+   "coherence": 0.94,
+   "measured": true,
+   "rate_cm_yr": 0.2,
+   "rate_fastest_cm_yr": -1.3
+  },
+  "approx": false,
+  "found_by": "mapillary:NGL GNSS ICMX, Roma/Condesa",
+  "pair": "mexico-mapi-0911bd71",
+  "pair_m": 42
+ },
+ {
+  "id": "mexico-mapi-0911bd71",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 52 m from NGL GNSS ICMX, Roma/Condesa",
+  "caption": "Mapillary image, heading 260°.",
+  "lat": 19.405886,
+  "lon": -99.170512,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2023-10-17",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOEor2qTfzf4gCkDpY9jO_xU-HOCCcSJSTICr-OKOutq5hkNkMXGIx9dyYJAyl4Em8paLVFZ9Omr8015bGtbafLNbTnirkyqkrIuvnQlboNVPZ_KqluoOUs97-1o6BMqIXb32wK1j37tLuiq-Bl64KIRClLt2eJpQrTCyZuwXZBQQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4GHaqzVC1r699hBXuxCbZg&_nc_oc=Adq8KDZDj7kSepGiCMlFMd_LpHrvlNA4ZhJGNZ62p2Hbc1QgyBDZFvDxAWqwqnnpWkJPGCOssmBVhlMkDKSTZAnv&ccb=10-5&oh=00_AQRYv-YkgIDqOBG7w8HlGhmqp8fV_xJCXzw3INT7IHAFJw&oe=6B1FE20E&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=362316356221670",
+  "credit": "BatmanIsReal / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "unaffected",
+  "nisar": {
+   "u": 0.4148,
+   "v": 0.5538,
+   "motion_cm": 0.0,
+   "local_step_cm": 3.0,
+   "coherence": 0.93,
+   "measured": true,
+   "rate_cm_yr": 0.0,
+   "rate_fastest_cm_yr": -1.3
+  },
+  "approx": false,
+  "found_by": "mapillary:NGL GNSS ICMX, Roma/Condesa",
+  "pair": "mexico-mapi-1109cd79",
+  "pair_m": 42
+ },
+ {
+  "id": "mexico-mapi-4c7a5221",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 70 m from Ángel de la Independencia: 14 steps added since 1910",
+  "caption": "Mapillary image, heading 46°.",
+  "lat": 19.426519,
+  "lon": -99.16727,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2023-09-20",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQNMrLrfU-olLeyZrRJTruAU79b54Jw9NDqcTGaiBQh7eDdu2TbpKkBBgHRTfLA9hhY5Wegvjrb9hcyXrj-pwifsDt92HDpPU2QuGvdKpjCxwXJHBxiVsAqhwE7bxY8TluWzvJgS9wzRaaA9te1j9F2aeGTzJ23IkV_g_t2PxUvmcg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4mFtOY3oXWf4-H0i3AvzBw&_nc_oc=AdrEBqnziSr53f8SZiAp2R7L-F4tHXhzNd-UKRfd0pysMC6JJU3SB0Bul8L7Es5zUO_UFSNvxYNXCjoT5Gf0AyU0&ccb=10-5&oh=00_AQRE4BYpUo4cHcZ0e7paUJXbjCVLpg5ex3HZq-CZeLGX6w&oe=6B1FEBF5&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=255248133602644",
+  "credit": "BatmanIsReal / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "unaffected",
+  "nisar": {
+   "u": 0.4216,
+   "v": 0.5082,
+   "motion_cm": -0.9,
+   "local_step_cm": 3.0,
+   "coherence": 0.62,
+   "measured": true,
+   "rate_cm_yr": -0.9,
+   "rate_fastest_cm_yr": -2.5
+  },
+  "approx": false,
+  "found_by": "mapillary:Ángel de la Independencia: 14 steps added since 1910"
+ },
+ {
+  "id": "mexico-mapi-31a5cc5c",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 73 m from Ángel de la Independencia: 14 steps added since 1910",
+  "caption": "Mapillary image, heading 58°.",
+  "lat": 19.427225,
+  "lon": -99.167048,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2023-01-08",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQP1Y1OWXnQvnCQQI8ZGElOp7KXnJdJUe1gjiP3YkGqFl0VoCCnIQviqxHpWhxwvLHb_MjxgQmHkYupDwH9XHOLiGrU11JGpChg9Hm0GRjO4QL20ebUOTwz4FadEo2-DwQoov5BhXZZI_aHfXvGgcQrB7ORoP7TeWRi1kr4-V4YfEhs?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=4mFtOY3oXWf4-H0i3AvzBw&_nc_oc=AdojoDwFfhR8xA6ucPEFdVk5OuxK_hlW6Qo81D8sUqdJeitb-vSHfy7WcCv6lWcK_6fKc63y42VDnlW4TFvcQTrd&ccb=10-5&oh=00_AQRjQmVGFy9dPYXfKkLGHk6xEeGDfBzEbQyv2wDN9g89Kw&oe=6B1FEE89&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1409451489868725",
+  "credit": "toebee / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": null,
+  "nisar": {
+   "u": 0.4221,
+   "v": 0.5066,
+   "motion_cm": -1.1,
+   "local_step_cm": 2.6,
+   "coherence": 0.5,
+   "measured": true,
+   "rate_cm_yr": -1.2,
+   "rate_fastest_cm_yr": -2.4
+  },
+  "approx": false,
+  "found_by": "mapillary:Ángel de la Independencia: 14 steps added since 1910"
  },
  {
   "id": "mexico-06",
@@ -1409,6 +1399,8 @@
   "tier": 4,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.3772,
+   "v": 0.7156,
    "motion_cm": 3.4,
    "local_step_cm": 2.2,
    "coherence": 0.82,
@@ -1416,65 +1408,8 @@
    "rate_cm_yr": 3.6,
    "rate_fastest_cm_yr": 2.0
   },
+  "approx": false,
   "found_by": "research"
- },
- {
-  "id": "mexico-comm-5da8a095",
-  "source": "commons",
-  "type": "photo",
-  "title": "ParishTulyehualco13",
-  "caption": "Dome of the parish of Santiago Tulyehualco in Tlahuac, Mexico City",
-  "lat": 19.2558,
-  "lon": -99.0163,
-  "loc_method": "text: Tulyehualco",
-  "loc_confidence": "low",
-  "date": "2013-01-05",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/ParishTulyehualco13.JPG/960px-ParishTulyehualco13.JPG",
-  "page_url": "https://commons.wikimedia.org/wiki/File:ParishTulyehualco13.JPG",
-  "credit": "Thelmadatter",
-  "licence": "CC BY-SA 3.0",
-  "showable": true,
-  "tier": 4,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": 0.2,
-   "local_step_cm": 13.9,
-   "coherence": 0.77,
-   "measured": true,
-   "rate_cm_yr": 0.2,
-   "rate_fastest_cm_yr": -10.7
-  },
-  "found_by": "geosearch:NGL GNSS UTUL, Tulyehualco (historical, to 2020)"
- },
- {
-  "id": "mexico-comm-3706d511",
-  "source": "commons",
-  "type": "photo",
-  "title": "PortalTulyehualco",
-  "caption": "Colonial era portal in Santiago Tulyehualco, Tlahuac, Mexico City",
-  "lat": 19.2558,
-  "lon": -99.0163,
-  "loc_method": "text: Tulyehualco",
-  "loc_confidence": "low",
-  "date": "2013-01-05",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/PortalTulyehualco.JPG/960px-PortalTulyehualco.JPG",
-  "page_url": "https://commons.wikimedia.org/wiki/File:PortalTulyehualco.JPG",
-  "credit": "Thelmadatter",
-  "licence": "CC BY-SA 3.0",
-  "showable": true,
-  "tier": 4,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": 0.2,
-   "local_step_cm": 13.9,
-   "coherence": 0.77,
-   "measured": true,
-   "rate_cm_yr": 0.2,
-   "rate_fastest_cm_yr": -10.7
-  },
-  "found_by": "geosearch:NGL GNSS UTUL, Tulyehualco (historical, to 2020)"
  },
  {
   "id": "mexico-comm-dac823b4",
@@ -1496,6 +1431,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.7385,
+   "v": 0.8862,
    "motion_cm": 0.2,
    "local_step_cm": 13.9,
    "coherence": 0.77,
@@ -1503,36 +1440,8 @@
    "rate_cm_yr": 0.2,
    "rate_fastest_cm_yr": -10.7
   },
+  "approx": true,
   "found_by": "geosearch:NGL GNSS UTUL, Tulyehualco (historical, to 2020)"
- },
- {
-  "id": "mexico-comm-c8136a2f",
-  "source": "commons",
-  "type": "photo",
-  "title": "Torre Latinoamericana Ovedc 29",
-  "caption": "Torre Latinoamericana mexico city",
-  "lat": 19.434129,
-  "lon": -99.140369,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2015-07-13",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Torre_Latinoamericana_Ovedc_29.jpg/960px-Torre_Latinoamericana_Ovedc_29.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Torre_Latinoamericana_Ovedc_29.jpg",
-  "credit": "Ovedc",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": -4.3,
-   "local_step_cm": 2.7,
-   "coherence": 0.83,
-   "measured": true,
-   "rate_cm_yr": -4.5,
-   "rate_fastest_cm_yr": -5.7
-  },
-  "found_by": "search:Mexico City sinking"
  },
  {
   "id": "mexico-mapi-579f6345",
@@ -1554,6 +1463,8 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.7307,
+   "v": 0.8013,
    "motion_cm": -3.7,
    "local_step_cm": 18.1,
    "coherence": 0.74,
@@ -1561,6 +1472,7 @@
    "rate_cm_yr": -3.9,
    "rate_fastest_cm_yr": -18.6
   },
+  "approx": false,
   "found_by": "mapillary:San Francisco Tlaltenco"
  },
  {
@@ -1583,6 +1495,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.7587,
+   "v": 0.8502,
    "motion_cm": -13.8,
    "local_step_cm": 8.2,
    "coherence": 0.8,
@@ -1590,6 +1504,7 @@
    "rate_cm_yr": -14.5,
    "rate_fastest_cm_yr": -20.1
   },
+  "approx": false,
   "found_by": "mapillary:Tláhuac"
  },
  {
@@ -1612,6 +1527,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.7591,
+   "v": 0.851,
    "motion_cm": -13.8,
    "local_step_cm": 8.2,
    "coherence": 0.8,
@@ -1619,6 +1536,7 @@
    "rate_cm_yr": -14.5,
    "rate_fastest_cm_yr": -20.1
   },
+  "approx": false,
   "found_by": "mapillary:Tláhuac"
  },
  {
@@ -1641,6 +1559,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.7652,
+   "v": 0.8493,
    "motion_cm": -13.8,
    "local_step_cm": 6.2,
    "coherence": 0.73,
@@ -1648,6 +1568,7 @@
    "rate_cm_yr": -14.5,
    "rate_fastest_cm_yr": -18.2
   },
+  "approx": false,
   "found_by": "mapillary:Tláhuac"
  },
  {
@@ -1670,6 +1591,8 @@
   "tier": 4,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.3988,
+   "v": 0.5218,
    "motion_cm": 1.0,
    "local_step_cm": 5.4,
    "coherence": 0.88,
@@ -1677,6 +1600,7 @@
    "rate_cm_yr": 1.0,
    "rate_fastest_cm_yr": -2.1
   },
+  "approx": false,
   "found_by": "mapillary:Chapultepec"
  },
  {
@@ -1699,6 +1623,8 @@
   "tier": 4,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.3975,
+   "v": 0.5146,
    "motion_cm": -1.0,
    "local_step_cm": 5.4,
    "coherence": 0.49,
@@ -1706,6 +1632,7 @@
    "rate_cm_yr": -1.0,
    "rate_fastest_cm_yr": -2.1
   },
+  "approx": false,
   "found_by": "mapillary:Chapultepec"
  },
  {
@@ -1728,6 +1655,8 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.554,
+   "v": 0.8705,
    "motion_cm": -3.8,
    "local_step_cm": 5.2,
    "coherence": 0.62,
@@ -1735,6 +1664,7 @@
    "rate_cm_yr": -4.0,
    "rate_fastest_cm_yr": -7.3
   },
+  "approx": false,
   "found_by": "mapillary:Xochimilco"
  },
  {
@@ -1757,6 +1687,8 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.5551,
+   "v": 0.871,
    "motion_cm": -3.8,
    "local_step_cm": 5.2,
    "coherence": 0.62,
@@ -1764,6 +1696,7 @@
    "rate_cm_yr": -4.0,
    "rate_fastest_cm_yr": -7.3
   },
+  "approx": false,
   "found_by": "mapillary:Xochimilco"
  },
  {
@@ -1786,6 +1719,8 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.5511,
+   "v": 0.8696,
    "motion_cm": -3.2,
    "local_step_cm": 4.2,
    "coherence": 0.71,
@@ -1793,6 +1728,7 @@
    "rate_cm_yr": -3.4,
    "rate_fastest_cm_yr": -5.8
   },
+  "approx": false,
   "found_by": "mapillary:Xochimilco"
  },
  {
@@ -1815,6 +1751,8 @@
   "tier": 4,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.3989,
+   "v": 0.526,
    "motion_cm": 1.5,
    "local_step_cm": 3.8,
    "coherence": 0.64,
@@ -1822,6 +1760,7 @@
    "rate_cm_yr": 1.6,
    "rate_fastest_cm_yr": -0.4
   },
+  "approx": false,
   "found_by": "mapillary:Chapultepec"
  },
  {
@@ -1844,6 +1783,8 @@
   "tier": 4,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.3966,
+   "v": 0.529,
    "motion_cm": 2.1,
    "local_step_cm": 3.7,
    "coherence": 0.67,
@@ -1851,6 +1792,7 @@
    "rate_cm_yr": 2.2,
    "rate_fastest_cm_yr": -0.0
   },
+  "approx": false,
   "found_by": "mapillary:Chapultepec"
  },
  {
@@ -1873,6 +1815,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4939,
+   "v": 0.4953,
    "motion_cm": -5.6,
    "local_step_cm": 2.2,
    "coherence": 0.28,
@@ -1880,6 +1824,7 @@
    "rate_cm_yr": -5.9,
    "rate_fastest_cm_yr": -6.8
   },
+  "approx": false,
   "found_by": "mapillary:Centro Histórico / Zócalo"
  },
  {
@@ -1902,6 +1847,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4899,
+   "v": 0.4962,
    "motion_cm": -5.3,
    "local_step_cm": 2.1,
    "coherence": 0.79,
@@ -1909,6 +1856,7 @@
    "rate_cm_yr": -5.6,
    "rate_fastest_cm_yr": -6.7
   },
+  "approx": false,
   "found_by": "mapillary:Centro Histórico / Zócalo"
  },
  {
@@ -1931,6 +1879,8 @@
   "tier": 4,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.3784,
+   "v": 0.7174,
    "motion_cm": 3.6,
    "local_step_cm": 2.1,
    "coherence": 0.82,
@@ -1938,6 +1888,7 @@
    "rate_cm_yr": 3.8,
    "rate_fastest_cm_yr": 2.1
   },
+  "approx": false,
   "found_by": "mapillary:Ciudad Universitaria (Pedregal lava)"
  },
  {
@@ -1960,6 +1911,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4918,
+   "v": 0.4982,
    "motion_cm": -5.7,
    "local_step_cm": 2.1,
    "coherence": 0.8,
@@ -1967,6 +1920,7 @@
    "rate_cm_yr": -6.0,
    "rate_fastest_cm_yr": -6.7
   },
+  "approx": false,
   "found_by": "mapillary:Centro Histórico / Zócalo"
  },
  {
@@ -1989,6 +1943,8 @@
   "tier": 4,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.3772,
+   "v": 0.7097,
    "motion_cm": 3.2,
    "local_step_cm": 2.1,
    "coherence": 0.92,
@@ -1996,6 +1952,7 @@
    "rate_cm_yr": 3.4,
    "rate_fastest_cm_yr": 2.2
   },
+  "approx": false,
   "found_by": "mapillary:Ciudad Universitaria (Pedregal lava)"
  },
  {
@@ -2018,6 +1975,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.489,
+   "v": 0.4945,
    "motion_cm": -5.3,
    "local_step_cm": 1.9,
    "coherence": 0.8,
@@ -2025,6 +1984,7 @@
    "rate_cm_yr": -5.6,
    "rate_fastest_cm_yr": -6.5
   },
+  "approx": false,
   "found_by": "mapillary:Centro Histórico / Zócalo"
  },
  {
@@ -2047,6 +2007,8 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.5488,
+   "v": 0.8639,
    "motion_cm": -3.3,
    "local_step_cm": 4.4,
    "coherence": 0.66,
@@ -2054,36 +2016,8 @@
    "rate_cm_yr": -3.5,
    "rate_fastest_cm_yr": -6.0
   },
+  "approx": false,
   "found_by": "panoramax:Xochimilco"
- },
- {
-  "id": "mexico-gdel-4a35ea1b",
-  "source": "gdelt",
-  "type": "news",
-  "title": "La inadvertida , misteriosa y macabra casa de La Malinche",
-  "caption": "sopitas.com (Spanish)",
-  "lat": 19.275312,
-  "lon": -99.15123,
-  "loc_method": "nominatim: La Malinche",
-  "loc_confidence": "low",
-  "date": "2026-10-23",
-  "when": "after",
-  "thumb_url": "https://www.sopitas.com/wp-content/uploads/2026/10/casa-de-la-malinche-portada.jpg",
-  "page_url": "https://www.sopitas.com/mientras-tanto/la-inadvertida-misteriosa-y-macabra-casa-de-la-malinche/",
-  "credit": "sopitas.com",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 2.7,
-   "local_step_cm": 2.8,
-   "coherence": 0.72,
-   "measured": true,
-   "rate_cm_yr": 2.8,
-   "rate_fastest_cm_yr": 1.4
-  },
-  "found_by": "gdelt:(sinking OR subsidence) (Iztapalapa OR Tlahuac OR Chalco OR Xochimilco OR Nezahualcoyotl OR \"Mexico City\")"
  },
  {
   "id": "mexico-gdel-42f8823b",
@@ -2105,6 +2039,8 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4931,
+   "v": 0.4948,
    "motion_cm": -5.6,
    "local_step_cm": 2.2,
    "coherence": 0.28,
@@ -2112,6 +2048,7 @@
    "rate_cm_yr": -5.9,
    "rate_fastest_cm_yr": -6.8
   },
+  "approx": true,
   "found_by": "gdelt:\"Mexico City\" (sinking OR subsidence)"
  }
 ]

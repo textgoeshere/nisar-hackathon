@@ -19,11 +19,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8592,
+   "v": 0.4425,
    "motion_cm": -26.2,
    "local_step_cm": 2.3,
    "coherence": 0.61,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -46,11 +49,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3775,
+   "v": 0.4573,
    "motion_cm": 3.4,
    "local_step_cm": 1.4,
    "coherence": 0.73,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -73,11 +79,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8518,
+   "v": 0.4159,
    "motion_cm": -25.1,
    "local_step_cm": 4.5,
    "coherence": 0.43,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -100,11 +109,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8592,
+   "v": 0.4425,
    "motion_cm": -26.2,
    "local_step_cm": 2.3,
    "coherence": 0.61,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -127,11 +139,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.708,
+   "v": 0.4695,
    "motion_cm": -16.4,
    "local_step_cm": 2.0,
    "coherence": 0.78,
    "measured": true
   },
+  "approx": true,
   "found_by": "validation"
  },
  {
@@ -154,11 +169,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.7284,
+   "v": 0.135,
    "motion_cm": 15.7,
    "local_step_cm": 1.9,
    "coherence": 0.59,
    "measured": true
   },
+  "approx": true,
   "found_by": "validation"
  },
  {
@@ -181,11 +199,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3775,
+   "v": 0.4573,
    "motion_cm": 3.4,
    "local_step_cm": 1.4,
    "coherence": 0.73,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -208,11 +229,14 @@
   "tier": 1,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.1315,
+   "v": 0.632,
    "motion_cm": 2.4,
    "local_step_cm": 1.3,
    "coherence": 0.71,
    "measured": true
   },
+  "approx": true,
   "found_by": "validation"
  },
  {
@@ -235,11 +259,14 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.7284,
+   "v": 0.135,
    "motion_cm": 15.7,
    "local_step_cm": 1.9,
    "coherence": 0.59,
    "measured": true
   },
+  "approx": true,
   "found_by": "research"
  },
  {
@@ -262,39 +289,15 @@
   "tier": 2,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.1315,
+   "v": 0.632,
    "motion_cm": 2.4,
    "local_step_cm": 1.3,
    "coherence": 0.71,
    "measured": true
   },
+  "approx": true,
   "found_by": "research"
- },
- {
-  "id": "venezuela-gdel-d7797715",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Desplazamiento de tierra de 60 centímetros causó daños extremos en Caracas , según la NASA",
-  "caption": "ultimahora.com (Spanish)",
-  "lat": 10.340663,
-  "lon": -68.736608,
-  "loc_method": "nominatim: Caracas",
-  "loc_confidence": "low",
-  "date": "2026-07-13",
-  "when": "after",
-  "thumb_url": "https://k2-prod-grupo-vierci.s3.us-east-1.amazonaws.com/brightspot/4c/d5/de35a70d4ea884a0e041cec58518/01c3ad7c604875ff0a7d4b3f09a3a494b5a3a018w.jpg",
-  "page_url": "https://www.ultimahora.com/desplazamiento-de-tierra-de-60-centimetros-causo-danos-extremos-en-caracas-segun-la-nasa",
-  "credit": "ultimahora.com",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 2,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 1.2,
-   "coherence": 0.83,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
  },
  {
   "id": "venezuela-comm-b511ab73",
@@ -316,11 +319,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:Videos about the 2026 earthquakes in Venezuela"
  },
  {
@@ -343,10 +349,13 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.4242,
+   "v": 0.4983,
    "local_step_cm": 2.2,
    "coherence": 0.29,
    "measured": false
   },
+  "approx": false,
   "found_by": "search:2026 Venezuela earthquake"
  },
  {
@@ -369,10 +378,13 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.384,
+   "v": 0.5363,
    "local_step_cm": 1.9,
    "coherence": 0.22,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:Maps of 2026 earthquakes in Venezuela"
  },
  {
@@ -395,11 +407,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.4714,
+   "v": 0.5383,
    "motion_cm": -1.2,
    "local_step_cm": 1.8,
    "coherence": 0.41,
    "measured": true
   },
+  "approx": false,
   "found_by": "category:Category:Maps of 2026 earthquakes in Venezuela"
  },
  {
@@ -422,11 +437,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.457,
+   "v": 0.3979,
    "motion_cm": 6.3,
    "local_step_cm": 1.5,
    "coherence": 0.35,
    "measured": true
   },
+  "approx": false,
   "found_by": "category:Category:Maps of 2026 earthquakes in Venezuela"
  },
  {
@@ -449,11 +467,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.457,
+   "v": 0.3979,
    "motion_cm": 6.3,
    "local_step_cm": 1.5,
    "coherence": 0.35,
    "measured": true
   },
+  "approx": false,
   "found_by": "category:Category:Maps of 2026 earthquakes in Venezuela"
  },
  {
@@ -476,11 +497,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.4348,
+   "v": 0.566,
    "motion_cm": -0.3,
    "local_step_cm": 1.2,
    "coherence": 0.45,
    "measured": true
   },
+  "approx": false,
   "found_by": "category:Category:Maps of 2026 earthquakes in Venezuela"
  },
  {
@@ -503,12 +527,75 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.8094,
+   "v": 0.2841,
    "motion_cm": 28.8,
    "local_step_cm": 2.9,
    "coherence": 0.3,
    "measured": true
   },
+  "approx": false,
   "found_by": "mapillary:Boca de Yaracuy"
+ },
+ {
+  "id": "venezuela-mapi-d8887ff1",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 55 m from El Palito",
+  "caption": "Mapillary image, heading 31°.",
+  "lat": 10.477225,
+  "lon": -68.110118,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2023-12-13",
+  "when": "before",
+  "thumb_url": "https://scontent-lhr6-2.xx.fbcdn.net/m1/v/t6/AQO2PwamZtskEsjjV7ACtq8VcomhKGcZkr5YI9o8kT9_4ePZ0Ml1IZ7agFaiOHpqyi0s8cPXFpm5jwcJ1kb3pqlk_m_HcZeD8adB_BIP8xQKQWVil63kmzuv60fWmMs7KZ5p6vz8fi42FszaEjc1-vovSkbp8_uq2YRJoZM5schDG4o?stp=s1024x1024&edm=AOnQwmMEAAAA&_nc_gid=zw5AMNgnz94KhAf2-dzc0Q&_nc_oc=AdpQlMsozpJ2MX7fkmjbqu0l3qV-IQhZxN-qITnPAuobolsml4L13-u8VdlxRDa4_5ggbaEMOt5XM-vQeuaGWwUg&ccb=10-5&oh=00_AQT-3aHokurFs5hwuAHeiP4fFmPnCWRUVddIcGQSTCKtAw&oe=6B2001A0&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1366630417572656",
+  "credit": "cesalazar / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 4,
+  "side_hint": null,
+  "nisar": {
+   "u": 0.9953,
+   "v": 0.4401,
+   "motion_cm": -29.6,
+   "local_step_cm": 2.3,
+   "coherence": 0.84,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:El Palito"
+ },
+ {
+  "id": "venezuela-mapi-f41d0dad",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 151 m from El Palito",
+  "caption": "Mapillary image, heading 261°.",
+  "lat": 10.478937,
+  "lon": -68.110296,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2023-12-13",
+  "when": "before",
+  "thumb_url": "https://scontent-lhr6-2.xx.fbcdn.net/m1/v/t6/AQNcIJQI_QdMHKy9Tf9fN9Hxq8sOxg-T4FkMj_OiMYOcRC_Dl5c2FONtr4vqxQIjKezEpQA011fAySfkAB0NoPMIpKm77uIHH9icr1PHGTWuk4eKXT3SawiY_ihit13Tvz7FBcaceYrxmXNjfsTioqXrBZ9THQyAURyTMKYuN7zISg?stp=s1024x1024&edm=AOnQwmMEAAAA&_nc_gid=zw5AMNgnz94KhAf2-dzc0Q&_nc_oc=AdrDs-_pvDPWoRwWMTZ2Uo-QqbWQ5zg-T84thtlTO7ELoNBzRsXuucEIyGmUayvSvJ0eJt5jtBTMwQmadGGG2Nuo&ccb=10-5&oh=00_AQRcmTM0SO58YAypDVGJQX1NzdaQvt_yrPI7XQA0qvj_kg&oe=6B1FF728&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=888491219485333",
+  "credit": "cesalazar / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 4,
+  "side_hint": null,
+  "nisar": {
+   "u": 0.9951,
+   "v": 0.4377,
+   "motion_cm": -30.2,
+   "local_step_cm": 1.9,
+   "coherence": 0.72,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:El Palito"
  },
  {
   "id": "venezuela-mapi-5c3435a6",
@@ -530,11 +617,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.698,
+   "v": 0.0326,
    "motion_cm": 12.3,
    "local_step_cm": 0.9,
    "coherence": 0.65,
    "measured": true
   },
+  "approx": false,
   "found_by": "mapillary:Tucacas"
  },
  {
@@ -557,11 +647,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.6975,
+   "v": 0.0368,
    "motion_cm": 11.0,
    "local_step_cm": 1.4,
    "coherence": 0.49,
    "measured": true
   },
+  "approx": true,
   "found_by": "research"
  },
  {
@@ -584,11 +677,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
+  "approx": true,
   "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
  },
  {
@@ -611,12 +707,17 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
+  "preview_url": "media/venezuela-gdel-8433c0c8.png",
+  "preview": "pixelated"
  },
  {
   "id": "venezuela-gdel-9dee2c93",
@@ -638,12 +739,17 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
+  "preview_url": "media/venezuela-gdel-9dee2c93.png",
+  "preview": "pixelated"
  },
  {
   "id": "venezuela-gdel-cd8177df",
@@ -665,12 +771,17 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
+  "preview_url": "media/venezuela-gdel-cd8177df.png",
+  "preview": "pixelated"
  },
  {
   "id": "venezuela-gdel-ee8d0fb5",
@@ -692,12 +803,17 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
+  "preview_url": "media/venezuela-gdel-ee8d0fb5.png",
+  "preview": "pixelated"
  },
  {
   "id": "venezuela-gdel-6e1dea96",
@@ -719,39 +835,17 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-b5cc2159",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Un brindis para nuevos pupitres en La Guaira y Morón",
-  "caption": "el-carabobeno.com (Spanish)",
-  "lat": 10.486173,
-  "lon": -68.202717,
-  "loc_method": "text: Morón",
-  "loc_confidence": "low",
-  "date": "2026-08-23",
-  "when": "after",
-  "thumb_url": "https://www.el-carabobeno.com/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-18-at-1.37.25-PM.jpeg",
-  "page_url": "https://www.el-carabobeno.com/un-brindis-para-nuevos-pupitres-en-la-guaira-y-moron-llegara-al-hotel-manantial/",
-  "credit": "el-carabobeno.com",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -27.0,
-   "local_step_cm": 5.1,
-   "coherence": 0.62,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
+  "preview_url": "media/venezuela-gdel-6e1dea96.png",
+  "preview": "pixelated"
  },
  {
   "id": "venezuela-gdel-1420bbb6",
@@ -773,12 +867,47 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
+  "approx": true,
   "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
+ },
+ {
+  "id": "venezuela-gdel-7e09a13f",
+  "source": "gdelt",
+  "type": "news",
+  "title": "Trancaron la Morón - Coro por falta de agua en Tucacas",
+  "caption": "lapatilla.com (Spanish)",
+  "lat": 10.486173,
+  "lon": -68.202717,
+  "loc_method": "text: Morón",
+  "loc_confidence": "low",
+  "date": "2026-07-18",
+  "when": "after",
+  "thumb_url": "https://sandia.datanubex.uk/wp-content/uploads/2026/07/photo_2026-07-18_12-54-35.jpg",
+  "page_url": "https://lapatilla.com/2026/07/18/trancaron-la-moron-coro-por-falta-de-agua-en-tucacas/",
+  "credit": "lapatilla.com",
+  "licence": "news, link only",
+  "showable": false,
+  "tier": 4,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
+   "motion_cm": -27.0,
+   "local_step_cm": 5.1,
+   "coherence": 0.62,
+   "measured": true
+  },
+  "approx": true,
+  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
+  "preview_url": "media/venezuela-gdel-7e09a13f.png",
+  "preview": "pixelated"
  },
  {
   "id": "venezuela-gdel-f6c81702",
@@ -800,11 +929,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
+  "approx": true,
   "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
  },
  {
@@ -827,308 +959,78 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.8686,
+   "v": 0.428,
    "motion_cm": -27.0,
    "local_step_cm": 5.1,
    "coherence": 0.62,
    "measured": true
   },
+  "approx": true,
   "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
  },
  {
-  "id": "venezuela-gdel-a2addf3b",
+  "id": "venezuela-gdel-5d319286",
   "source": "gdelt",
   "type": "news",
-  "title": "Gobierno inspeccionó termoeléctrica en Puerto Cabello para evaluar los trabajos de recuperación",
-  "caption": "unionradio.net (Spanish)",
-  "lat": 10.412582,
-  "lon": -68.11005,
-  "loc_method": "nominatim: Puerto Cabello",
+  "title": "Presidenta Rodríguez visitó instalaciones de la Central Termoeléctrica Planta Centro y Termocarabobo tras impacto del doble sismo",
+  "caption": "eluniversal.com (Spanish)",
+  "lat": 10.48285,
+  "lon": -68.152085,
+  "loc_method": "text: Planta Centro (Morón)",
   "loc_confidence": "low",
   "date": "2026-08-05",
   "when": "after",
-  "thumb_url": null,
-  "page_url": "https://unionradio.net/gobierno-inspecciono-planta-centro-en-puerto-cabello-para-evaluar-los-trabajos-de-recuperacion/",
-  "credit": "unionradio.net",
+  "thumb_url": "https://mmedia.eluniversal.com/20670/delcy1jpg-203974.jpg",
+  "page_url": "https://www.eluniversal.com/venezuela/238647/presidenta-rodriguez-visito-instalaciones-de-la-central-termoelectrica-planta-centro-y-tras-impacto",
+  "credit": "eluniversal.com",
   "licence": "news, link only",
   "showable": false,
   "tier": 4,
   "side_hint": null,
   "nisar": {
-   "motion_cm": -24.8,
-   "local_step_cm": 1.9,
-   "coherence": 0.51,
+   "u": 0.9379,
+   "v": 0.4325,
+   "motion_cm": -29.1,
+   "local_step_cm": 2.1,
+   "coherence": 0.64,
    "measured": true
   },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
+  "preview_url": "media/venezuela-gdel-5d319286.png",
+  "preview": "pixelated"
  },
  {
-  "id": "venezuela-gdel-cf5f477d",
+  "id": "venezuela-gdel-d5d12281",
   "source": "gdelt",
   "type": "news",
-  "title": "Entregarán kits para reconstruir 500 viviendas afectadas en Carabobo",
-  "caption": "ultimasnoticias.com.ve (Spanish)",
-  "lat": 10.55931,
-  "lon": -68.737986,
-  "loc_method": "nominatim: Carabobo",
-  "loc_confidence": "low",
-  "date": "2026-07-07",
-  "when": "after",
-  "thumb_url": "https://ultimasnoticias.com.ve/wp-content/uploads/2026/07/15.jpeg",
-  "page_url": "https://ultimasnoticias.com.ve/carabobo/entregaran-kits-para-reconstruir-500-viviendas-afectadas-en-carabobo/",
-  "credit": "ultimasnoticias.com.ve",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 7.6,
-   "local_step_cm": 1.4,
-   "coherence": 0.55,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-e81ba20a",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Defensoría activó plan de apoyo psicológico a niños de Carabobo",
+  "title": "Gobierno visitó Central Termoeléctrica Planta Centro y llama a la inversión privada",
   "caption": "descifrado.com (Spanish)",
-  "lat": 10.55931,
-  "lon": -68.737986,
-  "loc_method": "nominatim: Carabobo",
+  "lat": 10.48285,
+  "lon": -68.152085,
+  "loc_method": "text: Planta Centro (Morón)",
   "loc_confidence": "low",
-  "date": "2026-07-05",
+  "date": "2026-08-05",
   "when": "after",
-  "thumb_url": "https://cdn.descifrado.com/wp-content/uploads/2026/07/Diseno-sin-titulo-1-3.png",
-  "page_url": "https://www.descifrado.com/2026/07/05/defensoria-activo-plan-de-apoyo-psicologico-a-ninos-de-carabobo/",
+  "thumb_url": "https://cdn.descifrado.com/wp-content/uploads/2026/08/Diseno-sin-titulo-1-2.png",
+  "page_url": "https://www.descifrado.com/2026/08/04/gobierno-visito-central-termoelectrica-planta-centro-y-llama-a-la-inversion-privada/",
   "credit": "descifrado.com",
   "licence": "news, link only",
   "showable": false,
   "tier": 4,
   "side_hint": null,
   "nisar": {
-   "motion_cm": 7.6,
-   "local_step_cm": 1.4,
-   "coherence": 0.55,
+   "u": 0.9379,
+   "v": 0.4325,
+   "motion_cm": -29.1,
+   "local_step_cm": 2.1,
+   "coherence": 0.64,
    "measured": true
   },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-7e09a13f",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Trancaron la Morón - Coro por falta de agua en Tucacas",
-  "caption": "lapatilla.com (Spanish)",
-  "lat": 10.7695,
-  "lon": -68.3272,
-  "loc_method": "text: Tucacas",
-  "loc_confidence": "low",
-  "date": "2026-07-18",
-  "when": "after",
-  "thumb_url": "https://sandia.datanubex.uk/wp-content/uploads/2026/07/photo_2026-07-18_12-54-35.jpg",
-  "page_url": "https://lapatilla.com/2026/07/18/trancaron-la-moron-coro-por-falta-de-agua-en-tucacas/",
-  "credit": "lapatilla.com",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": 11.0,
-   "local_step_cm": 1.4,
-   "coherence": 0.49,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-19313b40",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Reportan daños en edificios de Caracas tras sismo de magnitud 7 . 1 - Noticias Quadratín Chihuahua",
-  "caption": "chihuahua.quadratin.com.mx (Spanish)",
-  "lat": 10.340663,
-  "lon": -68.736608,
-  "loc_method": "nominatim: Caracas",
-  "loc_confidence": "low",
-  "date": "2026-06-25",
-  "when": "after",
-  "thumb_url": null,
-  "page_url": "https://chihuahua.quadratin.com.mx/principal/reportan-danos-en-edificios-de-caracas-tras-sismo-de-magnitud-7-1/",
-  "credit": "chihuahua.quadratin.com.mx",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 1.2,
-   "coherence": 0.83,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-cf504b40",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Fuertes lluvias causaron estragos en Caracas y los Altos Mirandinos | NTN24 . COM – EntornoInteligente . com",
-  "caption": "entornointeligente.com (Spanish)",
-  "lat": 10.340663,
-  "lon": -68.736608,
-  "loc_method": "nominatim: Caracas",
-  "loc_confidence": "low",
-  "date": "2026-08-11",
-  "when": "after",
-  "thumb_url": "https://www.entornointeligente.com/wp-content/uploads/2026/08/noticia-592184-1024x576.jpg",
-  "page_url": "https://www.entornointeligente.com/fuertes-lluvias-causaron-estragos-en-caracas-y-los-altos-mirandinos-ntn24-com/",
-  "credit": "entornointeligente.com",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 1.2,
-   "coherence": 0.83,
-   "measured": true
-  },
-  "found_by": "gdelt:Venezuela earthquake (crack OR fault OR liquefaction OR sand OR bridge)"
- },
- {
-  "id": "venezuela-gdel-ba300ecd",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Un terremoto de 7 . 1 sacudió a Venezuela y se sintió fuerte en Caracas",
-  "caption": "tiempodesanjuan.com (Spanish)",
-  "lat": 10.340663,
-  "lon": -68.736608,
-  "loc_method": "nominatim: Caracas",
-  "loc_confidence": "low",
-  "date": "2026-06-25",
-  "when": "after",
-  "thumb_url": "https://cdn.tiempodesanjuan.com/tiemposj/062026/1782343674317.jpeg?cw=1200&ch=630",
-  "page_url": "http://www.tiempodesanjuan.com/el-mundo/un-terremoto-de-7-1-sacudio-a-venezuela-y-se-sintio-fuerte-en-caracas_1782343723",
-  "credit": "tiempodesanjuan.com",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 1.2,
-   "coherence": 0.83,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-a2addfe9",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Fuerte terremoto sacudió Venezuela y generó escenas de pánico en Caracas",
-  "caption": "rionegro.com.ar (Spanish)",
-  "lat": 10.340663,
-  "lon": -68.736608,
-  "loc_method": "nominatim: Caracas",
-  "loc_confidence": "low",
-  "date": "2026-06-25",
-  "when": "after",
-  "thumb_url": "https://www.rionegro.com.ar/wp-content/uploads/2026/06/terremoto-venezuela_agencias121_MLN-Foto-18812413.jpg?&crop=1",
-  "page_url": "https://www.rionegro.com.ar/mundo/fuerte-terremoto-sacudio-venezuela-y-genero-escenas-de-panico-en-caracas-4624296/",
-  "credit": "rionegro.com.ar",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 1.2,
-   "coherence": 0.83,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-82c0631d",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Dos fuertes terremotos sacuden Venezuela , provocando el derrumbe de edificios y viviendas en Caracas",
-  "caption": "eldia.com.do (Spanish)",
-  "lat": 10.340663,
-  "lon": -68.736608,
-  "loc_method": "nominatim: Caracas",
-  "loc_confidence": "low",
-  "date": "2026-06-25",
-  "when": "after",
-  "thumb_url": "https://eldia.com.do/wp-content/uploads/2026/06/AP26175861016261-1.jpg",
-  "page_url": "https://eldia.com.do/dos-fuertes-terremotos-sacuden-venezuela-provocando-el-derrumbe-de-edificios-y-viviendas-en-caracas/",
-  "credit": "eldia.com.do",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 1.2,
-   "coherence": 0.83,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-45eca0e2",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Dos potentes terremotos consecutivos sacuden Venezuela y provocan el derrumbe de edificios en Caracas",
-  "caption": "eldiario.es (Spanish)",
-  "lat": 10.340663,
-  "lon": -68.736608,
-  "loc_method": "nominatim: Caracas",
-  "loc_confidence": "low",
-  "date": "2026-06-25",
-  "when": "after",
-  "thumb_url": "https://static.eldiario.es/clip/0c32807f-03d5-4d62-b096-43fb38eb13c9_facebook-watermarked-aspect-ratio-1200-675_default_0.jpg",
-  "page_url": "https://www.eldiario.es/internacional/potentes-terremotos-consecutivos-sacuden-venezuela-provocan-derrumbe-edificios-caracas_1_13331206.html",
-  "credit": "eldiario.es",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 1.2,
-   "coherence": 0.83,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
- },
- {
-  "id": "venezuela-gdel-800d1b09",
-  "source": "gdelt",
-  "type": "news",
-  "title": "Un fuerte terremoto de 7 , 1 grados sacudió Venezuela : se reportaron escenas de pánico en Caracas",
-  "caption": "tn.com.ar (Spanish)",
-  "lat": 10.340663,
-  "lon": -68.736608,
-  "loc_method": "nominatim: Caracas",
-  "loc_confidence": "low",
-  "date": "2026-06-24",
-  "when": "after",
-  "thumb_url": "https://tn.com.ar/resizer/v2/fuerte-sismo-sacudio-venezuela-foto-efe-SHKALNUYWVFVBHB4EA3QY2AM2A.jpg?auth=a129d74d1d19d5bc90db914b7621204678b7a606a0f3a6933c39fc0fed329ccb",
-  "page_url": "https://tn.com.ar/internacional/2026/06/24/un-fuerte-terremoto-de-71-grados-sacudio-venezuela-se-reportaron-escenas-de-panico-en-caracas/",
-  "credit": "tn.com.ar",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 1.2,
-   "coherence": 0.83,
-   "measured": true
-  },
-  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake"
+  "approx": true,
+  "found_by": "gdelt:(Moron OR Tucacas OR \"Boca de Aroa\" OR Yaracuy OR Urama OR Farriar) earthquake",
+  "preview_url": "media/venezuela-gdel-d5d12281.png",
+  "preview": "pixelated"
  }
 ]

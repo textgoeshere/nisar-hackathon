@@ -19,304 +19,15 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3788,
+   "v": 0.8386,
    "motion_cm": -4.5,
    "local_step_cm": 9.5,
    "coherence": 0.4,
    "measured": true
   },
+  "approx": false,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
- },
- {
-  "id": "kumamoto-comm-a2dde145",
-  "source": "commons",
-  "type": "photo",
-  "title": "Michinoeki Ryuhoku",
-  "caption": "Road to station Ryuhoku, Kumamoto prefecture ,Japan",
-  "lat": 32.577306,
-  "lon": 130.695361,
-  "loc_method": "commons geotag",
-  "loc_confidence": "high",
-  "date": "2011-04-28",
-  "when": "before",
-  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Michinoeki_Ryuhoku.jpg/960px-Michinoeki_Ryuhoku.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:Michinoeki_Ryuhoku.jpg",
-  "credit": "アラツク",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "local_step_cm": 3.7,
-   "coherence": 0.16,
-   "measured": false
-  },
-  "found_by": "geosearch:GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm"
- },
- {
-  "id": "kumamoto-mapi-66866942",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 36 m from NISAR step 32 cm within 500 m",
-  "caption": "Mapillary 360° image, heading 279°.",
-  "lat": 32.555696,
-  "lon": 130.684939,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2025-08-17",
-  "when": "before",
-  "thumb_url": "https://scontent.fbrs4-1.fna.fbcdn.net/m1/v/t6/AQOiWJIG83PzpY9THHCzkEcfDF7RJXdYND5uf5kxNvye8YLU1ZATSbFljAVucuxPY7HIVIrBPJFVydYGdRUUx1nxL9pKs75rO3Jwo8I1UFmNeMosL29440oWYRIl-0pSaLx4XdgbgdrQkfx2xg75GVJZspPhXPDyoPxeHDPOK8v-RUk?stp=s1024x512&edm=AOnQwmMEAAAA&_nc_gid=2s-9axR9T46lHrNbVWM5Yg&_nc_oc=AdoRXfjAps5a_ZH36UKHyCH8iefi8Ju3eHVZwWrGFa2AZhCJTtl_KgC21QsO5D1i8URVDr0GMfJTvQr6DxVTnTL4&ccb=10-5&oh=00_AQSGrhmwaCXBXSi-vZSXVBeuA14VKGA4yGWW5jNw1cDeNA&oe=6B1FE8AA&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1804043800542919",
-  "credit": "kojiroucircle / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -1.7,
-   "local_step_cm": 31.8,
-   "coherence": 0.51,
-   "measured": true
-  },
-  "found_by": "mapillary:NISAR step 32 cm within 500 m"
- },
- {
-  "id": "kumamoto-mapi-16cb1a2e",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 108 m from GSJ photo 8: 氷川町宮原 road, 184 cm (the largest offset)",
-  "caption": "Mapillary 360° image, heading 323°.",
-  "lat": 32.555143,
-  "lon": 130.685963,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2025-08-17",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQNNiSCSB3AyKQESfBtasjDteWm0KRUnCOdJ3SeBfztajt3MOJCshxHjtI_JA_NzXAHzxIeDfDIitDTfLQS8oToTxfu5XLun9Q-xz3IiuuWdQ8cP5HURimJtFB713ZxghchoJFsXF5lGd4YCmP-dbsq27WSoSTK1IgMoVQkcBhc3Nm4?stp=s1024x512&edm=AOnQwmMEAAAA&_nc_gid=kYbMHVJRJKuxkUqF1_9QbA&_nc_oc=AdpLRjPyJcTdUVgkK9M57ruBoJM85ykuQYHrq5It_rAlWhXVXC7fZ0knPgJdKPBgsScGayPn3tbIfO2lZRISgO3t&ccb=10-5&oh=00_AQTltS4ocvlhhiBWbbcwVXt4102HqpQvsg73TbAfF6dLMQ&oe=6B1FFB20&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1283889719901577",
-  "credit": "kojiroucircle / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -0.2,
-   "local_step_cm": 27.3,
-   "coherence": 0.42,
-   "measured": true
-  },
-  "found_by": "mapillary:GSJ photo 8: 氷川町宮原 road, 184 cm (the largest offset)"
- },
- {
-  "id": "kumamoto-mapi-a2852157",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 43 m from GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm",
-  "caption": "Mapillary 360° image, heading 29°.",
-  "lat": 32.576568,
-  "lon": 130.695031,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2025-08-17",
-  "when": "before",
-  "thumb_url": "https://scontent.fbrs4-1.fna.fbcdn.net/m1/v/t6/AQNjlM1darlsXE5Gl5u-27hpLhAb2z0WmXBRxpnG_lkc_p_kCuYLa4KMZB78okaxJNdcOLdJnUBPE9aK1CsOZ1vDv3gPCky4I8gBP7rR5IjxCPSo0BWTSvx0H-wYXxLKyIfbZeygG9Abp8XGi2tFABe076ukkerLpPgGGJUA0xFUKb4?stp=s1024x512&edm=AOnQwmMEAAAA&_nc_gid=wif6G7eqaSWTnj5KIpsC_Q&_nc_oc=AdomhH2FXqOAn3FC5GeyWJ3RWUIO4yKcN727dnTpoAQzb69gYlNXDW1htKCxMwPVhmJqzThBcqmsjaaFzBsWNrph&ccb=10-5&oh=00_AQSI3wgraK34LZ1ZIjZnrZso3-iw3VKJHtgZ8HkMbuGg-A&oe=6B1FE5AE&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=788755350480389",
-  "credit": "kojiroucircle / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "local_step_cm": 23.8,
-   "coherence": 0.28,
-   "measured": false
-  },
-  "found_by": "mapillary:GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm"
- },
- {
-  "id": "kumamoto-mapi-1e907f67",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 192 m from GSJ photo 9: 八代市岡町中 road → paddy, 120 cm",
-  "caption": "Mapillary image, heading 65°.",
-  "lat": 32.535182,
-  "lon": 130.671903,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2026-02-19",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOMQGxn9UFLkaSw0FECrUPsRkVS-61_5TO1y82gp_lvPF-5nE3joB5F5SurniS8gVkkTOLYNs576ybVN4y6zO5p3IDswV0wtGp2CxlpnCS3Znunk5vk4CiQVw8Ykgq6WnG9lA5ereZofB2p3jHO3U4-w8_ePbwtsT4ZshrtlgzqncY?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=wMswB954XW8c8s2bpvLnKA&_nc_oc=AdqlcgGxuMhgZ1QsghHG4F6TZwX5j7qklYAoaqJAVeqnPpmhw1fCbjQAySa3JidpbV6HhVDdYR6CS7dmg3M1J53f&ccb=10-5&oh=00_AQSDAI0c9PVCscszl0ABoLb0ils1fItXOP98mCUY0Ecrfw&oe=6B1FE28B&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=3065219807019261",
-  "credit": "parond / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "local_step_cm": 15.7,
-   "coherence": 0.26,
-   "measured": false
-  },
-  "found_by": "mapillary:GSJ photo 9: 八代市岡町中 road → paddy, 120 cm"
- },
- {
-  "id": "kumamoto-mapi-9a4c0fdd",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 99 m from GSJ photo 11: 八代市上片町 near 八代JCT, ~130 cm vertical",
-  "caption": "Mapillary image, heading 27°.",
-  "lat": 32.50683,
-  "lon": 130.64631,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2026-02-19",
-  "when": "before",
-  "thumb_url": "https://scontent.fbrs4-1.fna.fbcdn.net/m1/v/t6/AQNOt7TN9Hse3ITS82u6TMmrTOD3wZsv5c8aoaSqeTtBXgdM3AtJB04iZcDveOe-8fvhKLNh26RdyIi-HlXn9yM9QOOuc-vEglfNuW3hgwSG-FKoHsK9AQ83ED4pHZgNl7Cbw6PVhuw1Y2xrxTKNlIXx0Og2IYoN382zUN075LbgJZv3?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=LU0QzT0BD63pZiDSaBMU9w&_nc_oc=Adr-SyMEQPwTFz2UZ7e2EuvwO5oBWMfF_lWEFzW0_x4rjuUVjBibeMNtIs6DAqow47VZFiYIjtBub1gmQVfhTITZ&ccb=10-5&oh=00_AQQ2gjm3bQdrp_4N5iWJzXdeBOlbYOO-BjLzX3SplC1ysw&oe=6B2017E4&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1857112245002182",
-  "credit": "parond / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -0.9,
-   "local_step_cm": 9.3,
-   "coherence": 0.53,
-   "measured": true
-  },
-  "found_by": "mapillary:GSJ photo 11: 八代市上片町 near 八代JCT, ~130 cm vertical"
- },
- {
-  "id": "kumamoto-mapi-31c46eab",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 243 m from GSJ photo 10: 龍峯小学校 schoolyard, 94 cm + mole track",
-  "caption": "Mapillary image, heading 87°.",
-  "lat": 32.528555,
-  "lon": 130.665938,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2026-02-19",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPYGlFyHPXUBE3r1lI7rIW7ZzvFcJSR-jkTaslBeKeraCM0-LEjW30U8mEcP7FjsO3bEMjdIDUc4oH_RRHztJTfO22DL9tJT-QACHEYt51IhvOetuZJIIRjjEPbbHtPA9uRc6sI5DqMFlWDLAZZVycWDX2Rz84fIpMcToWiUcNCQQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=2DgIoNnPFZfJXkFZPkUcTA&_nc_oc=AdoUfeOrnSIBPsz3285k8EOJwc6EkbMVex2rVTb2tXP6adkEM__qdUCJMhwn9x-slSRWMEJy8Zs9Fq_Puc6uQdQD&ccb=10-5&oh=00_AQR1OHuAsnFmWqJ2Hpc9ZiC-OGUBGsbi5_tg52I4x6wsLQ&oe=6B1FF1BA&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=1469699161340593",
-  "credit": "parond / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": 2.0,
-   "local_step_cm": 9.0,
-   "coherence": 0.42,
-   "measured": true
-  },
-  "found_by": "mapillary:GSJ photo 10: 龍峯小学校 schoolyard, 94 cm + mole track"
- },
- {
-  "id": "kumamoto-mapi-afa0d6d8",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 268 m from Ryuho Elementary 龍峯小学校",
-  "caption": "Mapillary image, heading 87°.",
-  "lat": 32.528385,
-  "lon": 130.66575,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2026-02-19",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOeQ37VlDBXilGSPETRi2LF7Gpanc0fau_4SQ5uMUR_c5A43du3RrSgsQvXgo8LIq85NoSguWy7lqs7Dr2JJ5ldfRCxQ37yVAmlnnVKUtG6-tza2ESSAMBOp0_TDJQsN9PJEBM5SDEHcDZWBNbe-savlTIcdnk4r1uWOJUZ-3SvRg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=c2p_1cNunJIJct-dXz79tA&_nc_oc=AdqzQ8jeKRXbSDAH58MiQ0iPf17yQrGuteSjXoL3xpQ--JNHnw4RQ3pIy5kriQOS3yNK97RHA0ZX5t2ckbO8Riui&ccb=10-5&oh=00_AQQuHOgoTyFyvBmYSTndR88XDOJuXHH20tjU_89T990JPA&oe=6B1FEFC5&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=2124102515004947",
-  "credit": "parond / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -3.2,
-   "local_step_cm": 6.4,
-   "coherence": 0.4,
-   "measured": true
-  },
-  "found_by": "mapillary:Ryuho Elementary 龍峯小学校"
- },
- {
-  "id": "kumamoto-mapi-6ed50570",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 125 m from GSJ photo 1: 御船町 paved road, 6 cm right-lateral (white line)",
-  "caption": "Mapillary 360° image, heading 328°.",
-  "lat": 32.715199,
-  "lon": 130.802998,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2025-11-07",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPu4HL2YQDgOOcpxwhxQg5pPPaUFXbswyc5gfXcGGv2slhu1-semUkgajmnPl2I2oy9j8jWJhVnpaouBXxTPVMCK2ZSrUvwcT5NnFJreh75hUh_klozrdYdGr-yw1aMSkIuAWhLorLvLDjmx0Q1syLT58qw4dd3M9oEj9W8P8fmz0U?stp=s1024x512&edm=AOnQwmMEAAAA&_nc_gid=TtEFuvbfjckctFOWs663eg&_nc_oc=AdpxekB0F7co7rvYNiRl1DL6WvLQ2bkQm4VC79LGtwmkazykhoFMTCnmkYHLn1ZQ9M_OUpocVatmMfzCNhMPO4Rs&ccb=10-5&oh=00_AQSXsf03RPW2o2Tyvzy7v2k3nKT4ICWOFTY4beFnrsKdEw&oe=6B1FE2AF&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=2225296081587026",
-  "credit": "yumechan / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "affected",
-  "nisar": {
-   "motion_cm": -19.3,
-   "local_step_cm": 2.3,
-   "coherence": 0.7,
-   "measured": true
-  },
-  "found_by": "mapillary:GSJ photo 1: 御船町 paved road, 6 cm right-lateral (white line)"
- },
- {
-  "id": "kumamoto-mapi-8607afb0",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 241 m from GEONET 950465 熊本 Kumamoto (NGL J465)",
-  "caption": "Mapillary image, heading 339°.",
-  "lat": 32.843483,
-  "lon": 130.762819,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2024-06-29",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQNpHnvIHTg_EixhgkDHVzcYUAoEHVVaJOAxS8ZxMkK9rM_N7ucaXcfT9bCLVs3ELgiiuYfrTFZ2TIQnNeHjyhlwStCXlHavNqHKTl3OIQXF4Hp6yh3K7S0ysQA59rYt7yTeMSZVXSg4n85U6rSPiMldaC0F2G_J3BYz5mMWwR0lCdY?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=rnSWt-wzUB--yKYtnAIhvA&_nc_oc=AdqJuPpoh0VrOItfuqXF683xqn_0Dp3MZhB5EbmoRVxzEjvEwd5NQ6_upJYp5gBk1isnhezy2jrQJ26Cssgw8Knp&ccb=10-5&oh=00_AQRLXWCDzCuZ7IxhFiJ4ShPIuWgE3misLasmavu1UVE1gA&oe=6B1FFF63&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=988305559461328",
-  "credit": "mitz / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 1.3,
-   "local_step_cm": 1.1,
-   "coherence": 0.69,
-   "measured": true
-  },
-  "found_by": "mapillary:GEONET 950465 熊本 Kumamoto (NGL J465)"
- },
- {
-  "id": "kumamoto-mapi-6d65cacf",
-  "source": "mapillary",
-  "type": "street",
-  "title": "Street view 285 m from GEONET 960773 大矢野 Ōyano (NGL J773)",
-  "caption": "Mapillary image, heading 223°.",
-  "lat": 32.5835,
-  "lon": 130.428233,
-  "loc_method": "mapillary GPS",
-  "loc_confidence": "high",
-  "date": "2025-09-18",
-  "when": "before",
-  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPPCwPvl2Z1aIdHv7eT7H7Uj51fjO3KUL1UEktqx3O8SBFptqcfmkQ3F6lhKtsvk7tYQqfO6bSEhsG1x6ye0acGHfMUDUmhRHn-eBTg3pNlvLrXug1GSDiqGscrAxKvtcxl_HUfP-w4rVBHYDISg1w-FvnZZjyfEF7-BqVXUpTJg_k?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=PY-Thai9jPJiDsKX1A3-tA&_nc_oc=Adq0uFSn3YdxAlhpYm47zABwR5DHWW6jcZqA3vSdXebTk9zcGahsayiyQSTTeSh8Yyfj8hcfXK7PlY6L-uwR8PzB&ccb=10-5&oh=00_AQQfLUbpDeJOkQugD5nAVfRfK1HF01HFaebc6MCiyGaMeg&oe=6B200606&_nc_sid=201bca",
-  "page_url": "https://www.mapillary.com/app/?pKey=24718907744412172",
-  "credit": "yasunari / Mapillary",
-  "licence": "CC BY-SA 4.0",
-  "showable": true,
-  "tier": 1,
-  "side_hint": "unaffected",
-  "nisar": {
-   "coherence": 0.82,
-   "measured": false
-  },
-  "found_by": "mapillary:GEONET 960773 大矢野 Ōyano (NGL J773)"
  },
  {
   "id": "kumamoto-01",
@@ -338,11 +49,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4132,
+   "v": 0.7827,
    "motion_cm": -2.7,
    "local_step_cm": 11.8,
    "coherence": 0.36,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -365,11 +79,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3788,
+   "v": 0.8386,
    "motion_cm": -4.5,
    "local_step_cm": 9.5,
    "coherence": 0.4,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -386,18 +103,23 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-15.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-15.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4461,
+   "v": 0.7367,
    "motion_cm": 0.1,
    "local_step_cm": 28.0,
    "coherence": 0.58,
    "measured": true
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-dfbb49c3.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-bc45aeae",
@@ -413,17 +135,22 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-13.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-13.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4605,
+   "v": 0.6954,
    "local_step_cm": 23.8,
    "coherence": 0.28,
    "measured": false
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-bc45aeae.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-f8e289a1",
@@ -439,18 +166,23 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-16.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-16.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4232,
+   "v": 0.7715,
    "motion_cm": -1.4,
    "local_step_cm": 17.9,
    "coherence": 0.35,
    "measured": true
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-f8e289a1.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-0be918c1",
@@ -466,18 +198,23 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4139,
+   "v": 0.7826,
    "motion_cm": 0.6,
    "local_step_cm": 11.7,
    "coherence": 0.57,
    "measured": true
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-0be918c1.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-7e971c9b",
@@ -493,18 +230,23 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-18.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-18.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3852,
+   "v": 0.8257,
    "motion_cm": -2.9,
    "local_step_cm": 9.7,
    "coherence": 0.54,
    "measured": true
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-7e971c9b.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-670c71f6",
@@ -520,18 +262,23 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3787,
+   "v": 0.8386,
    "motion_cm": -4.5,
    "local_step_cm": 9.5,
    "coherence": 0.4,
    "measured": true
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-670c71f6.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-ca22c431",
@@ -547,18 +294,23 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-20.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-20.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3563,
+   "v": 0.8584,
    "motion_cm": -10.2,
    "local_step_cm": 8.9,
    "coherence": 0.7,
    "measured": true
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-ca22c431.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-ddd731db",
@@ -574,18 +326,23 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-21.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-21.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.353,
+   "v": 0.8588,
    "motion_cm": -7.9,
    "local_step_cm": 8.5,
    "coherence": 0.6,
    "measured": true
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-ddd731db.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-8d27dc45",
@@ -601,17 +358,20 @@
   "when": "unknown",
   "thumb_url": null,
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-03.html",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5908,
+   "v": 0.4567,
    "motion_cm": -19.2,
    "local_step_cm": 6.0,
    "coherence": 0.59,
    "measured": true
   },
+  "approx": true,
   "found_by": "validation"
  },
  {
@@ -634,11 +394,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3846,
+   "v": 0.7527,
    "motion_cm": 21.2,
    "local_step_cm": 5.5,
    "coherence": 0.68,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -655,18 +418,23 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-07.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-07.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.6239,
+   "v": 0.438,
    "motion_cm": -19.5,
    "local_step_cm": 2.3,
    "coherence": 0.76,
    "measured": true
   },
-  "found_by": "validation"
+  "approx": true,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-c945d571.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-2801ddda",
@@ -688,11 +456,14 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.6173,
+   "v": 0.693,
    "motion_cm": -3.8,
    "local_step_cm": 1.9,
    "coherence": 0.71,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -715,11 +486,14 @@
   "tier": 1,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.5621,
+   "v": 0.2033,
    "motion_cm": 1.5,
    "local_step_cm": 1.2,
    "coherence": 0.74,
    "measured": true
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -742,9 +516,12 @@
   "tier": 1,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.0469,
+   "v": 0.6924,
    "coherence": 0.63,
    "measured": false
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -767,9 +544,12 @@
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5405,
+   "v": 0.4493,
    "coherence": 0.42,
    "measured": false
   },
+  "approx": false,
   "found_by": "validation"
  },
  {
@@ -786,16 +566,21 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-10.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-10.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4541,
+   "v": 0.5856,
    "coherence": 0.72,
    "measured": false
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-d86cb9cc.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-vali-3b00e976",
@@ -811,16 +596,21 @@
   "when": "unknown",
   "thumb_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-09.png",
   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-09.png",
-  "credit": null,
+  "credit": "gsj.jp",
   "licence": "data / report, link with credit",
   "showable": false,
   "tier": 1,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5533,
+   "v": 0.4949,
    "coherence": 0.58,
    "measured": false
   },
-  "found_by": "validation"
+  "approx": false,
+  "found_by": "validation",
+  "preview_url": "media/kumamoto-vali-3b00e976.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-04",
@@ -842,11 +632,14 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3475,
+   "v": 0.8267,
    "motion_cm": 3.5,
    "local_step_cm": 9.4,
    "coherence": 0.67,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -869,10 +662,13 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3849,
+   "v": 0.8348,
    "local_step_cm": 8.4,
    "coherence": 0.16,
    "measured": false
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -895,11 +691,14 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4707,
+   "v": 0.2726,
    "motion_cm": 0.8,
    "local_step_cm": 1.1,
    "coherence": 0.63,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -922,10 +721,13 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3849,
+   "v": 0.8348,
    "local_step_cm": 8.4,
    "coherence": 0.16,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -948,11 +750,14 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4276,
+   "v": 0.6854,
    "motion_cm": 22.2,
    "local_step_cm": 4.6,
    "coherence": 0.53,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -975,11 +780,14 @@
   "tier": 2,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1002,9 +810,12 @@
   "tier": 2,
   "side_hint": null,
   "nisar": {
+   "u": 0.4206,
+   "v": 0.5564,
    "coherence": 0.76,
    "measured": false
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1027,9 +838,12 @@
   "tier": 2,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4791,
+   "v": 0.6586,
    "coherence": 0.59,
    "measured": false
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -1052,12 +866,17 @@
   "tier": 2,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
-  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Mifune OR Kumamoto) earthquake fault"
+  "approx": true,
+  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Mifune OR Kumamoto) earthquake fault",
+  "preview_url": "media/kumamoto-gdel-5c73894b.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-05",
@@ -1079,11 +898,14 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": false,
   "found_by": "research"
  },
  {
@@ -1106,10 +928,13 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3849,
+   "v": 0.8348,
    "local_step_cm": 8.4,
    "coherence": 0.16,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1132,11 +957,132 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3849,
+   "v": 0.8348,
    "local_step_cm": 8.4,
    "coherence": 0.16,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
+ },
+ {
+  "id": "kumamoto-comm-a2dde145",
+  "source": "commons",
+  "type": "photo",
+  "title": "Michinoeki Ryuhoku",
+  "caption": "Road to station Ryuhoku, Kumamoto prefecture ,Japan",
+  "lat": 32.577306,
+  "lon": 130.695361,
+  "loc_method": "commons geotag",
+  "loc_confidence": "high",
+  "date": "2011-04-28",
+  "when": "before",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Michinoeki_Ryuhoku.jpg/960px-Michinoeki_Ryuhoku.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Michinoeki_Ryuhoku.jpg",
+  "credit": "アラツク",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.4616,
+   "v": 0.6944,
+   "local_step_cm": 3.7,
+   "coherence": 0.16,
+   "measured": false
+  },
+  "approx": false,
+  "found_by": "geosearch:GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm"
+ },
+ {
+  "id": "kumamoto-mapi-66866942",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 36 m from NISAR step 32 cm within 500 m",
+  "caption": "Mapillary 360° image, heading 279°.",
+  "lat": 32.555696,
+  "lon": 130.684939,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2025-08-17",
+  "when": "before",
+  "thumb_url": "https://scontent.fbrs4-1.fna.fbcdn.net/m1/v/t6/AQOiWJIG83PzpY9THHCzkEcfDF7RJXdYND5uf5kxNvye8YLU1ZATSbFljAVucuxPY7HIVIrBPJFVydYGdRUUx1nxL9pKs75rO3Jwo8I1UFmNeMosL29440oWYRIl-0pSaLx4XdgbgdrQkfx2xg75GVJZspPhXPDyoPxeHDPOK8v-RUk?stp=s1024x512&edm=AOnQwmMEAAAA&_nc_gid=2s-9axR9T46lHrNbVWM5Yg&_nc_oc=AdoRXfjAps5a_ZH36UKHyCH8iefi8Ju3eHVZwWrGFa2AZhCJTtl_KgC21QsO5D1i8URVDr0GMfJTvQr6DxVTnTL4&ccb=10-5&oh=00_AQSGrhmwaCXBXSi-vZSXVBeuA14VKGA4yGWW5jNw1cDeNA&oe=6B1FE8AA&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1804043800542919",
+  "credit": "kojiroucircle / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.4459,
+   "v": 0.7346,
+   "motion_cm": -1.7,
+   "local_step_cm": 31.8,
+   "coherence": 0.51,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:NISAR step 32 cm within 500 m"
+ },
+ {
+  "id": "kumamoto-mapi-16cb1a2e",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 108 m from GSJ photo 8: 氷川町宮原 road, 184 cm (the largest offset)",
+  "caption": "Mapillary 360° image, heading 323°.",
+  "lat": 32.555143,
+  "lon": 130.685963,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2025-08-17",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQNNiSCSB3AyKQESfBtasjDteWm0KRUnCOdJ3SeBfztajt3MOJCshxHjtI_JA_NzXAHzxIeDfDIitDTfLQS8oToTxfu5XLun9Q-xz3IiuuWdQ8cP5HURimJtFB713ZxghchoJFsXF5lGd4YCmP-dbsq27WSoSTK1IgMoVQkcBhc3Nm4?stp=s1024x512&edm=AOnQwmMEAAAA&_nc_gid=kYbMHVJRJKuxkUqF1_9QbA&_nc_oc=AdpLRjPyJcTdUVgkK9M57ruBoJM85ykuQYHrq5It_rAlWhXVXC7fZ0knPgJdKPBgsScGayPn3tbIfO2lZRISgO3t&ccb=10-5&oh=00_AQTltS4ocvlhhiBWbbcwVXt4102HqpQvsg73TbAfF6dLMQ&oe=6B1FFB20&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1283889719901577",
+  "credit": "kojiroucircle / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.4475,
+   "v": 0.7356,
+   "motion_cm": -0.2,
+   "local_step_cm": 27.3,
+   "coherence": 0.42,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:GSJ photo 8: 氷川町宮原 road, 184 cm (the largest offset)"
+ },
+ {
+  "id": "kumamoto-mapi-a2852157",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 43 m from GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm",
+  "caption": "Mapillary 360° image, heading 29°.",
+  "lat": 32.576568,
+  "lon": 130.695031,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2025-08-17",
+  "when": "before",
+  "thumb_url": "https://scontent.fbrs4-1.fna.fbcdn.net/m1/v/t6/AQNjlM1darlsXE5Gl5u-27hpLhAb2z0WmXBRxpnG_lkc_p_kCuYLa4KMZB78okaxJNdcOLdJnUBPE9aK1CsOZ1vDv3gPCky4I8gBP7rR5IjxCPSo0BWTSvx0H-wYXxLKyIfbZeygG9Abp8XGi2tFABe076ukkerLpPgGGJUA0xFUKb4?stp=s1024x512&edm=AOnQwmMEAAAA&_nc_gid=wif6G7eqaSWTnj5KIpsC_Q&_nc_oc=AdomhH2FXqOAn3FC5GeyWJ3RWUIO4yKcN727dnTpoAQzb69gYlNXDW1htKCxMwPVhmJqzThBcqmsjaaFzBsWNrph&ccb=10-5&oh=00_AQSI3wgraK34LZ1ZIjZnrZso3-iw3VKJHtgZ8HkMbuGg-A&oe=6B1FE5AE&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=788755350480389",
+  "credit": "kojiroucircle / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.4611,
+   "v": 0.6958,
+   "local_step_cm": 23.8,
+   "coherence": 0.28,
+   "measured": false
+  },
+  "approx": false,
+  "found_by": "mapillary:GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm"
  },
  {
   "id": "kumamoto-mapi-d556e491",
@@ -1158,10 +1104,13 @@
   "tier": 3,
   "side_hint": null,
   "nisar": {
+   "u": 0.4098,
+   "v": 0.7932,
    "local_step_cm": 21.8,
    "coherence": 0.41,
    "measured": false
   },
+  "approx": false,
   "found_by": "mapillary:NISAR step 23 cm within 500 m"
  },
  {
@@ -1184,12 +1133,104 @@
   "tier": 3,
   "side_hint": null,
   "nisar": {
+   "u": 0.3026,
+   "v": 0.8913,
    "motion_cm": -2.4,
    "local_step_cm": 21.2,
    "coherence": 0.47,
    "measured": true
   },
+  "approx": false,
   "found_by": "mapillary:NISAR step 22 cm within 500 m"
+ },
+ {
+  "id": "kumamoto-mapi-1e907f67",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 192 m from GSJ photo 9: 八代市岡町中 road → paddy, 120 cm",
+  "caption": "Mapillary image, heading 65°.",
+  "lat": 32.535182,
+  "lon": 130.671903,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2026-02-19",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOMQGxn9UFLkaSw0FECrUPsRkVS-61_5TO1y82gp_lvPF-5nE3joB5F5SurniS8gVkkTOLYNs576ybVN4y6zO5p3IDswV0wtGp2CxlpnCS3Znunk5vk4CiQVw8Ykgq6WnG9lA5ereZofB2p3jHO3U4-w8_ePbwtsT4ZshrtlgzqncY?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=wMswB954XW8c8s2bpvLnKA&_nc_oc=AdqlcgGxuMhgZ1QsghHG4F6TZwX5j7qklYAoaqJAVeqnPpmhw1fCbjQAySa3JidpbV6HhVDdYR6CS7dmg3M1J53f&ccb=10-5&oh=00_AQSDAI0c9PVCscszl0ABoLb0ils1fItXOP98mCUY0Ecrfw&oe=6B1FE28B&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=3065219807019261",
+  "credit": "parond / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.4261,
+   "v": 0.7728,
+   "local_step_cm": 15.7,
+   "coherence": 0.26,
+   "measured": false
+  },
+  "approx": false,
+  "found_by": "mapillary:GSJ photo 9: 八代市岡町中 road → paddy, 120 cm"
+ },
+ {
+  "id": "kumamoto-mapi-9a4c0fdd",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 99 m from GSJ photo 11: 八代市上片町 near 八代JCT, ~130 cm vertical",
+  "caption": "Mapillary image, heading 27°.",
+  "lat": 32.50683,
+  "lon": 130.64631,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2026-02-19",
+  "when": "before",
+  "thumb_url": "https://scontent.fbrs4-1.fna.fbcdn.net/m1/v/t6/AQNOt7TN9Hse3ITS82u6TMmrTOD3wZsv5c8aoaSqeTtBXgdM3AtJB04iZcDveOe-8fvhKLNh26RdyIi-HlXn9yM9QOOuc-vEglfNuW3hgwSG-FKoHsK9AQ83ED4pHZgNl7Cbw6PVhuw1Y2xrxTKNlIXx0Og2IYoN382zUN075LbgJZv3?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=LU0QzT0BD63pZiDSaBMU9w&_nc_oc=Adr-SyMEQPwTFz2UZ7e2EuvwO5oBWMfF_lWEFzW0_x4rjuUVjBibeMNtIs6DAqow47VZFiYIjtBub1gmQVfhTITZ&ccb=10-5&oh=00_AQQ2gjm3bQdrp_4N5iWJzXdeBOlbYOO-BjLzX3SplC1ysw&oe=6B2017E4&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1857112245002182",
+  "credit": "parond / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.3868,
+   "v": 0.8258,
+   "motion_cm": -0.9,
+   "local_step_cm": 9.3,
+   "coherence": 0.53,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:GSJ photo 11: 八代市上片町 near 八代JCT, ~130 cm vertical"
+ },
+ {
+  "id": "kumamoto-mapi-31c46eab",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 243 m from GSJ photo 10: 龍峯小学校 schoolyard, 94 cm + mole track",
+  "caption": "Mapillary image, heading 87°.",
+  "lat": 32.528555,
+  "lon": 130.665938,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2026-02-19",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPYGlFyHPXUBE3r1lI7rIW7ZzvFcJSR-jkTaslBeKeraCM0-LEjW30U8mEcP7FjsO3bEMjdIDUc4oH_RRHztJTfO22DL9tJT-QACHEYt51IhvOetuZJIIRjjEPbbHtPA9uRc6sI5DqMFlWDLAZZVycWDX2Rz84fIpMcToWiUcNCQQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=2DgIoNnPFZfJXkFZPkUcTA&_nc_oc=AdoUfeOrnSIBPsz3285k8EOJwc6EkbMVex2rVTb2tXP6adkEM__qdUCJMhwn9x-slSRWMEJy8Zs9Fq_Puc6uQdQD&ccb=10-5&oh=00_AQR1OHuAsnFmWqJ2Hpc9ZiC-OGUBGsbi5_tg52I4x6wsLQ&oe=6B1FF1BA&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1469699161340593",
+  "credit": "parond / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.4169,
+   "v": 0.7852,
+   "motion_cm": 2.0,
+   "local_step_cm": 9.0,
+   "coherence": 0.42,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:GSJ photo 10: 龍峯小学校 schoolyard, 94 cm + mole track"
  },
  {
   "id": "kumamoto-mapi-c576bb5b",
@@ -1211,11 +1252,44 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3865,
+   "v": 0.8339,
    "local_step_cm": 8.5,
    "coherence": 0.12,
    "measured": false
   },
+  "approx": false,
   "found_by": "mapillary:Myoken Daiichi Bridge 妙見第一橋"
+ },
+ {
+  "id": "kumamoto-mapi-afa0d6d8",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 268 m from Ryuho Elementary 龍峯小学校",
+  "caption": "Mapillary image, heading 87°.",
+  "lat": 32.528385,
+  "lon": 130.66575,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2026-02-19",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQOeQ37VlDBXilGSPETRi2LF7Gpanc0fau_4SQ5uMUR_c5A43du3RrSgsQvXgo8LIq85NoSguWy7lqs7Dr2JJ5ldfRCxQ37yVAmlnnVKUtG6-tza2ESSAMBOp0_TDJQsN9PJEBM5SDEHcDZWBNbe-savlTIcdnk4r1uWOJUZ-3SvRg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=c2p_1cNunJIJct-dXz79tA&_nc_oc=AdqzQ8jeKRXbSDAH58MiQ0iPf17yQrGuteSjXoL3xpQ--JNHnw4RQ3pIy5kriQOS3yNK97RHA0ZX5t2ckbO8Riui&ccb=10-5&oh=00_AQQuHOgoTyFyvBmYSTndR88XDOJuXHH20tjU_89T990JPA&oe=6B1FEFC5&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=2124102515004947",
+  "credit": "parond / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.4167,
+   "v": 0.7855,
+   "motion_cm": -3.2,
+   "local_step_cm": 6.4,
+   "coherence": 0.4,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:Ryuho Elementary 龍峯小学校"
  },
  {
   "id": "kumamoto-mapi-77d25c94",
@@ -1237,12 +1311,75 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5387,
+   "v": 0.3969,
    "motion_cm": 14.9,
    "local_step_cm": 3.6,
    "coherence": 0.76,
    "measured": true
   },
+  "approx": false,
   "found_by": "mapillary:AEON Mall Kumamoto イオンモール熊本"
+ },
+ {
+  "id": "kumamoto-mapi-6ed50570",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 125 m from GSJ photo 1: 御船町 paved road, 6 cm right-lateral (white line)",
+  "caption": "Mapillary 360° image, heading 328°.",
+  "lat": 32.715199,
+  "lon": 130.802998,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2025-11-07",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPu4HL2YQDgOOcpxwhxQg5pPPaUFXbswyc5gfXcGGv2slhu1-semUkgajmnPl2I2oy9j8jWJhVnpaouBXxTPVMCK2ZSrUvwcT5NnFJreh75hUh_klozrdYdGr-yw1aMSkIuAWhLorLvLDjmx0Q1syLT58qw4dd3M9oEj9W8P8fmz0U?stp=s1024x512&edm=AOnQwmMEAAAA&_nc_gid=TtEFuvbfjckctFOWs663eg&_nc_oc=AdpxekB0F7co7rvYNiRl1DL6WvLQ2bkQm4VC79LGtwmkazykhoFMTCnmkYHLn1ZQ9M_OUpocVatmMfzCNhMPO4Rs&ccb=10-5&oh=00_AQSXsf03RPW2o2Tyvzy7v2k3nKT4ICWOFTY4beFnrsKdEw&oe=6B1FE2AF&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=2225296081587026",
+  "credit": "yumechan / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.6257,
+   "v": 0.4368,
+   "motion_cm": -19.3,
+   "local_step_cm": 2.3,
+   "coherence": 0.7,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:GSJ photo 1: 御船町 paved road, 6 cm right-lateral (white line)"
+ },
+ {
+  "id": "kumamoto-mapi-8607afb0",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 241 m from GEONET 950465 熊本 Kumamoto (NGL J465)",
+  "caption": "Mapillary image, heading 339°.",
+  "lat": 32.843483,
+  "lon": 130.762819,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2024-06-29",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQNpHnvIHTg_EixhgkDHVzcYUAoEHVVaJOAxS8ZxMkK9rM_N7ucaXcfT9bCLVs3ELgiiuYfrTFZ2TIQnNeHjyhlwStCXlHavNqHKTl3OIQXF4Hp6yh3K7S0ysQA59rYt7yTeMSZVXSg4n85U6rSPiMldaC0F2G_J3BYz5mMWwR0lCdY?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=rnSWt-wzUB--yKYtnAIhvA&_nc_oc=AdqJuPpoh0VrOItfuqXF683xqn_0Dp3MZhB5EbmoRVxzEjvEwd5NQ6_upJYp5gBk1isnhezy2jrQJ26Cssgw8Knp&ccb=10-5&oh=00_AQRLXWCDzCuZ7IxhFiJ4ShPIuWgE3misLasmavu1UVE1gA&oe=6B1FFF63&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=988305559461328",
+  "credit": "mitz / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "unaffected",
+  "nisar": {
+   "u": 0.5589,
+   "v": 0.2008,
+   "motion_cm": 1.3,
+   "local_step_cm": 1.1,
+   "coherence": 0.69,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:GEONET 950465 熊本 Kumamoto (NGL J465)"
  },
  {
   "id": "kumamoto-mapi-53b5e7e2",
@@ -1264,10 +1401,41 @@
   "tier": 3,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4721,
+   "v": 0.6589,
    "coherence": 0.91,
    "measured": false
   },
+  "approx": false,
   "found_by": "mapillary:Uki 宇城市"
+ },
+ {
+  "id": "kumamoto-mapi-6d65cacf",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 285 m from GEONET 960773 大矢野 Ōyano (NGL J773)",
+  "caption": "Mapillary image, heading 223°.",
+  "lat": 32.5835,
+  "lon": 130.428233,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2025-09-18",
+  "when": "before",
+  "thumb_url": "https://scontent.flhr2-4.fna.fbcdn.net/m1/v/t6/AQPPCwPvl2Z1aIdHv7eT7H7Uj51fjO3KUL1UEktqx3O8SBFptqcfmkQ3F6lhKtsvk7tYQqfO6bSEhsG1x6ye0acGHfMUDUmhRHn-eBTg3pNlvLrXug1GSDiqGscrAxKvtcxl_HUfP-w4rVBHYDISg1w-FvnZZjyfEF7-BqVXUpTJg_k?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=PY-Thai9jPJiDsKX1A3-tA&_nc_oc=Adq0uFSn3YdxAlhpYm47zABwR5DHWW6jcZqA3vSdXebTk9zcGahsayiyQSTTeSh8Yyfj8hcfXK7PlY6L-uwR8PzB&ccb=10-5&oh=00_AQQfLUbpDeJOkQugD5nAVfRfK1HF01HFaebc6MCiyGaMeg&oe=6B200606&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=24718907744412172",
+  "credit": "yasunari / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 3,
+  "side_hint": "unaffected",
+  "nisar": {
+   "u": 0.0435,
+   "v": 0.6891,
+   "coherence": 0.82,
+   "measured": false
+  },
+  "approx": false,
+  "found_by": "mapillary:GEONET 960773 大矢野 Ōyano (NGL J773)"
  },
  {
   "id": "kumamoto-comm-286d61f1",
@@ -1289,10 +1457,13 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3842,
+   "v": 0.8381,
    "local_step_cm": 7.9,
    "coherence": 0.19,
    "measured": false
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1315,10 +1486,13 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3842,
+   "v": 0.8381,
    "local_step_cm": 7.9,
    "coherence": 0.19,
    "measured": false
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1341,10 +1515,13 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3842,
+   "v": 0.8381,
    "local_step_cm": 7.9,
    "coherence": 0.19,
    "measured": false
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1367,10 +1544,13 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3842,
+   "v": 0.8381,
    "local_step_cm": 7.9,
    "coherence": 0.19,
    "measured": false
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1393,10 +1573,13 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.2601,
+   "v": 0.9773,
    "local_step_cm": 5.5,
    "coherence": 0.29,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1419,11 +1602,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4276,
+   "v": 0.6854,
    "motion_cm": 22.2,
    "local_step_cm": 4.6,
    "coherence": 0.53,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -1446,11 +1632,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4276,
+   "v": 0.6854,
    "motion_cm": 22.2,
    "local_step_cm": 4.6,
    "coherence": 0.53,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -1473,11 +1662,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4276,
+   "v": 0.6854,
    "motion_cm": 22.2,
    "local_step_cm": 4.6,
    "coherence": 0.53,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -1500,11 +1692,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1527,11 +1722,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -1554,11 +1752,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1581,11 +1782,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:AEON MALL Kumamoto gas explosion"
  },
  {
@@ -1608,11 +1812,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:AEON MALL Kumamoto gas explosion"
  },
  {
@@ -1635,11 +1842,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:AEON MALL Kumamoto gas explosion"
  },
  {
@@ -1662,11 +1872,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:AEON MALL Kumamoto gas explosion"
  },
  {
@@ -1689,11 +1902,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:AEON MALL Kumamoto gas explosion"
  },
  {
@@ -1716,11 +1932,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -1743,11 +1962,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1770,11 +1992,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1797,11 +2022,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1824,11 +2052,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1851,11 +2082,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1878,11 +2112,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1905,11 +2142,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1932,11 +2172,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1959,11 +2202,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -1986,11 +2232,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -2013,11 +2262,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -2040,11 +2292,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -2067,11 +2322,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -2094,11 +2352,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -2121,11 +2382,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -2148,11 +2412,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -2175,11 +2442,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -2202,11 +2472,44 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.6408,
+   "v": 0.5542,
    "motion_cm": -15.6,
    "local_step_cm": 2.3,
    "coherence": 0.85,
    "measured": true
   },
+  "approx": true,
+  "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
+ },
+ {
+  "id": "kumamoto-comm-ecacd7db",
+  "source": "commons",
+  "type": "photo",
+  "title": "20260803 JSDF Preparing Bath Service at Ogawa Disaster Prevention Center (Uki City)",
+  "caption": "【宇城市】小川防災拠点センター での入浴支援準備",
+  "lat": 32.569845,
+  "lon": 130.717502,
+  "loc_method": "text: Ogawa 宇城市小川町",
+  "loc_confidence": "low",
+  "date": "2026-08-03",
+  "when": "after",
+  "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/20260803_JSDF_Preparing_Bath_Service_at_Ogawa_Disaster_Prevention_Center_%28Uki_City%29.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:20260803_JSDF_Preparing_Bath_Service_at_Ogawa_Disaster_Prevention_Center_(Uki_City).jpg",
+  "credit": "防衛省",
+  "licence": "CC BY 4.0",
+  "showable": true,
+  "tier": 4,
+  "side_hint": "affected",
+  "nisar": {
+   "u": 0.4964,
+   "v": 0.7076,
+   "motion_cm": -3.4,
+   "local_step_cm": 1.9,
+   "coherence": 0.48,
+   "measured": true
+  },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -2229,11 +2532,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4964,
+   "v": 0.7076,
    "motion_cm": -3.4,
    "local_step_cm": 1.9,
    "coherence": 0.48,
    "measured": true
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake damage"
  },
  {
@@ -2256,11 +2562,14 @@
   "tier": 4,
   "side_hint": "unaffected",
   "nisar": {
+   "u": 0.4707,
+   "v": 0.2726,
    "motion_cm": 0.8,
    "local_step_cm": 1.1,
    "coherence": 0.63,
    "measured": true
   },
+  "approx": true,
   "found_by": "search:2026 Kumamoto earthquake"
  },
  {
@@ -2283,9 +2592,12 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.4427,
+   "v": 0.5978,
    "coherence": 0.35,
    "measured": false
   },
+  "approx": false,
   "found_by": "search:2026 Kumamoto earthquake"
  },
  {
@@ -2308,9 +2620,12 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.5001,
+   "v": 0.5003,
    "coherence": 0.48,
    "measured": false
   },
+  "approx": false,
   "found_by": "category:Category:2026 Kumamoto earthquake"
  },
  {
@@ -2333,34 +2648,40 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4743,
+   "v": 0.6588,
    "coherence": 0.62,
    "measured": false
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
-  "id": "kumamoto-comm-ecacd7db",
+  "id": "kumamoto-comm-731c973b",
   "source": "commons",
   "type": "photo",
-  "title": "20260803 JSDF Preparing Bath Service at Ogawa Disaster Prevention Center (Uki City)",
-  "caption": "【宇城市】小川防災拠点センター での入浴支援準備",
-  "lat": 32.59646,
-  "lon": 130.703883,
-  "loc_method": "text: Uki 宇城市",
+  "title": "20260804 JSDF Staff Preparing Bath Service at Uto City Hall",
+  "caption": "【宇土市】宇土市役所での 入浴支援準備",
+  "lat": 32.687918,
+  "lon": 130.659822,
+  "loc_method": "text: Uto 宇土市",
   "loc_confidence": "low",
-  "date": "2026-08-03",
+  "date": "2026-08-04",
   "when": "after",
-  "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/20260803_JSDF_Preparing_Bath_Service_at_Ogawa_Disaster_Prevention_Center_%28Uki_City%29.jpg",
-  "page_url": "https://commons.wikimedia.org/wiki/File:20260803_JSDF_Preparing_Bath_Service_at_Ogawa_Disaster_Prevention_Center_(Uki_City).jpg",
+  "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/20260804_JSDF_Staff_Preparing_Bath_Service_at_Uto_City_Hall.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:20260804_JSDF_Staff_Preparing_Bath_Service_at_Uto_City_Hall.jpg",
   "credit": "防衛省",
   "licence": "CC BY 4.0",
   "showable": true,
   "tier": 4,
-  "side_hint": "affected",
+  "side_hint": null,
   "nisar": {
-   "coherence": 0.62,
+   "u": 0.4028,
+   "v": 0.4909,
+   "coherence": 0.53,
    "measured": false
   },
+  "approx": true,
   "found_by": "category:Category:2026 Kumamoto earthquake relief efforts"
  },
  {
@@ -2383,12 +2704,45 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": true,
   "found_by": "openverse:2026 Kumamoto earthquake"
+ },
+ {
+  "id": "kumamoto-mapi-f2d4f657",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 58 m from Hinagu Onsen 日奈久温泉",
+  "caption": "Mapillary image, heading 228°.",
+  "lat": 32.436421,
+  "lon": 130.581395,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2026-01-01",
+  "when": "before",
+  "thumb_url": "https://scontent-lhr6-2.xx.fbcdn.net/m1/v/t6/AQP3doxjsYXLl7hod2I9ctGTqD5h_wA57gZF_6Mxeqcvbr-OxEKe1mE-HnA2WWrtoFWeupCNYoBlIdWJGtQiGkwtxx86AMJrOs1dIKfY5bYD0DADqkMG60D4IdyFl5-fc_Z83xy2p4a43-YJ_7sUGgViF2sJvixOR-ofC116D-zPaA4?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=OPBKYahG9Awn14NdvaXq8A&_nc_oc=AdoDM5HkI5Qe8E3lLQDyFz2lBlZV-0uoHSyDVPrRrfiO0zOiiRpD5_TNUp7VpnSw1IJgJ60ne260KYSfB-Wapxc7&ccb=10-5&oh=00_AQTTRj1V9XzWCWB4EthoiFCetMtu55H-MxV5Ss0R3TQr4g&oe=6B201C20&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=886058177522706",
+  "credit": "alt9800 / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 4,
+  "side_hint": null,
+  "nisar": {
+   "u": 0.2871,
+   "v": 0.9575,
+   "motion_cm": -1.0,
+   "local_step_cm": 4.0,
+   "coherence": 0.68,
+   "measured": true
+  },
+  "approx": false,
+  "found_by": "mapillary:Hinagu Onsen 日奈久温泉"
  },
  {
   "id": "kumamoto-mapi-dd9a7d51",
@@ -2410,11 +2764,14 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.314,
+   "v": 0.8262,
    "motion_cm": 9.1,
    "local_step_cm": 3.8,
    "coherence": 0.56,
    "measured": true
   },
+  "approx": false,
   "found_by": "mapillary:Yatsushiro 八代市"
  },
  {
@@ -2437,10 +2794,13 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3154,
+   "v": 0.8258,
    "local_step_cm": 3.6,
    "coherence": 0.22,
    "measured": false
   },
+  "approx": false,
   "found_by": "mapillary:Yatsushiro 八代市"
  },
  {
@@ -2463,11 +2823,14 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.6302,
+   "v": 0.4385,
    "motion_cm": -18.5,
    "local_step_cm": 2.0,
    "coherence": 0.64,
    "measured": true
   },
+  "approx": false,
   "found_by": "mapillary:Mifune 御船町"
  },
  {
@@ -2490,10 +2853,41 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.4249,
+   "v": 0.5526,
    "coherence": 0.61,
    "measured": false
   },
+  "approx": false,
   "found_by": "mapillary:Matsubase 松橋"
+ },
+ {
+  "id": "kumamoto-mapi-0ac66f68",
+  "source": "mapillary",
+  "type": "street",
+  "title": "Street view 315 m from Uto 宇土市",
+  "caption": "Mapillary image, heading 268°.",
+  "lat": 32.690746,
+  "lon": 130.660078,
+  "loc_method": "mapillary GPS",
+  "loc_confidence": "high",
+  "date": "2025-09-18",
+  "when": "before",
+  "thumb_url": "https://scontent-lhr6-2.xx.fbcdn.net/m1/v/t6/AQNUfyfM6ruDItefxFzflGigaOjtT7G7QgvBrpcOaa_LLstzBiANt6of6ZvKfWTq_paAx4fj7ZJVyC7mzkhz6K-M6YcbyfFCp2ndqiAUmXOr0v7Q_Cm0Vs2OGRpqigoCCJMI2Ij4RTEILrWnSeIlchXumA_a68vM--uRkvOcgS19U6M?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=-BT-XWD3z6hshyY7jPD_Mg&_nc_oc=AdorNreiIT3pK43N2NhkZFTuEoVxgbHkC_2rmkYEZMdHsSBndchZMlN74iD6Lu6zBcUcM5-FbRwRjdLxKEpoHDJ_&ccb=10-5&oh=00_AQSrwBOfwO2UzLd3LUMlYRr3a_fo8KEFINVYw_cw5nFvlA&oe=6B1FF429&_nc_sid=201bca",
+  "page_url": "https://www.mapillary.com/app/?pKey=1508218207269390",
+  "credit": "yasunari / Mapillary",
+  "licence": "CC BY-SA 4.0",
+  "showable": true,
+  "tier": 4,
+  "side_hint": null,
+  "nisar": {
+   "u": 0.4031,
+   "v": 0.4856,
+   "coherence": 0.55,
+   "measured": false
+  },
+  "approx": false,
+  "found_by": "mapillary:Uto 宇土市"
  },
  {
   "id": "kumamoto-mapi-2f28df9c",
@@ -2515,9 +2909,12 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.4237,
+   "v": 0.5614,
    "coherence": 0.4,
    "measured": false
   },
+  "approx": false,
   "found_by": "mapillary:Matsubase 松橋"
  },
  {
@@ -2540,12 +2937,17 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.3475,
+   "v": 0.8267,
    "motion_cm": 3.5,
    "local_step_cm": 9.4,
    "coherence": 0.67,
    "measured": true
   },
-  "found_by": "gdelt:Kumamoto earthquake (fault OR rupture OR Yatsushiro OR Hikawa)"
+  "approx": true,
+  "found_by": "gdelt:Kumamoto earthquake (fault OR rupture OR Yatsushiro OR Hikawa)",
+  "preview_url": "media/kumamoto-gdel-3609d674.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-gdel-5232ff26",
@@ -2567,12 +2969,17 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.4276,
+   "v": 0.6854,
    "motion_cm": 22.2,
    "local_step_cm": 4.6,
    "coherence": 0.53,
    "measured": true
   },
-  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Kumamoto) earthquake (liquefaction OR crack OR uplift OR subsidence OR rupture)"
+  "approx": true,
+  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Kumamoto) earthquake (liquefaction OR crack OR uplift OR subsidence OR rupture)",
+  "preview_url": "media/kumamoto-gdel-5232ff26.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-gdel-60ffce64",
@@ -2594,12 +3001,17 @@
   "tier": 4,
   "side_hint": "affected",
   "nisar": {
+   "u": 0.5327,
+   "v": 0.3934,
    "motion_cm": 13.6,
    "local_step_cm": 4.3,
    "coherence": 0.56,
    "measured": true
   },
-  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Mifune OR Kumamoto) earthquake fault"
+  "approx": true,
+  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Mifune OR Kumamoto) earthquake fault",
+  "preview_url": "media/kumamoto-gdel-60ffce64.png",
+  "preview": "pixelated"
  },
  {
   "id": "kumamoto-gdel-4fb71222",
@@ -2621,88 +3033,16 @@
   "tier": 4,
   "side_hint": null,
   "nisar": {
+   "u": 0.3171,
+   "v": 0.8253,
    "motion_cm": 11.4,
    "local_step_cm": 3.4,
    "coherence": 0.38,
    "measured": true
   },
-  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Kumamoto) earthquake (liquefaction OR crack OR uplift OR subsidence OR rupture)"
- },
- {
-  "id": "kumamoto-gdel-8e423a97",
-  "source": "gdelt",
-  "type": "news",
-  "title": " 「 高野 ― 白旗区間 」 全域動く 震源３８キロ 、 広島大など調査｜全国のニュース｜Web東奥",
-  "caption": "toonippo.co.jp (Japanese)",
-  "lat": 32.806908,
-  "lon": 130.705137,
-  "loc_method": "nominatim: 白旗区",
-  "loc_confidence": "low",
-  "date": "2026-08-28",
-  "when": "after",
-  "thumb_url": "https://www.toonippo.co.jp/common/too/images/v1/common/ogp-image.png",
-  "page_url": "https://www.toonippo.co.jp/articles/-/2350137",
-  "credit": "toonippo.co.jp",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": "unaffected",
-  "nisar": {
-   "motion_cm": 1.0,
-   "local_step_cm": 1.1,
-   "coherence": 0.66,
-   "measured": true
-  },
-  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Mifune OR Kumamoto) earthquake fault"
- },
- {
-  "id": "kumamoto-gdel-91e2c48a",
-  "source": "gdelt",
-  "type": "news",
-  "title": "大分市で県NIE実践研究会 、 小中高校の教諭ら13人が参加 新聞記事の感想を書く学習法など紹介 - 大分のニュースなら 大分合同新聞プレミアムオンライン Gate",
-  "caption": "oita-press.co.jp (Japanese)",
-  "lat": 32.538419,
-  "lon": 130.555019,
-  "loc_method": "nominatim: 大分市",
-  "loc_confidence": "low",
-  "date": "2026-09-12",
-  "when": "after",
-  "thumb_url": "https://www.oita-press.co.jp/-/media/Images/oita-press/2026/09/12/JDC2026091201444_01_68804.ashx",
-  "page_url": "https://www.oita-press.co.jp/1010000000/2026/09/12/JDC2026091201444",
-  "credit": "oita-press.co.jp",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "coherence": 0.61,
-   "measured": false
-  },
-  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Kumamoto) earthquake (liquefaction OR crack OR uplift OR subsidence OR rupture)"
- },
- {
-  "id": "kumamoto-gdel-b7948eff",
-  "source": "gdelt",
-  "type": "news",
-  "title": "２０２６熊本地震 温かい食事 ・ 野菜 ・ ベッド … 被災者の要望切実 / 八代 ・ 宇城両市 田村委員長が調査",
-  "caption": "jcp.or.jp (Japanese)",
-  "lat": 32.646941,
-  "lon": 130.66914,
-  "loc_method": "nominatim: 宇城両市",
-  "loc_confidence": "low",
-  "date": "2026-08-08",
-  "when": "after",
-  "thumb_url": "https://www.jcp.or.jp/akahata/aik26/2026-08-08/img_1.jpg",
-  "page_url": "https://www.jcp.or.jp/akahata/aik26/2026-08-08/2026080801_01_0.php",
-  "credit": "jcp.or.jp",
-  "licence": "news, link only",
-  "showable": false,
-  "tier": 4,
-  "side_hint": null,
-  "nisar": {
-   "coherence": 0.47,
-   "measured": false
-  },
-  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Mifune OR Kumamoto) earthquake fault"
+  "approx": true,
+  "found_by": "gdelt:(Yatsushiro OR Hikawa OR Uki OR Kumamoto) earthquake (liquefaction OR crack OR uplift OR subsidence OR rupture)",
+  "preview_url": "media/kumamoto-gdel-4fb71222.png",
+  "preview": "pixelated"
  }
 ]
