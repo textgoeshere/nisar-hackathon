@@ -23,7 +23,7 @@
     "inside": true,
     "coherence": 0.6,
     "measured": true,
-    "motion_cm": 16.7,
+    "motion_cm": 17.8,
     "local_step_cm": 1.8
    },
    "show_image": false,
@@ -52,7 +52,7 @@
     "inside": true,
     "coherence": 0.52,
     "measured": true,
-    "motion_cm": 66.9,
+    "motion_cm": 68.0,
     "local_step_cm": 15.8
    },
    "show_image": true,
@@ -81,8 +81,8 @@
     "inside": true,
     "coherence": 0.45,
     "measured": true,
-    "motion_cm": 71.0,
-    "local_step_cm": 11.4
+    "motion_cm": 72.1,
+    "local_step_cm": 11.5
    },
    "show_image": true,
    "status": "candidate",
@@ -137,8 +137,8 @@
     "inside": true,
     "coherence": 0.65,
     "measured": true,
-    "motion_cm": 5.9,
-    "local_step_cm": 2.9
+    "motion_cm": 7.0,
+    "local_step_cm": 2.8
    },
    "show_image": false,
    "status": "candidate",
@@ -166,7 +166,7 @@
     "inside": true,
     "coherence": 0.66,
     "measured": true,
-    "motion_cm": 3.9,
+    "motion_cm": 5.0,
     "local_step_cm": 3.0
    },
    "show_image": false,

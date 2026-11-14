@@ -19,8 +19,8 @@
     {"slug": "mozambique-flood", "name": "Limpopo floods, Mozambique", "kind": "flood", "lat": -24.55, "lon": 33.0, "date": "2026-01-15", "half_km": 20},
     {"slug": "san-juan-flood", "name": "San Juan River flood, New Mexico", "kind": "flood", "lat": 36.73, "lon": -108.2, "date": "2026-10-15", "half_km": 15},
     {"slug": "toccoa-flood", "name": "Toccoa River flood, Georgia/Tennessee", "kind": "flood", "lat": 34.98, "lon": -84.37, "date": "2026-11-05", "half_km": 15},
-    {"slug": "aspen-acres-fire", "name": "Aspen Acres Fire, Colorado", "kind": "fire", "lat": 38.15, "lon": -105.186, "date": "2026-06-29", "half_km": 20},
-    {"slug": "little-giant-fire", "name": "Little Giant Fire, Washington", "kind": "fire", "lat": 47.983, "lon": -120.834, "date": "2026-07-16", "half_km": 20},
+    {"slug": "aspen-acres-fire", "name": "Aspen Acres Fire, Colorado", "kind": "fire", "lat": 38.027, "lon": -105.039, "date": "2026-06-29", "after_from": "2026-07-09", "half_km": 20},
+    {"slug": "little-giant-fire", "name": "Little Giant Fire, Washington", "kind": "fire", "lat": 47.951, "lon": -120.583, "date": "2026-07-16", "after_from": "2026-10-01", "half_km": 20},
     {"slug": "morrill-fire", "name": "Morrill Fire, Nebraska", "kind": "fire", "lat": 41.9, "lon": -103.1, "date": "2026-03-10", "half_km": 20}
   ]
 }

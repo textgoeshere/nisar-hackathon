@@ -107,7 +107,7 @@
     "inside": true,
     "coherence": 0.46,
     "measured": true,
-    "motion_cm": -2.5,
+    "motion_cm": -1.9,
     "local_step_cm": 10.6
    },
    "show_image": true,
@@ -136,7 +136,7 @@
     "inside": true,
     "coherence": 0.34,
     "measured": true,
-    "motion_cm": -2.5,
+    "motion_cm": -1.9,
     "local_step_cm": 4.0
    },
    "show_image": false,
@@ -193,7 +193,7 @@
     "inside": true,
     "coherence": 0.69,
     "measured": true,
-    "motion_cm": -2.4,
+    "motion_cm": -1.8,
     "local_step_cm": 4.1
    },
    "show_image": false,

@@ -51,8 +51,10 @@ def read_window(g: Granule, lat: float, lon: float, half_m: float, s=None) -> di
         comp = hh["connectedComponents"][win]
         freq = float(f[f"{BASE}/centerFrequency"][()])
     lam = C / freq
-    los = -lam / (4 * np.pi) * (phase - np.nan_to_num(iono))
-    ok = np.isfinite(los) & (comp > 0) & (coh >= MIN_COH)
+    # No ionosphere screen for a pixel means no correction: drop it rather than mix corrected and
+    # uncorrected phase (that mix put fake metre-scale steps into Langtang). phase == 0 is fill.
+    los = -lam / (4 * np.pi) * (phase - iono)
+    ok = np.isfinite(los) & (phase != 0) & (comp > 0) & (coh >= MIN_COH)
     if ok.any():
         labels, n = np.unique(comp[ok], return_counts=True)
         ok &= comp == labels[np.argmax(n)]

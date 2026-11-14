@@ -1,0 +1,158 @@
+{
+ "slug": "aspen-acres-fire",
+ "name": "Aspen Acres Fire, Colorado",
+ "kind": "fire",
+ "date": "2026-06-29",
+ "lat": 38.027,
+ "lon": -105.039,
+ "grid": {
+  "epsg": 32613,
+  "left": 476560.0,
+  "top": 4228800.0,
+  "dx": 40.0,
+  "nx": 1000,
+  "ny": 1000,
+  "bounds_lonlat": [
+   -105.26773205916129,
+   37.846341949088846,
+   -104.810850934568,
+   38.20715764818628
+  ]
+ },
+ "layers": {
+  "dem": "dem.i16",
+  "los": "los.i16",
+  "surface": "surface.i16",
+  "valid": "valid.u8",
+  "coh": "coh.u8",
+  "change": "change.u8",
+  "dbchange": "dbchange.i16"
+ },
+ "ground": "ground.jpg",
+ "nisar": {
+  "granules": [
+   "NISAR_L2_PR_GCOV_022_019_A_021_4005_DHDH_A_20260603T121118_20260603T121153_P05023_N_F_J_001",
+   "NISAR_L2_PR_GCOV_023_019_A_021_4005_DHDH_A_20260615T121118_20260615T121152_P05023_N_F_J_001",
+   "NISAR_L2_PR_GCOV_024_019_A_021_4005_DHDH_A_20260627T121117_20260627T121152_P05023_N_F_J_001",
+   "NISAR_L2_PR_GCOV_025_019_A_021_4005_DHDH_A_20260709T121116_20260709T121151_P05023_N_F_J_001",
+   "NISAR_L2_PR_GCOV_026_019_A_021_4005_DHDH_A_20260721T121116_20260721T121150_P05023_N_F_J_001"
+  ],
+  "passes_before": [
+   "2026-06-03",
+   "2026-06-15",
+   "2026-06-27"
+  ],
+  "passes_after": [
+   "2026-07-09",
+   "2026-07-21"
+  ],
+  "pair": [
+   "2026-06-27",
+   "2026-07-09"
+  ],
+  "stack": [
+   19,
+   21,
+   "A"
+  ],
+  "epsg": 32613,
+  "mb_read": 690.0,
+  "optical_before": {
+   "window": [
+    "2026-04-15",
+    "2026-06-28"
+   ],
+   "scenes": [
+    "S2B_13SEB_20260507_0_L2A",
+    "S2B_13SDB_20260507_0_L2A",
+    "S2B_13SEC_20260507_0_L2A",
+    "S2B_13SDC_20260507_0_L2A",
+    "S2C_13SEB_20260611_0_L2A",
+    "S2C_13SEC_20260611_0_L2A",
+    "S2C_13SDC_20260611_0_L2A",
+    "S2C_13SDB_20260611_0_L2A",
+    "S2B_13SDC_20260616_1_L2A",
+    "S2B_13SDB_20260616_0_L2A",
+    "S2B_13SEB_20260616_0_L2A",
+    "S2B_13SEC_20260616_1_L2A",
+    "S2B_13SEB_20260530_0_L2A",
+    "S2B_13SDB_20260530_0_L2A",
+    "S2B_13SDC_20260530_0_L2A",
+    "S2B_13SEC_20260530_0_L2A",
+    "S2C_13SEC_20260502_0_L2A",
+    "S2C_13SEB_20260502_0_L2A",
+    "S2C_13SDC_20260502_0_L2A",
+    "S2C_13SDB_20260502_0_L2A",
+    "S2C_13SDB_20260621_0_L2A",
+    "S2C_13SEC_20260621_0_L2A",
+    "S2C_13SEB_20260621_0_L2A",
+    "S2C_13SDC_20260621_0_L2A"
+   ]
+  },
+  "optical_after": {
+   "window": [
+    "2026-06-30",
+    "2026-08-13"
+   ],
+   "scenes": [
+    "S2C_13SEB_20260714_0_L2A",
+    "S2C_13SEC_20260714_0_L2A",
+    "S2C_13SDC_20260714_0_L2A",
+    "S2C_13SDB_20260714_0_L2A",
+    "S2C_13SEB_20260701_0_L2A",
+    "S2C_13SDB_20260701_0_L2A",
+    "S2C_13SDC_20260701_0_L2A",
+    "S2C_13SEC_20260701_0_L2A",
+    "S2B_13SEB_20260805_0_L2A",
+    "S2B_13SDC_20260805_0_L2A",
+    "S2B_13SEC_20260805_0_L2A",
+    "S2B_13SDB_20260805_0_L2A",
+    "S2B_13SEC_20260716_0_L2A",
+    "S2B_13SEB_20260716_0_L2A",
+    "S2B_13SDC_20260716_0_L2A",
+    "S2B_13SDB_20260716_0_L2A",
+    "S2B_13SEC_20260706_0_L2A",
+    "S2B_13SEB_20260706_0_L2A",
+    "S2B_13SDB_20260706_0_L2A",
+    "S2B_13SDC_20260706_0_L2A",
+    "S2C_13SEC_20260711_0_L2A",
+    "S2C_13SEB_20260711_0_L2A",
+    "S2C_13SDB_20260711_0_L2A",
+    "S2C_13SDC_20260711_0_L2A"
+   ]
+  }
+ },
+ "stats": {
+  "measured_pct": 100.0,
+  "change_pct": 4.0,
+  "change_km2": 63.7,
+  "median_db_change": -2.6
+ },
+ "images": [
+  {
+   "file": "backscatter-before.jpg",
+   "caption": "Radar backscatter before, median of 3 passes (2026-06-03 \u2192 2026-06-27). Red = HH, green = HV, blue = HH/HV: water is black, vegetation green, buildings and bare ground pink-white.",
+   "source": "NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 5 passes, track 19"
+  },
+  {
+   "file": "backscatter-after.jpg",
+   "caption": "Radar backscatter after (2026-07-09, 2026-07-21), same colours.",
+   "source": "NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 5 passes, track 19"
+  },
+  {
+   "file": "change.png",
+   "caption": "Change: bright = ground that lost vegetation backscatter (HV), i.e. burnt between the passes.",
+   "source": "NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 5 passes, track 19"
+  },
+  {
+   "file": "optical-before.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 24 scenes, 2026-04-15 \u2192 2026-06-28.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  },
+  {
+   "file": "optical-after.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 24 scenes, 2026-06-30 \u2192 2026-08-13.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  }
+ ]
+}

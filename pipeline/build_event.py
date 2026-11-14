@@ -118,15 +118,18 @@ def fetch_chain(ev: dict, s) -> tuple[dict, dict]:
 def pick_passes(ev: dict) -> tuple[list[cmr.Granule], list[cmr.Granule]]:
     """Backscatter passes on one stack: up to 3 before the event (a stable 'normal') and, after it,
     the first pass for a flood (water drains within days) or the first two for a fire (scars last).
+    A fire's "after" passes start at `after_from` when set: big fires grow for weeks, and a pass from
+    the first days only sees a fraction of the final scar.
     The stack whose first post-event pass comes soonest wins; ties go to the larger stack."""
     d = ev["date"]
+    d_after = ev.get("after_from", d)
     best = None
     for st, gs in cmr.stacks(cmr.search(cmr.GCOV, ev["lat"], ev["lon"])).items():
         pre = [g for g in gs if g.start < d][-3:]
-        post = [g for g in gs if g.start >= d][: 1 if ev["kind"] == "flood" else 2]
+        post = [g for g in gs if g.start >= d_after][: 1 if ev["kind"] == "flood" else 2]
         if len(pre) < 2 or not post:
             continue
-        key = (date.fromisoformat(post[0].start) - date.fromisoformat(d)).days
+        key = (date.fromisoformat(post[0].start) - date.fromisoformat(d_after)).days
         if best is None or key < best[0]:
             best = (key, pre, post)
     if not best:
@@ -146,10 +149,20 @@ def fetch_backscatter(ev: dict, s) -> tuple[dict, dict]:
     x, y = gcov.out_grid(epsg, ev["lat"], ev["lon"], ev["half_km"] * 1000, GCOV_DX)
     with ThreadPoolExecutor(4) as ex:
         reads = list(ex.map(lambda g: gcov.read_window(g, x, y, s), pre + post))
+    # Drop blank passes (all zeros or no data): one of them once turned a whole fire window into "burn".
+    def blank(r):
+        v = r["hh"][np.isfinite(r["hh"])]
+        return v.size == 0 or np.median(gcov.db(v)) < -50
+    keep = [not blank(r) for r in reads]
+    if not all(keep):
+        print(f"  dropped blank passes: {[g.start for g, k in zip(pre + post, keep) if not k]}", flush=True)
+    pre, b = [g for g, k in zip(pre, keep) if k], [r for r, k in zip(reads, keep) if k][: sum(keep[: len(pre)])]
+    post, a = [g for g, k in zip(post, keep[len(keep) - len(post):]) if k], [r for r, k in zip(reads[len(reads) - len(post):], keep[len(keep) - len(post):]) if k]
+    if not b or not a:
+        raise LookupError(f"{ev['slug']}: no usable backscatter passes on one side")
     med = lambda rs, p: np.nanmedian(np.stack([r[p] for r in rs]), axis=0).astype(np.float32)
-    b, a = reads[: len(pre)], reads[len(pre):]
     out = {"hh_before": med(b, "hh"), "hv_before": med(b, "hv"), "hh_after": med(a, "hh"), "hv_after": med(a, "hv"),
-           "x": x, "y": y}
+           "hv_after_each": np.stack([r["hv"] for r in a]).astype(np.float32), "x": x, "y": y}
     info = {"granules": [g.id for g in pre + post], "passes_before": [g.start for g in pre],
             "passes_after": [g.start for g in post], "pair": [pre[-1].start, post[0].start],
             "stack": list(pre[0].stack), "epsg": epsg, "mb_read": round(sum(r["bytes_read"] for r in reads) / 1e6, 1)}
@@ -160,8 +173,10 @@ def backscatter_change(kind: str, A: dict) -> tuple[np.ndarray, np.ndarray]:
     """Strength (0-1) of the event signal per cell, and where both before and after were seen.
 
     Flood: ground that was not water before (HH above -15 dB) and is dark after (open water reflects
-    the pulse away), scored by how far HH fell. Fire: HV (vegetation volume) fell; already-dark
-    ground (water, bare rock) is excluded.
+    the pulse away), scored by how far HH fell. Fire: HV (vegetation volume) fell more than 2 dB below
+    the pre-fire median on one after-pass and stays more than 1.5 dB down on every after-pass (a burn
+    doesn't recover in weeks; one dark pass alone is wet ground or speckle). Already-dark ground
+    (water, bare rock) is excluded. Smoothed 3x3 first, as the spike validated against perimeters.
     """
     from scipy import ndimage
     hb, ha, vb, va = (gcov.db(A[k]) for k in ("hh_before", "hh_after", "hv_before", "hv_after"))
@@ -169,7 +184,13 @@ def backscatter_change(kind: str, A: dict) -> tuple[np.ndarray, np.ndarray]:
     if kind == "flood":
         c = np.clip((hb - ha - 3) / 6, 0, 1) * (ha < -15) * (hb > -15)
     else:
-        c = np.clip((vb - va - 1.5) / 3, 0, 1) * (vb > -20)
+        each = A["hv_after_each"] if "hv_after_each" in A else [A["hv_after"]]
+        sm = lambda a: gcov.db(ndimage.uniform_filter(np.nan_to_num(a), 3))
+        vbs = sm(A["hv_before"])
+        drops = np.stack([vbs - sm(a) for a in each])
+        lo, hi = drops.min(0), drops.max(0)
+        # 0.5 (the "hit" cut) at the 1.5 dB floor; full strength by 3 dB.
+        c = np.clip(0.5 + (lo - 1.5) / 3, 0, 1) * (lo > 1.5) * (hi > 2) * (vb > -20)
     c = ndimage.median_filter(np.where(seen, np.nan_to_num(c), 0), 3)
     return c.astype(np.float32), seen
 
@@ -349,8 +370,10 @@ def build(slug: str, refetch=False):
         # A 5x5 median keeps single-pixel unwrapping errors from posing as the fastest-sinking spot.
         from scipy import ndimage
         r = np.where(valid, ndimage.median_filter(np.nan_to_num(A["rate_m_yr"]), 5), np.nan)
-        k = np.unravel_index(np.nanargmin(r), r.shape)
-        stats |= {"max_sinking_cm_yr": round(float(-np.nanmin(r)) * 100, 1), "fit_rms_cm": info["fit_rms_cm"],
+        # "Fastest" = the 0.5th percentile, as in the spike: the single extreme pixel overstated it 2x.
+        p05 = float(np.nanpercentile(r, 0.5))
+        k = np.unravel_index(np.nanargmin(np.abs(r - p05)), r.shape)
+        stats |= {"max_sinking_cm_yr": round(-p05 * 100, 1), "fit_rms_cm": info["fit_rms_cm"],
                   "fastest_uv": [round(float(k[1] + 0.5) / grid.nx, 4), round(float(k[0] + 0.5) / grid.ny, 4)],
                   "fastest_series_cm": [0.0] + [round(float(c) * 100, 1) for c in A["cum"][:, k[0], k[1]]]}
     if "coh_pre" in A:
