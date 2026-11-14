@@ -292,7 +292,7 @@ ${grid}</ul>`));
 <li><strong>Apply a simple rule</strong> on brightness in decibels (dB): ${fire
   ? "ground whose HV fell by more than 1.5 dB is mapped as burnt, leaving out ground that was already dark (water, bare rock)."
   : "ground that wasn't dark before (HH above −15 dB), is dark after (below −15 dB) and fell by more than 3 dB is mapped as new open water."}</li>
-<li><strong>Clean up lone pixels</strong> with a 3 × 3 median filter. Result: <strong>${s.change_km2} km²</strong> mapped, typically ${s.median_db_change} dB darker in ${pol}.</li>
+<li><strong>Clean up lone pixels</strong> with a 3 × 3 median filter, then <strong>drop patches smaller than ${(10 * dx * dx / 1e4).toFixed(1)} ha</strong> (10 cells). Neighbouring cells share speckle, so a handful of them together is one piece of evidence, not ten. Result: <strong>${s.change_km2} km²</strong> mapped, typically ${s.median_db_change} dB darker in ${pol}.</li>
 ${grid}</ul>`));
     parts.push(step("4 · Painting the change in colour",
       `<p>We painted the mapped ground a single colour: <strong class="${fire ? "red" : "cyan"}">${fire ? "red" : "cyan"}</strong> in the 3D view, where it fades in with the slider. Below, white is changed ground.</p>`,

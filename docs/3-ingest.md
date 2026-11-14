@@ -117,6 +117,14 @@ stack whose first post-event pass comes soonest. Medians across passes damp spec
 - Fire: HV (vegetation volume scattering) fell by more than 1.5 dB, ignoring ground that was
   already dark.
 
+Both maps get a 3x3 median filter and a minimum mapping unit: connected change patches smaller than
+10 cells (1.6 ha) are dropped (`MIN_PATCH`). Neighbouring cells share speckle and smoothing, so they
+are not independent evidence, and a few together can be chance. The reported areas are mapped areas,
+not significance tests; don't describe them as "statistically significant". Dropping the small
+patches cost the fires under 0.5 points of perimeter overlap (Aspen Acres 13.2% → 12.7% caught,
+Little Giant 20.1% → 19.8%) and cut the area mapped outside the perimeter (0.63% → 0.60%,
+0.15% → 0.10%).
+
 In monsoon floods every Sentinel-2 scene can be clouded out, so the draped ground image falls back
 to the before composite, then to radar brightness.
 

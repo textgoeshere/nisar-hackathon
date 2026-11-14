@@ -82,9 +82,9 @@
  },
  "stats": {
   "measured_pct": 100.0,
-  "change_pct": 1.5,
-  "change_km2": 13.1,
-  "median_db_change": -7.7,
+  "change_pct": 1.3,
+  "change_km2": 11.4,
+  "median_db_change": -7.8,
   "brightened_km2": 22.5
  },
  "images": [

@@ -33,6 +33,7 @@ SNOWLINE_M = 3500    # landslide coherence-drop mask (Himalaya, late August)
 CYCLE_M = 0.10        # one colour cycle in rendered interferograms = 10 cm of motion
 BACKSCATTER = ("flood", "fire")   # events read from GCOV backscatter, not interferogram phase
 GCOV_DX = 40.0        # output cell for backscatter: averages 4-16 native pixels, damping speckle
+MIN_PATCH = 10        # smallest mapped change patch, in cells (10 x 40 m cells = 1.6 ha)
 
 
 def candidates() -> dict[str, dict]:
@@ -192,6 +193,12 @@ def backscatter_change(kind: str, A: dict) -> tuple[np.ndarray, np.ndarray]:
         # 0.5 (the "hit" cut) at the 1.5 dB floor; full strength by 3 dB.
         c = np.clip(0.5 + (lo - 1.5) / 3, 0, 1) * (lo > 1.5) * (hi > 2) * (vb > -20)
     c = ndimage.median_filter(np.where(seen, np.nan_to_num(c), 0), 3)
+    # Minimum mapping unit: neighbouring cells share speckle and smoothing, so a few hit cells together
+    # are not independent evidence. Drop connected hit patches smaller than MIN_PATCH cells.
+    lab, n = ndimage.label(c > 0.5)
+    small = np.bincount(lab.ravel(), minlength=n + 1) < MIN_PATCH
+    small[0] = False
+    c[small[lab]] = 0
     return c.astype(np.float32), seen
 
 
