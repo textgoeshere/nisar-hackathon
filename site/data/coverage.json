@@ -1,0 +1,579 @@
+[
+ {
+  "slug": "panama-quake",
+  "name": "Azuero M7.7 earthquake, Panama",
+  "kind": "quake",
+  "date": "2026-10-09",
+  "gunw_pairs": 17,
+  "gcov_passes": 19,
+  "spanning": [
+   {
+    "stack": "T40F85D",
+    "pair": [
+     "2026-10-02",
+     "2026-10-14"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T76F5A",
+    "pair": [
+     "2026-10-05",
+     "2026-10-17"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T40F85D",
+   "before": 9,
+   "after": 1,
+   "first_after": "2026-10-14"
+  },
+  "score": 1.0
+ },
+ {
+  "slug": "venezuela-quake",
+  "name": "Yaracuy M7.2 + M7.5 doublet, Venezuela",
+  "kind": "quake",
+  "date": "2026-06-24",
+  "gunw_pairs": 54,
+  "gcov_passes": 56,
+  "spanning": [
+   {
+    "stack": "T162F7A",
+    "pair": [
+     "2026-06-13",
+     "2026-06-25"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T54F83D",
+    "pair": [
+     "2026-06-17",
+     "2026-06-29"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T54F83D",
+   "before": 20,
+   "after": 9,
+   "first_after": "2026-06-29"
+  },
+  "score": 1.0
+ },
+ {
+  "slug": "flores-quake",
+  "name": "Flores Sea M7.8 earthquake, Indonesia",
+  "kind": "quake",
+  "date": "2026-08-14",
+  "gunw_pairs": 15,
+  "gcov_passes": 17,
+  "spanning": [
+   {
+    "stack": "T168F173A",
+    "pair": [
+     "2026-08-12",
+     "2026-08-24"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T3F93D",
+    "pair": [
+     "2026-08-13",
+     "2026-08-25"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T3F93D",
+   "before": 4,
+   "after": 5,
+   "first_after": "2026-08-25"
+  },
+  "score": 1.0
+ },
+ {
+  "slug": "anak-krakatau",
+  "name": "Anak Krakatau lava flows, Indonesia",
+  "kind": "volcano",
+  "date": "2026-09-05",
+  "gunw_pairs": 16,
+  "gcov_passes": 18,
+  "spanning": [
+   {
+    "stack": "T10F175A",
+    "pair": [
+     "2026-08-25",
+     "2026-09-06"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T119F91D",
+    "pair": [
+     "2026-09-02",
+     "2026-09-14"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T119F91D",
+   "before": 5,
+   "after": 4,
+   "first_after": "2026-09-14"
+  },
+  "score": 1.0
+ },
+ {
+  "slug": "langtang-avalanche",
+  "name": "Langtang ice-rock avalanche, Nepal",
+  "kind": "landslide",
+  "date": "2026-08-26",
+  "gunw_pairs": 34,
+  "gcov_passes": 36,
+  "spanning": [
+   {
+    "stack": "T48F74D",
+    "pair": [
+     "2026-08-16",
+     "2026-08-28"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T98F16A",
+    "pair": [
+     "2026-08-19",
+     "2026-08-31"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T98F16A",
+   "before": 22,
+   "after": 5,
+   "first_after": "2026-08-31"
+  },
+  "score": 1.0
+ },
+ {
+  "slug": "mexico-city-subsidence",
+  "name": "Mexico City subsidence",
+  "kind": "subsidence",
+  "date": null,
+  "gunw_pairs": 54,
+  "gcov_passes": 56,
+  "chain": {
+   "pairs": 28,
+   "from": "2025-10-30",
+   "to": "2026-10-13"
+  },
+  "score": 1.0
+ },
+ {
+  "slug": "bangladesh-flood",
+  "name": "Moulvibazar floods, Bangladesh",
+  "kind": "flood",
+  "date": "2026-07-10",
+  "gunw_pairs": 17,
+  "gcov_passes": 19,
+  "spanning": [
+   {
+    "stack": "T91F76D",
+    "pair": [
+     "2026-07-02",
+     "2026-07-14"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T141F14A",
+    "pair": [
+     "2026-07-05",
+     "2026-07-17"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T91F76D",
+   "before": 2,
+   "after": 8,
+   "first_after": "2026-07-14"
+  },
+  "first_pass_lag_days": 4,
+  "score": 1.0
+ },
+ {
+  "slug": "kumamoto-quake",
+  "name": "Kumamoto M6.8 earthquake, Japan",
+  "kind": "quake",
+  "date": "2026-07-28",
+  "gunw_pairs": 23,
+  "gcov_passes": 26,
+  "spanning": [
+   {
+    "stack": "T24F18A",
+    "pair": [
+     "2026-07-21",
+     "2026-08-14"
+    ],
+    "days": 24
+   },
+   {
+    "stack": "T3F72D",
+    "pair": [
+     "2026-07-08",
+     "2026-08-13"
+    ],
+    "days": 36
+   },
+   {
+    "stack": "T125F18A",
+    "pair": [
+     "2026-07-16",
+     "2026-08-21"
+    ],
+    "days": 36
+   }
+  ],
+  "gcov": {
+   "stack": "T125F18A",
+   "before": 3,
+   "after": 6,
+   "first_after": "2026-08-21"
+  },
+  "score": 0.7
+ },
+ {
+  "slug": "etna-eruption",
+  "name": "Etna fissure eruption, Italy",
+  "kind": "volcano",
+  "date": "2026-08-07",
+  "gunw_pairs": 17,
+  "gcov_passes": 19,
+  "spanning": [
+   {
+    "stack": "T43F21A",
+    "pair": [
+     "2026-07-23",
+     "2026-08-16"
+    ],
+    "days": 24
+   },
+   {
+    "stack": "T51F69D",
+    "pair": [
+     "2026-07-23",
+     "2026-08-16"
+    ],
+    "days": 24
+   }
+  ],
+  "gcov": {
+   "stack": "T51F69D",
+   "before": 4,
+   "after": 6,
+   "first_after": "2026-08-16"
+  },
+  "score": 0.7
+ },
+ {
+  "slug": "fuego-eruption",
+  "name": "Fuego eruption, Guatemala",
+  "kind": "volcano",
+  "date": "2026-08-04",
+  "gunw_pairs": 26,
+  "gcov_passes": 29,
+  "spanning": [
+   {
+    "stack": "T134F9A",
+    "pair": [
+     "2026-07-17",
+     "2026-08-10"
+    ],
+    "days": 24
+   },
+   {
+    "stack": "T62F9A",
+    "pair": [
+     "2026-07-24",
+     "2026-08-17"
+    ],
+    "days": 24
+   },
+   {
+    "stack": "T127F81D",
+    "pair": [
+     "2026-07-17",
+     "2026-08-22"
+    ],
+    "days": 36
+   }
+  ],
+  "gcov": {
+   "stack": "T62F9A",
+   "before": 4,
+   "after": 6,
+   "first_after": "2026-08-17"
+  },
+  "score": 0.7
+ },
+ {
+  "slug": "aspen-acres-fire",
+  "name": "Aspen Acres Fire, Colorado",
+  "kind": "fire",
+  "date": "2026-06-29",
+  "gunw_pairs": 54,
+  "gcov_passes": 57,
+  "spanning": [
+   {
+    "stack": "T91F21A",
+    "pair": [
+     "2026-06-20",
+     "2026-07-02"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T99F69D",
+    "pair": [
+     "2026-06-21",
+     "2026-07-03"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T19F21A",
+    "pair": [
+     "2026-06-27",
+     "2026-07-09"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T27F69D",
+    "pair": [
+     "2026-06-28",
+     "2026-07-10"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T19F21A",
+   "before": 21,
+   "after": 8,
+   "first_after": "2026-07-09"
+  },
+  "first_pass_lag_days": 10,
+  "score": 0.6
+ },
+ {
+  "slug": "little-giant-fire",
+  "name": "Little Giant Fire, Washington",
+  "kind": "fire",
+  "date": "2026-07-16",
+  "gunw_pairs": 25,
+  "gcov_passes": 28,
+  "spanning": [
+   {
+    "stack": "T172F64D",
+    "pair": [
+     "2026-07-08",
+     "2026-07-20"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T5F26A",
+    "pair": [
+     "2026-07-08",
+     "2026-07-20"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T71F64D",
+    "pair": [
+     "2026-07-13",
+     "2026-07-25"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T71F64D",
+   "before": 3,
+   "after": 7,
+   "first_after": "2026-07-25"
+  },
+  "first_pass_lag_days": 9,
+  "score": 0.6
+ },
+ {
+  "slug": "nagqu-quake",
+  "name": "Nagqu M7.0 earthquake, Tibet",
+  "kind": "quake",
+  "date": "2026-10-22",
+  "gunw_pairs": 26,
+  "gcov_passes": 27,
+  "spanning": [],
+  "gcov": {
+   "before": 0,
+   "after": 0
+  },
+  "score": 0.0
+ },
+ {
+  "slug": "kilauea",
+  "name": "Kilauea fountaining, Hawai'i",
+  "kind": "volcano",
+  "date": "2026-11-01",
+  "gunw_pairs": 50,
+  "gcov_passes": 52,
+  "spanning": [],
+  "gcov": {
+   "before": 0,
+   "after": 0
+  },
+  "score": 0.0
+ },
+ {
+  "slug": "mayon",
+  "name": "Mayon unrest, Philippines",
+  "kind": "volcano",
+  "date": "2026-10-30",
+  "gunw_pairs": 26,
+  "gcov_passes": 29,
+  "spanning": [],
+  "gcov": {
+   "before": 0,
+   "after": 0
+  },
+  "score": 0.0
+ },
+ {
+  "slug": "krasheninnikov",
+  "name": "Krasheninnikov lava field, Kamchatka",
+  "kind": "volcano",
+  "date": "2026-03-01",
+  "gunw_pairs": 35,
+  "gcov_passes": 39,
+  "spanning": [],
+  "gcov": {
+   "before": 0,
+   "after": 0
+  },
+  "score": 0.0
+ },
+ {
+  "slug": "odisha-landslide",
+  "name": "Gidipabali landslide, Odisha, India",
+  "kind": "landslide",
+  "date": "2026-10-28",
+  "gunw_pairs": 20,
+  "gcov_passes": 23,
+  "spanning": [],
+  "gcov": {
+   "before": 0,
+   "after": 0
+  },
+  "score": 0.0
+ },
+ {
+  "slug": "mozambique-flood",
+  "name": "Limpopo floods, Mozambique",
+  "kind": "flood",
+  "date": "2026-01-15",
+  "gunw_pairs": 16,
+  "gcov_passes": 18,
+  "spanning": [],
+  "gcov": {
+   "before": 0,
+   "after": 0
+  },
+  "first_pass_lag_days": null,
+  "score": 0.0
+ },
+ {
+  "slug": "san-juan-flood",
+  "name": "San Juan River flood, New Mexico",
+  "kind": "flood",
+  "date": "2026-10-15",
+  "gunw_pairs": 41,
+  "gcov_passes": 44,
+  "spanning": [
+   {
+    "stack": "T48F20A",
+    "pair": [
+     "2026-10-03",
+     "2026-10-15"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T120F20A",
+    "pair": [
+     "2026-10-08",
+     "2026-10-20"
+    ],
+    "days": 12
+   },
+   {
+    "stack": "T128F70D",
+    "pair": [
+     "2026-10-09",
+     "2026-10-21"
+    ],
+    "days": 12
+   }
+  ],
+  "gcov": {
+   "stack": "T120F20A",
+   "before": 23,
+   "after": 1,
+   "first_after": "2026-10-20"
+  },
+  "first_pass_lag_days": 5,
+  "score": 0.0
+ },
+ {
+  "slug": "toccoa-flood",
+  "name": "Toccoa River flood, Georgia/Tennessee",
+  "kind": "flood",
+  "date": "2026-11-05",
+  "gunw_pairs": 25,
+  "gcov_passes": 28,
+  "spanning": [],
+  "gcov": {
+   "before": 0,
+   "after": 0
+  },
+  "first_pass_lag_days": null,
+  "score": 0.0
+ },
+ {
+  "slug": "morrill-fire",
+  "name": "Morrill Fire, Nebraska",
+  "kind": "fire",
+  "date": "2026-03-10",
+  "gunw_pairs": 25,
+  "gcov_passes": 28,
+  "spanning": [],
+  "gcov": {
+   "before": 0,
+   "after": 0
+  },
+  "first_pass_lag_days": null,
+  "score": 0.0
+ }
+]
