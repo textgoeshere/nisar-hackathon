@@ -14,7 +14,7 @@
 .bar { position: sticky; top: 0; background: var(--bg); padding: .6rem 0; border-bottom: 1px solid #fff3; z-index: 2; }
 </style>
 <header>
-  <nav><a href="./">← All events</a></nav>
+  <nav><a href="./">← All events</a> · <label>Event <select id="pick"></select></label></nav>
   <h1>Editorial review: <span id="name"></span></h1>
   <p class="muted">Step 6. Pick the stories that go on the event page. Each candidate shows what the research says
   and what NISAR measured at that spot. Select the clearest pair either side of the line, write a caption in your own
@@ -27,7 +27,17 @@
 </main>
 <script type="module">
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-const slug = new URLSearchParams(location.search).get("e");
+const slugs = await (await fetch("events/index.json")).json();
+const metas = await Promise.all(slugs.map(async (s) => {
+  const ok = (await fetch(`events/${s}/stories.json`, { method: "HEAD" })).ok;
+  return ok ? { slug: s, ...(await (await fetch(`events/${s}/meta.json`)).json()) } : null;
+}));
+const editable = metas.filter(Boolean);
+const slug = new URLSearchParams(location.search).get("e") || editable[0]?.slug;
+const pick = document.querySelector("#pick");
+pick.innerHTML = editable.map((m) => `<option value="${esc(m.slug)}">${esc(m.name)}</option>`).join("");
+pick.value = slug;
+pick.onchange = () => { location.search = `?e=${encodeURIComponent(pick.value)}`; };
 const data = await (await fetch(`events/${slug}/stories.json`)).json();
 const meta = await (await fetch(`events/${slug}/meta.json`)).json();
 document.querySelector("#name").textContent = meta.name;
