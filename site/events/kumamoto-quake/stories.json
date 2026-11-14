@@ -29,7 +29,9 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/kumamoto-01.png",
+   "preview": "pixelated"
   },
   {
    "title": "Yatsushiro Shrine (Myoken-gu) torn by the fault: approach path offset 95 cm",
@@ -58,7 +60,9 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/kumamoto-02.png",
+   "preview": "pixelated"
   },
   {
    "title": "Expressway viaduct dropped where the rupture passes under Myoken Daiichi Bridge (Yatsushiro JCT)",
@@ -202,5 +206,7 @@
    "caption": null,
    "order": null
   }
- ]
+ ],
+ "media": [],
+ "media_status": {}
 }

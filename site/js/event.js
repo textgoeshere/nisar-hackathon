@@ -81,6 +81,11 @@ $("#sources").innerHTML = [
   "3D: three.js.",
 ].filter(Boolean).map((x) => `<li>${x}</li>`).join("");
 
+// News and agency images are never hosted: a gently pixelated preview links to the original.
+const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return "the source"; } };
+const pixelated = (src, page, credit, alt) => `<a href="${esc(page)}" target="_blank" rel="noopener"><img class="pix" src="${esc(base + src)}" alt="${esc(alt)}" loading="lazy"></a>
+  <p class="small muted">Pixelated preview — <a href="${esc(page)}" target="_blank" rel="noopener">view original at ${esc(credit || host(page))}</a></p>`;
+
 // ---------- on the ground: editor-selected stories, pinned in 3D ----------
 const stories = await fetch(base + "stories.json").then((r) => (r.ok ? r.json() : null), () => null);
 if (stories) {
@@ -102,7 +107,8 @@ if (stories) {
 <article class="card ${it.side === "affected" ? "hit" : "spared"}" data-k="${k}" tabindex="0" id="story-${k + 1}">
   <h3><span class="num">${k + 1}</span>${esc(it.title)}</h3>
   <p class="small muted">${esc(it.place)} · ${esc(it.date)}</p>
-  ${it.show_image ? `<a href="${esc(it.page_url)}" target="_blank" rel="noopener"><img src="${esc(it.image_url)}" alt="${esc(it.what_it_shows)}" loading="lazy" referrerpolicy="no-referrer"></a>` : ""}
+  ${it.show_image ? `<a href="${esc(it.page_url)}" target="_blank" rel="noopener"><img src="${esc(it.image_url)}" alt="${esc(it.what_it_shows)}" loading="lazy" referrerpolicy="no-referrer"></a>`
+    : it.preview_url ? pixelated(it.preview_url, it.page_url, it.credit, it.what_it_shows) : ""}
   <p>${esc(it.caption || it.what_it_shows)}</p>
   <p class="nisar small">${nisarLine(it.nisar)}</p>
   <p class="small muted"><a href="${esc(it.page_url)}" target="_blank" rel="noopener">Source</a> · ${esc(it.credit)}${it.show_image ? ` · ${esc(it.licence)}` : ""}</p>
@@ -127,6 +133,59 @@ if (stories) {
       const s = v.project(uv);
       p.hidden = !s;
       if (s) p.style.transform = `translate(${s.x}px, ${s.y}px) translate(-50%, -50%)`;
+    }
+  });
+}
+
+// ---------- harvested media the editor selected (step 5b/6), lettered pins ----------
+const media = (stories?.media ?? []).filter((m) => m.status === "selected");
+if (media.length) {
+  $("#media-sec").hidden = false;
+  const letter = (k) => String.fromCharCode(65 + (k % 26)) + (k >= 26 ? Math.floor(k / 26) : "");
+  const side = (m) => m.side === "affected" ? "hit" : m.side === "unaffected" ? "spared" : "neutral";
+  const mLine = (n) => n.rate_fastest_cm_yr != null ? `NISAR: ${n.rate_cm_yr != null ? `${n.rate_cm_yr > 0 ? "+" : ""}${n.rate_cm_yr} cm/yr here` : "no motion measured at the spot"}; fastest within 500 m ${n.rate_fastest_cm_yr} cm/yr.`
+    : n.db_change != null ? `NISAR: backscatter ${n.db_change > 0 ? "+" : ""}${n.db_change} dB between the passes.`
+    : !n.measured ? `NISAR: no motion measured here (coherence ${n.coherence}).`
+    : `NISAR: ${n.motion_cm > 0 ? "+" : ""}${n.motion_cm} cm along the line of sight${n.local_step_cm != null ? `; ${n.local_step_cm} cm of change within 500 m` : ""}; coherence ${n.coherence}.`;
+  $("#media-cards").innerHTML = media.map((m, k) => {
+    const img = m.preview === "pixelated" && m.preview_url ? pixelated(m.preview_url, m.page_url, m.credit, m.title)
+      : m.showable && m.thumb_url ? `<a href="${esc(m.page_url)}" target="_blank" rel="noopener"><img src="${esc(m.thumb_url)}" alt="${esc(m.title)}" loading="lazy" referrerpolicy="no-referrer" data-fallback="1"></a>` : "";
+    const where = m.unlocated ? (m.located ? `location: ${m.located}` : "location not mapped") : m.approx ? "approximate location" : "";
+    return `<article class="card ${side(m)}" data-m="${k}" tabindex="0" id="media-${k + 1}">
+  <h3><span class="num">${letter(k)}</span>${esc(m.title)}</h3>
+  <p class="small muted">${esc(m.date ?? "date unknown")}${m.when === "before" ? " · before the event" : m.when === "after" ? " · after the event" : ""}${where ? ` · <strong>${esc(where)}</strong>` : ""}${m.pair ? " · one of a before/after pair" : ""}</p>
+  ${img}
+  <p>${esc(m.editor_caption || m.caption)}</p>
+  ${m.nisar && !m.unlocated ? `<p class="nisar small">${mLine(m.nisar)}${m.approx ? " (at the approximate location)" : ""}</p>` : ""}
+  <p class="small muted"><a href="${esc(m.page_url)}" target="_blank" rel="noopener">Source</a> · ${esc(m.credit)}${m.licence ? ` · ${esc(m.licence)}` : ""}</p>
+</article>`;
+  }).join("");
+  $("#media-cards").querySelectorAll("img[data-fallback]").forEach((img) => img.addEventListener("error", () => {
+    img.parentElement.outerHTML = `<p class="small muted">Preview unavailable: <a href="${esc(img.parentElement.href)}" target="_blank" rel="noopener">view at the source</a></p>`;
+  }, { once: true }));
+  const mpins = media.map((m, k) => {
+    if (m.unlocated || m.nisar?.u == null) return null;
+    const p = document.createElement("button");
+    p.className = `pin media ${side(m)}`;
+    p.type = "button";
+    p.title = m.title + (m.approx ? " (approximate location)" : "");
+    p.innerHTML = `<span>${letter(k)}</span>`;
+    p.onclick = () => { const c = $(`#media-${k + 1}`); c.scrollIntoView({ behavior: "smooth", block: "center" }); c.classList.add("hot"); setTimeout(() => c.classList.remove("hot"), 1800); };
+    $("#hero").appendChild(p);
+    return { p, uv: [m.nisar.u, m.nisar.v] };
+  });
+  document.querySelectorAll("#media-cards .card").forEach((c) => {
+    const pin = mpins[c.dataset.m];
+    if (!pin) return;
+    c.addEventListener("mouseenter", () => pin.p.classList.add("hot"));
+    c.addEventListener("mouseleave", () => pin.p.classList.remove("hot"));
+  });
+  v.onFrame(() => {
+    for (const x of mpins) {
+      if (!x) continue;
+      const s = v.project(x.uv);
+      x.p.hidden = !s;
+      if (s) x.p.style.transform = `translate(${s.x}px, ${s.y}px) translate(-50%, -50%)`;
     }
   });
 }

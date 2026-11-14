@@ -31,7 +31,9 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/mexico-01.png",
+   "preview": "pixelated"
   },
   {
    "title": "Sierra de Santa Catarina: the volcanic ridge that doesn't sink",
@@ -188,5 +190,7 @@
    "caption": null,
    "order": null
   }
- ]
+ ],
+ "media": [],
+ "media_status": {}
 }

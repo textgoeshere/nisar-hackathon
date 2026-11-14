@@ -3,8 +3,11 @@
     .venv/bin/python -m pipeline.stories kumamoto-quake
 
 Input:  research/stories/<slug>.json    candidate stories and photos (see docs/5-stories.md)
+        site/events/<slug>/media.json    step 5b: harvested media candidates (pipeline.media)
         editorial/<slug>.json            step 6: the human editor's selections and captions
-Output: site/events/<slug>/stories.json
+                                         (`items` for stories, `media` for harvested media)
+Output: site/events/<slug>/stories.json  stories + the selected media (`media`) + all media decisions
+                                         (`media_status`, so the editor can reload them)
 
 For each candidate we compute its (u, v) position on the event grid and sample the NISAR layers
 in a small neighbourhood: line-of-sight motion, coherence, and the **local step**, the spread of
@@ -98,6 +101,47 @@ def show_image(item: dict) -> bool:
     return any(k in lic for k in ("cc by", "cc0", "public domain", "attribution"))
 
 
+# What the event page gets of a selected media item. thumb_url only for openly licensed images;
+# news and agency images go out as their pixelated preview, linked to the source.
+MEDIA_FIELDS = ("id", "source", "type", "title", "caption", "lat", "lon", "loc_method", "date", "when", "page_url", "credit",
+                "licence", "showable", "preview_url", "preview", "approx", "tier", "nisar", "pair", "located")
+
+
+def merge_media(d: Path, editorial: dict) -> tuple[list[dict], dict]:
+    p = d / "media.json"
+    dec = editorial.get("media", {})
+    if not p.exists():
+        return [], dec
+    m = json.loads(p.read_text())
+    pool = {i["id"]: i for i in m["items"]} | {u["id"]: u | {"unlocated": True} for u in m["unlocated"]}
+    out = []
+    for mid, e in dec.items():
+        if e.get("status") != "selected":
+            continue
+        it = pool.get(mid)
+        if it is None:
+            print(f"  media {mid}: selected but no longer in the harvest (re-run pipeline.media or drop it)")
+            continue
+        pub = {k: it.get(k) for k in MEDIA_FIELDS if it.get(k) is not None}
+        pub |= {"thumb_url": it.get("thumb_url") if it.get("showable") else None, "unlocated": bool(it.get("unlocated")),
+                # an approximate location is never one side of a hit/spared pair
+                "side": None if it.get("approx") or it.get("unlocated") else it.get("side_hint"),
+                "editor_caption": e.get("caption"), "order": e.get("order"), "status": "selected"}
+        out.append(pub)
+    out.sort(key=lambda x: (x["order"] is None, x["order"] or 0))
+    return out, dec
+
+
+def story_previews(slug: str, items: list[dict]):
+    """Link-only story photos (agency, news) get the same gently pixelated preview as harvested media."""
+    from .media import pixelate
+    for it in items:
+        if it.get("image_url") and not it["show_image"]:
+            x = {"id": it["id"], "thumb_url": it["image_url"], "page_url": it.get("page_url")}
+            if pixelate.preview(slug, x):
+                it["preview_url"], it["preview"] = x["preview_url"], x["preview"]
+
+
 def build(slug: str):
     d = ROOT / "site" / "events" / slug
     meta = json.loads((d / "meta.json").read_text())
@@ -110,10 +154,14 @@ def build(slug: str):
         e = editorial.get("items", {}).get(it["id"], {})
         items.append(it | {"nisar": s, "show_image": show_image(it),
                            "status": e.get("status", "candidate"), "caption": e.get("caption"), "order": e.get("order")})
-    out = {"slug": slug, "boundary": editorial.get("boundary") or research.get("boundary"), "items": items}
+    story_previews(slug, items)
+    media, media_status = merge_media(d, editorial)
+    out = {"slug": slug, "boundary": editorial.get("boundary") or research.get("boundary"), "items": items,
+           "media": media, "media_status": media_status}
     (d / "stories.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     sel = sum(i["status"] == "selected" for i in items)
-    print(f"{slug}: {len(items)} candidates, {sel} selected")
+    print(f"{slug}: {len(items)} candidates, {sel} selected; media {len(media)} selected "
+          f"({sum(i.get('preview') == 'pixelated' for i in items)} story photos with a pixelated preview)")
     for it in items:
         n = it["nisar"]
         if "change" in n:

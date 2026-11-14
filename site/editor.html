@@ -7,79 +7,192 @@
 <style>
 .cand { display: grid; grid-template-columns: 160px 1fr 220px; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid #fff2; }
 .cand img { width: 160px; height: 110px; object-fit: cover; border-radius: 4px; }
+.cand img.pix { image-rendering: pixelated; }
 .cand .noimg { width: 160px; height: 110px; display: grid; place-items: center; background: #fff1; color: var(--muted); font-size: .8rem; text-align: center; border-radius: 4px; }
+.cand .pixnote { display: block; font-size: .7rem; color: var(--muted); max-width: 160px; }
 .cand textarea { width: 100%; min-height: 4em; background: #fff1; color: var(--fg); border: 1px solid #fff3; }
 .cand.selected { background: #57d68d14; } .cand.rejected { opacity: .45; }
 .side-affected { color: var(--hit); } .side-unaffected { color: var(--spared); }
+.badge { display: inline-block; font-size: .72rem; padding: 0 .4em; border-radius: 3px; background: #fff2; margin-right: .3em; }
+.badge.t1 { background: var(--accent); color: #000; } .badge.t2 { background: #ffd25788; color: #000; }
+.badge.approx { background: #ff8a4c44; } .badge.pair { background: #57d68d44; }
 .bar { position: sticky; top: 0; background: var(--bg); padding: .6rem 0; border-bottom: 1px solid #fff3; z-index: 2; }
+.tabs { margin-top: .5rem; display: flex; gap: .4rem; }
+.tabs button { background: #fff1; color: var(--fg); border: 1px solid #fff3; padding: .3rem .8rem; border-radius: 4px 4px 0 0; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--accent); color: #000; }
+#filters { margin-top: .5rem; font-size: .9rem; } #filters label { margin-right: 1rem; }
+#filters select, #filters input { background: #fff1; color: var(--fg); border: 1px solid #fff3; }
 </style>
 <header>
   <nav><a href="./">← All events</a> · <label>Event <select id="pick"></select></label></nav>
   <h1>Editorial review: <span id="name"></span></h1>
-  <p class="muted">Step 6. Pick the stories that go on the event page. Each candidate shows what the research says
-  and what NISAR measured at that spot. Select the clearest pair either side of the line, write a caption in your own
+  <p class="muted">Step 6. Pick the stories and the harvested media that go on the event page. Each candidate shows what
+  the research says and what NISAR measured at that spot. Select the clearest pair either side of the line, write a caption in your own
   words, then download the decisions and commit them as <code id="path"></code>. Nothing is published until it is committed.</p>
 </header>
 <main>
   <div class="bar"><button id="dl" type="button">Download editorial JSON</button> <span id="count" class="muted"></span>
-  <label style="margin-left:1rem">Boundary text <input id="boundary" style="width:50%"></label></div>
+    <label style="margin-left:1rem">Boundary text <input id="boundary" style="width:50%"></label>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" data-tab="stories">Stories</button>
+      <button type="button" role="tab" data-tab="media">Media candidates</button>
+      <button type="button" role="tab" data-tab="unlocated">Unlocated</button>
+    </div>
+    <div id="filters" hidden>
+      <label title="Openly licensed images, plus news/agency images with a pixelated preview"><input type="checkbox" id="f-show"> Showable only</label>
+      <label class="loc">Tier ≤ <select id="f-tier"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label>
+      <label>Source <select id="f-src"><option value="">any</option></select></label>
+      <label class="loc">When <select id="f-when"><option value="">any</option><option>before</option><option>after</option><option>unknown</option></select></label>
+      <label>Status <select id="f-status"><option value="">any</option><option value="selected">selected</option><option value="candidate">undecided</option><option value="rejected">rejected</option></select></label>
+      <span id="shown" class="muted"></span>
+    </div>
+  </div>
   <div id="list"></div>
 </main>
 <script type="module">
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const $ = (s) => document.querySelector(s);
 const slugs = await (await fetch("events/index.json")).json();
 const metas = await Promise.all(slugs.map(async (s) => {
   const ok = (await fetch(`events/${s}/stories.json`, { method: "HEAD" })).ok;
   return ok ? { slug: s, ...(await (await fetch(`events/${s}/meta.json`)).json()) } : null;
 }));
 const editable = metas.filter(Boolean);
-const slug = new URLSearchParams(location.search).get("e") || editable[0]?.slug;
-const pick = document.querySelector("#pick");
+const params = new URLSearchParams(location.search);
+const slug = params.get("e") || editable[0]?.slug;
+const pick = $("#pick");
 pick.innerHTML = editable.map((m) => `<option value="${esc(m.slug)}">${esc(m.name)}</option>`).join("");
 pick.value = slug;
 pick.onchange = () => { location.search = `?e=${encodeURIComponent(pick.value)}`; };
-const data = await (await fetch(`events/${slug}/stories.json`)).json();
-const meta = await (await fetch(`events/${slug}/meta.json`)).json();
-document.querySelector("#name").textContent = meta.name;
-document.querySelector("#path").textContent = `editorial/${slug}.json`;
+const base = `events/${slug}/`;
+const data = await (await fetch(base + "stories.json")).json();
+const meta = await (await fetch(base + "meta.json")).json();
+// Harvested media (step 5b): candidates + photos the harvest couldn't place in the frame.
+const media = await fetch(base + "media.json").then((r) => (r.ok ? r.json() : { items: [], unlocated: [] }), () => ({ items: [], unlocated: [] }));
+$("#name").textContent = meta.name;
+$("#path").textContent = `editorial/${slug}.json`;
 const key = `editorial:${slug}`;
 const saved = JSON.parse(localStorage.getItem(key) || "null");
 const state = saved || { boundary: data.boundary, items: Object.fromEntries(data.items.map((i) => [i.id, { status: i.status, caption: i.caption, order: i.order }])) };
-const bd = document.querySelector("#boundary");
+state.media ||= structuredClone(data.media_status || {});
+const bd = $("#boundary");
 bd.value = state.boundary ?? "";
 bd.oninput = () => { state.boundary = bd.value; save(); };
+const nSel = (o) => Object.values(o).filter((x) => x.status === "selected").length;
 function save() {
   localStorage.setItem(key, JSON.stringify(state));
-  const n = Object.values(state.items).filter((x) => x.status === "selected").length;
-  document.querySelector("#count").textContent = `${n} selected of ${data.items.length}`;
+  $("#count").textContent = `${nSel(state.items)} of ${data.items.length} stories selected · ${nSel(state.media)} media selected`;
 }
-const list = document.querySelector("#list");
-for (const it of data.items) {
+
+const nisarLine = (n) => !n ? "" : n.inside === false ? "outside the scene" :
+  `${n.rate_fastest_cm_yr != null ? `rate ${n.rate_cm_yr ?? "–"} cm/yr (fastest within 500 m ${n.rate_fastest_cm_yr})` : n.measured ? `motion ${n.motion_cm} cm` : "motion not measured"}, step within 500 m ${n.local_step_cm ?? "–"} cm, coherence ${n.coherence ?? "–"}`;
+const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return "source"; } };
+
+// Select / reject / undecided + order + caption, shared by every tab.
+function controls(row, id, st, cls) {
+  const div = document.createElement("div");
+  div.innerHTML = `<label><input type="radio" name="${esc(id)}" value="selected"> Select</label>
+    <label><input type="radio" name="${esc(id)}" value="rejected"> Reject</label>
+    <label><input type="radio" name="${esc(id)}" value="candidate"> Undecided</label>
+    <label>Order <input type="number" min="1" style="width:4em" class="ord"></label>
+    <textarea placeholder="Caption for the page (optional)"></textarea>`;
+  div.querySelector(`input[value="${st.status || "candidate"}"]`).checked = true;
+  div.querySelectorAll("input[type=radio]").forEach((r) => r.onchange = () => {
+    st.status = r.value; row.className = `${cls} ${r.value}`; save();
+  });
+  const ta = div.querySelector("textarea"); ta.value = st.caption ?? ""; ta.oninput = () => { st.caption = ta.value || null; save(); };
+  const ord = div.querySelector(".ord"); ord.value = st.order ?? ""; ord.oninput = () => { st.order = ord.value ? +ord.value : null; save(); };
+  row.appendChild(div);
+}
+
+function storyRow(it) {
   const st = state.items[it.id] ||= { status: "candidate" };
   const n = it.nisar;
   const row = document.createElement("div");
   row.className = `cand ${st.status}`;
-  row.innerHTML = `
-    ${it.show_image ? `<img src="${esc(it.image_url)}" referrerpolicy="no-referrer" alt="">` : `<div class="noimg">${it.image_url ? "photo: link only<br>(licence)" : "no photo"}</div>`}
+  const img = it.show_image ? `<img src="${esc(it.image_url)}" referrerpolicy="no-referrer" alt="">`
+    : it.preview_url ? `<a href="${esc(it.page_url)}" target="_blank" rel="noopener"><img class="pix" src="${esc(base + it.preview_url)}" alt=""></a><span class="pixnote">pixelated preview — view original at ${esc(host(it.page_url))}</span>`
+    : `<div class="noimg">${it.image_url ? "photo: link only<br>(licence)" : "no photo"}</div>`;
+  row.innerHTML = `<div>${img}</div>
     <div><strong>${esc(it.title)}</strong> <span class="side-${it.side}">(${it.side})</span><br>
       <small class="muted">${esc(it.place)} · ${esc(it.date)} · location ${esc(it.confidence)} · <a href="${esc(it.page_url)}" target="_blank" rel="noopener">source</a> · ${esc(it.licence)}</small>
       <p>${esc(it.what_it_shows)}</p>
-      <p class="small"><strong>NISAR here:</strong> ${n.inside === false ? "outside the scene" :
-        `${n.rate_fastest_cm_yr != null ? `rate ${n.rate_cm_yr ?? "–"} cm/yr (fastest within 500 m ${n.rate_fastest_cm_yr})` : n.measured ? `motion ${n.motion_cm} cm` : "motion not measured"}, step within 500 m ${n.local_step_cm ?? "–"} cm, coherence ${n.coherence}`}</p>
-      ${it.notes ? `<p class="small muted">${esc(it.notes)}</p>` : ""}</div>
-    <div><label><input type="radio" name="${it.id}" value="selected"> Select</label>
-      <label><input type="radio" name="${it.id}" value="rejected"> Reject</label>
-      <label><input type="radio" name="${it.id}" value="candidate"> Undecided</label>
-      <label>Order <input type="number" min="1" style="width:4em" class="ord"></label>
-      <textarea placeholder="Caption for the page (optional)"></textarea></div>`;
-  row.querySelector(`input[value="${st.status}"]`).checked = true;
-  row.querySelectorAll("input[type=radio]").forEach((r) => r.onchange = () => { st.status = r.value; row.className = `cand ${r.value}`; save(); });
-  const ta = row.querySelector("textarea"); ta.value = st.caption ?? ""; ta.oninput = () => { st.caption = ta.value || null; save(); };
-  const ord = row.querySelector(".ord"); ord.value = st.order ?? ""; ord.oninput = () => { st.order = ord.value ? +ord.value : null; save(); };
-  list.appendChild(row);
+      <p class="small"><strong>NISAR here:</strong> ${nisarLine(n)}</p>
+      ${it.notes ? `<p class="small muted">${esc(it.notes)}</p>` : ""}</div>`;
+  controls(row, it.id, st, "cand");
+  return row;
 }
+
+function thumb(it) {
+  const link = (inner) => `<a href="${esc(it.page_url)}" target="_blank" rel="noopener">${inner}</a>`;
+  if (it.preview === "pixelated" && it.preview_url)
+    return link(`<img class="pix" src="${esc(base + it.preview_url)}" alt="">`) + `<span class="pixnote">pixelated preview — view original at ${esc(it.credit || host(it.page_url))}</span>`;
+  if (it.showable && it.thumb_url)                 // Mapillary thumbs are signed and expire: fall back below
+    return link(`<img src="${esc(it.thumb_url)}" referrerpolicy="no-referrer" loading="lazy" alt="" data-fallback="1">`);
+  return `<div class="noimg">${it.thumb_url ? "link only (licence)" : "no image"}<br>${link("view at source")}</div>`;
+}
+
+function mediaRow(it, unlocated) {
+  const st = state.media[it.id] ||= { status: "candidate" };
+  const row = document.createElement("div");
+  row.className = `cand ${st.status}`;
+  row.id = `m-${it.id}`;
+  const badges = [
+    unlocated ? "" : `<span class="badge t${it.tier}">tier ${it.tier}</span>`,
+    `<span class="badge">${esc(it.source)}</span>`,
+    it.when && it.when !== "unknown" ? `<span class="badge">${esc(it.when)}</span>` : "",
+    it.approx ? `<span class="badge approx" title="Located only by a town name or centroid: caption it as approximate; not one side of a hit/spared pair">approximate location</span>` : "",
+    it.pair ? `<a class="badge pair" href="#m-${esc(it.pair)}">${it.when === "before" ? "before" : "after"} view of a pair (${it.pair_m} m)</a>` : "",
+    it.preview === "pixelated" ? `<span class="badge">pixelated preview</span>` : "",
+  ].join("");
+  const side = it.side_hint ? ` <span class="side-${it.side_hint}">(${it.side_hint}${it.approx ? ", area only" : ""})</span>` : "";
+  row.innerHTML = `<div>${thumb(it)}</div>
+    <div><strong>${esc(it.title)}</strong>${side}<br>${badges}<br>
+      <small class="muted">${esc(it.date || "date unknown")} · ${unlocated ? (it.located ? `located: ${esc(it.located)}` : "not located") : `location ${esc(it.loc_confidence)} (${esc(it.loc_method)})`}
+       · ${esc(it.licence || "licence unknown")} · ${esc(it.credit)} · <a href="${esc(it.page_url)}" target="_blank" rel="noopener">source</a></small>
+      ${it.caption ? `<p class="small">${esc(String(it.caption).slice(0, 400))}</p>` : ""}
+      ${unlocated ? "" : `<p class="small"><strong>NISAR here:</strong> ${nisarLine(it.nisar)}</p>`}
+      <p class="small muted">found by ${esc(it.found_by)}</p></div>`;
+  controls(row, it.id, st, "cand");
+  row.querySelectorAll("img[data-fallback]").forEach((img) => img.addEventListener("error", () => {
+    img.parentElement.outerHTML = `<div class="noimg">no preview<br>(link expired)<br><a href="${esc(it.page_url)}" target="_blank" rel="noopener">view at source</a></div>`;
+  }, { once: true }));
+  return row;
+}
+
+// ---------- tabs + filters ----------
+const lists = { stories: data.items, media: media.items, unlocated: media.unlocated };
+let tab = params.get("tab") in lists ? params.get("tab") : "stories";
+const f = { show: $("#f-show"), tier: $("#f-tier"), src: $("#f-src"), when: $("#f-when"), status: $("#f-status") };
+document.querySelectorAll(".tabs button").forEach((b) => {
+  b.textContent += ` (${lists[b.dataset.tab].length})`;
+  b.onclick = () => { tab = b.dataset.tab; render(); };
+});
+Object.values(f).forEach((el) => el.onchange = render);
+function render() {
+  document.querySelectorAll(".tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === tab));
+  const list = $("#list");
+  list.innerHTML = "";
+  $("#filters").hidden = tab === "stories";
+  if (tab === "stories") { data.items.forEach((it) => list.appendChild(storyRow(it))); return; }
+  const items = lists[tab];
+  document.querySelectorAll("#filters .loc").forEach((el) => el.hidden = tab === "unlocated");
+  const srcs = [...new Set(items.map((i) => i.source))].sort();
+  const cur = f.src.value;
+  f.src.innerHTML = `<option value="">any</option>` + srcs.map((s) => `<option>${esc(s)}</option>`).join("");
+  f.src.value = srcs.includes(cur) ? cur : "";
+  const shown = items.filter((it) => (!f.show.checked || it.showable || it.preview === "pixelated")
+    && (tab === "unlocated" || it.tier <= +f.tier.value)
+    && (!f.src.value || it.source === f.src.value)
+    && (tab === "unlocated" || !f.when.value || it.when === f.when.value)
+    && (!f.status.value || (state.media[it.id]?.status || "candidate") === f.status.value));
+  $("#shown").textContent = `${shown.length} of ${items.length} shown`;
+  if (!items.length) list.innerHTML = `<p class="muted">No harvested media for this event yet (run <code>python -m pipeline.media ${esc(slug)}</code>).</p>`;
+  shown.forEach((it) => list.appendChild(mediaRow(it, tab === "unlocated")));
+}
+render();
 save();
-document.querySelector("#dl").onclick = () => {
+$("#dl").onclick = () => {
   const blob = new Blob([JSON.stringify(state, null, 1)], { type: "application/json" });
   const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: `${slug}.json` });
   a.click();
