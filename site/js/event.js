@@ -1,4 +1,5 @@
 import { createViewer, STILL } from "./viewer.js";
+import { renderHow } from "./how.js";
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -70,8 +71,7 @@ ${s.max_sinking_cm_yr != null ? `<tr><th>Fastest sinking (line of sight)</th><td
 ${s.coherence_drop_pct != null ? `<tr><th>Area where the surface stopped matching itself across the event (coherence drop > 0.3)</th><td>${s.coherence_drop_pct}%</td></tr>` : ""}
 <tr><th>${bs ? "Area seen by both passes" : "Area where motion was measured (coherent)"}</th><td>${s.measured_pct}%</td></tr></table>`;
 
-$("#images").innerHTML = meta.images.map((im) => `<figure><a href="${base + im.file}"><img src="${base + im.file}" alt="${esc(im.caption)}" loading="lazy"></a>
-<figcaption>${esc(im.caption)}<br><small class="muted">${esc(im.source)}</small></figcaption></figure>`).join("");
+renderHow($("#how-steps"), base, meta, v).catch((e) => console.error("how it works:", e));
 
 $("#sources").innerHTML = [
   `NISAR: NASA/JPL-Caltech and ISRO, provisional L2 ${bs ? "GCOV" : "GUNW"} via the Alaska Satellite Facility DAAC. Track ${meta.nisar.stack[0]}, frame ${meta.nisar.stack[1]}, ${meta.nisar.stack[2] === "A" ? "ascending" : "descending"}.`,

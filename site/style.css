@@ -16,9 +16,6 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid #fff2; mar
 #controls { margin: .75rem 0; }
 #controls #t { width: min(60%, 600px); vertical-align: middle; }
 #controls label { margin-right: 1rem; white-space: nowrap; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-.gallery figure { margin: 0; }
-.gallery img { width: 100%; height: auto; border-radius: 4px; }
 figcaption { font-size: .9rem; }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
 .card { border: 1px solid #fff2; border-left: 5px solid var(--side); border-radius: 6px; padding: .7rem .9rem; scroll-margin-top: 1rem; }
@@ -34,3 +31,51 @@ figcaption { font-size: .9rem; }
 .pin.hot { outline: 3px solid var(--accent); z-index: 3; }
 .dot { display: inline-block; width: .8em; height: .8em; border-radius: 50%; vertical-align: middle; }
 .dot.hit { background: var(--hit); } .dot.spared { background: var(--spared); }
+/* How it works */
+#how { margin-top: 2.5rem; }
+.steps { list-style: none; padding: 0; margin: 1rem 0 0; border-left: 2px solid #fff2; }
+.step { position: relative; padding: 0 0 1.75rem 1.5rem; }
+.step::before { content: ""; position: absolute; left: -7px; top: .45rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+.step.sub { padding-left: 2.5rem; }
+.step.sub::before { left: -5px; width: 8px; height: 8px; background: var(--muted); }
+.step h3 { margin: 0 0 .4rem; font-size: 1.15rem; }
+.step.sub h3 { font-size: 1rem; color: var(--muted); }
+.step p { max-width: 46em; margin: .4rem 0; }
+.step .figs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 1rem; margin-top: .75rem; }
+.step figure { margin: 0; }
+.step figure img, .step figure canvas { display: block; width: 100%; height: auto; border-radius: 4px; }
+.step figure.wide, .step .figs > .diagram { grid-column: 1 / -1; }
+.todo { max-width: 46em; padding-left: 1.2rem; margin: .4rem 0; }
+.todo li { margin: .35rem 0; }
+.eq { font-family: ui-monospace, Menlo, monospace; font-size: .92em; background: #fff1; padding: .05em .35em; border-radius: 3px; white-space: nowrap; }
+.callout { max-width: 46em; margin: .75rem 0 0; padding: .7rem .9rem; border-left: 4px solid var(--accent); background: #ffd2570f; border-radius: 4px; }
+.magenta { color: #ff5ce0; } .cyan { color: #3ff0ff; } .red { color: #ff6a3d; }
+.ramp { height: 12px; max-width: 360px; border-radius: 3px; margin-top: .6rem;
+  background: linear-gradient(90deg, hsl(0 85% 55%), hsl(60 85% 55%), hsl(120 85% 50%), hsl(180 85% 50%), hsl(240 85% 60%), hsl(300 85% 55%), hsl(360 85% 55%)); }
+.ramp-l { display: flex; justify-content: space-between; max-width: 360px; margin: .2rem 0 0 !important; }
+.diagram { width: 100%; max-width: 720px; height: auto; display: block; }
+.diagram .lbl { font: 13px system-ui, sans-serif; fill: var(--fg); }
+.diagram .lbl.muted { fill: var(--muted); } .diagram .lbl.acc, .diagram .lbl.ev { fill: var(--accent); }
+.diagram .axis, .diagram .grid { stroke: #fff3; stroke-width: 1; }
+.diagram .bracket { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.diagram .pass { fill: var(--fg); stroke: var(--bg); stroke-width: 2; } .diagram .pass.off { fill: var(--muted); }
+.diagram .event { fill: var(--hit); stroke: var(--bg); stroke-width: 2; }
+.diagram .sat { fill: var(--fg); } .diagram .panel { fill: #6f8fd8; }
+.diagram .ray { stroke: var(--fg); stroke-width: 1.5; opacity: .8; } .diagram .ray.b { stroke: var(--accent); stroke-dasharray: 5 4; }
+.diagram .ray.ret { stroke: var(--fg); } .diagram .ray.thin { opacity: .45; } .diagram .ray.lost { stroke: var(--accent); stroke-dasharray: 5 4; }
+.diagram .ahead { fill: var(--fg); }
+.diagram .ground { fill: none; stroke: #b9a27c; stroke-width: 3; } .diagram .ground.b { stroke: var(--accent); stroke-dasharray: 6 4; stroke-width: 2.5; }
+.diagram .water { stroke: #4aa3ff; stroke-width: 4; }
+.diagram .d { stroke: var(--accent); stroke-width: 3; }
+.diagram .w { fill: none; stroke: var(--fg); stroke-width: 2; } .diagram .w.b { stroke: var(--accent); }
+.diagram .guide { stroke: var(--fg); stroke-dasharray: 3 3; opacity: .6; } .diagram .guide.b { stroke: var(--accent); opacity: 1; }
+.diagram .cell { fill: #fff1; stroke: #fff3; } .diagram .dots { fill: var(--fg); } .diagram .dots.b { fill: var(--accent); }
+.diagram .tree line { stroke: #57d68d; stroke-width: 3; stroke-linecap: round; } .diagram .tree.b line { stroke: #6b5b4b; }
+.chart .series { fill: none; stroke: var(--accent); stroke-width: 2; opacity: .5; }
+.chart .pt { fill: var(--accent); stroke: var(--bg); stroke-width: 2; } .chart .pt.on { r: 6; }
+.chart .fit { stroke: var(--fg); stroke-width: 2; stroke-dasharray: 6 4; }
+.chart .hit { fill: transparent; } .chart .xh { stroke: var(--muted); stroke-dasharray: 2 3; }
+@media (max-width: 600px) { .step { padding-left: 1rem; } .step.sub { padding-left: 1.6rem; } .eq { white-space: normal; } }
+.step figcaption small { overflow-wrap: anywhere; }
+@media (max-width: 600px) { .diagram .lbl { font-size: 17px; } }
+.step, .step .figs > * { min-width: 0; }

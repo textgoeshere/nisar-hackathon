@@ -25,6 +25,17 @@ NISAR sees the ground once before and once after. The before → after slider **
 between those two states: it shows *how much* the ground moved, not how fast or in what order.
 The page says so next to the slider.
 
+## How it works
+
+Below the stories, [`site/js/how.js`](../site/js/how.js) walks from NISAR's passes to the 3D view
+in six numbered steps, written from `meta.json` (dates, pass times from the granule names, stats).
+It has four versions, picked from the metadata: **motion** (quakes), **damage** (`still` GUNW events
+and landslides: coherence drop), **brightness** (floods and fires: GCOV backscatter) and
+**subsidence** (the chained, fitted rate). Each version credits NASA/JPL's processor with forming the
+interferogram or backscatter image, and lists what our pipeline did on top of it. Step 6 always
+carries the "the animation is not a recording" caveat. Any image in `meta.images` that no step
+uses still appears under "More images".
+
 ## Shared coordinates
 
 Every layer is on the same grid, so a point is one (u, v) pair (east and south fractions)
