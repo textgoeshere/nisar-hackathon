@@ -29,6 +29,7 @@ from . import cmr, context, gunw, remote
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "cache"
 SITE = ROOT / "site" / "events"
+SNOWLINE_M = 3500    # landslide coherence-drop mask (Himalaya, late August)
 CYCLE_M = 0.10        # one colour cycle in rendered interferograms = 10 cm of motion
 
 
@@ -200,6 +201,16 @@ def build(slug: str, refetch=False):
     (out / "surface.i16").write_bytes(i16(gunw.display_surface(los, valid)))
     (out / "valid.u8").write_bytes(valid.astype(np.uint8).tobytes())
     (out / "coh.u8").write_bytes(grey(coh).tobytes())
+    layers = {"dem": "dem.i16", "los": "los.i16", "surface": "surface.i16", "valid": "valid.u8", "coh": "coh.u8"}
+    if "coh_pre" in A:
+        # Coherence drop: ground that matched itself before the event and stopped matching across
+        # it. That is the footprint of a destroyed or buried surface (debris, lava, collapse).
+        drop = np.clip(A["coh_pre"] - coh, 0, 1)
+        if ev["kind"] == "landslide":
+            # Above the seasonal snowline fresh snow also destroys coherence; keep valley ground only.
+            drop = np.where(A["dem"] < SNOWLINE_M, drop, 0)
+        (out / "cohdrop.u8").write_bytes(grey(drop).tobytes())
+        layers["cohdrop"] = "cohdrop.u8"
 
     images = []
     def add(name, arr, caption, source):
@@ -239,6 +250,8 @@ def build(slug: str, refetch=False):
         stats |= {"max_sinking_cm_yr": round(float(-np.nanpercentile(r, 0.1)) * 100, 1), "fit_rms_cm": info["fit_rms_cm"],
                   "fastest_uv": [round((k[1] + 0.5) / grid.nx, 4), round((k[0] + 0.5) / grid.ny, 4)],
                   "fastest_series_cm": [0.0] + [round(float(c) * 100, 1) for c in A["cum"][:, k[0], k[1]]]}
+    if "coh_pre" in A:
+        stats["coherence_drop_pct"] = round(100 * float((drop > 0.3).mean()), 1)
     if "los_pre" in A:
         mp = np.nan_to_num(A["los_pre"])[A["valid_pre"].astype(bool)]
         stats["baseline_range_cm"] = round(float(np.percentile(mp, 98) - np.percentile(mp, 2)) * 100, 1)
@@ -247,7 +260,7 @@ def build(slug: str, refetch=False):
         "slug": slug, "name": ev["name"], "kind": ev["kind"], "date": ev["date"], "lat": ev["lat"], "lon": ev["lon"],
         "grid": {"epsg": grid.epsg, "left": grid.left, "top": grid.top, "dx": grid.dx, "nx": grid.nx, "ny": grid.ny,
                  "bounds_lonlat": [w, s_, e, n]},
-        "layers": {"dem": "dem.i16", "los": "los.i16", "surface": "surface.i16", "valid": "valid.u8", "coh": "coh.u8"},
+        "layers": layers,
         "ground": "optical-after.jpg" if "optical_after" in A else ("optical-before.jpg" if "optical_before" in A else None),
         "nisar": info, "stats": stats, "images": images,
     }

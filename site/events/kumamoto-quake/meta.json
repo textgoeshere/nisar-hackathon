@@ -24,7 +24,8 @@
   "los": "los.i16",
   "surface": "surface.i16",
   "valid": "valid.u8",
-  "coh": "coh.u8"
+  "coh": "coh.u8",
+  "cohdrop": "cohdrop.u8"
  },
  "ground": "optical-after.jpg",
  "nisar": {
@@ -90,6 +91,7 @@
   "motion_range_cm": 30.7,
   "measured_pct": 59.0,
   "coherence_mean": 0.41,
+  "coherence_drop_pct": 5.9,
   "baseline_range_cm": 6.9
  },
  "images": [

@@ -25,7 +25,7 @@ void main() {
 }`;
 
 const FRAG = /* glsl */ `
-uniform sampler2D uGround, uCoh, uValid;
+uniform sampler2D uGround, uCoh, uValid, uDrop;
 uniform float uHasGround, uFringe, uCycle, uMode, uLim;
 varying vec2 vUv;
 varying float vLos;
@@ -40,7 +40,12 @@ void main() {
   vec3 col = base * lit;
   float coh = texture2D(uCoh, vUv).r, valid = texture2D(uValid, vUv).r;
   vec3 fr = hsv(fract(vLos / uCycle), 0.85, 1.0) * lit;
-  if (uMode > 0.5) {
+  if (uMode > 1.5) {
+    // Landslide / debris: tint where coherence collapsed across the event (the surface was buried
+    // or torn up), with a bright edge so the footprint reads at a glance.
+    float d = smoothstep(0.25, 0.5, texture2D(uDrop, vUv).r);
+    col = mix(col, vec3(0.95, 0.6, 0.3) * lit, d * 0.6);
+  } else if (uMode > 0.5) {
     // Subsidence: light red tint where the ground sinks plus a contour every 2 cm, so the city stays
     // readable. Apparent rise of a couple of cm is within the fit's noise, so it gets nothing.
     float x = clamp(-vLos / uLim, 0.0, 1.0);
@@ -82,11 +87,13 @@ export async function createViewer(el, base, meta) {
     uValid: { value: tex(Float32Array.from(valid8), nx, ny) }, uCoh: { value: tex(Float32Array.from(coh8, (v) => v / 255), nx, ny) },
     uGround: { value: null }, uHasGround: { value: 0 },
     uDemExag: { value: Math.min(5, Math.max(1, (0.08 * width) / Math.max(1, demMax - demMin))) },
-    uLosExag: { value: (0.03 * width) / losMax }, uT: { value: 1 }, uAspect: { value: aspect },
-    uDemBase: { value: demMin }, uWidth: { value: width }, uFringe: { value: meta.kind === "subsidence" ? 0 : 1 }, uCycle: { value: 0.1 },
-    uMode: { value: meta.kind === "subsidence" ? 1 : 0 }, uLim: { value: 1 },
+    uLosExag: { value: meta.kind === "landslide" ? 0 : (0.03 * width) / losMax }, uT: { value: 1 }, uAspect: { value: aspect },
+    uDemBase: { value: demMin }, uWidth: { value: width }, uFringe: { value: ["subsidence", "landslide"].includes(meta.kind) ? 0 : 1 }, uCycle: { value: 0.1 },
+    uMode: { value: { subsidence: 1, landslide: 2 }[meta.kind] ?? 0 }, uLim: { value: 1 },
+    uDrop: { value: tex(new Float32Array(1), 1, 1) },
   };
   u.uLim.value = losMax;
+  if (meta.layers.cohdrop) u.uDrop.value = tex(Float32Array.from(await layer(base + meta.layers.cohdrop, Uint8Array), (v) => v / 255), nx, ny);
   if (meta.ground) {
     const g = await new THREE.TextureLoader().loadAsync(base + meta.ground);
     g.anisotropy = 8;
@@ -132,7 +139,7 @@ export async function createViewer(el, base, meta) {
   });
 
   return {
-    losMax, losExag0: u.uLosExag.value,
+    losMax, losExag0: u.uLosExag.value || (0.03 * width) / losMax,
     setT(t) { u.uT.value = t; },
     setLosExag(x) { u.uLosExag.value = x; },
     setFringe(on) { u.uFringe.value = on ? 1 : 0; },

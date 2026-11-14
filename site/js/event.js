@@ -11,7 +11,7 @@ $("#title").textContent = meta.name;
 const multi = !!meta.nisar.dates;
 $("#sub").textContent = multi ? `${meta.kind} · ${meta.nisar.granules.length} NISAR interferograms, ${meta.nisar.pair.join(" → ")}`
   : `${meta.date} · ${meta.kind} · NISAR pass ${meta.nisar.pair.join(" → ")}`;
-if (multi) $("#fringes").checked = false;
+if (multi || meta.kind === "landslide") $("#fringes").checked = false;
 
 const v = await createViewer($("#hero"), base, meta);
 $("#loading").remove();
@@ -42,7 +42,8 @@ showT();
 
 const ex = $("#exag"), exOut = $("#exag-out");
 const setEx = () => { const x = v.losExag0 * 10 ** (ex.value / 100); v.setLosExag(x); exOut.textContent = `×${Math.round(x).toLocaleString()}`; };
-ex.addEventListener("input", setEx); setEx();
+ex.addEventListener("input", setEx);
+if (meta.kind === "landslide") { ex.value = -100; exOut.textContent = "off (motion is not the signal here)"; ex.addEventListener("input", setEx, { once: true }); v.setLosExag(0); } else setEx();
 $("#fringes").addEventListener("change", (e) => v.setFringe(e.target.checked));
 $("#ground").addEventListener("change", (e) => v.setGround(e.target.checked));
 
@@ -51,6 +52,7 @@ $("#numbers").innerHTML = `<table>
 <tr><th>Ground motion across the scene (2nd-98th percentile, line of sight)</th><td>${s.motion_range_cm} cm</td></tr>
 ${s.baseline_range_cm != null ? `<tr><th>Same, in the quiet baseline pair before the event</th><td>${s.baseline_range_cm} cm</td></tr>` : ""}
 ${s.max_sinking_cm_yr != null ? `<tr><th>Fastest sinking (line of sight)</th><td>${s.max_sinking_cm_yr} cm/year</td></tr><tr><th>Scatter of the passes around the fitted steady rate</th><td>${s.fit_rms_cm} cm</td></tr>` : ""}
+${s.coherence_drop_pct != null ? `<tr><th>Area where the surface stopped matching itself across the event (coherence drop > 0.3)</th><td>${s.coherence_drop_pct}%</td></tr>` : ""}
 <tr><th>Area where motion was measured (coherent)</th><td>${s.measured_pct}%</td></tr></table>`;
 
 $("#images").innerHTML = meta.images.map((im) => `<figure><a href="${base + im.file}"><img src="${base + im.file}" alt="${esc(im.caption)}" loading="lazy"></a>
