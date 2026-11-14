@@ -66,7 +66,10 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-07.png",
    "lat": 32.714594,
    "lon": 130.80187,
-   "geocoded": "御船町, 上益城郡, 熊本県, 日本"
+   "geocoded": "御船町, 上益城郡, 熊本県, 日本",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 3: 城南町鰐瀬 paddy over the 鰐瀬 trench, 23 cm",
@@ -78,7 +81,10 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-09.png",
    "lat": 32.684411,
    "lon": 130.756109,
-   "geocoded": "鰐瀬郵便局, 小川嘉島線, 城南町陳内, 南区, 熊本市, 熊本県, 860-8601, 日本"
+   "geocoded": "鰐瀬郵便局, 小川嘉島線, 城南町陳内, 南区, 熊本市, 熊本県, 860-8601, 日本",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 4: 宇城市豊野町下郷 paddy → road, 43 cm",
@@ -90,7 +96,10 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-10.png",
    "lat": 32.636232,
    "lon": 130.691709,
-   "geocoded": "宇城市道, 松橋町久具, 宇城市, 熊本県, 869-0524, 日本"
+   "geocoded": "宇城市道, 松橋町久具, 宇城市, 熊本県, 869-0524, 日本",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 5: 豊野町 娑婆神峠 road, 98 cm",
@@ -101,7 +110,10 @@
    "side": "affected",
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-11.png",
    "geocoded": null,
-   "note": "not located by Nominatim; not used as a search centre"
+   "note": "not located by Nominatim; not used as a search centre",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 7: 氷川町大野, paddy S of 道の駅竜北, 115 cm",
@@ -119,7 +131,10 @@
     "Ryuhoku",
     "竜北",
     "道の駅竜北"
-   ]
+   ],
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 8: 氷川町宮原 road, 184 cm (the largest offset)",
@@ -131,7 +146,10 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-15.png",
    "lat": 32.554554,
    "lon": 130.685042,
-   "geocoded": "宮原, 氷川町, 八代郡, 熊本県, 869-4805, 日本"
+   "geocoded": "宮原, 氷川町, 八代郡, 熊本県, 869-4805, 日本",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 9: 八代市岡町中 road → paddy, 120 cm",
@@ -143,7 +161,10 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-16.png",
    "lat": 32.535928,
    "lon": 130.670057,
-   "geocoded": "岡町中, 八代市, 熊本県, 日本"
+   "geocoded": "岡町中, 八代市, 熊本県, 日本",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 10: 龍峯小学校 schoolyard, 94 cm + mole track",
@@ -153,7 +174,10 @@
    "conf": "high",
    "value": "94 cm right-lateral with a mole track",
    "side": "affected",
-   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png"
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 11: 八代市上片町 near 八代JCT, ~130 cm vertical",
@@ -165,7 +189,10 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-18.png",
    "lat": 32.506915,
    "lon": 130.645264,
-   "geocoded": "上片町, 八代市, 熊本県, 866-0805, 日本"
+   "geocoded": "上片町, 八代市, 熊本県, 866-0805, 日本",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 12: 八代神社 (Myoken-gu), 95 cm",
@@ -175,7 +202,10 @@
    "conf": "high",
    "value": "95 cm right-lateral, 39 cm W-side down",
    "side": "affected",
-   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png"
+   "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 13: 八代市渡町 field, 25 cm",
@@ -187,7 +217,10 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-20.png",
    "lat": 32.489438,
    "lon": 130.626519,
-   "geocoded": "渡町, 八代市, 熊本県, 866-0805, 日本"
+   "geocoded": "渡町, 八代市, 熊本県, 866-0805, 日本",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ photo 14: 八代市豊原上町 road, 17 cm",
@@ -199,7 +232,10 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-21.png",
    "lat": 32.489289,
    "lon": 130.624405,
-   "geocoded": "豊原上町, 八代市, 熊本県, 866-0805, 日本"
+   "geocoded": "豊原上町, 八代市, 熊本県, 866-0805, 日本",
+   "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
+   "credit": "Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo"
   },
   {
    "name": "GSJ 第6報: 山出 trench, 甲佐町白旗, 12 cm",

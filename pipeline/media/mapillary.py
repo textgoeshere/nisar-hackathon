@@ -35,7 +35,7 @@ def harvest(centres, ref: str | None, per_period=3, before_years=3) -> list[dict
             try:
                 r = get(API, {"bbox": ",".join(f"{v:.5f}" for v in b), "fields": FIELDS, "limit": 200,
                               "start_captured_at": f"{t0}T00:00:00Z", "end_captured_at": f"{t1}T00:00:00Z"},
-                        headers=hdr, retries=3)
+                        headers=hdr, retries=3, max_age_days=1)   # thumb URLs are signed and expire
             except FetchError as e:
                 failures += 1
                 if failures <= 3:

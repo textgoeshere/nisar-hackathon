@@ -52,6 +52,7 @@ def test_image_licences():
     assert stories.show_image({"image_url": "u", "licence": "Public domain (US Government)"})
     assert not stories.show_image({"image_url": "u", "licence": "news, link only"})
     assert not stories.show_image({"image_url": "u", "licence": "AIST GSJ web material (agency); link with credit"})
+    assert stories.show_image({"image_url": "u", "licence": "GSJ Terms of Use (CC BY 4.0 compatible)"})
     assert not stories.show_image({"image_url": None, "licence": "CC BY 4.0"})
 
 

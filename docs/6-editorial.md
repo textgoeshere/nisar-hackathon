@@ -43,3 +43,12 @@ Guidance for editors:
 - A before/after street-view pair at an anchor is a good substitute when no photo of the damage exists.
 - Respect licences and people (see step 5). News and agency images appear only as pixelated previews
   linked to their source.
+
+## Before shipping
+
+- **Re-harvest street views on the day you ship**:
+  `.venv/bin/python -m pipeline.media <slug>`, then `.venv/bin/python -m pipeline.stories <slug>`,
+  for every event with selected Mapillary items. Mapillary thumbnail URLs are signed and expire, so
+  a published street view eventually shows "preview unavailable". The Mapillary cache entry
+  lasts a day, so a re-harvest fetches fresh URLs. Your decisions are keyed by item
+  id, so they survive the re-harvest.

@@ -89,9 +89,14 @@ responses are cached in `cache/media/http/`.
   place within 500 m; for subsidence, rate <= -5 cm/yr = affected, >= -1 = unaffected.
 - **showable**: photo/street with an open licence (CC/PD). Mapillary `thumb_url`s are signed and
   expire; the editor and event page fall back to "no preview" with the link.
+- **GSJ field photos** (Kumamoto) are shown in full, not pixelated. The GSJ Terms of Use
+  (https://www.gsj.jp/en/license/, checked 2026-11-14) allow reuse, modification and commercial use
+  and are compatible with CC BY 4.0, on two conditions. You must cite the source as "Source:
+  Geological Survey of Japan web page (URL)", and say if you edited the image. Third-party rights
+  (people in a photo, material credited to someone else) are not covered. Their seed anchors carry
+  `licence: "GSJ Terms of Use (CC BY 4.0 compatible)"` and that credit.
 - **pixelated previews** (David's rule for news and agency images: use them, gently pixelated,
-  clicking through to the attributed source). For news (GDELT) and link-only agency photos (e.g. the
-  GSJ field photos for Kumamoto), `pipeline/media/pixelate.py` takes the article's og:image (GDELT's
+  clicking through to the attributed source). For news (GDELT) and link-only agency photos, `pipeline/media/pixelate.py` takes the article's og:image (GDELT's
   `socialimage`, else the page's `og:image`/`twitter:image`; generic logos skipped), caches the
   download in `cache/media/img/`, shrinks it to 56 px on the long side and scales it back up 8x with
   nearest neighbour: the scene reads, but it is clearly not a reproduction. Only that derivative is

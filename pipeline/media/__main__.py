@@ -56,12 +56,16 @@ def anchor_items(s: dict) -> list[dict]:
     for a in s.get("anchors", []):
         if a.get("lat") is None:
             continue
-        out.append(item(source="validation", type="damage" if a["kind"] == "damage" else "measurement",
+        # A seed may carry its own open licence (GSJ field photos: GSJ Terms of Use, CC BY 4.0
+        # compatible); then the photo is shown, not pixelated.
+        lic = a.get("licence") or "data / report, link with credit"
+        photo = bool(a.get("image")) and is_open(lic)
+        out.append(item(source="validation", type="photo" if photo else "damage" if a["kind"] == "damage" else "measurement",
                         title=a["name"], caption=a.get("value", ""), lat=a["lat"], lon=a["lon"],
                         loc_method=a.get("geocoded") and f"nominatim: {a['q']}" or "validation-sources.md",
                         loc_confidence=a.get("conf", "high" if a["kind"] == "gnss" else "medium"),
                         thumb_url=a.get("image"), page_url=a.get("page_url") or a.get("image"), credit=a.get("credit"),
-                        licence="data / report, link with credit", side_hint=a.get("side"), tier=1, _anchor=a))
+                        licence=lic, side_hint=a.get("side"), tier=1, _anchor=a))
     return out
 
 
@@ -95,6 +99,14 @@ def _has(text: str, words) -> bool:
 
 def about_event(text: str, s: dict) -> bool:
     return any(norm(w) in text for w in EVENT_WORDS + s["terms"]["match"])
+
+
+def news_worth_listing(it: dict, s: dict) -> bool:
+    """An unplaced headline earns a row in the Unlocated tab only if it names a seed place or a
+    ground effect: not death tolls, aid flights, politics or other countries' quakes."""
+    names = [p["name"] for p in s.get("places", []) + s.get("anchors", []) if p.get("name")]
+    names = [n for n in names if len(norm(n)) >= 4]
+    return _has(norm(it["title"]), s["terms"]["match"] + names)
 
 
 def near_anchors(it: dict, anchors, r_km=0.3) -> list[dict]:
@@ -156,8 +168,10 @@ def tier_of(it: dict, s: dict, anchors, places, step_thr, quake: bool) -> int:
     precise = it["loc_confidence"] in ("high", "medium") and not it.get("approx")
     near = near_anchors(it, anchors) if precise else []
     if near:
+        # A GNSS station shows nothing on the ground, so an after-view there is not tier 1.
+        ground = [a for a in near if a.get("kind") != "gnss"]
         if quake and ((not street and (about_event(text, s) or it.get("_found_by", "").startswith("category")))
-                      or it["when"] == "after"):
+                      or (it["when"] == "after" and ground)):
             return 1
         if not quake and not street and (_has(text, s["terms"]["match"]) or landmark(text, near)):
             return 1                                           # subsidence: any date, if it shows the sinking
@@ -309,7 +323,9 @@ def harvest(slug: str, only: set[str] | None = None):
     for it in raw:
         if it.get("lat") is None:
             dropped[f"{it['source']}: not located"] += 1
-            if it["source"] == "gdelt" or (it["source"] in ("commons", "openverse") and relevant(it, s, ref, anchors)):
+            if it["source"] == "gdelt" and not news_worth_listing(it, s):
+                dropped["gdelt: unlocated, off-topic headline"] += 1
+            elif it["source"] == "gdelt" or (it["source"] in ("commons", "openverse") and relevant(it, s, ref, anchors)):
                 keep_unlocated(it)
             continue
         if not in_bounds(it["lat"], it["lon"], b):

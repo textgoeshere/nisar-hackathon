@@ -12,7 +12,7 @@
    "image_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png",
    "page_url": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html",
    "credit": "Akai, Ota, Maruyama, Yoshimi, Azuma, Ninomiya / AIST Geological Survey of Japan (photo 10, 第5報)",
-   "licence": "AIST GSJ web material (agency); link with credit, check GSJ terms before rehosting",
+   "licence": "GSJ Terms of Use (CC BY 4.0 compatible)",
    "date": "2026-07-31",
    "confidence": "high",
    "notes": "Coordinates are the school's OSM point; the rupture crosses the schoolyard, so it is within ~100 m. The search summary also mentions structural cracking at Ryuho school (unverified); the GSJ caption is the verified source.",
@@ -26,12 +26,10 @@
     "motion_cm": -2.7,
     "local_step_cm": 11.8
    },
-   "show_image": false,
+   "show_image": true,
    "status": "candidate",
    "caption": null,
-   "order": null,
-   "preview_url": "media/kumamoto-01.png",
-   "preview": "pixelated"
+   "order": null
   },
   {
    "title": "Yatsushiro Shrine (Myoken-gu) torn by the fault: approach path offset 95 cm",
@@ -43,7 +41,7 @@
    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Damage_to_the_sacred_gate_%28shinmon%29_of_Myoken-gu%2C_caused_by_the_2026_Kumamoto_Earthquake._Yatsushiro_City%2C_Japan.jpg",
    "page_url": "https://commons.wikimedia.org/wiki/File:Damage_to_the_sacred_gate_(shinmon)_of_Myoken-gu,_caused_by_the_2026_Kumamoto_Earthquake._Yatsushiro_City,_Japan.jpg",
    "credit": "Katorisi / Wikimedia Commons (gate photo); offset figures from AIST GSJ photo 12 (https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png)",
-   "licence": "CC BY-SA 4.0 (Commons photo); GSJ photo: AIST GSJ web material (agency); link with credit, check GSJ terms before rehosting",
+   "licence": "CC BY-SA 4.0 (Commons photo); GSJ photo: GSJ Terms of Use (CC BY 4.0 compatible)",
    "date": "2026-07-31 (GSJ); 2026-08-29 (Commons)",
    "confidence": "high",
    "notes": "Do not confuse this with Yatsushiro-gū (八代宮, in the city centre near the castle). en.wikipedia says the 'Yatsushiro-gū' worship hall collapsed, which may refer to either shrine, so use only the GSJ/Commons facts here.",
@@ -57,12 +55,10 @@
     "motion_cm": -4.5,
     "local_step_cm": 9.5
    },
-   "show_image": false,
+   "show_image": true,
    "status": "candidate",
    "caption": null,
-   "order": null,
-   "preview_url": "media/kumamoto-02.png",
-   "preview": "pixelated"
+   "order": null
   },
   {
    "title": "Expressway viaduct dropped where the rupture passes under Myoken Daiichi Bridge (Yatsushiro JCT)",
