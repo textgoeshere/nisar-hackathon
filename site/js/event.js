@@ -57,4 +57,50 @@ $("#sources").innerHTML = [
   "3D: three.js.",
 ].filter(Boolean).map((x) => `<li>${x}</li>`).join("");
 
+// ---------- on the ground: editor-selected stories, pinned in 3D ----------
+const stories = await fetch(base + "stories.json").then((r) => (r.ok ? r.json() : null), () => null);
+if (stories) {
+  let items = stories.items.filter((i) => i.status === "selected" && i.nisar?.inside !== false);
+  if (!items.length) {
+    items = stories.items.filter((i) => i.status !== "rejected" && i.nisar?.inside !== false);
+    $("#unreviewed").hidden = false;
+  }
+  items.sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+  $("#stories").hidden = false;
+  $("#boundary").textContent = stories.boundary ?? "";
+  const nisarLine = (n) => !n.measured ? `NISAR: no motion measured here (coherence ${n.coherence}: the surface changed or the signal was lost).`
+    : `NISAR: ${n.motion_cm > 0 ? "+" : ""}${n.motion_cm} cm along the line of sight${n.local_step_cm != null ? `; ${n.local_step_cm} cm of change within 500 m` : ""}; coherence ${n.coherence}.`;
+  $("#cards").innerHTML = items.map((it, k) => `
+<article class="card ${it.side === "affected" ? "hit" : "spared"}" data-k="${k}" tabindex="0" id="story-${k + 1}">
+  <h3><span class="num">${k + 1}</span>${esc(it.title)}</h3>
+  <p class="small muted">${esc(it.place)} · ${esc(it.date)}</p>
+  ${it.show_image ? `<a href="${esc(it.page_url)}" target="_blank" rel="noopener"><img src="${esc(it.image_url)}" alt="${esc(it.what_it_shows)}" loading="lazy" referrerpolicy="no-referrer"></a>` : ""}
+  <p>${esc(it.caption || it.what_it_shows)}</p>
+  <p class="nisar small">${nisarLine(it.nisar)}</p>
+  <p class="small muted"><a href="${esc(it.page_url)}" target="_blank" rel="noopener">Source</a> · ${esc(it.credit)}${it.show_image ? ` · ${esc(it.licence)}` : ""}</p>
+</article>`).join("");
+  const pins = items.map((it, k) => {
+    const p = document.createElement("button");
+    p.className = `pin ${it.side === "affected" ? "hit" : "spared"}`;
+    p.type = "button";
+    p.title = it.title;
+    p.innerHTML = `<span>${k + 1}</span>`;
+    p.onclick = () => { const c = $(`#story-${k + 1}`); c.scrollIntoView({ behavior: "smooth", block: "center" }); c.classList.add("hot"); setTimeout(() => c.classList.remove("hot"), 1800); };
+    $("#hero").appendChild(p);
+    return { p, uv: [it.nisar.u, it.nisar.v] };
+  });
+  document.querySelectorAll(".card").forEach((c) => {
+    const p = pins[c.dataset.k].p;
+    c.addEventListener("mouseenter", () => p.classList.add("hot"));
+    c.addEventListener("mouseleave", () => p.classList.remove("hot"));
+  });
+  v.onFrame(() => {
+    for (const { p, uv } of pins) {
+      const s = v.project(uv);
+      p.hidden = !s;
+      if (s) p.style.transform = `translate(${s.x}px, ${s.y}px) translate(-50%, -50%)`;
+    }
+  });
+}
+
 window.eventPage = { meta, viewer: v };

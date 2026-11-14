@@ -32,12 +32,18 @@ Each step is documented from first principles, with the commands to reproduce it
 
 1. [Discover candidate events](docs/1-discover.md)
 2. [Rank by NISAR coverage](docs/2-coverage.md)
+3. [Ingest and process](docs/3-ingest.md)
+4. [3D visualisation](docs/4-visualize.md)
+5. [Ground stories and media](docs/5-stories.md)
+6. [Human editorial layer](docs/6-editorial.md)
 
 ## Run
 
 ```sh
 python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m pipeline.coverage          # step 2: CMR search, no login needed
+.venv/bin/python -m pipeline.build_event kumamoto-quake   # step 3: needs EARTHDATA_TOKEN
+.venv/bin/python -m pipeline.stories kumamoto-quake       # steps 5-6: place stories, merge editorial picks
 cd site && python3 -m http.server 8000         # open http://localhost:8000
 ```
 

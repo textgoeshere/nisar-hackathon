@@ -1,0 +1,70 @@
+{
+ "slug": "little-giant-fire",
+ "boundary": "Final fire perimeter (research/fires/little-giant.geojson; web perimeter layer). NISAR burn frames 2026-06-19/07-01/07-13 are pre-fire. The upper Entiat losses happened 7–8 Aug, but at these valley sites the radar signal mostly appears only from 2026-08-30 to 09-23 (lagged/gradual HV change). The hero grid covers only lon −120.84…−120.29, lat 47.78…48.15, so Lake Chelan (25 Mile Creek, South Lakeshore Rd, Lucerne), Entiat town and Ardenvoir are off-grid.",
+ "items": [
+  {
+   "title": "Upper Entiat valley 'moonscape': 2 homes and 13 cabins lost around the Sno-Park (MP 25)",
+   "place": "Entiat Sno-Park, Entiat River Road ~milepost 25, near Brief, Chelan County, WA",
+   "lat": 47.90953,
+   "lon": -120.48579,
+   "side": "affected",
+   "what_it_shows": "Story plus homeowner photos: on the night of 7–8 Aug the fire ran through the upper Entiat valley. The 12 Aug assessment (Assessor, Emergency Management, Fire District 8, from about MP 25 down the valley) counted 35 structures: 2 primary homes, 13 cabins and 20+ outbuildings. Sgt. Jason Reinfeld: 'Up by the Snow Park at milepost 25 … it burned really quite hot … It kinda looked like a moonscape', usually just metal roofing on the ground, with sporadic structures untouched. KOZI ran Ernest Radillo's before/after photos of his Entiat River Road home.",
+   "image_url": null,
+   "page_url": "https://www.kozi.com/post/it-kinda-looked-like-a-moonscape-little-giant-fire-property-damage-assessment",
+   "credit": "KOZI (reporting); property photos courtesy Ernest Radillo",
+   "licence": "news, link only",
+   "date": "2026-08-08",
+   "confidence": "medium",
+   "notes": "Pin is the OSM Entiat Sno-Park. Losses are spread along Entiat River Rd from about there downstream, and no individual addresses were released. Radillo's home is only 'on Entiat River Road' (before/after photo at https://www.kozi.com/post/two-homes-among-52-structures-lost-in-little-giant-fire), so there is no separate pin. The first count was 26 (2 homes, 3 cabins, 21 outbuildings; Entiat Fire Chief Adam Jones, 9 Aug), revised to 35 on 17 Aug (NCW News / Ward Media).",
+   "id": "little-01"
+  },
+  {
+   "title": "Pope Creek cabins hit by post-fire debris flow (13 Aug storm)",
+   "place": "Pope Creek alluvial fan at Entiat River Road, upper Entiat valley, Chelan County, WA (WALERT site 36)",
+   "lat": 47.97779,
+   "lon": -120.56716,
+   "side": "affected",
+   "what_it_shows": "A second-order human impact: after a convective storm on 13 Aug 2026 over the freshly burned Pope Creek basin, a debris flow crossed the fan and the Entiat River. One structure was 'directly impacted and completely destroyed', two cabins were surrounded by mud and boulders, and mud flowed onto another cabin's porch. More pulses on 25 Sep damaged the road again.",
+   "image_url": null,
+   "page_url": "https://dnr.wa.gov/sites/default/files/2026-10/ger_hazards_landslide_walert_report_little_giant_2026.pdf",
+   "credit": "Washington Geological Survey / WA DNR, WALERT Report 2026-04 (p.10); also Chelan County EM via Lake Chelan Mirror (5 Oct 2026)",
+   "licence": "WA state government report; text cited, no image extracted",
+   "date": "2026-08-13",
+   "confidence": "medium",
+   "notes": "Coordinates are the downstream end of the OSM Pope Creek waterway (DEM 806 m, valley floor) where it reaches the river/road. The fan and cabins are within a few hundred metres. These are debris-flow losses, not fire losses; label them as such. The report has field photos/plates; check them if an image is wanted (30 MB PDF).",
+   "id": "little-02"
+  },
+  {
+   "title": "Riverwood Estates / Coyote Falls Road: fire reached the road, homes still standing",
+   "place": "Coyote Falls Road alluvial fan (Riverwood Estates), lower Entiat valley below Brief, Chelan County, WA (WALERT site 6)",
+   "lat": 47.85586,
+   "lon": -120.42467,
+   "side": "unaffected",
+   "what_it_shows": "Story: WA DNR field crews found two plastic culverts on Coyote Falls Road burned during the fire. The Riverwood Estates well pump house and several residential structures (about four full-time residents, single access road) sit mid-fan and are now assessed for flood and debris-flow risk, so the fire reached their road without burning the homes.",
+   "image_url": null,
+   "page_url": "https://dnr.wa.gov/sites/default/files/2026-10/ger_hazards_landslide_walert_report_little_giant_2026.pdf",
+   "credit": "Washington Geological Survey / WA DNR, WALERT Report 2026-04",
+   "licence": "WA state government report; text cited",
+   "date": "2026-10",
+   "confidence": "medium",
+   "notes": "Survival of the homes is inferred: the report treats them as existing structures at post-fire risk and does not report them burned. Pin is the OSM residential Coyote Falls Road way (±200 m). Pairs well with the Sno-Park item 6.6 km up-valley.",
+   "id": "little-03"
+  },
+  {
+   "title": "Brief: fire held just north and west of the hamlet",
+   "place": "Brief, Entiat River Road, Chelan County, WA",
+   "lat": 47.88233,
+   "lon": -120.43515,
+   "side": "unaffected",
+   "what_it_shows": "Story, no photo: the fire's southward push east of Entiat River Road was halted by 'multiple days of direct attack', with crews mopping up and improving the control line along Tyee Ridge Road (incident update via NCW News, 19 Aug). The DNR report describes the burn reaching the lower Entiat basin around Brief.",
+   "image_url": null,
+   "page_url": "https://www.cashmerevalleyrecord.com/stories/dry-windy-conditions-drive-growth-on-little-giant-fire,186110",
+   "credit": "NCW News / Ward Media (Taylor Caldwell), citing incident officials",
+   "licence": "news, link only",
+   "date": "2026-08-19",
+   "confidence": "low",
+   "notes": "No source explicitly says 'Brief was saved'; this rests on the perimeter geometry plus the 'halted southward progression' line. The 12 Aug assessment covered MP 25 'down through the valley' without naming Brief losses. Use as an edge marker rather than a named rescue story.",
+   "id": "little-04"
+  }
+ ]
+}

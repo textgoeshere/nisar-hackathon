@@ -22,10 +22,11 @@
  "layers": {
   "dem": "dem.i16",
   "los": "los.i16",
+  "surface": "surface.i16",
   "valid": "valid.u8",
   "coh": "coh.u8"
  },
- "ground": null,
+ "ground": "optical-after.jpg",
  "nisar": {
   "granule": "NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001",
   "pair": [
@@ -50,14 +51,39 @@
     "2026-05-14",
     "2026-07-27"
    ],
-   "scenes": []
+   "scenes": [
+    "S2C_52SFB_20260530_0_L2A",
+    "S2C_52SFA_20260530_0_L2A",
+    "S2B_52SFB_20260515_0_L2A",
+    "S2B_52SFA_20260515_0_L2A",
+    "S2C_52SFB_20260629_0_L2A",
+    "S2C_52SFA_20260629_0_L2A",
+    "S2B_52SFB_20260525_0_L2A",
+    "S2C_52SFB_20260709_0_L2A",
+    "S2C_52SFA_20260709_0_L2A",
+    "S2B_52SFA_20260714_0_L2A",
+    "S2B_52SFB_20260714_0_L2A"
+   ]
   },
   "optical_after": {
    "window": [
     "2026-07-29",
     "2026-09-11"
    ],
-   "scenes": []
+   "scenes": [
+    "S2B_52SFB_20260823_0_L2A",
+    "S2B_52SFA_20260823_0_L2A",
+    "S2C_52SFB_20260818_0_L2A",
+    "S2C_52SFA_20260818_0_L2A",
+    "S2B_52SFB_20260803_0_L2A",
+    "S2B_52SFA_20260803_0_L2A",
+    "S2B_52SFA_20260813_0_L2A",
+    "S2B_52SFB_20260813_0_L2A",
+    "S2B_52SFB_20260902_0_L2A",
+    "S2B_52SFA_20260902_0_L2A",
+    "S2C_52SFA_20260729_0_L2A",
+    "S2C_52SFB_20260729_0_L2A"
+   ]
   }
  },
  "stats": {
@@ -81,6 +107,16 @@
    "file": "interferogram-before.png",
    "caption": "Baseline interferogram before the event, 2026-07-09 \u2192 2026-07-21: what 'quiet' looks like.",
    "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_025_024_A_018_026_4000_SH_20260709T202900_20260709T202935_20260721T202900_20260721T202934_P05023_N_F_J_001"
+  },
+  {
+   "file": "optical-before.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 11 scenes, 2026-05-14 \u2192 2026-07-27.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  },
+  {
+   "file": "optical-after.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 12 scenes, 2026-07-29 \u2192 2026-09-11.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
   }
  ]
 }

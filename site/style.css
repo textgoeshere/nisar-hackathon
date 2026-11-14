@@ -20,3 +20,17 @@ footer { color: var(--muted); font-size: .9rem; border-top: 1px solid #fff2; mar
 .gallery figure { margin: 0; }
 .gallery img { width: 100%; height: auto; border-radius: 4px; }
 figcaption { font-size: .9rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.card { border: 1px solid #fff2; border-left: 5px solid var(--side); border-radius: 6px; padding: .7rem .9rem; scroll-margin-top: 1rem; }
+.card.hit { --side: var(--hit); } .card.spared { --side: var(--spared); }
+.card.hot { outline: 2px solid var(--accent); }
+.card h3 { margin: .2rem 0; font-size: 1.05rem; }
+.card img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 4px; }
+.card .nisar { background: #fff1; padding: .4rem .6rem; border-radius: 4px; }
+.num { display: inline-grid; place-items: center; width: 1.6em; height: 1.6em; border-radius: 50%; background: var(--side); color: #000; font-weight: 700; margin-right: .45em; font-size: .9rem; }
+.pin { position: absolute; left: 0; top: 0; width: 24px; height: 24px; padding: 0; border-radius: 50%; background: var(--side); border: 2px solid #000; cursor: pointer; display: grid; place-items: center; z-index: 2; box-shadow: 0 2px 6px #000a; }
+.pin.hit { --side: var(--hit); } .pin.spared { --side: var(--spared); }
+.pin span { font: 700 11px system-ui; color: #000; }
+.pin.hot { outline: 3px solid var(--accent); z-index: 3; }
+.dot { display: inline-block; width: .8em; height: .8em; border-radius: 50%; vertical-align: middle; }
+.dot.hit { background: var(--hit); } .dot.spared { background: var(--spared); }

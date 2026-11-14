@@ -109,7 +109,8 @@ def sentinel2(grid: Grid, start: str, end: str, max_scenes: int = 6) -> tuple[np
         ok = np.zeros((grid.ny, grid.nx), bool)
         for f in by_day[d]:
             try:
-                with rasterio.open("/vsicurl/" + f["assets"]["visual"]["href"]) as src:
+                # Read a 20 m overview, not the 10 m full resolution: 4x fewer bytes for a 40 m target.
+                with rasterio.open("/vsicurl/" + f["assets"]["visual"]["href"], overview_level=0) as src:
                     t = np.zeros_like(rgb)
                     for b in range(3):
                         reproject(rasterio.band(src, b + 1), t[b], dst_transform=grid.transform, dst_crs=grid.crs,

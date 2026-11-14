@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor · Either side of the line</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.cand { display: grid; grid-template-columns: 160px 1fr 220px; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid #fff2; }
+.cand img { width: 160px; height: 110px; object-fit: cover; border-radius: 4px; }
+.cand .noimg { width: 160px; height: 110px; display: grid; place-items: center; background: #fff1; color: var(--muted); font-size: .8rem; text-align: center; border-radius: 4px; }
+.cand textarea { width: 100%; min-height: 4em; background: #fff1; color: var(--fg); border: 1px solid #fff3; }
+.cand.selected { background: #57d68d14; } .cand.rejected { opacity: .45; }
+.side-affected { color: var(--hit); } .side-unaffected { color: var(--spared); }
+.bar { position: sticky; top: 0; background: var(--bg); padding: .6rem 0; border-bottom: 1px solid #fff3; z-index: 2; }
+</style>
+<header>
+  <nav><a href="./">← All events</a></nav>
+  <h1>Editorial review: <span id="name"></span></h1>
+  <p class="muted">Step 6. Pick the stories that go on the event page. Each candidate shows what the research says
+  and what NISAR measured at that spot. Select the clearest pair either side of the line, write a caption in your own
+  words, then download the decisions and commit them as <code id="path"></code>. Nothing is published until it is committed.</p>
+</header>
+<main>
+  <div class="bar"><button id="dl" type="button">Download editorial JSON</button> <span id="count" class="muted"></span>
+  <label style="margin-left:1rem">Boundary text <input id="boundary" style="width:50%"></label></div>
+  <div id="list"></div>
+</main>
+<script type="module">
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const slug = new URLSearchParams(location.search).get("e");
+const data = await (await fetch(`events/${slug}/stories.json`)).json();
+const meta = await (await fetch(`events/${slug}/meta.json`)).json();
+document.querySelector("#name").textContent = meta.name;
+document.querySelector("#path").textContent = `editorial/${slug}.json`;
+const key = `editorial:${slug}`;
+const saved = JSON.parse(localStorage.getItem(key) || "null");
+const state = saved || { boundary: data.boundary, items: Object.fromEntries(data.items.map((i) => [i.id, { status: i.status, caption: i.caption, order: i.order }])) };
+const bd = document.querySelector("#boundary");
+bd.value = state.boundary ?? "";
+bd.oninput = () => { state.boundary = bd.value; save(); };
+function save() {
+  localStorage.setItem(key, JSON.stringify(state));
+  const n = Object.values(state.items).filter((x) => x.status === "selected").length;
+  document.querySelector("#count").textContent = `${n} selected of ${data.items.length}`;
+}
+const list = document.querySelector("#list");
+for (const it of data.items) {
+  const st = state.items[it.id] ||= { status: "candidate" };
+  const n = it.nisar;
+  const row = document.createElement("div");
+  row.className = `cand ${st.status}`;
+  row.innerHTML = `
+    ${it.show_image ? `<img src="${esc(it.image_url)}" referrerpolicy="no-referrer" alt="">` : `<div class="noimg">${it.image_url ? "photo: link only<br>(licence)" : "no photo"}</div>`}
+    <div><strong>${esc(it.title)}</strong> <span class="side-${it.side}">(${it.side})</span><br>
+      <small class="muted">${esc(it.place)} · ${esc(it.date)} · location ${esc(it.confidence)} · <a href="${esc(it.page_url)}" target="_blank" rel="noopener">source</a> · ${esc(it.licence)}</small>
+      <p>${esc(it.what_it_shows)}</p>
+      <p class="small"><strong>NISAR here:</strong> ${n.inside === false ? "outside the scene" :
+        `${n.measured ? `motion ${n.motion_cm} cm` : "motion not measured"}, step within 500 m ${n.local_step_cm ?? "–"} cm, coherence ${n.coherence}`}</p>
+      ${it.notes ? `<p class="small muted">${esc(it.notes)}</p>` : ""}</div>
+    <div><label><input type="radio" name="${it.id}" value="selected"> Select</label>
+      <label><input type="radio" name="${it.id}" value="rejected"> Reject</label>
+      <label><input type="radio" name="${it.id}" value="candidate"> Undecided</label>
+      <label>Order <input type="number" min="1" style="width:4em" class="ord"></label>
+      <textarea placeholder="Caption for the page (optional)"></textarea></div>`;
+  row.querySelector(`input[value="${st.status}"]`).checked = true;
+  row.querySelectorAll("input[type=radio]").forEach((r) => r.onchange = () => { st.status = r.value; row.className = `cand ${r.value}`; save(); });
+  const ta = row.querySelector("textarea"); ta.value = st.caption ?? ""; ta.oninput = () => { st.caption = ta.value || null; save(); };
+  const ord = row.querySelector(".ord"); ord.value = st.order ?? ""; ord.oninput = () => { st.order = ord.value ? +ord.value : null; save(); };
+  list.appendChild(row);
+}
+save();
+document.querySelector("#dl").onclick = () => {
+  const blob = new Blob([JSON.stringify(state, null, 1)], { type: "application/json" });
+  const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: `${slug}.json` });
+  a.click();
+};
+</script>
+</html>

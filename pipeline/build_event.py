@@ -122,9 +122,13 @@ def build(slug: str, refetch=False):
     out.mkdir(parents=True, exist_ok=True)
 
     los, valid, coh = A["los"], A["valid"].astype(bool), A["coh"]
-    filled = gunw.fill(np.nan_to_num(los), valid)
+    i16 = lambda a: np.clip(np.round(a * 1000), -32767, 32767).astype("<i2").tobytes()
     (out / "dem.i16").write_bytes(np.round(A["dem"]).astype("<i2").tobytes())
-    (out / "los.i16").write_bytes(np.clip(np.round(filled * 1000), -32767, 32767).astype("<i2").tobytes())
+    # Measured motion (0 where not measured): what stories are sampled against.
+    (out / "los.i16").write_bytes(i16(np.where(valid, np.nan_to_num(los), 0)))
+    # Display surface: lightly smoothed motion that fades to zero over unmeasured ground (sea,
+    # decorrelated patches), so gaps don't become cliffs under heavy exaggeration.
+    (out / "surface.i16").write_bytes(i16(gunw.display_surface(los, valid)))
     (out / "valid.u8").write_bytes(valid.astype(np.uint8).tobytes())
     (out / "coh.u8").write_bytes(grey(coh).tobytes())
 
@@ -161,7 +165,7 @@ def build(slug: str, refetch=False):
         "slug": slug, "name": ev["name"], "kind": ev["kind"], "date": ev["date"], "lat": ev["lat"], "lon": ev["lon"],
         "grid": {"epsg": grid.epsg, "left": grid.left, "top": grid.top, "dx": grid.dx, "nx": grid.nx, "ny": grid.ny,
                  "bounds_lonlat": [w, s_, e, n]},
-        "layers": {"dem": "dem.i16", "los": "los.i16", "valid": "valid.u8", "coh": "coh.u8"},
+        "layers": {"dem": "dem.i16", "los": "los.i16", "surface": "surface.i16", "valid": "valid.u8", "coh": "coh.u8"},
         "ground": "optical-after.jpg" if "optical_after" in A else ("optical-before.jpg" if "optical_before" in A else None),
         "nisar": info, "stats": stats, "images": images,
     }

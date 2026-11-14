@@ -65,8 +65,13 @@ def read_window(g: Granule, lat: float, lon: float, half_m: float, s=None) -> di
     }
 
 
-def fill(a: np.ndarray, valid: np.ndarray) -> np.ndarray:
-    """Fill invalid pixels with the nearest valid value (for a continuous 3D surface; the
-    validity mask is exported separately so the viewer can show what is measured)."""
-    idx = ndimage.distance_transform_edt(~valid, return_distances=False, return_indices=True)
-    return a[tuple(idx)]
+def display_surface(los: np.ndarray, valid: np.ndarray, sigma: float = 1.5, fade: float = 4.0) -> np.ndarray:
+    """Motion for the 3D surface: a normalised-convolution smooth of the measured pixels (fills
+    small holes, damps speckle), multiplied by a soft mask that fades to zero over large
+    unmeasured areas. Display only; analysis uses the raw measured values."""
+    v = valid.astype(np.float32)
+    num = ndimage.gaussian_filter(np.where(valid, np.nan_to_num(los), 0).astype(np.float32), sigma)
+    den = ndimage.gaussian_filter(v, sigma)
+    smooth = np.where(den > 1e-3, num / np.maximum(den, 1e-3), 0)
+    taper = np.clip(ndimage.gaussian_filter(v, fade) * 1.6, 0, 1)
+    return (smooth * taper).astype(np.float32)

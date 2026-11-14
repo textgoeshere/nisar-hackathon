@@ -40,7 +40,7 @@ void main() {
   vec3 col = base * lit;
   float coh = texture2D(uCoh, vUv).r, valid = texture2D(uValid, vUv).r;
   vec3 fr = hsv(fract(vLos / uCycle), 0.85, 1.0) * lit;
-  col = mix(col, fr, uFringe * valid * smoothstep(0.25, 0.5, coh) * smoothstep(0.0, 0.003, abs(vLos)));
+  col = mix(col, fr, 0.7 * uFringe * valid * smoothstep(0.3, 0.55, coh) * smoothstep(0.0, 0.003, abs(vLos)));
   gl_FragColor = vec4(col, 1.0);
 }`;
 
@@ -59,7 +59,7 @@ export async function createViewer(el, base, meta) {
   const { nx, ny, dx } = meta.grid;
   const width = nx * dx, aspect = ny / nx;
   const [dem16, los16, valid8, coh8] = await Promise.all([
-    layer(base + meta.layers.dem, Int16Array), layer(base + meta.layers.los, Int16Array),
+    layer(base + meta.layers.dem, Int16Array), layer(base + (meta.layers.surface ?? meta.layers.los), Int16Array),
     layer(base + meta.layers.valid, Uint8Array), layer(base + meta.layers.coh, Uint8Array),
   ]);
   const dem = Float32Array.from(dem16), los = Float32Array.from(los16, (v) => v / 1000);
@@ -73,7 +73,7 @@ export async function createViewer(el, base, meta) {
     uValid: { value: tex(Float32Array.from(valid8), nx, ny) }, uCoh: { value: tex(Float32Array.from(coh8, (v) => v / 255), nx, ny) },
     uGround: { value: null }, uHasGround: { value: 0 },
     uDemExag: { value: Math.min(5, Math.max(1, (0.08 * width) / Math.max(1, demMax - demMin))) },
-    uLosExag: { value: (0.05 * width) / losMax }, uT: { value: 1 }, uAspect: { value: aspect },
+    uLosExag: { value: (0.03 * width) / losMax }, uT: { value: 1 }, uAspect: { value: aspect },
     uDemBase: { value: demMin }, uWidth: { value: width }, uFringe: { value: 1 }, uCycle: { value: 0.1 },
   };
   if (meta.ground) {
