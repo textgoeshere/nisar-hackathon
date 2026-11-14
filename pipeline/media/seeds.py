@@ -3,7 +3,8 @@
 Hand-written parts (from research/validation-sources.md and the stories' boundary text):
   anchors   tier 1: GNSS stations, field-measured offsets, graded damage points
   terms     tier 2: visible-displacement words in the local language and English
-  places    tier 3: named places on the NISAR boundary
+  places    tier 3: named places on the NISAR boundary; `outside: true` places (beyond the frame) are
+            only used to recognise captions, so those photos land in the editor's Unlocated list
   context   tier 4: open queries
 
 `resolve` fills coordinates for entries that only have a geocoding query `q` (Nominatim, bounded to
@@ -136,6 +137,6 @@ def centres(s: dict) -> list[dict]:
         if e.get("lat") is not None:
             out.append({"name": e["name"], "lat": e["lat"], "lon": e["lon"], "tier": 1, "side": e.get("side")})
     for e in s.get("places", []) + s.get("steps", []):
-        if e.get("lat") is not None:
+        if e.get("lat") is not None and not e.get("outside"):   # outside places only locate captions
             out.append({"name": e["name"], "lat": e["lat"], "lon": e["lon"], "tier": 3, "side": e.get("side")})
     return out

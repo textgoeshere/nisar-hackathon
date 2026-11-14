@@ -295,6 +295,132 @@
    "geocoded": "Sanchón, Parroquia Morón (Nominatim)",
    "lat": 10.45354,
    "lon": -68.16317
+  },
+  {
+   "name": "Planta Centro (Morón)",
+   "aliases": [
+    "Planta Centro",
+    "Termoeléctrica Planta Centro",
+    "Central Termoeléctrica Planta Centro"
+   ],
+   "q": "Planta Centro, Morón, Carabobo",
+   "conf": "low",
+   "lat": 10.48285,
+   "lon": -68.152085,
+   "geocoded": "Retorno de Planta Centro, Palma Sola, Parroquia Morón, Municipio Mora, Estado Carabobo, Venezuela"
+  },
+  {
+   "name": "El Palito",
+   "aliases": [
+    "El Palito",
+    "Refinería El Palito"
+   ],
+   "q": "El Palito, Carabobo",
+   "conf": "low",
+   "lat": 10.477589,
+   "lon": -68.110456,
+   "geocoded": "El Palito, Parroquia Juan José Flores, Municipio Puerto Cabello, Estado Carabobo, Venezuela"
+  },
+  {
+   "name": "Nirgua",
+   "aliases": [
+    "Nirgua"
+   ],
+   "q": "Nirgua, Yaracuy",
+   "conf": "low",
+   "lat": 10.152482,
+   "lon": -68.564885,
+   "geocoded": "Nirgua, Parroquia Nirgua, Municipio Nirgua, Estado Yaracuy, 3205, Venezuela"
+  },
+  {
+   "name": "Bejuma",
+   "aliases": [
+    "Bejuma"
+   ],
+   "q": "Bejuma, Carabobo",
+   "conf": "low",
+   "lat": 10.174021,
+   "lon": -68.257855,
+   "geocoded": "Bejuma, Parroquia Bejuma, Municipio Bejuma, Estado Carabobo, 2040, Venezuela"
+  },
+  {
+   "name": "Montalbán",
+   "aliases": [
+    "Montalbán",
+    "Montalban"
+   ],
+   "q": "Montalbán, Carabobo",
+   "conf": "low",
+   "lat": 10.211799,
+   "lon": -68.324854,
+   "geocoded": "Montalbán, Parroquia Montalbán, Municipio Montalbán, Estado Carabobo, 2042, Venezuela"
+  },
+  {
+   "name": "Cocorote",
+   "aliases": [
+    "Cocorote"
+   ],
+   "q": "Cocorote, Yaracuy",
+   "conf": "low",
+   "lat": 10.319483,
+   "lon": -68.783093,
+   "geocoded": "Cocorote, Parroquia Cocorote, Municipio Cocorote, Estado Yaracuy, 3201, Venezuela"
+  },
+  {
+   "name": "Puerto Cabello",
+   "aliases": [
+    "Puerto Cabello"
+   ],
+   "lat": 10.4731,
+   "lon": -68.0125,
+   "conf": "low",
+   "outside": true,
+   "note": "outside the NISAR frame: located for the editor, never placed on the grid"
+  },
+  {
+   "name": "Valencia (Carabobo)",
+   "aliases": [
+    "Valencia, Venezuela",
+    "Valencia, Carabobo",
+    "Naguanagua"
+   ],
+   "lat": 10.162,
+   "lon": -68.0077,
+   "conf": "low",
+   "outside": true,
+   "note": "outside the NISAR frame: located for the editor, never placed on the grid"
+  },
+  {
+   "name": "Caracas",
+   "aliases": [
+    "Caracas",
+    "Altamira",
+    "San Bernardino",
+    "La Pastora",
+    "Chacao",
+    "El Paraíso",
+    "Francisco de Miranda"
+   ],
+   "lat": 10.4806,
+   "lon": -66.9036,
+   "conf": "low",
+   "outside": true,
+   "note": "outside the NISAR frame: located for the editor, never placed on the grid"
+  },
+  {
+   "name": "La Guaira",
+   "aliases": [
+    "La Guaira",
+    "Caraballeda",
+    "Los Corales",
+    "Maiquetía",
+    "Catia La Mar"
+   ],
+   "lat": 10.6012,
+   "lon": -66.9331,
+   "conf": "low",
+   "outside": true,
+   "note": "outside the NISAR frame: located for the editor, never placed on the grid"
   }
  ],
  "context": [

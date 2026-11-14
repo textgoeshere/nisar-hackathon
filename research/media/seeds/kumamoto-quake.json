@@ -113,7 +113,13 @@
    "image": "https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-13.png",
    "lat": 32.576772,
    "lon": 130.694645,
-   "geocoded": "道の駅竜北, 国道3号, 河原, 氷川町, 八代郡, 熊本県, 869-4805, 日本"
+   "geocoded": "道の駅竜北, 国道3号, 河原, 氷川町, 八代郡, 熊本県, 869-4805, 日本",
+   "aliases": [
+    "Michinoeki Ryuhoku",
+    "Ryuhoku",
+    "竜北",
+    "道の駅竜北"
+   ]
   },
   {
    "name": "GSJ photo 8: 氷川町宮原 road, 184 cm (the largest offset)",
@@ -491,6 +497,31 @@
    "lon": 130.7055,
    "conf": "medium",
    "side": "unaffected"
+  },
+  {
+   "name": "Uto 宇土市",
+   "aliases": [
+    "宇土市",
+    "Uto City",
+    "Uto, Kumamoto"
+   ],
+   "q": "宇土市",
+   "conf": "low",
+   "lat": 32.687918,
+   "lon": 130.659822,
+   "geocoded": "宇土市, 熊本県, 日本"
+  },
+  {
+   "name": "Hinagu Onsen 日奈久温泉",
+   "aliases": [
+    "日奈久温泉",
+    "Hinagu Onsen"
+   ],
+   "q": "日奈久温泉",
+   "conf": "low",
+   "lat": 32.435972,
+   "lon": 130.581712,
+   "geocoded": "日奈久温泉駅, 国道3号, 日奈久浜町, 八代市, 熊本県, 869-5148, 日本"
   }
  ],
  "context": [

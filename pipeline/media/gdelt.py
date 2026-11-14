@@ -45,17 +45,27 @@ def search(q: str, sourcelang: str | None, start: str, end: str, maxrecords=150)
 # Place-name candidates in a headline that the seed gazetteer doesn't know.
 ES_PLACE = re.compile(r"\b(?:en|de|del|desde|hacia|a)\s+((?:[A-ZÁÉÍÓÚÑ][\wáéíóúñ]+)(?:\s+(?:de\s+|del\s+|la\s+)?[A-ZÁÉÍÓÚÑ][\wáéíóúñ]+){0,3})")
 JA_PLACE = re.compile(r"([一-鿿]{1,5}(?:市|町|村|区))")
-STOP = {"Panamá", "Panama", "Venezuela", "México", "Mexico", "Japón", "Japan", "Los Santos", "Ciudad", "Gobierno", "La", "El"}
+STOP = {"Panamá", "Panama", "Venezuela", "México", "Mexico", "Japón", "Japan", "Los Santos", "Ciudad", "Gobierno", "La", "El", "Azuero",
+        "Veraguas", "Herrera", "Coclé", "Carabobo", "Yaracuy", "Falcón", "Kumamoto", "Kyushu"}   # regions, not places
 
 
-def geocode_titles(items: list[dict], bounds, lang: str, budget=40) -> int:
-    """Nominatim-geocode place names in still-unlocated headlines, inside the grid only."""
+# Nominatim hit types that are settlements. Anything else (a street called "Puebla" or "Oruro" in
+# Mexico City, a stadium, a house) is a false friend.
+SETTLEMENT = {"city", "town", "village", "hamlet", "suburb", "neighbourhood", "quarter", "locality", "municipality",
+              "isolated_dwelling", "borough", "city_district"}
+
+
+def geocode_titles(items: list[dict], bounds, lang: str, budget=40, text=lambda it: it["title"]) -> int:
+    """Nominatim-geocode place names in still-unlocated headlines, inside the grid only. Photo
+    captions are matched against the seed gazetteer only (locate.py): free geocoding of captions
+    put Bolivian and colonial-history pictures on Mexico City streets."""
     cache: dict[str, dict | None] = {}
     n = 0
     for it in items:
         if it.get("lat") is not None:
             continue
-        names = ES_PLACE.findall(it["title"]) + JA_PLACE.findall(it["title"])
+        t = text(it)
+        names = ES_PLACE.findall(t) + JA_PLACE.findall(t)
         for name in names:
             name = name.strip()
             if name in STOP or len(name) < 3:
@@ -65,7 +75,8 @@ def geocode_titles(items: list[dict], bounds, lang: str, budget=40) -> int:
                     break
                 cache[name] = geocode.forward(name, bounds, lang)
             hit = cache[name]
-            if hit and in_bounds(hit["lat"], hit["lon"], bounds) and (hit.get("rank") or 0) >= 16:
+            if (hit and in_bounds(hit["lat"], hit["lon"], bounds) and (hit.get("rank") or 0) >= 16
+                    and hit.get("type") in SETTLEMENT):
                 it |= {"lat": hit["lat"], "lon": hit["lon"], "loc_method": f"nominatim: {name}", "loc_confidence": "low"}
                 n += 1
                 break

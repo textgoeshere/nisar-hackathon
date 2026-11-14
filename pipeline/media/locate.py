@@ -21,17 +21,30 @@ def gazetteer(seeds: dict) -> list[tuple[str, dict]]:
     return sorted(out, key=lambda x: -len(x[0]))
 
 
-def _hit(alias: str, text: str) -> bool:
+def _hit(alias: str, text: str) -> int:
+    """Position of alias in text, or -1."""
     if re.search(r"[぀-ヿ一-鿿]", alias):        # CJK: substring match
-        return alias in text
-    return re.search(rf"(?<![\w]){re.escape(alias)}(?![\w])", text) is not None
+        return text.find(alias)
+    m = re.search(rf"(?<![\w]){re.escape(alias)}(?![\w])", text)
+    return m.start() if m else -1
 
 
 def by_text(it: dict, gaz) -> bool:
-    text = norm(f"{it.get('title', '')} {it.get('caption', '')} {it.get('_categories', '')}".replace("_", " "))
-    for alias, p in gaz:
-        if _hit(alias, text):
-            it |= {"lat": p["lat"], "lon": p["lon"], "loc_method": f"text: {p['name']}",
-                   "loc_confidence": CAP[p.get("conf", "low")], "_place": p}
-            return True
-    return False
+    """Place an item at the seed place its title names first (then caption, then categories): "MOP
+    reabre puente en Pedasí ... Tonosí" goes to Pedasí. Longer aliases win ties ('Isla Cañas' over 'Cañas')."""
+    parts = [it.get("title", ""), it.get("caption", ""), it.get("_categories", "")]
+    best = None
+    for k, part in enumerate(parts):
+        text = norm(str(part or "").replace("_", " "))
+        for alias, p in gaz:                                 # longest alias first
+            pos = _hit(alias, text)
+            if pos >= 0 and (best is None or (k, pos) < best[0]):
+                best = ((k, pos), p)
+        if best:
+            break
+    if not best:
+        return False
+    p = best[1]
+    it |= {"lat": p["lat"], "lon": p["lon"], "loc_method": f"text: {p['name']}",
+           "loc_confidence": CAP[p.get("conf", "low")], "_place": p}
+    return True

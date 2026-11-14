@@ -160,8 +160,10 @@
   {
    "name": "Búcaro",
    "aliases": [
+    "Bucaro",
     "Búcaro",
-    "Bucaro"
+    "Playa Bucaro",
+    "Playa Búcaro"
    ],
    "lat": 7.34335,
    "lon": -80.35248,
@@ -171,9 +173,9 @@
   {
    "name": "Isla Cañas",
    "aliases": [
+    "Isla Canas",
     "Isla Cañas",
-    "Isla de Cañas",
-    "Isla Canas"
+    "Isla de Cañas"
    ],
    "lat": 7.41513,
    "lon": -80.31419,
@@ -183,8 +185,9 @@
   {
    "name": "Tonosí",
    "aliases": [
+    "Tonosi",
     "Tonosí",
-    "Tonosi"
+    "Valle de Tonosí"
    ],
    "lat": 7.40869,
    "lon": -80.4377,
@@ -319,8 +322,8 @@
   {
    "name": "Pedasí",
    "aliases": [
-    "Pedasí",
-    "Pedasi"
+    "Pedasi",
+    "Pedasí"
    ],
    "q": "Pedasí, Los Santos",
    "conf": "low",
@@ -344,7 +347,8 @@
   {
    "name": "Las Tablas",
    "aliases": [
-    "Las Tablas"
+    "Las Tablas",
+    "Las Tablas, Los Santos"
    ],
    "q": "Las Tablas, Los Santos",
    "conf": "low",
@@ -352,6 +356,113 @@
    "lat": 7.651638,
    "lon": -80.31489,
    "geocoded": "Las Tablas, Los Santos, Panamá"
+  },
+  {
+   "name": "Penonomé",
+   "aliases": [
+    "Penonomé",
+    "Penonome"
+   ],
+   "lat": 8.5187,
+   "lon": -80.3573,
+   "conf": "low",
+   "outside": true,
+   "note": "outside the NISAR frame: located for the editor, never placed on the grid"
+  },
+  {
+   "name": "Coclé (province)",
+   "aliases": [
+    "Coclé",
+    "Cocle",
+    "Gobernación de Coclé"
+   ],
+   "lat": 8.5187,
+   "lon": -80.3573,
+   "conf": "low",
+   "outside": true,
+   "note": "outside the NISAR frame: located for the editor, never placed on the grid"
+  },
+  {
+   "name": "Soná",
+   "aliases": [
+    "Soná",
+    "Sona"
+   ],
+   "lat": 8.0094,
+   "lon": -81.3189,
+   "conf": "low",
+   "outside": true,
+   "note": "outside the NISAR frame: located for the editor, never placed on the grid"
+  },
+  {
+   "name": "Torio",
+   "aliases": [
+    "Torio"
+   ],
+   "lat": 7.532,
+   "lon": -81.063,
+   "conf": "low",
+   "outside": true,
+   "note": "outside the NISAR frame: located for the editor, never placed on the grid"
+  },
+  {
+   "name": "La Villa de Los Santos",
+   "aliases": [
+    "Villa de Los Santos",
+    "La Villa de Los Santos"
+   ],
+   "q": "La Villa de Los Santos, Los Santos, Panamá",
+   "conf": "low",
+   "lat": 7.937827,
+   "lon": -80.415005,
+   "geocoded": "La Villa de Los Santos, Los Santos, 6040, Panamá"
+  },
+  {
+   "name": "Chitré",
+   "aliases": [
+    "Chitré",
+    "Chitre"
+   ],
+   "q": "Chitré, Herrera, Panamá",
+   "conf": "low",
+   "lat": 7.960179,
+   "lon": -80.431997,
+   "geocoded": "Cementerio de Chitre, Brisas de los Guayacanes, Chitré, Herrera, Panamá"
+  },
+  {
+   "name": "Cambutal",
+   "aliases": [
+    "Cambutal"
+   ],
+   "q": "Cambutal, Tonosí, Panamá",
+   "conf": "low",
+   "lat": 7.265326,
+   "lon": -80.486565,
+   "geocoded": "Cambutal, Tonosí, Los Santos, Panamá"
+  },
+  {
+   "name": "Pocrí",
+   "aliases": [
+    "Pocrí",
+    "Pocri"
+   ],
+   "q": "Pocrí, Los Santos, Panamá",
+   "conf": "low",
+   "lat": 7.639372,
+   "lon": -80.146521,
+   "geocoded": "Pocrí, Los Santos, Panamá"
+  },
+  {
+   "name": "Mariabé",
+   "aliases": [
+    "Mariabé",
+    "Mariabe"
+   ],
+   "q": "Mariabé, Pedasí, Panamá",
+   "conf": "low",
+   "lat": 7.583772,
+   "lon": -80.062846,
+   "geocoded": "Mariabé, Pedasí, Los Santos, Panamá"
   }
  ],
  "context": [

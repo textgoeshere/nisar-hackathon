@@ -53,3 +53,54 @@ def test_image_licences():
     assert not stories.show_image({"image_url": "u", "licence": "news, link only"})
     assert not stories.show_image({"image_url": "u", "licence": "AIST GSJ web material (agency); link with credit"})
     assert not stories.show_image({"image_url": None, "licence": "CC BY 4.0"})
+
+
+# ---------- media harvest (step 5b): relevance and tiering ----------
+
+from pipeline.media import __main__ as media  # noqa: E402
+
+MMX1 = {"name": "NGL GNSS MMX1, AICM airport (old Texcoco lakebed)", "kind": "gnss", "lat": 19.4363, "lon": -99.0721}
+ANGEL = {"name": "Ángel de la Independencia: 14 steps added since 1910", "kind": "offset", "lat": 19.4270, "lon": -99.1677}
+GSJ8 = {"name": "GSJ photo 8: 氷川町宮原 road, 184 cm", "kind": "offset", "lat": 32.5800, "lon": 130.6800}
+
+
+def _media(title, lat, lon, date, type="photo", source="commons", when="before"):
+    return {"source": source, "type": type, "title": title, "caption": "", "lat": lat, "lon": lon, "date": date,
+            "when": when, "loc_confidence": "high", "loc_method": "commons geotag", "_found_by": "geosearch:x",
+            "nisar": {"local_step_cm": 1.0}}
+
+
+def test_media_airliner_at_gnss_station_is_dropped():
+    s = {"terms": {"match": ["hundi", "grieta", "sink", "subsid", "crack"]}, "ref_date": "2025-10-30"}
+    plane = _media("Volaris A320-233, XA-VLG, named Stephany (15732700507)", 19.4365, -99.0725, "2014-11-17")
+    assert not media.relevant(plane, s, "2025-10-30", [MMX1, ANGEL])          # near the anchor, not about the ground
+    column = _media("Columna de la Independencia", 19.4271, -99.1676, "2011-12-25")
+    assert media.relevant(column, s, "2025-10-30", [MMX1, ANGEL])             # the landmark itself: kept
+    assert media.tier_of(column, s, [MMX1, ANGEL], [], 99, quake=False) == 1
+    city = _media("Mexico - DF 2013 - panoramio (40)", 19.4271, -99.1676, "2013-01-01")
+    assert not media.relevant(city, s, "2025-10-30", [MMX1, ANGEL])
+
+
+def test_media_proximity_alone_is_not_tier_1():
+    s = {"terms": {"match": ["fault", "crack", "断層"]}}
+    a = [GSJ8]
+    old = _media("Michinoeki Ryuhoku", 32.5801, 130.6801, "2019-05-01")
+    assert media.tier_of(old, s, a, [], 99, quake=True) == 3
+    hit = _media("Fault scarp across the road", 32.5801, 130.6801, "2026-08-02", when="after")
+    assert media.tier_of(hit, s, a, [], 99, quake=True) == 1
+    before = _media("Street view 20 m from GSJ photo 8", 32.5801, 130.6801, "2024-03-01", type="street", source="mapillary")
+    after = _media("Street view 25 m from GSJ photo 8", 32.58012, 130.68012, "2026-09-01", type="street", source="mapillary",
+                   when="after")
+    far = _media("Street view", 32.70, 130.80, "2024-03-01", type="street", source="mapillary")
+    for i, it in enumerate((before, after, far)):
+        it["id"], it["tier"] = f"m{i}", media.tier_of(it, s, a, [], 99, quake=True)
+    assert (before["tier"], after["tier"], far["tier"]) == (3, 1, 4)
+    assert media.pair_streets([before, after, far]) == 1
+    assert before["pair"] == "m1" and before["tier"] == 1 and "pair" not in far
+
+
+def test_media_town_centroid_is_approximate_not_tier_1():
+    s = {"terms": {"match": ["fault"]}}
+    it = _media("Daños en Tonosí tras el sismo", 32.5801, 130.6801, "2026-08-02", when="after")
+    it |= {"loc_confidence": "low", "loc_method": "text: Tonosí", "approx": True}
+    assert media.tier_of(it, s, [GSJ8], [], 99, quake=True) == 4
