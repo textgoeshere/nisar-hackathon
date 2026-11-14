@@ -1,0 +1,149 @@
+{
+ "slug": "flores-quake",
+ "name": "Flores Sea M7.8 earthquake, Indonesia",
+ "kind": "quake",
+ "date": "2026-08-14",
+ "lat": -8.5,
+ "lon": 121.4,
+ "grid": {
+  "epsg": 32751,
+  "left": 283920.0,
+  "top": 9100080.0,
+  "dx": 80.0,
+  "nx": 1000,
+  "ny": 1000,
+  "bounds_lonlat": [
+   121.03521946518211,
+   -8.862888403207528,
+   121.76481428705695,
+   -8.136574853170234
+  ]
+ },
+ "layers": {
+  "dem": "dem.i16",
+  "los": "los.i16",
+  "surface": "surface.i16",
+  "valid": "valid.u8",
+  "coh": "coh.u8",
+  "cohdrop": "cohdrop.u8"
+ },
+ "ground": "ground.jpg",
+ "nisar": {
+  "granule": "NISAR_L2_PR_GUNW_027_168_A_173_028_4000_SH_20260812T214030_20260812T214104_20260824T214029_20260824T214104_P05023_N_F_J_001",
+  "pair": [
+   "2026-08-12",
+   "2026-08-24"
+  ],
+  "stack": [
+   168,
+   173,
+   "A"
+  ],
+  "epsg": 32751,
+  "wavelength_m": 0.2419632429378531,
+  "mb_read": 79.69999999999999,
+  "pre_granule": "NISAR_L2_PR_GUNW_025_168_A_173_027_4000_SH_20260719T214031_20260719T214105_20260812T214030_20260812T214104_P05023_N_F_J_001",
+  "pre_pair": [
+   "2026-07-19",
+   "2026-08-12"
+  ],
+  "optical_before": {
+   "window": [
+    "2026-05-31",
+    "2026-08-13"
+   ],
+   "scenes": [
+    "S2A_51LTL_20260711_0_L2A",
+    "S2A_51LUL_20260711_0_L2A",
+    "S2A_51MTM_20260711_0_L2A",
+    "S2A_51MUM_20260711_0_L2A",
+    "S2A_51LTL_20260601_0_L2A",
+    "S2A_51LUL_20260601_0_L2A",
+    "S2A_51MUM_20260601_0_L2A",
+    "S2A_51MTM_20260601_0_L2A",
+    "S2B_51MUM_20260813_0_L2A",
+    "S2B_51MTM_20260813_0_L2A",
+    "S2B_51LTL_20260813_0_L2A",
+    "S2B_51LUL_20260813_0_L2A",
+    "S2B_51LTL_20260704_0_L2A",
+    "S2B_51MUM_20260704_0_L2A",
+    "S2B_51LUL_20260704_0_L2A",
+    "S2B_51MTM_20260704_0_L2A",
+    "S2C_51MTM_20260629_0_L2A",
+    "S2C_51MUM_20260629_0_L2A",
+    "S2C_51LTL_20260629_0_L2A",
+    "S2C_51LUL_20260629_0_L2A",
+    "S2A_51LTL_20260810_0_L2A",
+    "S2A_51MUM_20260810_0_L2A",
+    "S2A_51MTM_20260810_0_L2A",
+    "S2A_51LUL_20260810_0_L2A"
+   ]
+  },
+  "optical_after": {
+   "window": [
+    "2026-08-15",
+    "2026-09-28"
+   ],
+   "scenes": [
+    "S2B_51LTL_20260823_0_L2A",
+    "S2B_51LUL_20260823_0_L2A",
+    "S2B_51MUM_20260823_0_L2A",
+    "S2B_51MTM_20260823_0_L2A",
+    "S2C_51LUL_20260917_0_L2A",
+    "S2C_51LTL_20260917_0_L2A",
+    "S2C_51MTM_20260917_0_L2A",
+    "S2C_51MUM_20260917_0_L2A",
+    "S2C_51LUL_20260818_0_L2A",
+    "S2C_51LTL_20260818_0_L2A",
+    "S2C_51MTM_20260818_0_L2A",
+    "S2C_51MUM_20260818_0_L2A",
+    "S2B_51LUL_20260912_0_L2A",
+    "S2B_51MUM_20260912_0_L2A",
+    "S2B_51LTL_20260912_0_L2A",
+    "S2B_51MTM_20260912_0_L2A",
+    "S2B_51LTL_20260902_0_L2A",
+    "S2B_51LUL_20260902_0_L2A",
+    "S2B_51MTM_20260902_0_L2A",
+    "S2B_51MUM_20260902_0_L2A",
+    "S2C_51MUM_20260907_0_L2A",
+    "S2C_51MTM_20260907_0_L2A",
+    "S2C_51LUL_20260907_0_L2A",
+    "S2C_51LTL_20260907_0_L2A"
+   ]
+  }
+ },
+ "stats": {
+  "measured_pct": 44.6,
+  "coherence_mean": 0.31,
+  "motion_range_cm": 12.1,
+  "coherence_drop_pct": 0.1,
+  "baseline_range_cm": 6.7
+ },
+ "images": [
+  {
+   "file": "interferogram.png",
+   "caption": "Interferogram spanning the event, 2026-08-12 \u2192 2026-08-24. One colour cycle = 10 cm of line-of-sight motion; brightness = coherence; dim = not measured.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_027_168_A_173_028_4000_SH_20260812T214030_20260812T214104_20260824T214029_20260824T214104_P05023_N_F_J_001"
+  },
+  {
+   "file": "coherence.png",
+   "caption": "Coherence 2026-08-12 \u2192 2026-08-24. Dark = the surface changed.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_027_168_A_173_028_4000_SH_20260812T214030_20260812T214104_20260824T214029_20260824T214104_P05023_N_F_J_001"
+  },
+  {
+   "file": "interferogram-before.png",
+   "caption": "Baseline interferogram before the event, 2026-07-19 \u2192 2026-08-12: what 'quiet' looks like.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_025_168_A_173_027_4000_SH_20260719T214031_20260719T214105_20260812T214030_20260812T214104_P05023_N_F_J_001"
+  },
+  {
+   "file": "optical-before.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 24 scenes, 2026-05-31 \u2192 2026-08-13.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  },
+  {
+   "file": "optical-after.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 24 scenes, 2026-08-15 \u2192 2026-09-28.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  }
+ ]
+}
