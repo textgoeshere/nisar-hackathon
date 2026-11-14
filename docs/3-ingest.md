@@ -97,6 +97,29 @@ for the Himalaya in late August) is masked. At 80 m posting a narrow debris chan
 valley is near the limit of what NISAR resolves; for Langtang the Sentinel-2 image shows the
 channel more clearly than the radar does.
 
+**Volcanoes where motion isn't the signal.** If the event pair moves no more than the quiet
+baseline pair (motion range < 1.5x baseline), the variation is atmosphere, not ground. The page
+then shows the coherence drop instead (fresh lava, pyroclastic deposits), as for landslides. The
+same happens when almost nothing unwraps: Anak Krakatau is a 2 km island in a scene that is 93%
+sea, so no connected component survives, but coherence on the island still falls across the eruption.
+
+**Floods and fires (backscatter, GCOV).** These read radar brightness, not phase.
+[`pipeline/gcov.py`](../pipeline/gcov.py) reads HH and HV gamma-0 for the window and averages the
+native 10-20 m pixels into 40 m cells, binning by coordinates because passes on one stack switch
+between 20 MHz quad-pol and 40 MHz dual-pol modes with different pixel sizes.
+[`build_event.pick_passes`](../pipeline/build_event.py) takes up to 3 passes before the event and
+the first pass after (flood: water drains in days) or the first two (fire: scars last), on the
+stack whose first post-event pass comes soonest. Medians across passes damp speckle.
+
+- Flood: ground that was not water before (HH > -15 dB) and is dark after (HH < -15 dB, and at least
+  3 dB darker). Water under crops or trees brightens HH instead (double bounce); that area is
+  reported but not mapped, because rain-wet soil also brightens.
+- Fire: HV (vegetation volume scattering) fell by more than 1.5 dB, ignoring ground that was
+  already dark.
+
+In monsoon floods every Sentinel-2 scene can be clouded out, so the draped ground image falls back
+to the before composite, then to radar brightness.
+
 ## Pitfalls to remember (from research)
 
 - Try every track: Kumamoto is decorrelated on one track and clean on another.

@@ -40,6 +40,15 @@ def sample(meta: dict, d: Path, lon: float, lat: float, radius_m: float = 500) -
     win = (slice(max(0, i - r), i + r + 1), slice(max(0, j - r), j + r + 1))
     vals = los[win][valid[win]]
     out |= {"inside": True, "coherence": round(float(coh[i, j]), 2), "measured": bool(valid[i, j])}
+    if "dbchange" in meta["layers"]:                       # flood / fire: backscatter change, not motion
+        ddb = np.fromfile(d / meta["layers"]["dbchange"], "<i2").reshape(shape) / 10.0
+        ch = np.fromfile(d / meta["layers"]["change"], np.uint8).reshape(shape) / 255.0
+        w = ddb[win][ddb[win] != 0]
+        out = {k: v for k, v in out.items() if k not in ("coherence", "measured")}
+        if len(w):
+            out["db_change"] = round(float(np.median(w)), 1)
+        out["change"] = round(float(ch[win].mean()), 2)
+        return out
     if valid[i, j]:
         out["motion_cm"] = round(float(los[i, j]), 1)
     if len(vals) >= 5:
@@ -73,6 +82,9 @@ def build(slug: str):
     print(f"{slug}: {len(items)} candidates, {sel} selected")
     for it in items:
         n = it["nisar"]
+        if "change" in n:
+            print(f"  {it['id']} {it['side']:10} {it['status']:9} dB {n.get('db_change', '-'):>6} change {n['change']:.2f}  {it['title'][:60]}")
+            continue
         print(f"  {it['id']} {it['side']:10} {it['status']:9} motion {n.get('motion_cm', '-'):>6} step {n.get('local_step_cm', '-'):>6} "
               f"coh {n.get('coherence', '-')}  {it['title'][:60]}")
 

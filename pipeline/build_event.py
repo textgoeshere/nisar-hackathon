@@ -24,13 +24,15 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from . import cmr, context, gunw, remote
+from . import cmr, context, gcov, gunw, remote
 
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "cache"
 SITE = ROOT / "site" / "events"
 SNOWLINE_M = 3500    # landslide coherence-drop mask (Himalaya, late August)
 CYCLE_M = 0.10        # one colour cycle in rendered interferograms = 10 cm of motion
+BACKSCATTER = ("flood", "fire")   # events read from GCOV backscatter, not interferogram phase
+GCOV_DX = 40.0        # output cell for backscatter: averages 4-16 native pixels, damping speckle
 
 
 def candidates() -> dict[str, dict]:
@@ -113,6 +115,76 @@ def fetch_chain(ev: dict, s) -> tuple[dict, dict]:
     return out, info
 
 
+def pick_passes(ev: dict) -> tuple[list[cmr.Granule], list[cmr.Granule]]:
+    """Backscatter passes on one stack: up to 3 before the event (a stable 'normal') and, after it,
+    the first pass for a flood (water drains within days) or the first two for a fire (scars last).
+    The stack whose first post-event pass comes soonest wins; ties go to the larger stack."""
+    d = ev["date"]
+    best = None
+    for st, gs in cmr.stacks(cmr.search(cmr.GCOV, ev["lat"], ev["lon"])).items():
+        pre = [g for g in gs if g.start < d][-3:]
+        post = [g for g in gs if g.start >= d][: 1 if ev["kind"] == "flood" else 2]
+        if len(pre) < 2 or not post:
+            continue
+        key = (date.fromisoformat(post[0].start) - date.fromisoformat(d)).days
+        if best is None or key < best[0]:
+            best = (key, pre, post)
+    if not best:
+        raise LookupError(f"{ev['slug']}: no stack with 2 passes before and 1 after {d}")
+    return best[1], best[2]
+
+
+def fetch_backscatter(ev: dict, s) -> tuple[dict, dict]:
+    """Flood / fire: median HH and HV backscatter before and after, on a 40 m grid."""
+    from concurrent.futures import ThreadPoolExecutor
+    pre, post = pick_passes(ev)
+    print(f"  backscatter T{pre[0].track} F{pre[0].frame} {pre[0].direction}: before {[g.start for g in pre]}, after {[g.start for g in post]}", flush=True)
+    # Projection from the first pass; the whole stack shares it.
+    f, _ = remote.open_h5(pre[-1].url, s)
+    with f:
+        epsg = int(f[gcov.BASE]["projection"][()])
+    x, y = gcov.out_grid(epsg, ev["lat"], ev["lon"], ev["half_km"] * 1000, GCOV_DX)
+    with ThreadPoolExecutor(4) as ex:
+        reads = list(ex.map(lambda g: gcov.read_window(g, x, y, s), pre + post))
+    med = lambda rs, p: np.nanmedian(np.stack([r[p] for r in rs]), axis=0).astype(np.float32)
+    b, a = reads[: len(pre)], reads[len(pre):]
+    out = {"hh_before": med(b, "hh"), "hv_before": med(b, "hv"), "hh_after": med(a, "hh"), "hv_after": med(a, "hv"),
+           "x": x, "y": y}
+    info = {"granules": [g.id for g in pre + post], "passes_before": [g.start for g in pre],
+            "passes_after": [g.start for g in post], "pair": [pre[-1].start, post[0].start],
+            "stack": list(pre[0].stack), "epsg": epsg, "mb_read": round(sum(r["bytes_read"] for r in reads) / 1e6, 1)}
+    return out, info
+
+
+def backscatter_change(kind: str, A: dict) -> tuple[np.ndarray, np.ndarray]:
+    """Strength (0-1) of the event signal per cell, and where both before and after were seen.
+
+    Flood: ground that was not water before (HH above -15 dB) and is dark after (open water reflects
+    the pulse away), scored by how far HH fell. Fire: HV (vegetation volume) fell; already-dark
+    ground (water, bare rock) is excluded.
+    """
+    from scipy import ndimage
+    hb, ha, vb, va = (gcov.db(A[k]) for k in ("hh_before", "hh_after", "hv_before", "hv_after"))
+    seen = np.isfinite(A["hh_before"]) & np.isfinite(A["hh_after"])
+    if kind == "flood":
+        c = np.clip((hb - ha - 3) / 6, 0, 1) * (ha < -15) * (hb > -15)
+    else:
+        c = np.clip((vb - va - 1.5) / 3, 0, 1) * (vb > -20)
+    c = ndimage.median_filter(np.where(seen, np.nan_to_num(c), 0), 3)
+    return c.astype(np.float32), seen
+
+
+def composite(hh: np.ndarray, hv: np.ndarray) -> np.ndarray:
+    """Standard dual-pol false colour: R = HH, G = HV, B = HH/HV. Water black, vegetation green,
+    built-up and bare ground magenta-white."""
+    r = np.clip((gcov.db(hh) + 22) / 22, 0, 1)
+    g = np.clip((gcov.db(hv) + 30) / 24, 0, 1)
+    bl = np.clip((gcov.db(hh) - gcov.db(hv)) / 15, 0, 1)
+    rgb = np.stack([r, g, bl], -1)
+    rgb[~np.isfinite(hh)] = 0.1
+    return (np.nan_to_num(rgb) * 255).astype(np.uint8)
+
+
 def fetch(ev: dict, refetch=False) -> dict:
     path = CACHE / f"{ev['slug']}.npz"
     if path.exists() and not refetch:
@@ -123,6 +195,9 @@ def fetch(ev: dict, refetch=False) -> dict:
     if ev["date"] is None:
         out, info = fetch_chain(ev, s)
         return _context(ev, out, info, path, date.fromisoformat(info["pair"][1]) - timedelta(days=60))
+    if ev["kind"] in BACKSCATTER:
+        out, info = fetch_backscatter(ev, s)
+        return _context(ev, out, info, path, date.fromisoformat(ev["date"]))
     half = ev["half_km"] * 1000
     co, pre = pick_pairs(ev)
     print(f"  interferogram {co.start} -> {co.end} on T{co.track} F{co.frame} {co.direction}", flush=True)
@@ -146,7 +221,7 @@ def _context(ev, out, info, path, ev_day):
     grid = context.Grid.from_centres(info["epsg"], out["x"], out["y"])
     print("  terrain", flush=True)
     out["dem"] = context.dem(grid)
-    img = grid.scaled(grid.dx / 2) if grid.dx > 40 else grid      # optical at twice the radar resolution
+    img = grid.scaled(grid.dx / 2) if grid.dx >= 40 else grid      # optical at twice the radar resolution
     for tag, a0, a1 in (("before", ev_day - timedelta(days=75), ev_day - timedelta(days=1)),
                         ("after", ev_day + timedelta(days=1), ev_day + timedelta(days=45))):
         print(f"  sentinel-2 {tag}", flush=True)
@@ -182,6 +257,30 @@ def save_img(path: Path, a: np.ndarray, quality=88):
         im.save(path, optimize=True)
 
 
+def ground_image(A: dict) -> np.ndarray | None:
+    """Draped ground: Sentinel-2 after the event, cloud holes filled from the before composite and,
+    for backscatter events, then from radar brightness (monsoon floods are often clouded out in
+    every optical scene). Returns None when there is nothing at all."""
+    opt = [A[k] for k in ("optical_after", "optical_before") if k in A]
+    if not opt and "hh_before" not in A:
+        return None
+    if opt:
+        g = opt[0].copy()
+        for o in opt[1:]:
+            hole = g.sum(-1) == 0
+            g[hole] = o[hole]
+    if "hh_before" in A:
+        r = np.clip((gcov.db(A["hh_before"]) + 25) / 25, 0, 1)
+        radar = (np.nan_to_num(np.stack([r * 0.85, r * 0.9, r], -1)) * 255).astype(np.uint8)
+        if not opt:
+            return radar
+        f = g.shape[0] // radar.shape[0]
+        radar = np.kron(radar, np.ones((f, f, 1), np.uint8))[: g.shape[0], : g.shape[1]]
+        hole = g.sum(-1) == 0
+        g[hole] = radar[hole]
+    return g
+
+
 def build(slug: str, refetch=False):
     ev = candidates()[slug]
     print(f"{slug}: fetching", flush=True)
@@ -191,6 +290,8 @@ def build(slug: str, refetch=False):
     out = SITE / slug
     out.mkdir(parents=True, exist_ok=True)
 
+    if ev["kind"] in BACKSCATTER:
+        return build_backscatter(ev, A, info, grid, out)
     los, valid, coh = A["los"], A["valid"].astype(bool), A["coh"]
     i16 = lambda a: np.clip(np.round(a * 1000), -32767, 32767).astype("<i2").tobytes()
     (out / "dem.i16").write_bytes(np.round(A["dem"]).astype("<i2").tobytes())
@@ -241,9 +342,9 @@ def build(slug: str, refetch=False):
                 "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search")
 
     m = np.nan_to_num(los)[valid]
-    stats = {"motion_range_cm": round(float(np.percentile(m, 98) - np.percentile(m, 2)) * 100, 1),
-             "measured_pct": round(100 * float(valid.mean()), 1),
-             "coherence_mean": round(float(coh.mean()), 2)}
+    stats = {"measured_pct": round(100 * float(valid.mean()), 1), "coherence_mean": round(float(coh.mean()), 2)}
+    if len(m):
+        stats["motion_range_cm"] = round(float(np.percentile(m, 98) - np.percentile(m, 2)) * 100, 1)
     if "rate_m_yr" in A:
         # A 5x5 median keeps single-pixel unwrapping errors from posing as the fastest-sinking spot.
         from scipy import ndimage
@@ -256,21 +357,87 @@ def build(slug: str, refetch=False):
         stats["coherence_drop_pct"] = round(100 * float((drop > 0.3).mean()), 1)
     if "los_pre" in A:
         mp = np.nan_to_num(A["los_pre"])[A["valid_pre"].astype(bool)]
-        stats["baseline_range_cm"] = round(float(np.percentile(mp, 98) - np.percentile(mp, 2)) * 100, 1)
+        if len(mp): stats["baseline_range_cm"] = round(float(np.percentile(mp, 98) - np.percentile(mp, 2)) * 100, 1)
+    # Nothing (or almost nothing) unwrapped, e.g. a small island in open sea: the coherence change
+    # is the only signal, so the page shows it like a landslide (no motion, change tint).
+    # Same when the event pair moved no more than the quiet baseline pair: what varies is atmosphere,
+    # and the event's footprint is the coherence change (lava, pyroclastic deposits).
+    still = stats["measured_pct"] < 5 or (
+        "baseline_range_cm" in stats and stats.get("motion_range_cm", 0) < 1.5 * stats["baseline_range_cm"])
+    write_meta(ev, grid, out, layers, A, info, stats, images, still)
+
+
+def write_meta(ev, grid, out, layers, A, info, stats, images, still=False):
+    slug = ev["slug"]
+    g = ground_image(A)
+    if g is not None:
+        save_img(out / "ground.jpg", g)
     w, s_, e, n = grid.bounds_lonlat()
     meta = {
         "slug": slug, "name": ev["name"], "kind": ev["kind"], "date": ev["date"], "lat": ev["lat"], "lon": ev["lon"],
         "grid": {"epsg": grid.epsg, "left": grid.left, "top": grid.top, "dx": grid.dx, "nx": grid.nx, "ny": grid.ny,
                  "bounds_lonlat": [w, s_, e, n]},
         "layers": layers,
-        "ground": "optical-after.jpg" if "optical_after" in A else ("optical-before.jpg" if "optical_before" in A else None),
+        "ground": "ground.jpg" if (out / "ground.jpg").exists() else None,
         "nisar": info, "stats": stats, "images": images,
     }
+    if still:
+        meta["still"] = True
     (out / "meta.json").write_text(json.dumps(meta, indent=1))
     idx = SITE / "index.json"
     live = sorted(set(json.loads(idx.read_text()) if idx.exists() else []) | {slug})
     idx.write_text(json.dumps(live))
     print(f"{slug}: {grid.nx}x{grid.ny} @ {grid.dx:.0f} m, {info['mb_read']} MB read, {stats}")
+
+
+def build_backscatter(ev, A, info, grid, out):
+    """Flood / fire page. There is no motion: the surface is terrain only and the event shows as a
+    tint where backscatter changed (layer `change`). los/valid/coh are written as zeros so the
+    viewer and story sampler keep one file layout."""
+    change, seen = backscatter_change(ev["kind"], A)
+    z16 = np.zeros((grid.ny, grid.nx), "<i2").tobytes()
+    (out / "dem.i16").write_bytes(np.round(A["dem"]).astype("<i2").tobytes())
+    for f in ("los.i16", "surface.i16"):
+        (out / f).write_bytes(z16)
+    (out / "valid.u8").write_bytes(np.zeros((grid.ny, grid.nx), np.uint8).tobytes())
+    (out / "coh.u8").write_bytes(np.zeros((grid.ny, grid.nx), np.uint8).tobytes())
+    (out / "change.u8").write_bytes(grey(change).tobytes())
+    # Backscatter change in dB (x10, int16) for the story sampler: HH for floods, HV for fires.
+    p = "hh" if ev["kind"] == "flood" else "hv"
+    ddb = gcov.db(A[f"{p}_after"]) - gcov.db(A[f"{p}_before"])
+    (out / "dbchange.i16").write_bytes(np.round(np.nan_to_num(np.where(seen, ddb, 0)) * 10).astype("<i2").tobytes())
+    layers = {"dem": "dem.i16", "los": "los.i16", "surface": "surface.i16", "valid": "valid.u8", "coh": "coh.u8",
+              "change": "change.u8", "dbchange": "dbchange.i16"}
+    images = []
+    def add(name, arr, caption, source):
+        save_img(out / name, arr)
+        images.append({"file": name, "caption": caption, "source": source})
+    nisar = "NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC"
+    src = f"{nisar}: {len(info['granules'])} passes, track {info['stack'][0]}"
+    pb, pa = info["passes_before"], info["passes_after"]
+    add("backscatter-before.jpg", composite(A["hh_before"], A["hv_before"]),
+        f"Radar backscatter before, median of {len(pb)} passes ({pb[0]} → {pb[-1]}). Red = HH, green = HV, blue = HH/HV: "
+        "water is black, vegetation green, buildings and bare ground pink-white.", src)
+    add("backscatter-after.jpg", composite(A["hh_after"], A["hv_after"]),
+        f"Radar backscatter after ({', '.join(pa)}), same colours.", src)
+    what = "newly dark (open water)" if ev["kind"] == "flood" else "lost vegetation backscatter (HV), i.e. burnt"
+    add("change.png", grey(change), f"Change: bright = ground that {what} between the passes.", src)
+    for tag in ("before", "after"):
+        if f"optical_{tag}" in A:
+            o = info[f"optical_{tag}"]
+            add(f"optical-{tag}.jpg", A[f"optical_{tag}"],
+                f"Sentinel-2 true colour, cloud-masked median of {len(o['scenes'])} scenes, {o['window'][0]} → {o['window'][1]}.",
+                "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search")
+    cell_km2 = grid.dx ** 2 / 1e6
+    hit = change > 0.5
+    stats = {"measured_pct": round(100 * float(seen.mean()), 1), "change_pct": round(100 * float(hit[seen].mean()), 1),
+             "change_km2": round(float(hit.sum()) * cell_km2, 1),
+             "median_db_change": round(float(np.median(ddb[hit & seen])), 1) if (hit & seen).any() else None}
+    if ev["kind"] == "flood":
+        # Water under vegetation brightens HH (double bounce): reported, not mapped.
+        hb, ha = gcov.db(A["hh_before"]), gcov.db(A["hh_after"])
+        stats["brightened_km2"] = round(float(((ha - hb > 3) & seen).sum()) * cell_km2, 1)
+    write_meta(ev, grid, out, layers, A, info, stats, images)
 
 
 if __name__ == "__main__":

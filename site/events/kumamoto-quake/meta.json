@@ -27,7 +27,7 @@
   "coh": "coh.u8",
   "cohdrop": "cohdrop.u8"
  },
- "ground": "optical-after.jpg",
+ "ground": "ground.jpg",
  "nisar": {
   "granule": "NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001",
   "pair": [
@@ -88,9 +88,9 @@
   }
  },
  "stats": {
-  "motion_range_cm": 30.7,
   "measured_pct": 59.0,
   "coherence_mean": 0.41,
+  "motion_range_cm": 30.7,
   "coherence_drop_pct": 5.9,
   "baseline_range_cm": 6.9
  },

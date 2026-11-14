@@ -26,7 +26,8 @@ void main() {
 
 const FRAG = /* glsl */ `
 uniform sampler2D uGround, uCoh, uValid, uDrop;
-uniform float uHasGround, uFringe, uCycle, uMode, uLim;
+uniform float uHasGround, uFringe, uCycle, uMode, uLim, uT;
+uniform vec3 uDropCol;
 varying vec2 vUv;
 varying float vLos;
 varying vec3 vNormal;
@@ -41,10 +42,11 @@ void main() {
   float coh = texture2D(uCoh, vUv).r, valid = texture2D(uValid, vUv).r;
   vec3 fr = hsv(fract(vLos / uCycle), 0.85, 1.0) * lit;
   if (uMode > 1.5) {
-    // Landslide / debris: tint where coherence collapsed across the event (the surface was buried
-    // or torn up), with a bright edge so the footprint reads at a glance.
-    float d = smoothstep(0.25, 0.5, texture2D(uDrop, vUv).r);
-    col = mix(col, vec3(0.95, 0.6, 0.3) * lit, d * 0.6);
+    // Change footprint, fading in with the before -> after slider. Landslide: coherence collapsed
+    // (the surface was buried or torn up). Flood: ground turned radar-dark (open water). Fire:
+    // vegetation backscatter fell (burn scar).
+    float d = smoothstep(0.25, 0.5, texture2D(uDrop, vUv).r) * uT;
+    col = mix(col, uDropCol * lit, d * 0.65);
   } else if (uMode > 0.5) {
     // Subsidence: light red tint where the ground sinks plus a contour every 2 cm, so the city stays
     // readable. Apparent rise of a couple of cm is within the fit's noise, so it gets nothing.
@@ -58,6 +60,9 @@ void main() {
   col = mix(col, fr, 0.7 * uFringe * valid * smoothstep(0.3, 0.55, coh) * smoothstep(0.0, 0.003, abs(vLos)));
   gl_FragColor = vec4(col, 1.0);
 }`;
+
+// Kinds where motion is not the signal: no height exaggeration, no fringes.
+export const STILL = ["landslide", "flood", "fire"];
 
 async function layer(url, Type) {
   return new Type(await (await fetch(url)).arrayBuffer());
@@ -88,13 +93,15 @@ export async function createViewer(el, base, meta) {
     uValid: { value: tex(Float32Array.from(valid8), nx, ny) }, uCoh: { value: tex(Float32Array.from(coh8, (v) => v / 255), nx, ny) },
     uGround: { value: null }, uHasGround: { value: 0 },
     uDemExag: { value: Math.min(5, Math.max(1, (0.08 * width) / Math.max(1, demMax - demMin))) },
-    uLosExag: { value: meta.kind === "landslide" ? 0 : (0.03 * width) / losMax }, uT: { value: 1 }, uAspect: { value: aspect },
-    uDemBase: { value: demMin }, uWidth: { value: width }, uFringe: { value: ["subsidence", "landslide"].includes(meta.kind) ? 0 : 1 }, uCycle: { value: 0.1 },
-    uMode: { value: { subsidence: 1, landslide: 2 }[meta.kind] ?? 0 }, uLim: { value: 1 },
+    uLosExag: { value: (meta.still || STILL.includes(meta.kind)) ? 0 : (0.03 * width) / losMax }, uT: { value: 1 }, uAspect: { value: aspect },
+    uDemBase: { value: demMin }, uWidth: { value: width }, uFringe: { value: meta.kind === "subsidence" || (meta.still || STILL.includes(meta.kind)) ? 0 : 1 }, uCycle: { value: 0.1 },
+    uMode: { value: meta.still ? 2 : { subsidence: 1, landslide: 2, flood: 2, fire: 2 }[meta.kind] ?? 0 }, uLim: { value: 1 },
     uDrop: { value: tex(new Float32Array(1), 1, 1) },
+    uDropCol: { value: new THREE.Color({ flood: 0x2f8cff, fire: 0xff3b1f }[meta.kind] ?? 0xf29a4d) },
   };
   u.uLim.value = losMax;
-  if (meta.layers.cohdrop) u.uDrop.value = tex(Float32Array.from(await layer(base + meta.layers.cohdrop, Uint8Array), (v) => v / 255), nx, ny);
+  const drop = meta.layers.cohdrop ?? meta.layers.change;
+  if (drop) u.uDrop.value = tex(Float32Array.from(await layer(base + drop, Uint8Array), (v) => v / 255), nx, ny);
   if (meta.ground) {
     const g = await new THREE.TextureLoader().loadAsync(base + meta.ground);
     g.anisotropy = 8;

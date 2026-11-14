@@ -1,0 +1,122 @@
+{
+ "slug": "fuego-eruption",
+ "name": "Fuego eruption, Guatemala",
+ "kind": "volcano",
+ "date": "2026-08-04",
+ "lat": 14.473,
+ "lon": -90.88,
+ "grid": {
+  "epsg": 32616,
+  "left": 66560.0,
+  "top": 1618560.0,
+  "dx": 80.0,
+  "nx": 375,
+  "ny": 375,
+  "bounds_lonlat": [
+   -91.02153650900509,
+   14.335159722707353,
+   -90.73908973081954,
+   14.610370171441634
+  ]
+ },
+ "layers": {
+  "dem": "dem.i16",
+  "los": "los.i16",
+  "surface": "surface.i16",
+  "valid": "valid.u8",
+  "coh": "coh.u8",
+  "cohdrop": "cohdrop.u8"
+ },
+ "ground": "ground.jpg",
+ "nisar": {
+  "granule": "NISAR_L2_PR_GUNW_025_134_A_009_027_4000_SH_20260717T113115_20260717T113150_20260810T113114_20260810T113148_P05023_N_F_J_001",
+  "pair": [
+   "2026-07-17",
+   "2026-08-10"
+  ],
+  "stack": [
+   134,
+   9,
+   "A"
+  ],
+  "epsg": 32616,
+  "wavelength_m": 0.2419632429378531,
+  "mb_read": 43.5,
+  "pre_granule": "NISAR_L2_PR_GUNW_024_134_A_009_025_4000_SH_20260705T113116_20260705T113150_20260717T113115_20260717T113150_P05023_N_F_J_001",
+  "pre_pair": [
+   "2026-07-05",
+   "2026-07-17"
+  ],
+  "optical_before": {
+   "window": [
+    "2026-05-21",
+    "2026-08-03"
+   ],
+   "scenes": [
+    "S2B_15PYR_20260801_0_L2A",
+    "S2B_15PYS_20260801_0_L2A",
+    "S2B_15PYR_20260722_1_L2A",
+    "S2B_15PYS_20260722_0_L2A",
+    "S2B_15PYR_20260523_0_L2A",
+    "S2B_15PYS_20260523_0_L2A",
+    "S2C_15PYR_20260707_0_L2A",
+    "S2C_15PYS_20260707_0_L2A",
+    "S2A_15PYS_20260619_0_L2A",
+    "S2C_15PYS_20260717_0_L2A"
+   ]
+  },
+  "optical_after": {
+   "window": [
+    "2026-08-05",
+    "2026-09-18"
+   ],
+   "scenes": [
+    "S2B_15PYR_20260910_0_L2A",
+    "S2B_15PYS_20260910_0_L2A",
+    "S2B_15PYR_20260811_0_L2A",
+    "S2B_15PYS_20260811_0_L2A",
+    "S2C_15PYS_20260816_0_L2A",
+    "S2C_15PYR_20260816_0_L2A",
+    "S2A_15PYS_20260828_0_L2A",
+    "S2A_15PYR_20260828_0_L2A",
+    "S2A_15PYR_20260808_0_L2A",
+    "S2B_15PYR_20260821_0_L2A"
+   ]
+  }
+ },
+ "stats": {
+  "measured_pct": 46.8,
+  "coherence_mean": 0.31,
+  "motion_range_cm": 5.7,
+  "coherence_drop_pct": 1.9,
+  "baseline_range_cm": 8.0
+ },
+ "images": [
+  {
+   "file": "interferogram.png",
+   "caption": "Interferogram spanning the event, 2026-07-17 \u2192 2026-08-10. One colour cycle = 10 cm of line-of-sight motion; brightness = coherence; dim = not measured.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_025_134_A_009_027_4000_SH_20260717T113115_20260717T113150_20260810T113114_20260810T113148_P05023_N_F_J_001"
+  },
+  {
+   "file": "coherence.png",
+   "caption": "Coherence 2026-07-17 \u2192 2026-08-10. Dark = the surface changed.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_025_134_A_009_027_4000_SH_20260717T113115_20260717T113150_20260810T113114_20260810T113148_P05023_N_F_J_001"
+  },
+  {
+   "file": "interferogram-before.png",
+   "caption": "Baseline interferogram before the event, 2026-07-05 \u2192 2026-07-17: what 'quiet' looks like.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_024_134_A_009_025_4000_SH_20260705T113116_20260705T113150_20260717T113115_20260717T113150_P05023_N_F_J_001"
+  },
+  {
+   "file": "optical-before.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 10 scenes, 2026-05-21 \u2192 2026-08-03.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  },
+  {
+   "file": "optical-after.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 10 scenes, 2026-08-05 \u2192 2026-09-18.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  }
+ ],
+ "still": true
+}

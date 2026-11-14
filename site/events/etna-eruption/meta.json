@@ -1,0 +1,158 @@
+{
+ "slug": "etna-eruption",
+ "name": "Etna fissure eruption, Italy",
+ "kind": "volcano",
+ "date": "2026-08-07",
+ "lat": 37.75,
+ "lon": 15.0,
+ "grid": {
+  "epsg": 32633,
+  "left": 485040.0,
+  "top": 4193040.0,
+  "dx": 80.0,
+  "nx": 375,
+  "ny": 375,
+  "bounds_lonlat": [
+   14.829873567772083,
+   37.61433731394812,
+   15.171036195526636,
+   37.88485889031689
+  ]
+ },
+ "layers": {
+  "dem": "dem.i16",
+  "los": "los.i16",
+  "surface": "surface.i16",
+  "valid": "valid.u8",
+  "coh": "coh.u8",
+  "cohdrop": "cohdrop.u8"
+ },
+ "ground": "ground.jpg",
+ "nisar": {
+  "granule": "NISAR_L2_PR_GUNW_026_043_A_021_028_2000_SH_20260723T040829_20260723T040904_20260816T040828_20260816T040903_P05023_N_F_J_001",
+  "pair": [
+   "2026-07-23",
+   "2026-08-16"
+  ],
+  "stack": [
+   43,
+   21,
+   "A"
+  ],
+  "epsg": 32633,
+  "wavelength_m": 0.24393202441008952,
+  "mb_read": 27.799999999999997,
+  "pre_granule": "NISAR_L2_PR_GUNW_024_043_A_021_026_2000_SH_20260629T040831_20260629T040905_20260723T040829_20260723T040904_P05023_N_F_J_001",
+  "pre_pair": [
+   "2026-06-29",
+   "2026-07-23"
+  ],
+  "optical_before": {
+   "window": [
+    "2026-05-24",
+    "2026-08-06"
+   ],
+   "scenes": [
+    "S2A_33SVC_20260712_1_L2A",
+    "S2B_33SVC_20260712_0_L2A",
+    "S2A_33SVB_20260712_1_L2A",
+    "S2B_33SVB_20260712_0_L2A",
+    "S2B_33SWB_20260712_0_L2A",
+    "S2A_33SWB_20260712_1_L2A",
+    "S2A_33SWC_20260712_1_L2A",
+    "S2B_33SWC_20260712_0_L2A",
+    "S2C_33SVC_20260717_0_L2A",
+    "S2C_33SWB_20260717_0_L2A",
+    "S2C_33SWC_20260717_0_L2A",
+    "S2C_33SVB_20260717_0_L2A",
+    "S2C_33SVB_20260720_0_L2A",
+    "S2C_33SVC_20260720_0_L2A",
+    "S2C_33SWC_20260720_0_L2A",
+    "S2C_33SWB_20260720_0_L2A",
+    "S2B_33SVC_20260715_0_L2A",
+    "S2B_33SVB_20260715_0_L2A",
+    "S2B_33SWC_20260715_0_L2A",
+    "S2B_33SWB_20260715_0_L2A",
+    "S2C_33SVC_20260707_0_L2A",
+    "S2C_33SWB_20260707_0_L2A",
+    "S2C_33SWC_20260707_1_L2A",
+    "S2C_33SVB_20260707_0_L2A",
+    "S2A_33SVB_20260719_0_L2A",
+    "S2A_33SVC_20260719_0_L2A",
+    "S2A_33SWC_20260719_0_L2A",
+    "S2A_33SWB_20260719_0_L2A"
+   ]
+  },
+  "optical_after": {
+   "window": [
+    "2026-08-08",
+    "2026-09-21"
+   ],
+   "scenes": [
+    "S2A_33SVC_20260808_0_L2A",
+    "S2A_33SWB_20260808_0_L2A",
+    "S2A_33SVB_20260808_0_L2A",
+    "S2A_33SWC_20260808_0_L2A",
+    "S2A_33SVC_20260907_0_L2A",
+    "S2A_33SWB_20260907_0_L2A",
+    "S2A_33SWC_20260907_0_L2A",
+    "S2A_33SVB_20260907_0_L2A",
+    "S2B_33SWC_20260824_0_L2A",
+    "S2B_33SVC_20260824_0_L2A",
+    "S2B_33SVB_20260824_0_L2A",
+    "S2B_33SWB_20260824_0_L2A",
+    "S2B_33SVC_20260831_0_L2A",
+    "S2A_33SVB_20260831_1_L2A",
+    "S2B_33SWB_20260831_0_L2A",
+    "S2B_33SVB_20260831_0_L2A",
+    "S2A_33SWB_20260831_1_L2A",
+    "S2A_33SWC_20260831_1_L2A",
+    "S2A_33SVC_20260831_1_L2A",
+    "S2B_33SWC_20260831_0_L2A",
+    "S2C_33SVC_20260905_0_L2A",
+    "S2C_33SWB_20260905_0_L2A",
+    "S2C_33SWC_20260905_0_L2A",
+    "S2C_33SVB_20260905_0_L2A",
+    "S2C_33SWB_20260826_0_L2A",
+    "S2C_33SVB_20260826_0_L2A",
+    "S2C_33SVC_20260826_0_L2A",
+    "S2C_33SWC_20260826_0_L2A"
+   ]
+  }
+ },
+ "stats": {
+  "measured_pct": 96.0,
+  "coherence_mean": 0.6,
+  "motion_range_cm": 10.4,
+  "coherence_drop_pct": 1.7,
+  "baseline_range_cm": 8.1
+ },
+ "images": [
+  {
+   "file": "interferogram.png",
+   "caption": "Interferogram spanning the event, 2026-07-23 \u2192 2026-08-16. One colour cycle = 10 cm of line-of-sight motion; brightness = coherence; dim = not measured.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_026_043_A_021_028_2000_SH_20260723T040829_20260723T040904_20260816T040828_20260816T040903_P05023_N_F_J_001"
+  },
+  {
+   "file": "coherence.png",
+   "caption": "Coherence 2026-07-23 \u2192 2026-08-16. Dark = the surface changed.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_026_043_A_021_028_2000_SH_20260723T040829_20260723T040904_20260816T040828_20260816T040903_P05023_N_F_J_001"
+  },
+  {
+   "file": "interferogram-before.png",
+   "caption": "Baseline interferogram before the event, 2026-06-29 \u2192 2026-07-23: what 'quiet' looks like.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_024_043_A_021_026_2000_SH_20260629T040831_20260629T040905_20260723T040829_20260723T040904_P05023_N_F_J_001"
+  },
+  {
+   "file": "optical-before.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 28 scenes, 2026-05-24 \u2192 2026-08-06.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  },
+  {
+   "file": "optical-after.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 28 scenes, 2026-08-08 \u2192 2026-09-21.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  }
+ ],
+ "still": true
+}

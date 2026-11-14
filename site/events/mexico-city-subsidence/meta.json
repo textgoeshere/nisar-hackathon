@@ -26,7 +26,7 @@
   "valid": "valid.u8",
   "coh": "coh.u8"
  },
- "ground": "optical-after.jpg",
+ "ground": "ground.jpg",
  "nisar": {
   "granules": [
    "NISAR_L2_PR_GUNW_004_019_A_011_005_4000_SH_20251030T120539_20251030T120613_20251111T120539_20251111T120614_P05023_N_F_J_001",
@@ -144,9 +144,9 @@
   }
  },
  "stats": {
-  "motion_range_cm": 23.7,
   "measured_pct": 91.5,
   "coherence_mean": 0.62,
+  "motion_range_cm": 23.7,
   "max_sinking_cm_yr": 51.5,
   "fit_rms_cm": 0.83,
   "fastest_uv": [

@@ -1,0 +1,117 @@
+{
+ "slug": "bangladesh-flood",
+ "name": "Moulvibazar floods, Bangladesh",
+ "kind": "flood",
+ "date": "2026-07-10",
+ "lat": 24.48,
+ "lon": 91.77,
+ "grid": {
+  "epsg": 32646,
+  "left": 360360.0,
+  "top": 2722920.0,
+  "dx": 40.0,
+  "nx": 750,
+  "ny": 750,
+  "bounds_lonlat": [
+   91.62055378290512,
+   24.34323687030228,
+   91.91918087882081,
+   24.616534857211022
+  ]
+ },
+ "layers": {
+  "dem": "dem.i16",
+  "los": "los.i16",
+  "surface": "surface.i16",
+  "valid": "valid.u8",
+  "coh": "coh.u8",
+  "change": "change.u8",
+  "dbchange": "dbchange.i16"
+ },
+ "ground": "ground.jpg",
+ "nisar": {
+  "granules": [
+   "NISAR_L2_PR_GCOV_023_091_D_076_2005_QPDH_A_20260620T123424_20260620T123459_P05023_N_F_J_001",
+   "NISAR_L2_PR_GCOV_024_091_D_076_4005_DHDH_A_20260702T123423_20260702T123458_P05023_N_F_J_001",
+   "NISAR_L2_PR_GCOV_025_091_D_076_2005_QPDH_A_20260714T123423_20260714T123457_P05023_F_F_J_001"
+  ],
+  "passes_before": [
+   "2026-06-20",
+   "2026-07-02"
+  ],
+  "passes_after": [
+   "2026-07-14"
+  ],
+  "pair": [
+   "2026-07-02",
+   "2026-07-14"
+  ],
+  "stack": [
+   91,
+   76,
+   "D"
+  ],
+  "epsg": 32646,
+  "mb_read": 149.9,
+  "optical_before": {
+   "window": [
+    "2026-04-26",
+    "2026-07-09"
+   ],
+   "scenes": [
+    "S2C_46RCN_20260505_0_L2A",
+    "S2C_46QCM_20260505_0_L2A",
+    "S2C_46RCN_20260704_0_L2A",
+    "S2C_46QCM_20260704_0_L2A",
+    "S2A_46QCM_20260606_1_L2A",
+    "S2A_46RCN_20260606_1_L2A",
+    "S2B_46RCN_20260510_0_L2A",
+    "S2C_46QCM_20260515_0_L2A"
+   ]
+  },
+  "optical_after": {
+   "window": [
+    "2026-07-11",
+    "2026-08-24"
+   ],
+   "scenes": [
+    "S2C_46RCN_20260813_0_L2A",
+    "S2C_46QCM_20260823_0_L2A"
+   ]
+  }
+ },
+ "stats": {
+  "measured_pct": 100.0,
+  "change_pct": 1.5,
+  "change_km2": 13.1,
+  "median_db_change": -7.7,
+  "brightened_km2": 22.5
+ },
+ "images": [
+  {
+   "file": "backscatter-before.jpg",
+   "caption": "Radar backscatter before, median of 2 passes (2026-06-20 \u2192 2026-07-02). Red = HH, green = HV, blue = HH/HV: water is black, vegetation green, buildings and bare ground pink-white.",
+   "source": "NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 3 passes, track 91"
+  },
+  {
+   "file": "backscatter-after.jpg",
+   "caption": "Radar backscatter after (2026-07-14), same colours.",
+   "source": "NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 3 passes, track 91"
+  },
+  {
+   "file": "change.png",
+   "caption": "Change: bright = ground that newly dark (open water) between the passes.",
+   "source": "NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 3 passes, track 91"
+  },
+  {
+   "file": "optical-before.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 8 scenes, 2026-04-26 \u2192 2026-07-09.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  },
+  {
+   "file": "optical-after.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 2 scenes, 2026-07-11 \u2192 2026-08-24.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  }
+ ]
+}

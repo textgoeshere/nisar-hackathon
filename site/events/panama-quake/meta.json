@@ -1,0 +1,121 @@
+{
+ "slug": "panama-quake",
+ "name": "Azuero M7.7 earthquake, Panama",
+ "kind": "quake",
+ "date": "2026-10-09",
+ "lat": 7.6,
+ "lon": -80.4,
+ "grid": {
+  "epsg": 32617,
+  "left": 526160.0,
+  "top": 880160.0,
+  "dx": 80.0,
+  "nx": 1000,
+  "ny": 1000,
+  "bounds_lonlat": [
+   -80.76303106802926,
+   7.237897600543323,
+   -80.0367877035508,
+   7.962502909462313
+  ]
+ },
+ "layers": {
+  "dem": "dem.i16",
+  "los": "los.i16",
+  "surface": "surface.i16",
+  "valid": "valid.u8",
+  "coh": "coh.u8",
+  "cohdrop": "cohdrop.u8"
+ },
+ "ground": "ground.jpg",
+ "nisar": {
+  "granule": "NISAR_L2_PR_GUNW_032_040_D_085_033_4000_SH_20261002T234516_20261002T234533_20261014T234516_20261014T234533_P05023_N_P_J_001",
+  "pair": [
+   "2026-10-02",
+   "2026-10-14"
+  ],
+  "stack": [
+   40,
+   85,
+   "D"
+  ],
+  "epsg": 32617,
+  "wavelength_m": 0.2419632429378531,
+  "mb_read": 70.80000000000001,
+  "pre_granule": "NISAR_L2_PR_GUNW_031_040_D_085_032_4000_SH_20260920T234516_20260920T234532_20261002T234516_20261002T234533_P05023_N_P_J_001",
+  "pre_pair": [
+   "2026-09-20",
+   "2026-10-02"
+  ],
+  "optical_before": {
+   "window": [
+    "2026-07-26",
+    "2026-10-08"
+   ],
+   "scenes": [
+    "S2A_17NPJ_20260922_0_L2A",
+    "S2A_17NNJ_20260922_0_L2A",
+    "S2C_17NNJ_20260811_0_L2A",
+    "S2C_17NPJ_20260811_0_L2A",
+    "S2B_17NPJ_20261005_0_L2A",
+    "S2B_17NNJ_20261005_0_L2A",
+    "S2B_17NNJ_20260908_0_L2A",
+    "S2B_17NNJ_20260928_0_L2A",
+    "S2C_17NPJ_20260821_0_L2A",
+    "S2C_17NNJ_20260821_0_L2A"
+   ]
+  },
+  "optical_after": {
+   "window": [
+    "2026-10-10",
+    "2026-11-23"
+   ],
+   "scenes": [
+    "S2B_17NNJ_20261028_0_L2A",
+    "S2C_17NNJ_20261112_0_L2A",
+    "S2A_17NNJ_20261111_0_L2A",
+    "S2A_17NPJ_20261111_0_L2A",
+    "S2B_17NNJ_20261025_0_L2A",
+    "S2B_17NPJ_20261025_0_L2A",
+    "S2C_17NPJ_20261109_0_L2A",
+    "S2C_17NNJ_20261109_0_L2A",
+    "S2B_17NNJ_20261015_0_L2A",
+    "S2A_17NNJ_20261015_1_L2A"
+   ]
+  }
+ },
+ "stats": {
+  "measured_pct": 58.6,
+  "coherence_mean": 0.38,
+  "motion_range_cm": 150.4,
+  "coherence_drop_pct": 4.9,
+  "baseline_range_cm": 33.0
+ },
+ "images": [
+  {
+   "file": "interferogram.png",
+   "caption": "Interferogram spanning the event, 2026-10-02 \u2192 2026-10-14. One colour cycle = 10 cm of line-of-sight motion; brightness = coherence; dim = not measured.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_032_040_D_085_033_4000_SH_20261002T234516_20261002T234533_20261014T234516_20261014T234533_P05023_N_P_J_001"
+  },
+  {
+   "file": "coherence.png",
+   "caption": "Coherence 2026-10-02 \u2192 2026-10-14. Dark = the surface changed.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_032_040_D_085_033_4000_SH_20261002T234516_20261002T234533_20261014T234516_20261014T234533_P05023_N_P_J_001"
+  },
+  {
+   "file": "interferogram-before.png",
+   "caption": "Baseline interferogram before the event, 2026-09-20 \u2192 2026-10-02: what 'quiet' looks like.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_031_040_D_085_032_4000_SH_20260920T234516_20260920T234532_20261002T234516_20261002T234533_P05023_N_P_J_001"
+  },
+  {
+   "file": "optical-before.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 10 scenes, 2026-07-26 \u2192 2026-10-08.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  },
+  {
+   "file": "optical-after.jpg",
+   "caption": "Sentinel-2 true colour, cloud-masked median of 10 scenes, 2026-10-10 \u2192 2026-11-23.",
+   "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
+  }
+ ]
+}
