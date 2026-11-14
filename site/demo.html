@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo · Either side of the line</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<style>
+  html, body { height: 100%; overflow: hidden; background: #000; }
+  .stage { position: fixed; inset: 0; opacity: 0; transition: opacity 2s ease; }
+  .stage.on { opacity: 1; }
+  #label { position: fixed; left: 1.5rem; bottom: 1.2rem; font-size: .95rem; color: #fffc; text-shadow: 0 1px 4px #000;
+    opacity: 0; transition: opacity 2s ease; pointer-events: none; }
+  #label.on { opacity: 1; }
+  #label small { color: #fff8; margin-left: .6em; }
+  #hint { position: fixed; right: 1.5rem; bottom: 1.2rem; font-size: .85rem; color: #fff8; transition: opacity 1.5s ease; pointer-events: none; }
+  #hint.off { opacity: 0; }
+  body.idle, body.idle * { cursor: none !important; }
+</style>
+<body>
+<div id="label"></div>
+<div id="hint">F fullscreen · drag to explore, it resumes after 30 s · Esc back to events</div>
+<script type="module" src="js/demo.js"></script>
+</body>
+</html>

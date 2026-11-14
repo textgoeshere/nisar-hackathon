@@ -101,7 +101,11 @@ export async function createViewer(el, base, meta) {
   };
   u.uLim.value = losMax;
   const drop = meta.layers.cohdrop ?? meta.layers.change;
-  if (drop) u.uDrop.value = tex(Float32Array.from(await layer(base + drop, Uint8Array), (v) => v / 255), nx, ny);
+  let drop8 = null;
+  if (drop) {
+    drop8 = await layer(base + drop, Uint8Array);
+    u.uDrop.value = tex(Float32Array.from(drop8, (v) => v / 255), nx, ny);
+  }
   if (meta.ground) {
     const g = await new THREE.TextureLoader().loadAsync(base + meta.ground);
     g.anisotropy = 8;
@@ -137,9 +141,10 @@ export async function createViewer(el, base, meta) {
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
   }
-  new ResizeObserver(resize).observe(el);
   resize();
   const frameHooks = [];
+  const ro = new ResizeObserver(resize);
+  ro.observe(el);
   renderer.setAnimationLoop(() => {
     controls.update();
     frameHooks.forEach((f) => f());
@@ -154,6 +159,41 @@ export async function createViewer(el, base, meta) {
     setCycle(m) { u.uCycle.value = m; },
     setGround(on) { u.uHasGround.value = on && u.uGround.value ? 1 : 0; },
     onFrame(f) { frameHooks.push(f); },
+    camera, controls, aspect, heightAt,
+    // Up to n (u, v) block centres where the signal is strongest: change footprint for still kinds,
+    // measured motion otherwise. Blocks are 1/8 of the grid; picks are kept apart.
+    hotspots(n = 3) {
+      const B = 8, s = [];
+      const still = u.uMode.value > 1.5 || !u.uLosExag.value;
+      for (let bi = 0; bi < B; bi++) for (let bj = 0; bj < B; bj++) {
+        let sum = 0, cnt = 0;
+        for (let i = Math.floor((bi * ny) / B); i < ((bi + 1) * ny) / B; i += 4)
+          for (let j = Math.floor((bj * nx) / B); j < ((bj + 1) * nx) / B; j += 4) {
+            const k = i * nx + j;
+            if (still) { if (drop8) { sum += drop8[k] > 96 ? 1 : 0; cnt++; } }
+            else if (valid8[k]) { sum += Math.abs(los[k]); cnt++; }
+          }
+        s.push({ uv: [(bj + 0.5) / B, (bi + 0.5) / B], score: cnt ? sum / cnt : 0 });
+      }
+      s.sort((a, b) => b.score - a.score);
+      const out = [];
+      for (const c of s) {
+        if (c.score <= 0 || out.length >= n) break;
+        if (out.every((o) => Math.hypot(o[0] - c.uv[0], o[1] - c.uv[1]) > 0.2)) out.push(c.uv);
+      }
+      return out;
+    },
+    dispose() {
+      renderer.setAnimationLoop(null);
+      ro.disconnect();
+      controls.dispose();
+      mesh.geometry.dispose();
+      mesh.material.dispose();
+      for (const k in u) if (u[k].value?.isTexture) u[k].value.dispose();
+      renderer.dispose();
+      renderer.forceContextLoss();
+      renderer.domElement.remove();
+    },
     // Screen position (CSS px within el) of the ground at (u, v); null when behind the camera.
     project([pu, pv], lift = 0.015) {
       const p = new THREE.Vector3(pu - 0.5, heightAt(pu, pv) + lift, (pv - 0.5) * aspect).project(camera);
