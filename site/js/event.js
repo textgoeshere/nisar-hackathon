@@ -18,9 +18,9 @@ if (multi || (meta.still || STILL.includes(meta.kind))) $("#fringes").checked = 
 const v = await createViewer($("#hero"), base, meta);
 const still = meta.still || STILL.includes(meta.kind);
 if (still) {
-  const tint = { flood: "Blue: ground that turned radar-dark between the passes, i.e. new open water (HH backscatter fell).",
+  const tint = { flood: "Cyan: ground that turned radar-dark between the passes, i.e. new open water (HH backscatter fell).",
     fire: "Red: ground whose vegetation backscatter (HV) fell between the passes, i.e. the burn scar." }[meta.kind]
-    ?? "Orange: ground that stopped matching itself between the radar passes (coherence drop), where the surface was buried or torn up.";
+    ?? "Magenta: ground that stopped matching itself between the radar passes (coherence drop), where the surface was buried or torn up.";
   $("#legend").innerHTML = `Terrain: Copernicus DEM, ground image Sentinel-2${bs ? " (radar brightness where clouds hid every scene)" : ""}. ${tint} `
     + "The slider fades the change in. Drag to orbit, scroll to zoom.";
 }
