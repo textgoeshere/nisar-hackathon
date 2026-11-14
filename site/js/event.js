@@ -7,6 +7,7 @@ const base = `events/${slug}/`;
 const meta = await (await fetch(base + "meta.json")).json();
 
 document.title = `${meta.name} · Either side of the line`;
+$("#demo-link").href = `demo.html?e=${encodeURIComponent(slug)}`; // tour starts on this event
 $("#title").textContent = meta.name;
 const multi = !!meta.nisar.dates;
 const bs = !!meta.nisar.passes_after;

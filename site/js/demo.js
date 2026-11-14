@@ -191,7 +191,7 @@ setTimeout(() => hint.classList.add("off"), 6000);
 let skip = false;
 // Capture phase, so the controls are already enabled when the canvas sees this same first touch.
 const takeOver = (e) => {
-  if (e?.target?.closest?.("#next")) return;
+  if (e?.target?.closest?.("#next, #name a")) return;
   manualUntil = performance.now() + IDLE_S * 1000;
   if (cur) cur.v.controls.enabled = true;
 };
@@ -272,7 +272,7 @@ for (;;) {
   last = 0;
   cur = ev;
   ev.el.classList.add("on");
-  nameEl.innerHTML = `${ev.meta.name.replace(/[&<>]/g, "")}<small>${ev.meta.date ?? ""}</small>`;
+  nameEl.innerHTML = `<a href="event.html?e=${encodeURIComponent(ev.slug)}">${ev.meta.name.replace(/[&<>]/g, "")}</a><small>${ev.meta.date ?? ""}</small>`;
   label.classList.add("on");
   key.innerHTML = keyFor(ev.meta, ev.still);
   const bs = !!ev.meta.nisar.passes_after;
