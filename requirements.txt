@@ -1,0 +1,8 @@
+numpy
+h5py
+requests
+pyproj
+rasterio
+scipy
+pillow
+pytest

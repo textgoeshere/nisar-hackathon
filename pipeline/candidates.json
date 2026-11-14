@@ -1,0 +1,26 @@
+{
+  "_about": "Step 1 output: candidate news events, Jan-Nov 2026. Found by breadth-first news searches per hazard type (quake, volcano, flood, landslide, fire, subsidence), keeping events whose type leaves a radar-visible footprint. Coordinates are approximate (news reports, USGS/GDACS where available). See docs/1-discover.md.",
+  "events": [
+    {"slug": "kumamoto-quake", "name": "Kumamoto M6.8 earthquake, Japan", "kind": "quake", "lat": 32.682, "lon": 130.722, "date": "2026-07-28", "half_km": 30},
+    {"slug": "panama-quake", "name": "Azuero M7.7 earthquake, Panama", "kind": "quake", "lat": 7.6, "lon": -80.4, "date": "2026-10-09", "half_km": 40},
+    {"slug": "venezuela-quake", "name": "Yaracuy M7.2 + M7.5 doublet, Venezuela", "kind": "quake", "lat": 10.435, "lon": -68.472, "date": "2026-06-24", "half_km": 40},
+    {"slug": "flores-quake", "name": "Flores Sea M7.8 earthquake, Indonesia", "kind": "quake", "lat": -8.5, "lon": 121.4, "date": "2026-08-14", "half_km": 40},
+    {"slug": "nagqu-quake", "name": "Nagqu M7.0 earthquake, Tibet", "kind": "quake", "lat": 31.5, "lon": 92.0, "date": "2026-10-22", "half_km": 40},
+    {"slug": "etna-eruption", "name": "Etna fissure eruption, Italy", "kind": "volcano", "lat": 37.75, "lon": 15.0, "date": "2026-08-07", "half_km": 15},
+    {"slug": "fuego-eruption", "name": "Fuego eruption, Guatemala", "kind": "volcano", "lat": 14.473, "lon": -90.88, "date": "2026-08-04", "half_km": 15},
+    {"slug": "anak-krakatau", "name": "Anak Krakatau lava flows, Indonesia", "kind": "volcano", "lat": -6.102, "lon": 105.423, "date": "2026-09-05", "half_km": 10},
+    {"slug": "kilauea", "name": "Kilauea fountaining, Hawai'i", "kind": "volcano", "lat": 19.41, "lon": -155.28, "date": "2026-11-01", "half_km": 15},
+    {"slug": "mayon", "name": "Mayon unrest, Philippines", "kind": "volcano", "lat": 13.26, "lon": 123.69, "date": "2026-10-30", "half_km": 15},
+    {"slug": "krasheninnikov", "name": "Krasheninnikov lava field, Kamchatka", "kind": "volcano", "lat": 54.59, "lon": 160.27, "date": "2026-03-01", "half_km": 15},
+    {"slug": "langtang-avalanche", "name": "Langtang ice-rock avalanche, Nepal", "kind": "landslide", "lat": 28.2, "lon": 85.45, "date": "2026-08-26", "half_km": 20},
+    {"slug": "odisha-landslide", "name": "Gidipabali landslide, Odisha, India", "kind": "landslide", "lat": 19.9, "lon": 84.1, "date": "2026-10-28", "half_km": 10},
+    {"slug": "mexico-city-subsidence", "name": "Mexico City subsidence", "kind": "subsidence", "lat": 19.43, "lon": -99.13, "date": null, "half_km": 25},
+    {"slug": "bangladesh-flood", "name": "Moulvibazar floods, Bangladesh", "kind": "flood", "lat": 24.48, "lon": 91.77, "date": "2026-07-10", "half_km": 15},
+    {"slug": "mozambique-flood", "name": "Limpopo floods, Mozambique", "kind": "flood", "lat": -24.55, "lon": 33.0, "date": "2026-01-15", "half_km": 20},
+    {"slug": "san-juan-flood", "name": "San Juan River flood, New Mexico", "kind": "flood", "lat": 36.73, "lon": -108.2, "date": "2026-10-15", "half_km": 15},
+    {"slug": "toccoa-flood", "name": "Toccoa River flood, Georgia/Tennessee", "kind": "flood", "lat": 34.98, "lon": -84.37, "date": "2026-11-05", "half_km": 15},
+    {"slug": "aspen-acres-fire", "name": "Aspen Acres Fire, Colorado", "kind": "fire", "lat": 38.15, "lon": -105.186, "date": "2026-06-29", "half_km": 20},
+    {"slug": "little-giant-fire", "name": "Little Giant Fire, Washington", "kind": "fire", "lat": 47.983, "lon": -120.834, "date": "2026-07-16", "half_km": 20},
+    {"slug": "morrill-fire", "name": "Morrill Fire, Nebraska", "kind": "fire", "lat": 41.9, "lon": -103.1, "date": "2026-03-10", "half_km": 20}
+  ]
+}
