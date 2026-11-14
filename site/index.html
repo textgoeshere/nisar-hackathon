@@ -30,7 +30,7 @@ for (const e of cov) {
     : e.gcov?.before ? `${e.gcov.before} passes before, ${e.gcov.after} after` : "none";
   const tr = tb.insertRow();
   tr.className = e.score > 0 ? "" : "muted";
-  tr.innerHTML = `<td>${page ? `<a href="events/${e.slug}/">${e.name}</a>` : e.name}</td><td>${e.kind}</td><td>${e.date ?? "ongoing"}</td><td>${what}</td>`;
+  tr.innerHTML = `<td>${page ? `<a href="event.html?e=${e.slug}">${e.name}</a>` : e.name}</td><td>${e.kind}</td><td>${e.date ?? "ongoing"}</td><td>${what}</td>`;
 }
 </script>
 </html>

@@ -1,0 +1,181 @@
+"""Step 3: ingest and process one event into web-ready layers.
+
+    .venv/bin/python -m pipeline.build_event kumamoto-quake [--refetch]
+
+Stage A (network, cached in cache/<slug>.npz): NISAR window(s), DEM, Sentinel-2 composites.
+Stage B (local): clean, classify, render images and write site/events/<slug>/.
+
+Output files (all on one grid, row 0 = north):
+  meta.json          grid, georeference, layer descriptions, provenance, stats
+  dem.i16            terrain height, metres
+  los.i16            line-of-sight ground motion, millimetres (gaps filled; see valid.u8)
+  valid.u8           1 where motion was measured (coherent, unwrapped), else 0
+  coh.u8             coherence x 255
+  *.png / *.jpg      raw images: interferogram, coherence, optical before/after
+"""
+from __future__ import annotations
+
+import argparse
+import colorsys
+import json
+from datetime import date, timedelta
+from pathlib import Path
+
+import numpy as np
+from PIL import Image
+
+from . import cmr, context, gunw, remote
+
+ROOT = Path(__file__).resolve().parent.parent
+CACHE = ROOT / "cache"
+SITE = ROOT / "site" / "events"
+CYCLE_M = 0.10        # one colour cycle in rendered interferograms = 10 cm of motion
+
+
+def candidates() -> dict[str, dict]:
+    return {e["slug"]: e for e in json.loads((ROOT / "pipeline" / "candidates.json").read_text())["events"]}
+
+
+def pick_pairs(ev: dict) -> tuple[cmr.Granule, cmr.Granule | None]:
+    """Shortest interferogram spanning the event (any stack), and the pair just before it on the
+    same stack as a quiet baseline."""
+    d = ev["date"]
+    gs = cmr.search(cmr.GUNW, ev["lat"], ev["lon"])
+    spanning = sorted((g for g in gs if g.start < d <= g.end), key=lambda g: (g.days, g.start))
+    if not spanning:
+        raise LookupError(f"{ev['slug']}: no interferogram spans {d}")
+    co = spanning[0]
+    pre = [g for g in gs if g.stack == co.stack and g.end <= co.start]
+    return co, (pre[-1] if pre else None)
+
+
+def fetch(ev: dict, refetch=False) -> dict:
+    path = CACHE / f"{ev['slug']}.npz"
+    if path.exists() and not refetch:
+        z = np.load(path, allow_pickle=True)
+        return {k: z[k] for k in z.files} | {"info": z["info"].item()}
+    CACHE.mkdir(exist_ok=True)
+    half = ev["half_km"] * 1000
+    co, pre = pick_pairs(ev)
+    s = remote.session()
+    print(f"  interferogram {co.start} -> {co.end} on T{co.track} F{co.frame} {co.direction}", flush=True)
+    a = gunw.read_window(co, ev["lat"], ev["lon"], half, s)
+    out = {"los": a["los_m"], "coh": a["coh"], "valid": a["valid"], "x": a["x"], "y": a["y"]}
+    info = {"granule": co.id, "pair": [co.start, co.end], "stack": list(co.stack), "epsg": a["epsg"],
+            "wavelength_m": a["wavelength_m"], "mb_read": round(a["bytes_read"] / 1e6, 1)}
+    if pre:
+        print(f"  baseline      {pre.start} -> {pre.end}", flush=True)
+        b = gunw.read_window(pre, ev["lat"], ev["lon"], half, s)
+        h, w = min(a["los_m"].shape[0], b["los_m"].shape[0]), min(a["los_m"].shape[1], b["los_m"].shape[1])
+        for k in ("los", "coh", "valid"):
+            out[k] = out[k][:h, :w]
+        out["x"], out["y"] = out["x"][:w], out["y"][:h]
+        out["los_pre"], out["coh_pre"], out["valid_pre"] = b["los_m"][:h, :w], b["coh"][:h, :w], b["valid"][:h, :w]
+        info |= {"pre_granule": pre.id, "pre_pair": [pre.start, pre.end], "mb_read": info["mb_read"] + round(b["bytes_read"] / 1e6, 1)}
+    grid = context.Grid.from_centres(info["epsg"], out["x"], out["y"])
+    print("  terrain", flush=True)
+    out["dem"] = context.dem(grid)
+    img = grid.scaled(grid.dx / 2) if grid.dx > 40 else grid      # optical at twice the radar resolution
+    ev_day = date.fromisoformat(ev["date"])
+    for tag, a0, a1 in (("before", ev_day - timedelta(days=75), ev_day - timedelta(days=1)),
+                        ("after", ev_day + timedelta(days=1), ev_day + timedelta(days=45))):
+        print(f"  sentinel-2 {tag}", flush=True)
+        rgb, ids = context.sentinel2(img, a0.isoformat(), a1.isoformat())
+        if rgb is not None:
+            out[f"optical_{tag}"] = rgb
+        info[f"optical_{tag}"] = {"window": [a0.isoformat(), a1.isoformat()], "scenes": ids}
+    np.savez_compressed(path, **out, info=np.array(info, dtype=object))
+    return out | {"info": info}
+
+
+# ------------------------------------------------------------------ rendering helpers
+
+def fringes(los: np.ndarray, coh: np.ndarray, valid: np.ndarray) -> np.ndarray:
+    """Rewrap motion at CYCLE_M per colour cycle: hue = phase, brightness = coherence."""
+    ph = np.mod(np.nan_to_num(los) / CYCLE_M, 1.0)
+    rgb = np.array([colorsys.hsv_to_rgb(h, 0.85, 1.0) for h in np.linspace(0, 1, 256)])[(ph * 255).astype(int)]
+    v = np.clip((coh - 0.1) / 0.6, 0.15, 1.0)[..., None]
+    rgb = rgb * v
+    rgb[~valid] = rgb[~valid] * 0.35 + 0.1
+    return (rgb * 255).astype(np.uint8)
+
+
+def grey(a: np.ndarray) -> np.ndarray:
+    return (np.clip(a, 0, 1) * 255).astype(np.uint8)
+
+
+def save_img(path: Path, a: np.ndarray, quality=88):
+    im = Image.fromarray(a)
+    if path.suffix == ".jpg":
+        im.save(path, quality=quality)
+    else:
+        im.save(path, optimize=True)
+
+
+def build(slug: str, refetch=False):
+    ev = candidates()[slug]
+    print(f"{slug}: fetching", flush=True)
+    A = fetch(ev, refetch)
+    info = A["info"]
+    grid = context.Grid.from_centres(info["epsg"], A["x"], A["y"])
+    out = SITE / slug
+    out.mkdir(parents=True, exist_ok=True)
+
+    los, valid, coh = A["los"], A["valid"].astype(bool), A["coh"]
+    filled = gunw.fill(np.nan_to_num(los), valid)
+    (out / "dem.i16").write_bytes(np.round(A["dem"]).astype("<i2").tobytes())
+    (out / "los.i16").write_bytes(np.clip(np.round(filled * 1000), -32767, 32767).astype("<i2").tobytes())
+    (out / "valid.u8").write_bytes(valid.astype(np.uint8).tobytes())
+    (out / "coh.u8").write_bytes(grey(coh).tobytes())
+
+    images = []
+    def add(name, arr, caption, source):
+        save_img(out / name, arr)
+        images.append({"file": name, "caption": caption, "source": source})
+    nisar = "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC"
+    add("interferogram.png", fringes(los, coh, valid),
+        f"Interferogram spanning the event, {info['pair'][0]} → {info['pair'][1]}. One colour cycle = {CYCLE_M * 100:.0f} cm "
+        "of line-of-sight motion; brightness = coherence; dim = not measured.", f"{nisar}: {info['granule']}")
+    add("coherence.png", grey(coh), f"Coherence {info['pair'][0]} → {info['pair'][1]}. Dark = the surface changed.",
+        f"{nisar}: {info['granule']}")
+    if "los_pre" in A:
+        add("interferogram-before.png", fringes(A["los_pre"], A["coh_pre"], A["valid_pre"].astype(bool)),
+            f"Baseline interferogram before the event, {info['pre_pair'][0]} → {info['pre_pair'][1]}: what 'quiet' looks like.",
+            f"{nisar}: {info['pre_granule']}")
+    for tag in ("before", "after"):
+        if f"optical_{tag}" in A:
+            o = info[f"optical_{tag}"]
+            add(f"optical-{tag}.jpg", A[f"optical_{tag}"],
+                f"Sentinel-2 true colour, cloud-masked median of {len(o['scenes'])} scenes, {o['window'][0]} → {o['window'][1]}.",
+                "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search")
+
+    m = np.nan_to_num(los)[valid]
+    stats = {"motion_range_cm": round(float(np.percentile(m, 98) - np.percentile(m, 2)) * 100, 1),
+             "measured_pct": round(100 * float(valid.mean()), 1),
+             "coherence_mean": round(float(coh.mean()), 2)}
+    if "los_pre" in A:
+        mp = np.nan_to_num(A["los_pre"])[A["valid_pre"].astype(bool)]
+        stats["baseline_range_cm"] = round(float(np.percentile(mp, 98) - np.percentile(mp, 2)) * 100, 1)
+    w, s_, e, n = grid.bounds_lonlat()
+    meta = {
+        "slug": slug, "name": ev["name"], "kind": ev["kind"], "date": ev["date"], "lat": ev["lat"], "lon": ev["lon"],
+        "grid": {"epsg": grid.epsg, "left": grid.left, "top": grid.top, "dx": grid.dx, "nx": grid.nx, "ny": grid.ny,
+                 "bounds_lonlat": [w, s_, e, n]},
+        "layers": {"dem": "dem.i16", "los": "los.i16", "valid": "valid.u8", "coh": "coh.u8"},
+        "ground": "optical-after.jpg" if "optical_after" in A else ("optical-before.jpg" if "optical_before" in A else None),
+        "nisar": info, "stats": stats, "images": images,
+    }
+    (out / "meta.json").write_text(json.dumps(meta, indent=1))
+    idx = SITE / "index.json"
+    live = sorted(set(json.loads(idx.read_text()) if idx.exists() else []) | {slug})
+    idx.write_text(json.dumps(live))
+    print(f"{slug}: {grid.nx}x{grid.ny} @ {grid.dx:.0f} m, {info['mb_read']} MB read, {stats}")
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("slugs", nargs="+")
+    ap.add_argument("--refetch", action="store_true")
+    a = ap.parse_args()
+    for s in a.slugs:
+        build(s, a.refetch)

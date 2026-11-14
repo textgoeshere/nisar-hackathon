@@ -1,0 +1,86 @@
+{
+ "slug": "kumamoto-quake",
+ "name": "Kumamoto M6.8 earthquake, Japan",
+ "kind": "quake",
+ "date": "2026-07-28",
+ "lat": 32.682,
+ "lon": 130.722,
+ "grid": {
+  "epsg": 32652,
+  "left": 631440.0,
+  "top": 3647360.0,
+  "dx": 80.0,
+  "nx": 750,
+  "ny": 750,
+  "bounds_lonlat": [
+   130.39783942199256,
+   32.406882047898286,
+   131.04794638948542,
+   32.95666084860936
+  ]
+ },
+ "layers": {
+  "dem": "dem.i16",
+  "los": "los.i16",
+  "valid": "valid.u8",
+  "coh": "coh.u8"
+ },
+ "ground": null,
+ "nisar": {
+  "granule": "NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001",
+  "pair": [
+   "2026-07-21",
+   "2026-08-14"
+  ],
+  "stack": [
+   24,
+   18,
+   "A"
+  ],
+  "epsg": 32652,
+  "wavelength_m": 0.2419632429378531,
+  "mb_read": 54.0,
+  "pre_granule": "NISAR_L2_PR_GUNW_025_024_A_018_026_4000_SH_20260709T202900_20260709T202935_20260721T202900_20260721T202934_P05023_N_F_J_001",
+  "pre_pair": [
+   "2026-07-09",
+   "2026-07-21"
+  ],
+  "optical_before": {
+   "window": [
+    "2026-05-14",
+    "2026-07-27"
+   ],
+   "scenes": []
+  },
+  "optical_after": {
+   "window": [
+    "2026-07-29",
+    "2026-09-11"
+   ],
+   "scenes": []
+  }
+ },
+ "stats": {
+  "motion_range_cm": 30.7,
+  "measured_pct": 59.0,
+  "coherence_mean": 0.41,
+  "baseline_range_cm": 6.9
+ },
+ "images": [
+  {
+   "file": "interferogram.png",
+   "caption": "Interferogram spanning the event, 2026-07-21 \u2192 2026-08-14. One colour cycle = 10 cm of line-of-sight motion; brightness = coherence; dim = not measured.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001"
+  },
+  {
+   "file": "coherence.png",
+   "caption": "Coherence 2026-07-21 \u2192 2026-08-14. Dark = the surface changed.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001"
+  },
+  {
+   "file": "interferogram-before.png",
+   "caption": "Baseline interferogram before the event, 2026-07-09 \u2192 2026-07-21: what 'quiet' looks like.",
+   "source": "NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: NISAR_L2_PR_GUNW_025_024_A_018_026_4000_SH_20260709T202900_20260709T202935_20260721T202900_20260721T202934_P05023_N_F_J_001"
+  }
+ ]
+}
