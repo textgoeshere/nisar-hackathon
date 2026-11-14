@@ -48,11 +48,12 @@ void main() {
   } else if (uMode > 0.5) {
     // Subsidence: light red tint where the ground sinks plus a contour every 2 cm, so the city stays
     // readable. Apparent rise of a couple of cm is within the fit's noise, so it gets nothing.
-    float x = clamp(-vLos / uLim, 0.0, 1.0);
-    col = mix(col, col * 0.5 + vec3(1.0, 0.25, 0.2) * 0.5 * lit, valid * 0.65 * smoothstep(0.05, 0.9, x));
-    float c = vLos / 0.02, w = fwidth(c);
+    // Only motion beyond ~2 cm (twice the fit's scatter) is drawn: contours every 5 cm.
+    float x = clamp((-vLos - 0.02) / uLim, 0.0, 1.0);
+    col = mix(col, col * 0.5 + vec3(1.0, 0.25, 0.2) * 0.5 * lit, valid * 0.7 * smoothstep(0.0, 0.6, x));
+    float c = vLos / 0.05, w = fwidth(c);
     float line = 1.0 - smoothstep(0.0, 1.2 * w, abs(fract(c + 0.5) - 0.5));
-    col = mix(col, vec3(1.0, 0.35, 0.25), valid * line * 0.75 * step(0.005, -vLos));
+    col = mix(col, vec3(1.0, 0.35, 0.25), valid * line * 0.8 * step(0.02, -vLos));
   }
   col = mix(col, fr, 0.7 * uFringe * valid * smoothstep(0.3, 0.55, coh) * smoothstep(0.0, 0.003, abs(vLos)));
   gl_FragColor = vec4(col, 1.0);

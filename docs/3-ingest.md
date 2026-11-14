@@ -79,6 +79,24 @@ before/after) and `meta.json` with the grid, provenance (granule IDs, scenes) an
 The event signal is about 4.5 times the background, and concentrates along the Hinagu fault
 south-west of Kumamoto city.
 
+## 3.6 Other event types
+
+**Subsidence (no event date).** One 12-day interferogram holds only millimetres of slow sinking.
+[`build_event.chain`](../pipeline/build_event.py) links consecutive pairs on the best-covered stack
+(each pair starts where the last ended), reads them all and adds them up. Each pair also carries
+~0.5-1 cm of atmospheric and unwrapping noise, so the raw running total jitters. Groundwater-driven
+subsidence is steady over a year, so we fit one rate per pixel (least squares through the origin)
+and show rate x time; the scatter of the passes around the fit is reported. Pixels are trusted
+where at least 80% of pairs were coherent. In the viewer only sinking is tinted and contoured
+(every 5 cm, beyond 2 cm of sinking, about twice the fit scatter): an apparent rise of a couple of centimetres is within the fit's noise.
+
+**Landslides and debris flows.** The signal is not motion but **coherence drop**: ground that
+matched itself in the baseline pair and stopped matching across the event, because it was buried or
+torn up. In high mountains fresh snow does the same, so ground above the seasonal snowline (3,500 m
+for the Himalaya in late August) is masked. At 80 m posting a narrow debris channel in a steep
+valley is near the limit of what NISAR resolves; for Langtang the Sentinel-2 image shows the
+channel more clearly than the radar does.
+
 ## Pitfalls to remember (from research)
 
 - Try every track: Kumamoto is decorrelated on one track and clean on another.

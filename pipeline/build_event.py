@@ -198,7 +198,7 @@ def build(slug: str, refetch=False):
     (out / "los.i16").write_bytes(i16(np.where(valid, np.nan_to_num(los), 0)))
     # Display surface: lightly smoothed motion that fades to zero over unmeasured ground (sea,
     # decorrelated patches), so gaps don't become cliffs under heavy exaggeration.
-    (out / "surface.i16").write_bytes(i16(gunw.display_surface(los, valid)))
+    (out / "surface.i16").write_bytes(i16(gunw.display_surface(los, valid, sigma=3.0 if "rate_m_yr" in A else 1.5)))
     (out / "valid.u8").write_bytes(valid.astype(np.uint8).tobytes())
     (out / "coh.u8").write_bytes(grey(coh).tobytes())
     layers = {"dem": "dem.i16", "los": "los.i16", "surface": "surface.i16", "valid": "valid.u8", "coh": "coh.u8"}
@@ -245,10 +245,12 @@ def build(slug: str, refetch=False):
              "measured_pct": round(100 * float(valid.mean()), 1),
              "coherence_mean": round(float(coh.mean()), 2)}
     if "rate_m_yr" in A:
-        r = np.where(valid, A["rate_m_yr"], np.nan)
+        # A 5x5 median keeps single-pixel unwrapping errors from posing as the fastest-sinking spot.
+        from scipy import ndimage
+        r = np.where(valid, ndimage.median_filter(np.nan_to_num(A["rate_m_yr"]), 5), np.nan)
         k = np.unravel_index(np.nanargmin(r), r.shape)
-        stats |= {"max_sinking_cm_yr": round(float(-np.nanpercentile(r, 0.1)) * 100, 1), "fit_rms_cm": info["fit_rms_cm"],
-                  "fastest_uv": [round((k[1] + 0.5) / grid.nx, 4), round((k[0] + 0.5) / grid.ny, 4)],
+        stats |= {"max_sinking_cm_yr": round(float(-np.nanmin(r)) * 100, 1), "fit_rms_cm": info["fit_rms_cm"],
+                  "fastest_uv": [round(float(k[1] + 0.5) / grid.nx, 4), round(float(k[0] + 0.5) / grid.ny, 4)],
                   "fastest_series_cm": [0.0] + [round(float(c) * 100, 1) for c in A["cum"][:, k[0], k[1]]]}
     if "coh_pre" in A:
         stats["coherence_drop_pct"] = round(100 * float((drop > 0.3).mean()), 1)
