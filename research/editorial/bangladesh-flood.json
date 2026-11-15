@@ -1,0 +1,26 @@
+{
+ "boundary": "Flooded vs dry along the Manu River, Moulvibazar, 9-12 July 2026. The Manu embankment breached at Uzirpur/Haripasha (Tengra union, Rajnagar upazila) on 9-10 July. Moulvibazar town sits behind the town embankment: the river ran 55-84 cm above danger level at Chandnighat, but only parts of Ward 1 were reported submerged. The Dhalai breach at Mokhabil (Islampur union, Kamalganj), the Kulaura breach at Shikoria (Prithimpasha union) and the Khowai breach (Habiganj) are all outside the 30 km radar box.",
+ "items": {
+  "bangladesh-01": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "bangladesh-02": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "bangladesh-03": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "bangladesh-04": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {}
+}

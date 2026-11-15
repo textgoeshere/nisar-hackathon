@@ -1,0 +1,211 @@
+{
+ "boundary": "Old lake-bed clays (Lake Texcoco/Xochimilco-Chalco: Centro, Neza, the airport, Tláhuac, Valle de Chalco), sinking because groundwater is pumped out, vs. stable volcanic ground: the Sierra de Santa Catarina and Cerro de la Estrella in the east, the Chapultepec/Lomas hills in the west, and the Xitle lava of the Pedregal (Ciudad Universitaria) in the south. Values are NISAR cumulative LOS motion, 2025-10-30 to 2026-10-13. The fastest pixels are about -45 cm in Valle de Chalco/Tláhuac (19.26-19.27N, 98.97-99.05W) and -30 to -34 cm near the old Texcoco lakebed by Neza/the airport (19.44N, 99.00-99.03W). Hills read +2 to +3 cm, which is likely a reference offset, i.e. effectively stable.",
+ "items": {
+  "mexico-01": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "mexico-02": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "mexico-03": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "mexico-04": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "mexico-05": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "mexico-06": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {
+  "mexico-comm-8db1818a": {
+   "status": "candidate"
+  },
+  "mexico-comm-52c77057": {
+   "status": "candidate"
+  },
+  "mexico-comm-3b1b3b5b": {
+   "status": "candidate"
+  },
+  "mexico-comm-0c7750ca": {
+   "status": "candidate"
+  },
+  "mexico-comm-b5331e67": {
+   "status": "candidate"
+  },
+  "mexico-comm-be9cad68": {
+   "status": "candidate"
+  },
+  "mexico-comm-ac60f982": {
+   "status": "candidate"
+  },
+  "mexico-comm-28c50950": {
+   "status": "candidate"
+  },
+  "mexico-comm-4e022e50": {
+   "status": "candidate"
+  },
+  "mexico-vali-3eb5065b": {
+   "status": "candidate"
+  },
+  "mexico-vali-29daf92a": {
+   "status": "candidate"
+  },
+  "mexico-vali-67f8708c": {
+   "status": "candidate"
+  },
+  "mexico-vali-9d633eea": {
+   "status": "candidate"
+  },
+  "mexico-vali-2c82fb3a": {
+   "status": "candidate"
+  },
+  "mexico-vali-dd8b98b9": {
+   "status": "candidate"
+  },
+  "mexico-vali-323e4813": {
+   "status": "candidate"
+  },
+  "mexico-comm-c8136a2f": {
+   "status": "candidate"
+  },
+  "mexico-comm-5216f22e": {
+   "status": "candidate"
+  },
+  "mexico-comm-274d6fa5": {
+   "status": "candidate"
+  },
+  "mexico-comm-9d0eab20": {
+   "status": "candidate"
+  },
+  "mexico-open-afcfd427": {
+   "status": "candidate"
+  },
+  "mexico-open-eb7200ec": {
+   "status": "candidate"
+  },
+  "mexico-comm-e76c6027": {
+   "status": "candidate"
+  },
+  "mexico-comm-61920495": {
+   "status": "candidate"
+  },
+  "mexico-comm-9838a476": {
+   "status": "candidate"
+  },
+  "mexico-mapi-5dc468fc": {
+   "status": "candidate"
+  },
+  "mexico-mapi-84ebe7f9": {
+   "status": "candidate"
+  },
+  "mexico-mapi-91deb464": {
+   "status": "candidate"
+  },
+  "mexico-mapi-b7fc57b8": {
+   "status": "candidate"
+  },
+  "mexico-mapi-7376e240": {
+   "status": "candidate"
+  },
+  "mexico-mapi-8cba9afb": {
+   "status": "candidate"
+  },
+  "mexico-mapi-1fa3593c": {
+   "status": "candidate"
+  },
+  "mexico-mapi-b1dc162e": {
+   "status": "candidate"
+  },
+  "mexico-mapi-323252b1": {
+   "status": "candidate"
+  },
+  "mexico-mapi-1109cd79": {
+   "status": "candidate"
+  },
+  "mexico-mapi-0911bd71": {
+   "status": "candidate"
+  },
+  "mexico-mapi-4c7a5221": {
+   "status": "candidate"
+  },
+  "mexico-mapi-31a5cc5c": {
+   "status": "candidate"
+  },
+  "mexico-comm-dac823b4": {
+   "status": "candidate"
+  },
+  "mexico-mapi-579f6345": {
+   "status": "candidate"
+  },
+  "mexico-mapi-62b6dafa": {
+   "status": "candidate"
+  },
+  "mexico-mapi-7cd8cea1": {
+   "status": "candidate"
+  },
+  "mexico-mapi-23642b8d": {
+   "status": "candidate"
+  },
+  "mexico-mapi-a79639d3": {
+   "status": "candidate"
+  },
+  "mexico-mapi-61da6bad": {
+   "status": "candidate"
+  },
+  "mexico-mapi-7a4d35d4": {
+   "status": "candidate"
+  },
+  "mexico-mapi-2889cf78": {
+   "status": "candidate"
+  },
+  "mexico-mapi-b6059883": {
+   "status": "candidate"
+  },
+  "mexico-mapi-ad55e709": {
+   "status": "candidate"
+  },
+  "mexico-mapi-cd6238d6": {
+   "status": "candidate"
+  },
+  "mexico-mapi-93f279cf": {
+   "status": "candidate"
+  },
+  "mexico-mapi-5a9f1940": {
+   "status": "candidate"
+  },
+  "mexico-mapi-c1d4c267": {
+   "status": "candidate"
+  },
+  "mexico-mapi-431380c2": {
+   "status": "candidate"
+  },
+  "mexico-mapi-9e64c75b": {
+   "status": "candidate"
+  },
+  "mexico-mapi-24bd159d": {
+   "status": "candidate"
+  },
+  "mexico-pano-515cde90": {
+   "status": "candidate"
+  },
+  "mexico-gdel-42f8823b": {
+   "status": "candidate"
+  }
+ }
+}

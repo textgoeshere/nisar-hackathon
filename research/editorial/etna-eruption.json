@@ -1,0 +1,31 @@
+{
+ "boundary": "Edge of the new August 2026 lava field: coherence loss where fresh lava buried the ground (from the Valle del Leone vents down the floor of the uninhabited Valle del Bove to fronts at ~1,315-1,340 m around Rocca Capra) versus undisturbed ground. Per INGV, no inhabited town was reached by lava. The towns on the lower east flank (Zafferana Etnea) got ash, not lava.",
+ "items": {
+  "etna-01": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "etna-02": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "etna-03": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "etna-04": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "etna-05": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {}
+}

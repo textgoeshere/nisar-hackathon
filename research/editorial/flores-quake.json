@@ -1,0 +1,31 @@
+{
+ "boundary": "No on-land surface rupture: the Mw 7.8 (USGS us6000tkt2, 15 Aug 2026 05:58 WITA) broke the south-dipping Flores back-arc thrust offshore, ~20-25 km north of the Nagekeo coast (USGS epicentre -8.336, 121.345; BMKG '30 km NE of Mbay'). The expected NISAR signal is broad hanging-wall uplift of the north Nagekeo coast (Aesesa, Wolowae) fading southward, with local decorrelation where the ground failed (cracks and hot-water spouts at Tonggurambang) and the tsunami swash zone (Anakoli beach). Damage inside the ±40 km window is shaking damage scattered across Nagekeo, including the south coast, and does not follow one sharp line. The worst-hit regencies (Manggarai, East Manggarai: 75 of ~103 deaths by 25 Aug) and Kelimutu, Maumere and Mauponggo all lie outside the window.",
+ "items": {
+  "flores-01": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "flores-02": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "flores-03": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "flores-04": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "flores-05": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {}
+}

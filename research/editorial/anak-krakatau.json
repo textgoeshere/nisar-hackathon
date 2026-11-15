@@ -1,0 +1,31 @@
+{
+ "boundary": "Edge of the new lava and pyroclastic land from the 25-hour continuous eruption and lava fountaining of 4-6 Sep 2026 (23:07 WIB 4 Sep to 00:04 WIB 6 Sep). Per Badan Geologi's Sentinel comparison (24 Sep), 32.8 ha were added to the cone's shoreline in the NW-W-SW sector, and two new islets rose ~760 m off the NW coast and ~495 m off the SE coast, on a NW-SE line through the main crater. The rest of the shoreline (N-NE-E) gained no reported land. In NISAR this should be new, decorrelated ground along the W shore plus two isolated spots at sea, against stable older lava on the NE-E side. The whole window is uninhabited (Krakatau islands).",
+ "items": {
+  "krakatau-01": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "krakatau-02": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "krakatau-03": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "krakatau-04": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "krakatau-05": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {}
+}

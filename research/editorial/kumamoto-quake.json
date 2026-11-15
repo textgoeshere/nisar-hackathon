@@ -1,0 +1,534 @@
+{
+ "boundary": "Surface rupture of the Hinagu fault (Takano-Shirahata + Hinagu segments), running NE-SW along the foot of the hills from Mifune/Uki through Hikawa to Yatsushiro JCT. In the NISAR interferogram it is the sharp NE-SW line where the NW side (Uki/Yatsushiro plain, LOS +10 to +22 cm, much of it interpolated) meets the SE hills (LOS about -5 to -25 cm). Near Yatsushiro the jump is about 20 cm over ~1.5 km and lands on the mapped rupture (Ryuho school, Yatsushiro Shrine).",
+ "items": {
+  "kumamoto-01": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "kumamoto-02": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "kumamoto-03": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "kumamoto-04": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "kumamoto-05": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "kumamoto-06": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "kumamoto-07": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {
+  "kumamoto-vali-84e51ff0": {
+   "status": "selected"
+  },
+  "kumamoto-comm-ebfd37c4": {
+   "status": "candidate"
+  },
+  "kumamoto-vali-8d27dc45": {
+   "status": "candidate"
+  },
+  "kumamoto-vali-2801ddda": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-6825d4f9": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-ea4f4e37": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-ab733622": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-a29b3db5": {
+   "status": "selected"
+  },
+  "kumamoto-gdel-5c73894b": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-351b5662": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-1d4313a6": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-a2dde145": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-66866942": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-16cb1a2e": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-a2852157": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-d556e491": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-f979a6f3": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-1e907f67": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-9a4c0fdd": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-31c46eab": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-c576bb5b": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-afa0d6d8": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-77d25c94": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-6ed50570": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-8607afb0": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-53b5e7e2": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-6d65cacf": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-286d61f1": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-dac617cd": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-fd09adfe": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-7602cd39": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-6736cbb6": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-d349c257": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-fe36fb8b": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-2b2db8b0": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-16a38e6a": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-fec8361e": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-124b3f9a": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-2e9380a5": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-10130ece": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-ce68824a": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-0f115a0a": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-11cb11df": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-0ddbd46d": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-27c39fab": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-84455a08": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-eb34165d": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-9584d50b": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-8279ca21": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-0625b1ed": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-f3362276": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-b6b67b75": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-fe06b2dd": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-c996c4ab": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-f821c91d": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-71021eae": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-a2d160d5": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-ff7d8eaa": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-b187f81d": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-9ea50e61": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-359d591c": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-d78e82b9": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-ecacd7db": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-41617178": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-e02d5cf3": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-f92c0ebb": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-e6fae4b3": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-cdbd8457": {
+   "status": "candidate"
+  },
+  "kumamoto-comm-731c973b": {
+   "status": "candidate"
+  },
+  "kumamoto-open-0f6e6e61": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-f2d4f657": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-dd9a7d51": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-509cbf9e": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-c6d62cd8": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-0d424df3": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-0ac66f68": {
+   "status": "candidate"
+  },
+  "kumamoto-mapi-2f28df9c": {
+   "status": "candidate"
+  },
+  "kumamoto-gdel-3609d674": {
+   "status": "candidate"
+  },
+  "kumamoto-gdel-5232ff26": {
+   "status": "candidate"
+  },
+  "kumamoto-gdel-60ffce64": {
+   "status": "candidate"
+  },
+  "kumamoto-gdel-4fb71222": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-3f09ea2b": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-9b520632": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-2b94dc6c": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-4677f5ca": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-6cbe501b": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-196649cc": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-efaa62bc": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-66705e2d": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-ab58cfda": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-28d2ee8d": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-81be4949": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-ca0d4a19": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-fdd1a54f": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-12a1d78e": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-16fd270c": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-06f1c779": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-ef95dc5b": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-dc0f5471": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-de18e02b": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-d20febe8": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-168cbc58": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-c25024e1": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-d62fa500": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-faf99947": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-dc8b3a3f": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-1ab482d4": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-1ee6eee8": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-b5605cd7": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-11ca825e": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-5c57d66b": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-11b60021": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-50cd172c": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-56d78b42": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-61164392": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-60d447ba": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-cf237253": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-754731ad": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-b25bed78": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-8aa66cef": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-f7fa7977": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-e58e6d8b": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-718cb6c4": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-a3a023e1": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-94a9221f": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-0c5c7c8c": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-d9a55fc4": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-5fa1f14d": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-b6f7075d": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-b76efbab": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-27eb4205": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-d218f3ca": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-337b7473": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-e2a5c71e": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-d5291a28": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-93f05034": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-5269a14e": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-14366eda": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-0fe7fb59": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-f2199423": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-9c0ee77a": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-092dbf94": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-b9c762cc": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-5b09bd36": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-afd10f64": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-dc31625a": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-21711372": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-6b00ea11": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-e1336fd2": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-d631b7ed": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-f2f0afe1": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-f21f569f": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-39c63be0": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-220851b2": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-3520284a": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-58ec43d1": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-c4a9b49e": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-f320f8a3": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-83913952": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-37c45e5f": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-2ce5019a": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-11739257": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-c92c52c5": {
+   "status": "candidate"
+  },
+  "kumamoto-unl-03f86a06": {
+   "status": "candidate"
+  }
+ }
+}

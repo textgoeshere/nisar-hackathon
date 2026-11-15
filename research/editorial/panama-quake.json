@@ -1,0 +1,91 @@
+{
+ "boundary": "The Azuero-Soná fault rupture (left-lateral, WNW-ESE). In this NISAR frame the coherent ground north of the fault shows huge LOS motion (+60 to +170 cm on the Tonosí plain and the hills to its NW). South of it is a decorrelated, landslide-scarred band (coherence <0.1, no valid pixels) running roughly from the SW corner past 7.42–7.46°N to the coast between Búcaro and Isla Cañas. At Búcaro's longitude the LOS drops about 60 cm across that band: +75–82 cm at 7.42°N vs +17 cm at Búcaro on the coast. Field teams measured 1–1.2 m of horizontal and about 1 m of vertical surface rupture at Búcaro.",
+ "items": {
+  "panama-01": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "panama-02": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "panama-03": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "panama-04": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "panama-05": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "panama-06": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {
+  "panama-vali-e590347e": {
+   "status": "candidate"
+  },
+  "panama-vali-920c2537": {
+   "status": "candidate"
+  },
+  "panama-vali-f17bb8a9": {
+   "status": "candidate"
+  },
+  "panama-vali-87be4511": {
+   "status": "candidate"
+  },
+  "panama-vali-c64492f7": {
+   "status": "candidate"
+  },
+  "panama-vali-92c666d0": {
+   "status": "candidate"
+  },
+  "panama-gdel-95d9a159": {
+   "status": "candidate"
+  },
+  "panama-comm-0a9835b3": {
+   "status": "candidate"
+  },
+  "panama-comm-7f8e0425": {
+   "status": "candidate"
+  },
+  "panama-comm-8b501752": {
+   "status": "candidate"
+  },
+  "panama-comm-e7feb1f7": {
+   "status": "candidate"
+  },
+  "panama-comm-b70105c2": {
+   "status": "candidate"
+  },
+  "panama-comm-09eeeb22": {
+   "status": "candidate"
+  },
+  "panama-gdel-d1b3e623": {
+   "status": "candidate"
+  },
+  "panama-gdel-c3d20c9e": {
+   "status": "candidate"
+  },
+  "panama-gdel-e07f6152": {
+   "status": "candidate"
+  },
+  "panama-gdel-38db671d": {
+   "status": "candidate"
+  },
+  "panama-gdel-bdf165f5": {
+   "status": "candidate"
+  }
+ }
+}

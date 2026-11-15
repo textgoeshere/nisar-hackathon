@@ -1,0 +1,110 @@
+{
+ "boundary": "NISAR shows a sharp E-W discontinuity at about 10.51–10.52°N across the lower Yaracuy valley and coastal plain, from about 68.45°W east to Morón (68.20°W). North of it (Boca de Aroa/Tucacas side) LOS is +10 to +28 cm; south of it (Urama/Morón side) it is −15 to −27 cm. The jump is up to ~30 cm over 1.5–2 km, with a thin low-coherence seam. West of 68.5°W it fades into a smooth gradient past Farriar, and San Felipe itself (68.74°W) shows only ~3 cm. NOTE: the existing site blurb places the trace 'west of San Felipe'; the data put it ~45 km ENE of San Felipe, north of Urama–Morón. GEER mapped no field-verified surface rupture in this frame (their only verified rupture is at Maiquetía, outside it).",
+ "items": {
+  "venezuela-01": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "venezuela-02": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "venezuela-03": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "venezuela-04": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "venezuela-05": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {
+  "venezuela-vali-746047d1": {
+   "status": "candidate"
+  },
+  "venezuela-vali-0d29cc1a": {
+   "status": "candidate"
+  },
+  "venezuela-vali-b41da48d": {
+   "status": "candidate"
+  },
+  "venezuela-comm-b511ab73": {
+   "status": "candidate"
+  },
+  "venezuela-comm-ea3b2159": {
+   "status": "candidate"
+  },
+  "venezuela-comm-ff47fec2": {
+   "status": "candidate"
+  },
+  "venezuela-comm-8395634c": {
+   "status": "candidate"
+  },
+  "venezuela-comm-f44c453b": {
+   "status": "candidate"
+  },
+  "venezuela-comm-674576de": {
+   "status": "candidate"
+  },
+  "venezuela-comm-b0ce617d": {
+   "status": "candidate"
+  },
+  "venezuela-mapi-6bff26bf": {
+   "status": "candidate"
+  },
+  "venezuela-mapi-d8887ff1": {
+   "status": "candidate"
+  },
+  "venezuela-mapi-f41d0dad": {
+   "status": "candidate"
+  },
+  "venezuela-mapi-5c3435a6": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-d50c2981": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-8433c0c8": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-9dee2c93": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-cd8177df": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-ee8d0fb5": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-6e1dea96": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-1420bbb6": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-7e09a13f": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-f6c81702": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-490d03d7": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-5d319286": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-d5d12281": {
+   "status": "candidate"
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "boundary": "Edge of the debris channel: the Lende Khola / Bhote Koshi valley floor that the 26 Aug 2026 debris flow filled (traced from Sentinel-2 into arrival.bin, drawn ~160 m wider than the true channel) versus the terraces and ridges above it. Settlements on the valley floor (Rasuwagadhi, Ghattekhola, Timure, Syabrubesi bazaar) were buried or swept away; settlements well above the river (Dhunche, upper Syabrubesi) were not. Onlinekhabar reports that the flood reached settlements up to ~80 m (270 ft) above river level.",
+ "items": {
+  "langtang-01": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "langtang-02": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "langtang-03": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "langtang-04": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "langtang-05": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "langtang-06": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "langtang-07": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {}
+}

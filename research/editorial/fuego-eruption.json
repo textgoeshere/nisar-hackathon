@@ -1,0 +1,31 @@
+{
+ "boundary": "Pyroclastic density currents of the 3-5 Aug 2026 paroxysm (~50 h from 08:30 on 3 Aug) stayed in the floors of Fuego's radial barrancas, running 5-7 km from the crater. Barranca Seca on the west flank was hit first and hardest (9+ pulses by 3 Aug afternoon), and flows later also ran down Taniluyá, Ceniza, Las Lajas and Honda, possibly Trinidad and El Jute (INSIVUMEH; IFRC 5 Aug). The edge to look for in NISAR is the narrow strip of decorrelated barranca floor against coherent interfluves. The communities on those interfluves (Panimaché I/II, Morelia, El Porvenir in Yepocapa) got ash and were evacuated, but the IFRC reported no damage to people or homes. Barranca Seca itself, where INSIVUMEH measured deposits at up to 195.6 °C (Prensa Libre, 26 Aug), is not mapped by name in OSM, so it has no item.",
+ "items": {
+  "fuego-01": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "fuego-02": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "fuego-03": {
+   "status": "candidate",
+   "caption": null,
+   "order": null
+  },
+  "fuego-04": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  },
+  "fuego-05": {
+   "status": "selected",
+   "caption": null,
+   "order": null
+  }
+ },
+ "media": {}
+}
