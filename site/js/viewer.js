@@ -25,7 +25,8 @@ void main() {
 }`;
 
 const FRAG = /* glsl */ `
-uniform sampler2D uGround, uCoh, uValid, uDrop;
+uniform sampler2D uGround, uGround0, uCoh, uValid, uDrop;
+uniform float uHasGround0;
 uniform float uHasGround, uFringe, uCycle, uMode, uLim, uT;
 uniform vec3 uDropCol;
 varying vec2 vUv;
@@ -38,6 +39,12 @@ vec3 hsv(float h, float s, float v) {
 void main() {
   float lit = 0.4 + 0.7 * max(dot(normalize(vNormal), normalize(vec3(-0.5, 0.8, -0.3))), 0.0);
   vec3 base = uHasGround > 0.5 ? texture2D(uGround, vUv).rgb : vec3(0.6, 0.58, 0.54);
+  // Optional before image: the slider fades it into the after image. Cloud holes (black) keep the after.
+  if (uHasGround > 0.5 && uHasGround0 > 0.5) {
+    vec3 b0 = texture2D(uGround0, vUv).rgb;
+    float ok = smoothstep(0.02, 0.06, max(b0.r, max(b0.g, b0.b)));
+    base = mix(base, b0, ok * (1.0 - uT));
+  }
   // Mute the satellite image a little so the artificial change colours stand out against it.
   base = mix(vec3(dot(base, vec3(0.299, 0.587, 0.114))), base, 0.65) * 0.9;
   vec3 col = base * lit;
@@ -118,7 +125,7 @@ export async function createViewer(el, base, meta, opts = {}) {
   const u = {
     uDem: { value: tex(dem, nx, ny) }, uLos: { value: tex(los, nx, ny) },
     uValid: { value: tex(Float32Array.from(valid8), nx, ny) }, uCoh: { value: tex(Float32Array.from(coh8, (v) => v / 255), nx, ny) },
-    uGround: { value: null }, uHasGround: { value: 0 },
+    uGround: { value: null }, uHasGround: { value: 0 }, uGround0: { value: null }, uHasGround0: { value: 0 },
     uDemExag: { value: Math.min(5, Math.max(1, (0.08 * width) / Math.max(1, demMax - demMin))) },
     uLosExag: { value: (meta.still || STILL.includes(meta.kind)) ? 0 : (0.03 * width) / losMax }, uT: { value: 1 }, uAspect: { value: aspect },
     uDemBase: { value: demMin }, uWidth: { value: width }, uFringe: { value: meta.kind === "subsidence" || (meta.still || STILL.includes(meta.kind)) ? 0 : 1 }, uCycle: { value: 0.1 },
@@ -137,6 +144,13 @@ export async function createViewer(el, base, meta, opts = {}) {
     const g = await new THREE.TextureLoader().loadAsync(await take(base + meta.ground, () => base + meta.ground));
     g.anisotropy = 8;
     u.uGround.value = g; u.uHasGround.value = 1;
+  }
+  if (opts.groundBefore) {                                // e.g. optical-before.jpg, same grid as the ground image
+    try {
+      const g0 = await new THREE.TextureLoader().loadAsync(base + opts.groundBefore);
+      g0.anisotropy = 8;
+      u.uGround0.value = g0; u.uHasGround0.value = 1;
+    } catch {}
   }
 
   const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -249,7 +263,7 @@ export async function createViewer(el, base, meta, opts = {}) {
     // Screen position (CSS px within el) of the ground at (u, v); null when behind the camera.
     project([pu, pv], lift = 0.015) {
       const p = new THREE.Vector3(pu - 0.5, heightAt(pu, pv) + lift, (pv - 0.5) * aspect).project(camera);
-      if (p.z > 1) return null;
+      if (p.z > 1 || Math.abs(p.x) > 1 || Math.abs(p.y) > 1) return null;   // behind the camera or off the view
       return { x: ((p.x + 1) / 2) * el.clientWidth, y: ((1 - p.y) / 2) * el.clientHeight };
     },
   };

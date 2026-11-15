@@ -10,8 +10,8 @@ const meta = await (await fetch(base + "meta.json")).json();
 
 // Animation settings, global: one localStorage entry shared by every event page.
 const SETTINGS_KEY = "nisar.event.settings";
-const settings = { skycam: true, autoplay: true, places: true };
-try { Object.assign(settings, JSON.parse(localStorage.getItem(SETTINGS_KEY)) ?? {}); } catch {}
+const settings = { autoplay: true, places: true };   // skycam is per page view: Autoplay starts it
+try { const s = JSON.parse(localStorage.getItem(SETTINGS_KEY)) ?? {}; for (const k in settings) if (k in s) settings[k] = s[k]; } catch {}
 const saveSettings = () => { try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); } catch {} };
 
 document.title = `${meta.name} · Either side of the line`;
@@ -26,10 +26,11 @@ if (multi || (meta.still || STILL.includes(meta.kind))) $("#fringes").checked = 
 
 const hero = $("#hero");
 // Skycam renders like the demo kiosk does (mesh capped at 640 segments, pixel ratio 1.5) so the flight stays smooth.
-const v = await createViewer(hero, base, meta, settings.skycam ? { segments: 640, pixelRatio: 1.5 } : {});
+const before = (meta.images ?? []).some((i) => i.file === "optical-before.jpg") ? "optical-before.jpg" : null;
+const v = await createViewer(hero, base, meta, { groundBefore: before, ...(settings.autoplay ? { segments: 640, pixelRatio: 1.5 } : {}) });
 v.setT(1); // the skycam judges its shots with the change fully grown in
-const sky = createSkycam(v, hero);
-sky.set(settings.skycam);
+const sky = createSkycam(v, hero, () => { $("#opt-skycam").checked = false; }); // touching the view stops it
+sky.set(settings.autoplay);
 
 // Wheel zoom only with ctrl/⌘ (trackpad pinch sends ctrl) or after clicking the view, until the pointer
 // leaves it; otherwise the wheel scrolls the page. Capture phase, so it runs before OrbitControls' listener.
@@ -120,8 +121,15 @@ const opt = (id, key, apply) => {
   box.checked = settings[key];
   box.addEventListener("change", () => { settings[key] = box.checked; saveSettings(); apply(box.checked); });
 };
-opt("#opt-skycam", "skycam", (on) => sky.set(on, true));
-opt("#opt-autoplay", "autoplay", (on) => { if (on) { if (t.value >= 1000) t.value = 0; setPlaying(true); } else { setPlaying(false); t.value = 1000; showT(); } });
+// Autoplay (remembered): runs the before -> after loop and the skycam together; off stops both.
+// Skycam alone is a switch for this page view only.
+const skyBox = $("#opt-skycam");
+skyBox.checked = settings.autoplay;
+skyBox.addEventListener("change", () => sky.set(skyBox.checked, true));
+opt("#opt-autoplay", "autoplay", (on) => {
+  if (on) { if (t.value >= 1000) t.value = 0; setPlaying(true); } else { setPlaying(false); t.value = 1000; showT(); }
+  skyBox.checked = on; sky.set(on, true);
+});
 opt("#opt-places", "places", (on) => { placeLayer.hidden = !on; });
 const placeLayer = document.createElement("div");
 placeLayer.className = "places";

@@ -1,10 +1,10 @@
 // Skycam for the event page: the demo kiosk's camera autopilot (js/demo.js), ported as-is. A random,
 // smooth Catmull-Rom flight through keyframes (wide shot, low swoops along the edge of the changed
 // ground), every pose checked so the frame holds some changed and some unchanged ground. Touching the
-// view hands over the orbit controls; IDLE_S seconds without input resumes from where it was left.
+// view stops it and hands over the orbit controls; it only flies again when switched back on.
 import * as THREE from "three";
 
-const IDLE_S = 30, LEG_S = 13;
+const LEG_S = 13;
 const rand = (a, b) => a + Math.random() * (b - a);
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
 
@@ -31,14 +31,23 @@ function survey(v) {
 }
 
 const tgt = new THREE.Vector3(), probe = new THREE.PerspectiveCamera(40, 1, 0.001, 20), pt = new THREE.Vector3();
-function place(ev, p, cam) {
+// The clearance over the peaks under the camera. The probe (judge) clamps instantly; the flight passes
+// a smoothed floor so the camera doesn't bob as it crosses ridges.
+function clearance(ev, cam) {
+  const { v } = ev, cu = cam.position.x + 0.5, cv = cam.position.z / v.aspect + 0.5;
+  if (cu < -0.05 || cu > 1.05 || cv < -0.05 || cv > 1.05) return -Infinity;
+  let top = -Infinity;                                          // highest ground within ~6% of the scene
+  for (const [du, dv] of [[0, 0], [0.06, 0], [-0.06, 0], [0, 0.06], [0, -0.06], [0.04, 0.04], [-0.04, 0.04], [0.04, -0.04], [-0.04, -0.04]])
+    top = Math.max(top, v.ceilingAt(Math.min(1, Math.max(0, cu + du)), Math.min(1, Math.max(0, cv + dv))));
+  return top + 0.05;
+}
+function place(ev, p, cam, floorY, tgtY) {
   const { v } = ev;
   const u = Math.min(1, Math.max(0, p.u)), w = Math.min(1, Math.max(0, p.v));
-  tgt.set(u - 0.5, v.smoothHeightAt(u, w), (w - 0.5) * v.aspect);
+  tgt.set(u - 0.5, tgtY ?? v.smoothHeightAt(u, w), (w - 0.5) * v.aspect);
   const r = Math.exp(p.lr), el = Math.max(0.24, p.el);
   cam.position.set(tgt.x + r * Math.cos(el) * Math.sin(p.az), tgt.y + r * Math.sin(el), tgt.z + r * Math.cos(el) * Math.cos(p.az));
-  const cu = cam.position.x + 0.5, cv = cam.position.z / v.aspect + 0.5;
-  if (cu > -0.05 && cu < 1.05 && cv > -0.05 && cv < 1.05) cam.position.y = Math.max(cam.position.y, v.ceilingAt(cu, cv) + 0.05);
+  cam.position.y = Math.max(cam.position.y, floorY ?? clearance(ev, cam));
   cam.lookAt(tgt);
 }
 
@@ -130,23 +139,31 @@ function poseNow(v) {
 }
 
 // el: the element holding the canvas. survey() needs the change fully grown in: call with T = 1.
-export function createSkycam(v, el) {
+export function createSkycam(v, el, onStop) {
   const ev = survey(v);
   ev.aspect = () => el.clientWidth / Math.max(1, el.clientHeight);
-  let on = false, path = null, clock = 0, last = 0, manualUntil = 0;
-  const fresh = (fromNow) => { path = makeFlight(ev, fromNow ? poseNow(v) : null); clock = 0; };
-  // Any pointer on the view (capture phase, so the controls are live for this same touch) hands over.
-  const takeOver = () => { if (!on) return; manualUntil = performance.now() + IDLE_S * 1000; v.controls.enabled = true; };
+  let on = false, path = null, clock = 0, last = 0, floorY = null, tgtY = null;
+  const fresh = (fromNow) => { path = makeFlight(ev, fromNow ? poseNow(v) : null); clock = 0; floorY = tgtY = null; };
+  // Any pointer on the view (capture phase, so the controls are live for this same touch) stops the flight.
+  const takeOver = () => { if (!on) return; on = false; v.controls.enabled = true; onStop?.(); };
   el.addEventListener("pointerdown", takeOver, { capture: true });
   v.onFrame(() => {
     const now = performance.now(), dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
     last = now;
     if (!on) return;
-    if (now < manualUntil) { v.controls.enabled = true; return; }
-    if (manualUntil) { manualUntil = 0; fresh(true); } // visitor let go: fly on from where they left it
     v.controls.enabled = false;
     clock += dt;
-    place(ev, path(clock / LEG_S), v.camera);
+    const pose = path(clock / LEG_S);
+    // Smooth the two heights that otherwise make the camera bob: the ground under the look-at point
+    // (it rides every ridge and gully) and the clearance over the peaks under the camera (rise fast so
+    // it never clips a ridge, sink slowly).
+    const k = (rate) => Math.min(1, dt * rate);
+    const gy = ev.v.smoothHeightAt(Math.min(1, Math.max(0, pose.u)), Math.min(1, Math.max(0, pose.v)));
+    tgtY = tgtY == null ? gy : tgtY + (gy - tgtY) * k(0.8);
+    place(ev, pose, v.camera, -Infinity, tgtY);
+    const need = clearance(ev, v.camera);
+    floorY = floorY == null ? need : floorY + (need - floorY) * k(need > floorY ? 4 : 0.5);
+    place(ev, pose, v.camera, floorY, tgtY);
     v.controls.target.copy(tgt);
   });
   return {
@@ -156,7 +173,6 @@ export function createSkycam(v, el) {
     set(x, fromNow = false) {
       if (x === on) return;
       on = x;
-      manualUntil = 0;
       v.controls.enabled = true;
       if (on) { fresh(fromNow); last = 0; }
     },
