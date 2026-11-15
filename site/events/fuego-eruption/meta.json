@@ -89,6 +89,7 @@
   "coherence_mean": 0.31,
   "motion_range_cm": 5.7,
   "coherence_drop_pct": 1.9,
+  "footprint_km2": 4.75,
   "baseline_range_cm": 8.0
  },
  "images": [
@@ -118,5 +119,7 @@
    "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
   }
  ],
- "still": true
+ "still": true,
+ "footprint_rule": "Mapped where coherence collapsed (fell by more than 0.3 to below 0.25) within 8 km of the vent, the documented run-out; patches under 10 cells dropped.",
+ "note": "About 70% of the mapped change lies inside the deposits Copernicus EMS mapped on the west flank (EMSR912: pyroclastic flows and ash fall). Only part of the main Barranca Seca channel is caught (29% of the mapped pyroclastic-flow area) because it was already decorrelated before the eruption. The small patches high on Acatenango lie outside the mapped deposits and may be ash or unrelated."
 }

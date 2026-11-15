@@ -41,6 +41,33 @@ def test_display_surface_fades_over_gaps():
     assert abs(s[30, 55]) < 1e-3               # far from data the surface returns to zero, no plateau
 
 
+def test_display_surface_flat_over_sea():
+    los = np.full((60, 60), 0.05, np.float32)
+    water = np.zeros((60, 60), bool)
+    water[:, 30:] = True
+    s = gunw.display_surface(los, ~water, water=water)
+    assert np.abs(s[:, 30:]).max() == 0          # no motion is ever drawn over the sea
+    assert abs(s[30, 5] - 0.05) < 0.005          # inland keeps its value
+
+
+def test_volcano_footprint_needs_collapse_near_vent():
+    grid = Grid(32633, 0.0, 8000.0, 80.0, 100, 100)
+    x = (np.arange(100) + 0.5) * 80.0
+    y = 8000.0 - (np.arange(100) + 0.5) * 80.0
+    pre = np.full((100, 100), 0.85, np.float32)
+    coh = pre.copy()
+    coh[10:20, 10:20] = 0.1          # collapsed, near the vent: lava
+    coh[60:70, 60:70] = 0.45         # sagged but still coherent: farmland, not lava
+    coh[90:100, 0:10] = 0.1          # collapsed but beyond the documented run-out
+    from pyproj import Transformer
+    lon, lat = Transformer.from_crs(32633, 4326, always_xy=True).transform(1200.0, 6800.0)
+    ev = {"kind": "volcano", "lat": lat, "lon": lon, "reach_km": 3}
+    f, rule = build_event.change_footprint(ev, {"coh": coh, "coh_pre": pre, "dem": np.full((100, 100), 1000.0), "x": x, "y": y}, grid)
+    assert (f[10:20, 10:20] > 0.5).all()
+    assert (f[60:70, 60:70] == 0).all() and (f[90:, :10] == 0).all()
+    assert "3 km" in rule
+
+
 def test_grid_uv():
     grid = Grid(32652, 631440.0, 3647360.0, 80.0, 750, 750)
     u, v = grid.uv(130.722, 32.682)

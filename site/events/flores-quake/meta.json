@@ -145,5 +145,6 @@
    "caption": "Sentinel-2 true colour, cloud-masked median of 24 scenes, 2026-08-15 \u2192 2026-09-28.",
    "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
   }
- ]
+ ],
+ "note": "Radar measures no ground motion over water, so the sea in this view is flat by design. All motion shown is on land."
 }

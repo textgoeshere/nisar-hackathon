@@ -125,6 +125,7 @@
   "coherence_mean": 0.6,
   "motion_range_cm": 10.4,
   "coherence_drop_pct": 1.7,
+  "footprint_km2": 2.52,
   "baseline_range_cm": 8.1
  },
  "images": [
@@ -154,5 +155,7 @@
    "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
   }
  ],
- "still": true
+ "still": true,
+ "footprint_rule": "Mapped where coherence collapsed (fell by more than 0.3 to below 0.25) within 8 km of the vent, the documented run-out; patches under 10 cells dropped.",
+ "note": "NISAR maps the upper lava field: about 2.5 km\u00b2 between 1,800 and 3,000 m in the Valle del Leone and upper Valle del Bove. The lower flow, with fronts at 1,309 to 1,370 m near Rocca Capra, is not resolved because that ground already matched itself poorly before the eruption. The pair ends on 16 August, before the 16 to 19 August advance. The lava did not reach any town."
 }

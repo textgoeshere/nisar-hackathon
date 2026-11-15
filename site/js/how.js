@@ -254,7 +254,9 @@ ${grid}
       `<ul class="todo">${nasaWindow}
 <li><strong>Read coherence twice:</strong> from the quiet pair before the ${noun} (${fmt(n.pre_pair[0])} → ${fmt(n.pre_pair[1])}) and from the pair across it (${fmt(n.pair[0])} → ${fmt(n.pair[1])}).</li>
 <li><strong>Subtract:</strong> <span class="eq">drop = coherence<sub>before</sub> − coherence<sub>across</sub></span>. Only ground that matched itself before and stopped matching across the ${noun} counts. Water and dense forest, which never match, don't. <strong>${s.coherence_drop_pct}%</strong> of the scene dropped by more than 0.3.</li>
-${meta.kind === "landslide" ? `<li><strong>Mask out the high peaks.</strong> Fresh snow above about 3,500 m also scrambles the echoes, so we only map valley ground below the snowline.</li>` : ""}
+${meta.footprint_rule ? `<li><strong>Keep only ground that could plausibly have been buried.</strong> Fields, forest and alpine meadows also lose some coherence between passes, so a raw drop lights up places the ${noun} never reached. ${meta.footprint_rule}</li>`
+  : meta.kind === "landslide" ? `<li><strong>Mask out the high peaks.</strong> Fresh snow above about 3,500 m also scrambles the echoes, so we only map valley ground below the snowline.</li>` : ""}
+${meta.note ? `<li><strong>Checked against the ground truth:</strong> ${meta.note}</li>` : ""}
 ${grid}</ul>`));
     parts.push(step("4 · Painting the change in colour",
       `<p>We painted the coherence drop in a single colour, <strong class="magenta">magenta</strong>: the brighter, the more the surface changed. In the 3D view the magenta fades in with the slider.</p>`,

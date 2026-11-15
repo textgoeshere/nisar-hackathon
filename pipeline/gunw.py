@@ -67,13 +67,21 @@ def read_window(g: Granule, lat: float, lon: float, half_m: float, s=None) -> di
     }
 
 
-def display_surface(los: np.ndarray, valid: np.ndarray, sigma: float = 1.5, fade: float = 4.0) -> np.ndarray:
+def display_surface(los: np.ndarray, valid: np.ndarray, sigma: float = 1.5, fade: float = 4.0,
+                    water: np.ndarray | None = None) -> np.ndarray:
     """Motion for the 3D surface: a normalised-convolution smooth of the measured pixels (fills
     small holes, damps speckle), multiplied by a soft mask that fades to zero over large
-    unmeasured areas. Display only; analysis uses the raw measured values."""
+    unmeasured areas. Display only; analysis uses the raw measured values.
+
+    `water` (sea, from DEM <= 0): radar measures no motion there, so the surface is exactly flat
+    over it and fades to zero on land within `fade` cells of the shore. Without this the smooth and
+    the soft fade spilled up to ~5 cm of coastal motion several cells out to sea, which the
+    exaggerated 3D view drew as a deforming seabed."""
     v = valid.astype(np.float32)
     num = ndimage.gaussian_filter(np.where(valid, np.nan_to_num(los), 0).astype(np.float32), sigma)
     den = ndimage.gaussian_filter(v, sigma)
     smooth = np.where(den > 1e-3, num / np.maximum(den, 1e-3), 0)
     taper = np.clip(ndimage.gaussian_filter(v, fade) * 1.6, 0, 1)
+    if water is not None and water.any():
+        taper = taper * np.clip(ndimage.distance_transform_edt(~water) / fade, 0, 1)
     return (smooth * taper).astype(np.float32)

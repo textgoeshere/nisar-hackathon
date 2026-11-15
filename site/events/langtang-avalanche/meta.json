@@ -89,6 +89,7 @@
   "coherence_mean": 0.48,
   "motion_range_cm": 7.6,
   "coherence_drop_pct": 1.5,
+  "footprint_km2": 1.95,
   "baseline_range_cm": 5.8
  },
  "images": [
@@ -118,5 +119,7 @@
    "source": "Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search"
   }
  ],
- "still": true
+ "still": true,
+ "footprint_rule": "Mapped where coherence (3x3 mean) fell by more than 0.1 to below 0.3, on valley floors (within 100 m of the lowest ground within 1 km) below 3,000 m; patches under 10 cells dropped.",
+ "note": "The debris flow shows as a chain of patches along the Bhote Koshi and Trisuli valley floor, from Rasuwagadhi past Timure, Chilime and Syabrubesi. 73% lie within 500 m of the extents mapped by Copernicus EMS and HOT. The signal is weak, because monsoon valley floors match themselves poorly even before an event, so the corridor is patchy rather than continuous: about a third of the Copernicus debris area is caught."
 }

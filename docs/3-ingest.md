@@ -92,16 +92,37 @@ where at least 80% of pairs were coherent. In the viewer only sinking is tinted 
 
 **Landslides and debris flows.** The signal is not motion but **coherence drop**: ground that
 matched itself in the baseline pair and stopped matching across the event, because it was buried or
-torn up. In high mountains fresh snow does the same, so ground above the seasonal snowline (3,500 m
-for the Himalaya in late August) is masked. At 80 m posting a narrow debris channel in a steep
-valley is near the limit of what NISAR resolves; for Langtang the Sentinel-2 image shows the
-channel more clearly than the radar does.
+torn up. A raw drop (> 0.3) does not work on a monsoon valley floor: coherence there is only ~0.4
+even before the event. At Langtang it lit up only alpine slopes at 3,100-3,400 m and nothing on the
+debris corridor. [`build_event.change_footprint`](../pipeline/build_event.py) therefore maps a
+coherence loss averaged over 3x3 cells: a fall of more than 0.1, to below 0.3. It counts only on
+valley floors (within 100 m of the lowest ground within 1 km, since debris flows run in channels)
+and below 3,000 m (higher valley floors hold monsoon snow and meltwater). The across pair is the
+shorter one, so it should match *better* than the baseline, which makes a loss meaningful. Checked
+against the Copernicus EMS EMSR927 and HOT extents, 73% of the mapped patches lie within 500 m of
+the mapped debris, and about a third of the EMS debris area is caught. The corridor is patchy:
+80 m posting in a narrow, steep valley is near what NISAR resolves.
 
 **Volcanoes where motion isn't the signal.** If the event pair moves no more than the quiet
 baseline pair (motion range < 1.5x baseline), the variation is atmosphere, not ground. The page
 then shows the coherence drop instead (fresh lava, pyroclastic deposits), as for landslides. The
 same happens when almost nothing unwraps: Anak Krakatau is a 2 km island in a scene that is 93%
 sea, so no connected component survives, but coherence on the island still falls across the eruption.
+
+A raw drop also fires on farmland and forest whose coherence merely sags (0.85 to 0.45). At Etna a
+third of the drop pixels sat below the lowest lava front, towards the coastal towns; at Fuego 40%
+sat on the neighbouring volcanoes. For volcanoes with a `reach_km` in `candidates.json` (the
+documented run-out from the vent), the footprint requires coherence to **collapse**, as under fresh
+lava or deposits: a fall of more than 0.3 to below 0.25, within `reach_km` of the event point. The
+result: Etna maps 2.5 km² at 1,800-3,000 m (the upper flow field; the lower flow down to 1,309 m
+was already poorly coherent and is missed). At Fuego, 69% of the mapped change lies inside the
+EMSR912 pyroclastic-flow and ash-fall deposits. Each event's `note` in `candidates.json` states
+what was checked and what is missed, and goes into `meta.json`.
+
+**Water.** Radar measures no motion over the sea. The 3D display surface
+(`gunw.display_surface`) is exactly flat where DEM <= 0 and fades to zero within 4 cells of the
+shore. Before this, smoothing spilled coastal motion out to sea, and at Flores the exaggerated view
+showed it as a deforming seabed.
 
 **Floods and fires (backscatter, GCOV).** These read radar brightness, not phase.
 [`pipeline/gcov.py`](../pipeline/gcov.py) reads HH and HV gamma-0 for the window and averages the

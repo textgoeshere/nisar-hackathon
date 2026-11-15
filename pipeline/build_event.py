@@ -30,6 +30,8 @@ ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "cache"
 SITE = ROOT / "site" / "events"
 SNOWLINE_M = 3500    # landslide coherence-drop mask (Himalaya, late August)
+VALLEY_M = 100       # landslide footprint: at most this far above the lowest ground within 1 km
+DEBRIS_MAX_M = 3000  # landslide footprint ceiling: higher valley floors hold monsoon snow and meltwater
 CYCLE_M = 0.10        # one colour cycle in rendered interferograms = 10 cm of motion
 BACKSCATTER = ("flood", "fire")   # events read from GCOV backscatter, not interferogram phase
 GCOV_DX = 40.0        # output cell for backscatter: averages 4-16 native pixels, damping speckle
@@ -202,6 +204,54 @@ def backscatter_change(kind: str, A: dict) -> tuple[np.ndarray, np.ndarray]:
     return c.astype(np.float32), seen
 
 
+def change_footprint(ev: dict, A: dict, grid) -> tuple[np.ndarray, str] | None:
+    """Where the surface was destroyed or buried, as strength 0-1 (> 0.5 = mapped), and a one-line
+    description of the rule for the page. None: keep the plain coherence drop (other kinds).
+
+    A raw drop (coherence before minus across) also fires on farmland, forest and alpine meadows
+    whose coherence just sags between passes, and checked against the mapped footprints most of it
+    did: at Etna a third of the drop pixels sat below the lowest lava front (1,309 m), towards the
+    coastal towns; at Fuego 40% sat over 8 km from the crater, on Agua and Acatenango; at Langtang
+    all of it sat on high slopes and none on the debris corridor. So:
+
+    * Volcano (needs `reach_km` in candidates.json): coherence must collapse to noise (< 0.25 across,
+      a drop > 0.3), as under fresh lava or pyroclastic deposits, and lie within the documented
+      run-out of the vent (the event point). A sagging 0.85 -> 0.45 is not lava.
+    * Landslide / debris flow: on a monsoon valley floor coherence before is only ~0.4, so a drop
+      > 0.3 can't happen. Use a 3x3 mean (coherence is a noisy estimate), a drop > 0.1 to below 0.3,
+      on valley floors (debris flows run in channels; within VALLEY_M of the lowest ground within
+      1 km) and below DEBRIS_MAX_M. The across pair is the shorter one, so it should match better,
+      not worse: a loss there is meaningful.
+    """
+    from scipy import ndimage
+    coh, pre, dem = A["coh"], A["coh_pre"], A["dem"]
+    if ev["kind"] == "landslide":
+        sm = lambda a: ndimage.uniform_filter(a.astype(np.float32), 3)
+        c, d = sm(coh), sm(pre) - sm(coh)
+        win = int(round(2000 / grid.dx)) | 1
+        floor = dem - ndimage.minimum_filter(dem, win) < VALLEY_M
+        hit = (d > 0.1) & (c < 0.3) & floor & (dem < DEBRIS_MAX_M)
+        score = np.clip(0.5 + (d - 0.1) / 0.3, 0, 1)
+        rule = (f"coherence (3x3 mean) fell by more than 0.1 to below 0.3, on valley floors (within {VALLEY_M} m "
+                f"of the lowest ground within 1 km) below {DEBRIS_MAX_M:,} m")
+    elif ev["kind"] == "volcano" and ev.get("reach_km"):
+        from pyproj import Transformer
+        cx, cy = Transformer.from_crs(4326, grid.epsg, always_xy=True).transform(ev["lon"], ev["lat"])
+        km = np.hypot(A["x"][None, :] - cx, A["y"][:, None] - cy) / 1000
+        d = pre - coh
+        hit = (d > 0.3) & (coh < 0.25) & (km < ev["reach_km"])
+        score = np.clip(0.5 + (d - 0.3) / 0.4, 0, 1)
+        rule = (f"coherence collapsed (fell by more than 0.3 to below 0.25) within {ev['reach_km']} km of the vent, "
+                "the documented run-out")
+    else:
+        return None
+    lab, n = ndimage.label(hit)
+    small = np.bincount(lab.ravel(), minlength=n + 1) < MIN_PATCH
+    small[0] = True
+    out = np.where(small[lab], 0, score).astype(np.float32)
+    return out, f"Mapped where {rule}; patches under {MIN_PATCH} cells dropped."
+
+
 def composite(hh: np.ndarray, hv: np.ndarray) -> np.ndarray:
     """Standard dual-pol false colour: R = HH, G = HV, B = HH/HV. Water black, vegetation green,
     built-up and bare ground magenta-white."""
@@ -327,18 +377,21 @@ def build(slug: str, refetch=False):
     (out / "los.i16").write_bytes(i16(np.where(valid, np.nan_to_num(los), 0)))
     # Display surface: lightly smoothed motion that fades to zero over unmeasured ground (sea,
     # decorrelated patches), so gaps don't become cliffs under heavy exaggeration.
-    (out / "surface.i16").write_bytes(i16(gunw.display_surface(los, valid, sigma=3.0 if "rate_m_yr" in A else 1.5)))
+    (out / "surface.i16").write_bytes(i16(gunw.display_surface(los, valid, sigma=3.0 if "rate_m_yr" in A else 1.5,
+                                                               water=A["dem"] <= 0)))
     (out / "valid.u8").write_bytes(valid.astype(np.uint8).tobytes())
     (out / "coh.u8").write_bytes(grey(coh).tobytes())
     layers = {"dem": "dem.i16", "los": "los.i16", "surface": "surface.i16", "valid": "valid.u8", "coh": "coh.u8"}
+    footprint = None
     if "coh_pre" in A:
         # Coherence drop: ground that matched itself before the event and stopped matching across
         # it. That is the footprint of a destroyed or buried surface (debris, lava, collapse).
         drop = np.clip(A["coh_pre"] - coh, 0, 1)
         if ev["kind"] == "landslide":
-            # Above the seasonal snowline fresh snow also destroys coherence; keep valley ground only.
+            # Above the seasonal snowline fresh snow also destroys coherence (affects the stat only).
             drop = np.where(A["dem"] < SNOWLINE_M, drop, 0)
-        (out / "cohdrop.u8").write_bytes(grey(drop).tobytes())
+        footprint = change_footprint(ev, A, grid)
+        (out / "cohdrop.u8").write_bytes(grey(footprint[0] if footprint else drop).tobytes())
         layers["cohdrop"] = "cohdrop.u8"
 
     images = []
@@ -385,6 +438,8 @@ def build(slug: str, refetch=False):
                   "fastest_series_cm": [0.0] + [round(float(c) * 100, 1) for c in A["cum"][:, k[0], k[1]]]}
     if "coh_pre" in A:
         stats["coherence_drop_pct"] = round(100 * float((drop > 0.3).mean()), 1)
+    if footprint:
+        stats["footprint_km2"] = round(float((footprint[0] > 0.5).sum()) * grid.dx ** 2 / 1e6, 2)
     if "los_pre" in A:
         mp = np.nan_to_num(A["los_pre"])[A["valid_pre"].astype(bool)]
         if len(mp): stats["baseline_range_cm"] = round(float(np.percentile(mp, 98) - np.percentile(mp, 2)) * 100, 1)
@@ -394,10 +449,15 @@ def build(slug: str, refetch=False):
     # and the event's footprint is the coherence change (lava, pyroclastic deposits).
     still = stats["measured_pct"] < 5 or (
         "baseline_range_cm" in stats and stats.get("motion_range_cm", 0) < 1.5 * stats["baseline_range_cm"])
-    write_meta(ev, grid, out, layers, A, info, stats, images, still)
+    extra = {}
+    if footprint:
+        extra["footprint_rule"] = footprint[1]
+    if ev.get("note"):
+        extra["note"] = ev["note"]
+    write_meta(ev, grid, out, layers, A, info, stats, images, still, extra)
 
 
-def write_meta(ev, grid, out, layers, A, info, stats, images, still=False):
+def write_meta(ev, grid, out, layers, A, info, stats, images, still=False, extra=None):
     slug = ev["slug"]
     g = ground_image(A)
     if g is not None:
@@ -413,6 +473,7 @@ def write_meta(ev, grid, out, layers, A, info, stats, images, still=False):
     }
     if still:
         meta["still"] = True
+    meta |= extra or {}
     (out / "meta.json").write_text(json.dumps(meta, indent=1))
     idx = SITE / "index.json"
     live = sorted(set(json.loads(idx.read_text()) if idx.exists() else []) | {slug})
