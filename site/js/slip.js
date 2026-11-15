@@ -18,12 +18,11 @@ vec2 slipSrc(vec2 p) {
 }`;
 const FRAG = /* glsl */ `
 vec3 slipDraw(vec3 col, vec2 p, vec2 q) {
-  // Reference grid printed on the ground, so it moves with it: 2 km squares, every fifth line brighter,
-  // because the offset across the line is about two squares and a plain grid would alias it away.
+  // Reference grid printed on the ground, so it moves with it. Squares of GRID_KM: wide enough that the
+  // largest offset at the default exaggeration is under half a square, or a broken line would seem to rejoin
+  // its neighbour (2 km squares did exactly that).
   vec2 g = q * uSlipGrid, gl = abs(fract(g - 0.5) - 0.5) / max(fwidth(g), 1e-5);
-  vec2 m = g / 5.0, ml = abs(fract(m - 0.5) - 0.5) / max(fwidth(m), 1e-5);
-  col = mix(col, vec3(1.0), 0.16 * uSlipShow * (1.0 - min(min(gl.x, gl.y) / uSlipPx, 1.0)));
-  col = mix(col, vec3(1.0), 0.4 * uSlipShow * (1.0 - min(min(ml.x, ml.y) / (1.5 * uSlipPx), 1.0)));
+  col = mix(col, vec3(1.0), 0.38 * uSlipShow * (1.0 - min(min(gl.x, gl.y) / (1.5 * uSlipPx), 1.0)));
   // The line, fixed: red, solid where measured, dashed where not, with a dark edge. Width in screen pixels.
   vec4 l = texture2D(uSlipL, p);
   float d = l.g < 2.0 ? abs(l.r) : l.g;               // signed distance interpolates cleanly across the line
@@ -71,7 +70,7 @@ export async function load(base, meta) {
   const uniforms = {
     uSlipF: { value: tex(F) }, uSlipL: { value: tex(L) }, uSlipK: { value: 0 }, uSlipShow: { value: 0 }, uSlipPx: { value: 1 },
     uSlipScale: { value: new THREE.Vector2(1 / (1000 * W), -1 / (1000 * H)) },          // mm east/north -> (u, v), v south
-    uSlipGrid: { value: new THREE.Vector2(W / 2000, H / 2000) }, uSlipN: { value: new THREE.Vector2(nx, ny) },
+    uSlipGrid: { value: new THREE.Vector2(W / (1000 * GRID_KM), H / (1000 * GRID_KM)) }, uSlipN: { value: new THREE.Vector2(nx, ny) },
   };
   // JS twin of slipSrc, forwards: where the ground that started at (u, v) is now (pins, labels).
   const shift = (u, v, t) => {
@@ -82,6 +81,7 @@ export async function load(base, meta) {
   return { doc, k0, W, H, viewer: { glsl: GLSL, frag: FRAG, uniforms, shift } };
 }
 
+const GRID_KM = 5;
 const round2 = (x) => { const p = 10 ** (Math.floor(Math.log10(x)) - 1); return Math.round(x / p) * p; };
 
 // Per cell: signed distance to the line, unsigned distance, arc length from the north-east end, measured flag
@@ -182,17 +182,19 @@ export function mount({ v, meta, data, on, t, sky, setEx }) {
   });
 
   const fmt = (k) => `×${round2(k).toLocaleString("en")}`;
-  const k = () => round2(k0 * 10 ** (ex.value / 100));
+  const k = () => round2(k0 * Math.min(2, 10 ** (ex.value / 100)));   // capped: much beyond this the ground folds over itself where the offset changes quickly
   const caption = () => {
     const x = doc.text;
     legend.innerHTML = `<strong>Sideways slip, exaggerated ${fmt(k())}</strong> (the largest movement in the picture is ${Math.round(doc.field.max_mm / 10)} cm on the ground). `
       + `${esc(x.measured)} ${esc(x.drawn)} ${esc(x.caveat)} Height is terrain only. `
       + `<span class="slip-key"></span> the surface rupture, solid where the radar sees the step, <span class="slip-key dash"></span> dashed where only the field survey traces it. `
-      + `<span class="slip-key gps"></span> GPS stations: measured movement, same exaggeration. Faint grid: 2 km squares (brighter every 10 km) printed on the ground, so it moves with it. `
+      + `<span class="slip-key gps"></span> GPS stations: measured movement, same exaggeration. Grid: ${GRID_KM} km squares printed on the ground, so it moves with it and breaks at the line. `
       + "Drag to orbit, ctrl/⌘ + scroll (or pinch) to zoom.";
   };
   const credits = (doc.credits ?? []).map((c) => { const li = document.createElement("li"); li.textContent = c; return li; });
 
+  const fr = $("#fringes");
+  let fr0 = null;                                          // the Fringes box as it was before slip went on
   const api = {
     on: false,
     // Slider moved while slip is on: it sets the slip exaggeration.
@@ -203,11 +205,13 @@ export function mount({ v, meta, data, on, t, sky, setEx }) {
       svg.hidden = !x;
       if (x) {
         v.setLosExag(0);                                   // height is terrain only
+        fr0 = fr.checked; fr.checked = false; v.setFringe(false);   // the fringes drown the slide; the box still works
         exLabel.textContent = "Slip exaggeration ";
         api.exag();
         $("#sources").append(...credits);
       } else {
         U.uSlipK.value = 0;
+        if (fr0 != null) { fr.checked = fr0; v.setFringe(fr0); fr0 = null; }
         exLabel.textContent = label0;
         legend.innerHTML = legend0;
         credits.forEach((li) => li.remove());
@@ -218,12 +222,14 @@ export function mount({ v, meta, data, on, t, sky, setEx }) {
   box.addEventListener("change", () => api.set(box.checked));
 
   if (on) {
-    // Look steeply down on the middle of the line, north up, framed on its whole length; skycam off.
+    // Look steeply down, north up, on the stretch of the line that moved most (at least half the largest
+    // offset): the slide is small against the whole scene. Skycam off.
     sky.set(false);
     $("#opt-skycam").checked = false;
-    const P = doc.line.points, us = P.map((p) => p[0]), vs = P.map((p) => p[1]);
+    const top = Math.max(...doc.line.points.map((p) => p[3]));
+    const P = doc.line.points.filter((p) => p[3] >= top / 2), us = P.map((p) => p[0]), vs = P.map((p) => p[1]);
     const cu = (Math.min(...us) + Math.max(...us)) / 2, cv = (Math.min(...vs) + Math.max(...vs)) / 2;
-    const hx = ((Math.max(...us) - Math.min(...us)) / 2) * 1.25, hz = ((Math.max(...vs) - Math.min(...vs)) / 2) * v.aspect * 1.25;
+    const hx = ((Math.max(...us) - Math.min(...us)) / 2) * 1.5, hz = ((Math.max(...vs) - Math.min(...vs)) / 2) * v.aspect * 1.5;
     const f = Math.tan((v.camera.fov * Math.PI) / 360), a = hero.clientWidth / Math.max(1, hero.clientHeight);
     const d = Math.max(hz / f, hx / (f * a)), tilt = (15 * Math.PI) / 180, y = v.smoothHeightAt(cu, cv);
     v.controls.target.set(cu - 0.5, y, (cv - 0.5) * v.aspect);

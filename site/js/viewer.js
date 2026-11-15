@@ -43,8 +43,10 @@ varying vec3 vNormal;
 SLIP_GLSL
 SLIP_FRAG
 #define S(p) slipSrc(p)
+#define B0 (1.0 - uSlipShow)                       // slip: hold the after image, so only the ground moves
 #else
 #define S(p) (p)
+#define B0 1.0
 #endif
 vec3 hsv(float h, float s, float v) {
   vec3 k = clamp(abs(mod(h * 6.0 + vec3(0.0, 4.0, 2.0), 6.0) - 3.0) - 1.0, 0.0, 1.0);
@@ -58,7 +60,7 @@ void main() {
   if (uHasGround > 0.5 && uHasGround0 > 0.5) {
     vec3 b0 = texture2D(uGround0, q).rgb;
     float ok = smoothstep(0.02, 0.06, max(b0.r, max(b0.g, b0.b)));
-    base = mix(base, b0, ok * (1.0 - uT));
+    base = mix(base, b0, ok * (1.0 - uT) * B0);
   }
   // Mute the satellite image a little so the artificial change colours stand out against it.
   base = mix(vec3(dot(base, vec3(0.299, 0.587, 0.114))), base, 0.65) * 0.9;

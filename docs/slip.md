@@ -22,9 +22,18 @@ not from NISAR, and the caption says so. Every number and sentence about it is r
 **What "on" draws.** Every layer (image, terrain, fringes, coherence) is looked up through `slipSrc(p)`, the place the ground now at
 `p` came from, so the mesh never stretches and the tear is a clean edge. The field is stored twice (each side extended two cells
 across the line) and the side is picked from a signed distance to the line, so linear filtering never mixes the sides. The line is
-drawn red on the ground (solid where the radar sees the step, dashed where only the survey traces it), a faint 2 km grid (every 10
-km brighter) moves with the ground, white arrows show each GPS station's measured movement at the same exaggeration, and the
-"Motion exaggeration" slider becomes the slip exaggeration (default: the largest movement is 3% of the scene's width).
+drawn red on the ground (solid where the radar sees the step, dashed where only the survey traces it), a 5 km grid moves with the
+ground, white arrows show each GPS station's measured movement at the same exaggeration, and the "Motion exaggeration" slider
+becomes the slip exaggeration (default: the largest movement is 3% of the scene's width; capped at twice that, because beyond it
+the ground folds over itself where the offset changes quickly along the line).
+
+While slip is on: the Fringes box is unticked (the fringes drown the slide; it is restored when slip goes off, and still works), the
+satellite image holds the "after" picture, so the only thing that changes with the slider is the ground moving, and with `slip=1`
+the view opens on the stretch of the line that moved at least half the largest offset.
+
+**Known rough edges.** The grid shows small steps away from the line where the model switches which piece of the line a point is
+nearest to. Pins that sit on the line ride with one side. The 5 km grid suits the default exaggeration: at the cap, a broken
+east-west grid line lands close to its neighbour.
 
 **The hooks** (find them all with `git grep -n "slip:\|SLIP"`):
 
