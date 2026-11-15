@@ -173,5 +173,8 @@ def build(slug: str):
 
 
 if __name__ == "__main__":
+    from . import credits
     for s in sys.argv[1:]:
         build(s)
+    if credits.write():                                       # per-event credits follow the picks
+        print("CREDITS.md updated")

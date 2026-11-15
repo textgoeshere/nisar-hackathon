@@ -105,3 +105,20 @@ def test_media_town_centroid_is_approximate_not_tier_1():
     it = _media("Daños en Tonosí tras el sismo", 32.5801, 130.6801, "2026-08-02", when="after")
     it |= {"loc_confidence": "low", "loc_method": "text: Tonosí", "approx": True}
     assert media.tier_of(it, s, [GSJ8], [], 99, quake=True) == 4
+
+
+def test_credits_complete_and_current():
+    """CREDITS.md is canonical: it names every Python dependency and every script the site loads,
+    and its per-event section matches what the site publishes."""
+    import re
+    from pathlib import Path
+    from pipeline import credits
+    root = Path(__file__).resolve().parent.parent
+    text = (root / "CREDITS.md").read_text().lower()
+    for pkg in (root / "requirements.txt").read_text().split():
+        assert pkg.lower() in text, f"CREDITS.md does not credit {pkg}"
+    for html in (root / "site").glob("*.html"):
+        for lib, ver in re.findall(r"cdn\.jsdelivr\.net/npm/([\w.-]+)@([\d.]+)", html.read_text()):
+            assert f"{lib}.js" in text or lib in text, f"CREDITS.md does not credit {lib} ({html.name})"
+            assert ver in text, f"CREDITS.md has the wrong {lib} version (site loads {ver})"
+    assert credits.render() == (root / "CREDITS.md").read_text(), "CREDITS.md is stale: run python -m pipeline.credits"
