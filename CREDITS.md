@@ -202,6 +202,7 @@ Everything each event page shows, from `site/events/<slug>/meta.json` and `stori
 | Establishing shot (not of the event): Kumamoto prefectural road route 014, Uki, Matsubase.jpg | 運動会プロテインパワー | CC BY-SA 4.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Kumamoto_prefectural_road_route_014,_Uki,_Matsubase.jpg) |
 | Media: GSJ photo 3: 城南町鰐瀬 paddy over the 鰐瀬 trench, 23 cm | Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo | GSJ Terms of Use (CC BY 4.0 compatible) | [gsj.jp](https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html) |
 | Media: 20260730 Track Damage of Kagoshima Line (Matsubase - Ogawa) | 国土交通省 | CC BY 4.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:20260730_Track_Damage_of_Kagoshima_Line_(Matsubase_-_Ogawa).jpg) |
+| Media: 20260729 Inside AEON Mall Kumamoto Search and Rescue by Kumamoto Police (2026 Kumamoto Earthquake) | 警察庁 | CC BY 4.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:20260729_Inside_AEON_Mall_Kumamoto_Search_and_Rescue_by_Kumamoto_Police_(2026_Kumamoto_Earthquake).png) |
 
 ### Langtang ice-rock avalanche, Nepal (`langtang-avalanche`)
 
@@ -237,6 +238,8 @@ Everything each event page shows, from `site/events/<slug>/meta.json` and `stori
 | Story: The Metropolitan Cathedral, sinking unevenly into the lake-bed | ProtoplasmaKid, via Wikimedia Commons; text: en.wikipedia 'Mexico City Metropolitan Cathedral' | CC BY-SA 4.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Catedral_Metropolitana_de_la_Ciudad_de_M%C3%A9xico_1.jpg) |
 | Story: Ángel de la Independencia: 14 steps added as the ground fell away | Diego Delso, via Wikimedia Commons; text: en.wikipedia 'Angel of Independence' | CC BY-SA 3.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Monumento_a_la_Independencia,_M%C3%A9xico_D.F.,_M%C3%A9xico,_2014-10-13,_DD_19.JPG) |
 | Story: Ciudad Universitaria on the Pedregal lava: the stable south | ProtoplasmaKid, via Wikimedia Commons; text: es.wikipedia 'Ciudad Universitaria (UNAM)' | CC BY-SA 3.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Ciudad_Universitaria_UNAM_-_Torre_de_Rector%C3%ADa_-_1.jpg) |
+| Media: Inclinada - panoramio | Carlos Perez Chavez | CC BY-SA 3.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Inclinada_-_panoramio.jpg) |
+| Media: Muestra del hundimiento de la Ciudad de México | User:Gengiskanhg | CC BY-SA 3.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Muestra_del_hundimiento_de_la_Ciudad_de_M%C3%A9xico.jpeg) |
 
 ### Azuero M7.7 earthquake, Panama (`panama-quake`)
 
