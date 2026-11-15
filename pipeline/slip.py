@@ -20,6 +20,7 @@ import math
 import sys
 
 import numpy as np
+from scipy.ndimage import gaussian_filter1d
 from pyproj import Transformer
 from scipy.optimize import least_squares
 
@@ -27,6 +28,10 @@ from .lab.common import EVENTS, OUT, ROOT
 
 SMOOTH_M = 2500.0                  # line direction: chord over +-2.5 km, so the straight segments between sites do not kink the field
 TAPER_M = 2000.0                   # the offset closes to zero over this distance at each end of the line (a drawing choice)
+REACH = 1.0                        # how far along the line a point "sees": the offset is averaged over +-REACH x its distance from the line
+LEVELS = np.array([0, 150, 300, 600, 1200, 2400, 4800, 9600, 19200, 38400.0])   # averaging widths (m) the profile is precomputed at
+SIMPLER_CM = 0.5                   # a model with more parameters must beat a simpler one by this much (GPS RMS, cm) to be kept
+STEP_M = 50.0                      # spacing of the along-line offset profile
 LOS = (0.678, 0.188, 0.711)        # unit vector from the ground to the satellite at the scene centre: east, north, up
 FADES = {                          # both are 1 at the line, so the jump across it is the full offset
     "exponential": lambda d, L: np.exp(-d / L),
@@ -68,33 +73,62 @@ class Line:
         side = np.where(T[:, 1] * w[:, 0] - T[:, 0] * w[:, 1] >= 0, 1.0, -1.0)   # left of a north-east heading is north-west
         return s, best, side, T
 
-    def offset_cm(self, s, site_s, site_cm):
-        """Total sideways offset across the line at distance s along it: interpolated between sites, closed at both ends."""
-        t = np.clip(np.minimum(s, self.length - s) / TAPER_M, 0, 1)
-        return np.interp(s, site_s, site_cm) * t * t * (3 - 2 * t)      # smoothstep
+
+class Offsets:
+    """Total sideways offset (cm) along the line: the survey sites joined by straight interpolation, closed at both ends, plus the
+    same profile averaged over wider and wider stretches of the line, for points far from it (they feel the whole break, not the nearest bit)."""
+
+    def __init__(self, line, site_s, site_cm):
+        self.line = line
+        self.n = int(line.length // STEP_M) + 2
+        self.s = np.arange(self.n) * STEP_M
+        self.table = np.array([gaussian_filter1d(self.at(self.s, site_s, site_cm), w / STEP_M, mode="constant") if w else self.at(self.s, site_s, site_cm)
+                               for w in LEVELS])
+        self.site_s, self.site_cm = site_s, site_cm
+
+    def at(self, s, site_s=None, site_cm=None):
+        """The raw profile at distance s along the line (zero outside it, smooth close at both ends)."""
+        site_s = self.site_s if site_s is None else site_s
+        site_cm = self.site_cm if site_cm is None else site_cm
+        t = np.clip(np.minimum(s, self.line.length - s) / TAPER_M, 0, 1)
+        return np.where((s >= 0) & (s <= self.line.length), np.interp(s, site_s, site_cm) * t * t * (3 - 2 * t), 0.0)
+
+    def seen(self, s, d, reach=REACH):
+        """Offset seen from a point at distance s along the line and d from it: averaged over +-reach*d along the line."""
+        w = np.clip(reach * d, 0, LEVELS[-1])
+        j = np.clip(np.searchsorted(LEVELS, w) - 1, 0, len(LEVELS) - 2)
+        tw = (w - LEVELS[j]) / (LEVELS[j + 1] - LEVELS[j])
+        x = np.clip(s, 0, self.line.length) / STEP_M
+        i = np.minimum(x.astype(int), self.n - 2)
+        tx = x - i
+        lo = self.table[j, i] * (1 - tx) + self.table[j, i + 1] * tx
+        hi = self.table[j + 1, i] * (1 - tx) + self.table[j + 1, i + 1] * tx
+        return lo * (1 - tw) + hi * tw
 
 
-def movement(par, fade, share, geo):
-    """Movement in mm (east, north) from a fit vector and the located points (s, d, side, T, offset_cm)."""
-    s, d, side, T, off = geo
-    nw = side > 0
-    a, Lnw, Lse = share(par)
-    amount = np.where(nw, a * fade(d, Lnw), (1 - a) * fade(d, Lse)) * off * 10
+def movement(par, fade, rule, geo, prof):
+    """Movement in mm (east, north) from a fit vector and the located points (s, d, side, T)."""
+    s, d, side, T = geo
+    a, Lnw, Lse, reach = rule(par)
+    amount = np.where(side > 0, a * fade(d, Lnw), (1 - a) * fade(d, Lse)) * prof.seen(s, d, reach) * 10
     along = side * amount                                              # north-west side goes north-east, south-east side goes south-west
     return np.stack([along * T[:, 0], along * -T[:, 1]], axis=1)
 
 
-def fit(geo, truth_cm, fade):
+def fit(geo, truth_cm, fade, prof):
     """Least squares on the GPS vectors; returns {name: (params, rms_cm, rule)} for the variants (2 or 3 free parameters)."""
-    variants = {"share + one fade length": (lambda p: (p[0], p[1], p[1]), [0.7, 8000.0]),
-                "share + a fade length per side": (lambda p: (p[0], p[1], p[2]), [0.7, 8000.0, 8000.0])}
+    # name: (fit vector -> (north-west share, fade length north-west, fade length south-east, reach), start, bounds)
+    variants = {"share + one fade length": (lambda p: (p[0], p[1], p[1], REACH), [0.7, 8000.0], [(0, 1), (500, 2e5)]),
+                "share + one fade length + reach": (lambda p: (p[0], p[1], p[1], p[2]), [0.7, 8000.0, 1.0], [(0, 1), (500, 2e5), (0.1, 3)]),
+                "share + a fade length per side": (lambda p: (p[0], p[1], p[2], REACH), [0.7, 8000.0, 8000.0], [(0, 1)] + [(500, 2e5)] * 2)}
     out = {}
-    for name, (rule, x0) in variants.items():
-        lo, hi = [0.0] + [500.0] * (len(x0) - 1), [1.0] + [200000.0] * (len(x0) - 1)
-        starts = [[x0[0]] + [L * m for L in x0[1:]] for m in (0.3, 1.0, 3.0)]   # a few starts: the problem is small and not convex
-        res = [least_squares(lambda x: (movement(x, fade, rule, geo) / 10 - truth_cm).ravel(), x, bounds=(lo, hi)) for x in starts]
+    for name, (rule, x0, bounds) in variants.items():
+        lo, hi = zip(*bounds)
+        starts = [[x0[0]] + [x * m if x > 100 else x for x in x0[1:]] for m in (0.3, 1.0, 3.0)]   # a few starts: not a convex problem
+        res = [least_squares(lambda x: (movement(x, fade, rule, geo, prof) / 10 - truth_cm).ravel(), x, bounds=(lo, hi)) for x in starts]
         r = min(res, key=lambda r: r.cost)
-        out[name] = (r.x, float(np.sqrt(np.mean(np.sum((movement(r.x, fade, rule, geo) / 10 - truth_cm) ** 2, axis=1)))), rule)
+        pinned = bool(np.any((np.abs(r.x - lo) < 1e-3 * np.abs(hi)) | (np.abs(r.x - hi) < 1e-3 * np.abs(hi))))   # a parameter stuck on its limit
+        out[name] = (r.x, float(np.sqrt(np.mean(np.sum((movement(r.x, fade, rule, geo, prof) / 10 - truth_cm) ** 2, axis=1)))), rule, pinned)
     return out
 
 
@@ -113,7 +147,7 @@ def build(slug: str = "kumamoto-quake") -> dict:
 
     # Survey sites on the line. gsj-11 is a vertical step, and sites placed only by town name are off the polyline: neither enters.
     sites = [x for x in lab["sites"] if x["on_polyline"] and "right-lateral" in x["value"]]
-    ss, _, _, _ = line.locate(np.array([[x["u"] * W, x["v"] * H] for x in sites]))
+    ss = line.locate(np.array([[x["u"] * W, x["v"] * H] for x in sites]))[0]
     order = np.argsort(ss)
     site_s, site_cm = ss[order], np.array([sites[i]["offset_cm"] for i in order], float)
 
@@ -121,30 +155,37 @@ def build(slug: str = "kumamoto-quake") -> dict:
     st = gps_in["stations"]
     xy = np.array([[tr.transform(g["lon"], g["lat"])[0] - grid["left"], grid["top"] - tr.transform(g["lon"], g["lat"])[1]] for g in st])
     s, d, side, T = line.locate(xy)
-    gps_geo = (s, d, side, T, line.offset_cm(s, site_s, site_cm))
+    gps_geo = (s, d, side, T)
     truth = np.array([[g["east_cm"], g["north_cm"]] for g in st])
     used = np.array([not g.get("beyond_line_end") for g in st])        # G071 sits beyond the drawn end: it is reported, not fitted
     sub = tuple(x[used] for x in gps_geo)
+    prof = Offsets(line, site_s, site_cm)
 
-    tried = {}                                                         # (fade shape, variant) -> (params, rms of the fitted stations, rule)
+    tried = {}                                                         # (fade shape, variant) -> (params, rms of the fitted stations, rule, pinned)
+    pick = {}
     for shape, fade in FADES.items():
-        for name, r in fit(sub, truth[used], fade).items():
-            tried[shape, name] = r
-    (shape, variant), (par, fit_rms, rule) = min(tried.items(), key=lambda kv: kv[1][1])
+        res = fit(sub, truth[used], fade, prof)
+        tried.update({(shape, k): v for k, v in res.items()})
+        ok = {k: v for k, v in res.items() if not v[3]}                # drop variants with a parameter stuck on its limit
+        best = min(v[1] for v in ok.values())
+        pick[shape] = next(k for k, v in ok.items() if v[1] <= best + SIMPLER_CM)    # variants run simple to complex: take the first close to the best
+    shape = min(pick, key=lambda s: tried[s, pick[s]][1])             # the shape with the smaller GPS miss
+    variant = pick[shape]
+    par, fit_rms, rule, _ = tried[shape, variant]
     fade = FADES[shape]
-    a, Lnw, Lse = rule(par)
+    a, Lnw, Lse, reach = rule(par)
 
     # the field, on cell centres
     jj, ii = np.meshgrid(np.arange(nx), np.arange(ny))
     cells = np.stack([(jj.ravel() + 0.5) * dx, (ii.ravel() + 0.5) * dx], axis=1)
     cs, cd, cside, cT = line.locate(cells)
-    field = movement(par, fade, rule, (cs, cd, cside, cT, line.offset_cm(cs, site_s, site_cm)))
+    field = movement(par, fade, rule, (cs, cd, cside, cT), prof)
     bands = np.stack([field[:, 0].reshape(ny, nx), field[:, 1].reshape(ny, nx)])
     (EVENTS / slug / "slip.i16").write_bytes(np.round(bands).astype("<i2").tobytes())
     max_mm = int(np.round(np.hypot(*bands)).max())
 
     # GPS table
-    mod = movement(par, fade, rule, gps_geo) / 10
+    mod = movement(par, fade, rule, gps_geo, prof) / 10
     miss = np.hypot(*(mod - truth).T)
     gps = []
     for g, (u, v), m, ms in zip(st, xy / [W, H], mod, miss):
@@ -157,9 +198,12 @@ def build(slug: str = "kumamoto-quake") -> dict:
     worst = int(np.argmax(miss))
     gdist = {g["id"]: float(x) / 1000 for g, x in zip(st, d)}
 
-    vertex_cm = line.offset_cm(line.arc, site_s, site_cm)
+    vertex_cm = prof.at(line.arc)
     measured = [int(p[2]) for p in lab["lines"][0]["points"]]
     big = max(sites, key=lambda x: x["offset_cm"])
+    closed = [x for x, c in zip(sites, [float(prof.at(si)) for si in ss]) if c < 0.95 * x["offset_cm"]]     # sites inside an end taper: not honoured in full
+    closed_note = (f" The {len(closed)} sites within {TAPER_M / 1000:.0f} km of an end of the line ({', '.join(x['offset_cm'].__str__() + ' cm' for x in closed)}) fall inside that closing and are shown smaller."
+                   if closed else "")
     mags = [math.hypot(g["east_cm"], g["north_cm"]) for g in st]
     j093 = next(g for g in st if g["id"] == "J093")
     short = lambda g: g["name"].split()[-1]
@@ -175,21 +219,21 @@ def build(slug: str = "kumamoto-quake") -> dict:
                f"and the model shows {math.hypot(g['model_east_cm'], g['model_north_cm']):.0f} cm: the line was not extended to cover it.")
     text = {
         "measured": (f"Field teams from the Geological Survey of Japan taped the sideways offset across the break at {len(sites)} places along it, "
-                     f"from {min(site_cm):.0f} cm to {max(site_cm):.0f} cm (the largest, {big['offset_cm']} cm, on a road at Miyahara). "
+                     f"from {min(site_cm):.0f} cm to {max(site_cm):.0f} cm (the largest, {big['offset_cm']} cm, across a road in Hikawa). "
                      f"GPS stations on the ground measured how far the land moved at {len(st)} points around the break, "
                      f"from {min(mags):.0f} cm to {max(mags):.0f} cm, the most at {short(j093)}, {gdist['J093']:.1f} km north-west of it."),
         "drawn": (f"Everything between those points is filled in by a rule. The two sides slide past each other by exactly the surveyed offset at each place, "
-                  f"and by a straight-line blend between places. The offset shrinks to nothing over the last {TAPER_M / 1000:.0f} km at each end of the line, so the tear closes. "
+                  f"and by a straight-line blend between places. The offset shrinks to nothing over the last {TAPER_M / 1000:.0f} km at each end of the line, so the tear closes.{closed_note} "
                   f"Each side moves along the line, the north-west side north-east and the south-east side south-west. The north-west side takes {100 * a:.0f}% of the offset and the other side the rest. "
                   f"The movement fades with distance from the line, to half its size at {fades} and to {far_pct} of its size at 20 km. "
                   f"The share and the fading were fitted to the {int(used.sum())} GPS stations along the drawn line."),
         "caveat": (f"NISAR did not measure this movement. One radar pass only sees ground moving toward or away from the satellite, so it cannot say which way along the ground the two sides slid. "
-                   f"This picture comes from the survey and the GPS. The model is {rms_fit:.0f} cm away from the GPS on average at the {int(used.sum())} stations it was fitted to, "
+                   f"This picture comes from the survey and the GPS. The model is typically {rms_fit:.0f} cm away from the GPS at the {int(used.sum())} stations it was fitted to, "
                    f"and the biggest miss over all {len(st)} is {miss[worst]:.0f} cm at {short(st[worst])}{why}.{gap} "
                    "Up-and-down movement is not drawn."),
     }
     summary = (f"The ground either side of the break slid past each other by the offset the survey taped at {len(sites)} places, shared {100 * a:.0f}% / {100 * (1 - a):.0f}% "
-               f"between the north-west and south-east sides and fading with distance as the GPS suggests.")
+               f"between the north-west and south-east sides and fading with distance from the line, as fitted to the GPS.")
     doc = {
         "slug": slug, "version": 1,
         "field": {"file": "slip.i16", "dtype": "int16", "nx": nx, "ny": ny, "bands": ["east_mm", "north_mm"], "max_mm": max_mm},
@@ -203,7 +247,7 @@ def build(slug: str = "kumamoto-quake") -> dict:
                              "fade_note": "exponential: exp(-d/L); arctangent: (2/pi)*atan(L/d); both 1 at the line",
                              "tip_taper_m": TAPER_M, "direction_smoothing_m": SMOOTH_M,
                              "gps_rms_miss_fitted_cm": round(fit_rms, 1),
-                             "tried": {f"{k[0]}, {k[1]}": round(v[1], 1) for k, v in tried.items()}},
+                             "tried_rms_cm": {f"{k[0]}, {k[1]}" + (" (a parameter hit its limit)" if v[3] else ""): round(v[1], 1) for k, v in tried.items()}},
                   "gps_rms_miss_cm": round(rms_all, 1)},
         "text": text,
         "credits": [f"Field offsets: Geological Survey of Japan (GSJ), 2026 Kumamoto earthquake field survey: sideways offsets taped across the rupture at {len(sites)} sites.",
@@ -219,7 +263,7 @@ def build(slug: str = "kumamoto-quake") -> dict:
     for sd in (1, -1):
         q = p + sd * np.array([-pT[0, 1], pT[0, 0]])                   # 1 m across the line (along its normal), either side
         qs, qd, qside, qT = line.locate(q)
-        side_move[int(qside[0])] = movement(par, fade, rule, (qs, qd, qside, qT, line.offset_cm(qs, site_s, site_cm)))[0] / 10
+        side_move[int(qside[0])] = movement(par, fade, rule, (qs, qd, qside, qT), prof)[0] / 10
     return {"doc": doc, "tried": tried, "rms_fit": rms_fit, "jump_cm": side_move[1] - side_move[-1], "site": big,
             "radar_step_cm": b.get("radar_step_cm"), "used": used}
 
@@ -229,7 +273,7 @@ def main(slug: str):
     doc = r["doc"]
     print(f"wrote {EVENTS / slug / 'slip.json'}, max {doc['field']['max_mm']} mm, {len(doc['sites'])} sites, line {doc['line']['length_km']} km")
     for k, v in r["tried"].items():
-        print(f"  tried {k[0]:12s} {k[1]:32s} fitted RMS miss {v[1]:5.1f} cm  params {np.round(v[0], 3).tolist()}")
+        print(f"  tried {k[0]:12s} {k[1]:32s} fitted RMS miss {v[1]:5.1f} cm  params {np.round(v[0], 3).tolist()}{'  (stuck on a limit)' if v[3] else ''}")
     print("  chosen:", doc["model"]["params"]["fade_shape"], "|", doc["model"]["params"]["variant"])
     for g in doc["gps"]:
         print(f"  {g['id']} measured E {g['east_cm']:+6.1f} N {g['north_cm']:+6.1f} | model E {g['model_east_cm']:+6.1f} N {g['model_north_cm']:+6.1f} | miss {g['miss_cm']}")

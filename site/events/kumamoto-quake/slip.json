@@ -10,7 +10,7 @@
    "east_mm",
    "north_mm"
   ],
-  "max_mm": 1561
+  "max_mm": 1438
  },
  "line": {
   "points": [
@@ -1864,9 +1864,9 @@
    "east_cm": 62.3,
    "north_cm": 61.7,
    "up_cm": -32.7,
-   "model_east_cm": 48.5,
-   "model_north_cm": 70.2,
-   "miss_cm": 16.2,
+   "model_east_cm": 46.2,
+   "model_north_cm": 67.0,
+   "miss_cm": 16.9,
    "source": "Nevada Geodetic Laboratory daily positions (GSI GEONET station); step computed for this project, median of 7 days either side"
   },
   {
@@ -1877,9 +1877,9 @@
    "east_cm": 4.4,
    "north_cm": 44.6,
    "up_cm": 10.7,
-   "model_east_cm": 0.0,
-   "model_north_cm": 0.0,
-   "miss_cm": 44.8,
+   "model_east_cm": 5.6,
+   "model_north_cm": 5.1,
+   "miss_cm": 39.5,
    "source": "Nevada Geodetic Laboratory daily positions (GSI GEONET station); step computed for this project, median of 7 days either side"
   },
   {
@@ -1890,9 +1890,9 @@
    "east_cm": -5.6,
    "north_cm": -17.0,
    "up_cm": 2.9,
-   "model_east_cm": -2.5,
-   "model_north_cm": -16.7,
-   "miss_cm": 3.1,
+   "model_east_cm": -1.6,
+   "model_north_cm": -10.6,
+   "miss_cm": 7.6,
    "source": "Nevada Geodetic Laboratory daily positions (GSI GEONET station); step computed for this project, median of 7 days either side"
   },
   {
@@ -1903,9 +1903,9 @@
    "east_cm": 12.2,
    "north_cm": 4.7,
    "up_cm": -0.2,
-   "model_east_cm": 0.0,
-   "model_north_cm": 0.0,
-   "miss_cm": 13.1,
+   "model_east_cm": 8.1,
+   "model_north_cm": 7.5,
+   "miss_cm": 4.9,
    "source": "Nevada Geodetic Laboratory daily positions (GSI GEONET station); step computed for this project, median of 7 days either side"
   },
   {
@@ -1916,9 +1916,9 @@
    "east_cm": -1.0,
    "north_cm": 10.6,
    "up_cm": 0.4,
-   "model_east_cm": 0.0,
-   "model_north_cm": 0.0,
-   "miss_cm": 10.6,
+   "model_east_cm": 8.1,
+   "model_north_cm": 7.4,
+   "miss_cm": 9.6,
    "source": "Nevada Geodetic Laboratory daily positions (GSI GEONET station); step computed for this project, median of 7 days either side"
   },
   {
@@ -1929,9 +1929,9 @@
    "east_cm": -1.5,
    "north_cm": 5.6,
    "up_cm": -0.6,
-   "model_east_cm": 0.0,
-   "model_north_cm": 0.0,
-   "miss_cm": 5.8,
+   "model_east_cm": 3.0,
+   "model_north_cm": 2.7,
+   "miss_cm": 5.3,
    "source": "Nevada Geodetic Laboratory daily positions (GSI GEONET station); step computed for this project, median of 7 days either side"
   },
   {
@@ -1942,9 +1942,9 @@
    "east_cm": -2.4,
    "north_cm": -0.7,
    "up_cm": -0.3,
-   "model_east_cm": 0.0,
-   "model_north_cm": 0.0,
-   "miss_cm": 2.5,
+   "model_east_cm": 3.7,
+   "model_north_cm": 3.4,
+   "miss_cm": 7.4,
    "source": "Nevada Geodetic Laboratory daily positions (GSI GEONET station); step computed for this project, median of 7 days either side"
   },
   {
@@ -1955,37 +1955,39 @@
    "east_cm": -7.6,
    "north_cm": -2.2,
    "up_cm": 1.8,
-   "model_east_cm": -0.0,
-   "model_north_cm": -0.0,
-   "miss_cm": 7.9,
+   "model_east_cm": -1.8,
+   "model_north_cm": -1.6,
+   "miss_cm": 5.8,
    "source": "Nevada Geodetic Laboratory daily positions (GSI GEONET station); step computed for this project, median of 7 days either side"
   }
  ],
  "model": {
-  "summary": "The ground either side of the break slid past each other by the offset the survey taped at 9 places, shared 85% / 15% between the north-west and south-east sides and fading with distance as the GPS suggests.",
+  "summary": "The ground either side of the break slid past each other by the offset the survey taped at 9 places, shared 78% / 22% between the north-west and south-east sides and fading with distance from the line, as fitted to the GPS.",
   "params": {
-   "fade_shape": "arctangent",
+   "fade_shape": "exponential",
    "variant": "share + one fade length",
-   "share_nw": 0.849,
-   "fade_m_nw": 200000,
-   "fade_m_se": 200000,
+   "share_nw": 0.784,
+   "fade_m_nw": 23306,
+   "fade_m_se": 23306,
    "fade_note": "exponential: exp(-d/L); arctangent: (2/pi)*atan(L/d); both 1 at the line",
    "tip_taper_m": 2000.0,
    "direction_smoothing_m": 2500.0,
-   "gps_rms_miss_fitted_cm": 9.7,
-   "tried": {
-    "exponential, share + one fade length": 9.7,
-    "exponential, share + a fade length per side": 9.7,
-    "arctangent, share + one fade length": 9.7,
-    "arctangent, share + a fade length per side": 9.7
+   "gps_rms_miss_fitted_cm": 9.1,
+   "tried_rms_cm": {
+    "exponential, share + one fade length": 9.1,
+    "exponential, share + one fade length + reach (a parameter hit its limit)": 8.7,
+    "exponential, share + a fade length per side (a parameter hit its limit)": 8.5,
+    "arctangent, share + one fade length": 9.2,
+    "arctangent, share + one fade length + reach": 9.1,
+    "arctangent, share + a fade length per side (a parameter hit its limit)": 8.6
    }
   },
-  "gps_rms_miss_cm": 18.3
+  "gps_rms_miss_cm": 16.3
  },
  "text": {
-  "measured": "Field teams from the Geological Survey of Japan taped the sideways offset across the break at 9 places along it, from 17 cm to 184 cm (the largest, 184 cm, on a road at Miyahara). GPS stations on the ground measured how far the land moved at 8 points around the break, from 2 cm to 88 cm, the most at Senchō, 2.5 km north-west of it.",
-  "drawn": "Everything between those points is filled in by a rule. The two sides slide past each other by exactly the surveyed offset at each place, and by a straight-line blend between places. The offset shrinks to nothing over the last 2 km at each end of the line, so the tear closes. Each side moves along the line, the north-west side north-east and the south-east side south-west. The north-west side takes 85% of the offset and the other side the rest. The movement fades with distance from the line, to half its size at 200 km and to 94% of its size at 20 km. The share and the fading were fitted to the 7 GPS stations along the drawn line.",
-  "caveat": "NISAR did not measure this movement. One radar pass only sees ground moving toward or away from the satellite, so it cannot say which way along the ground the two sides slid. This picture comes from the survey and the GPS. The model is 10 cm away from the GPS on average at the 7 stations it was fitted to, and the biggest miss over all 8 is 45 cm at Jōnan (past the end of the drawn line, where the break was found only by town name). Up-and-down movement is not drawn."
+  "measured": "Field teams from the Geological Survey of Japan taped the sideways offset across the break at 9 places along it, from 17 cm to 184 cm (the largest, 184 cm, across a road in Hikawa). GPS stations on the ground measured how far the land moved at 8 points around the break, from 2 cm to 88 cm, the most at Senchō, 2.5 km north-west of it.",
+  "drawn": "Everything between those points is filled in by a rule. The two sides slide past each other by exactly the surveyed offset at each place, and by a straight-line blend between places. The offset shrinks to nothing over the last 2 km at each end of the line, so the tear closes. The 3 sites within 2 km of an end of the line (23 cm, 25 cm, 17 cm) fall inside that closing and are shown smaller. Each side moves along the line, the north-west side north-east and the south-east side south-west. The north-west side takes 78% of the offset and the other side the rest. The movement fades with distance from the line, to half its size at 16 km and to 42% of its size at 20 km. The share and the fading were fitted to the 7 GPS stations along the drawn line.",
+  "caveat": "NISAR did not measure this movement. One radar pass only sees ground moving toward or away from the satellite, so it cannot say which way along the ground the two sides slid. This picture comes from the survey and the GPS. The model is typically 9 cm away from the GPS at the 7 stations it was fitted to, and the biggest miss over all 8 is 40 cm at Jōnan (past the end of the drawn line, where the break was found only by town name). Up-and-down movement is not drawn."
  },
  "credits": [
   "Field offsets: Geological Survey of Japan (GSJ), 2026 Kumamoto earthquake field survey: sideways offsets taped across the rupture at 9 sites.",
