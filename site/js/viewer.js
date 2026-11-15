@@ -119,7 +119,10 @@ async function layer(url, Type) {
 
 function tex(data, w, h) {
   const t = new THREE.DataTexture(data, w, h, THREE.RedFormat, THREE.FloatType);
-  t.minFilter = t.magFilter = THREE.LinearFilter;
+  // Nearest, not linear: linear filtering of float textures needs OES_texture_float_linear, which
+  // iOS GPUs often don't expose for vertex-shader fetches (uDem, uLos). Without it the draw call
+  // fails silently (no exception, no context-lost event) and the mesh just never appears.
+  t.minFilter = t.magFilter = THREE.NearestFilter;
   t.needsUpdate = true;
   return t;
 }
