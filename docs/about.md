@@ -40,6 +40,17 @@ functions of timeline time, so seeking does not depend on previous playback. The
 - There are 900 authored 30 fps frames (`i/30`, i=0…899); real browser scheduling is not a certified
   constant-frame-rate encoding. Final screen recording/export remains a separate production step.
 
+## Quick manual editing
+
+- `site/js/about-timeline.mjs`: `SHOTS` controls each cut and its main caption. Duration is `end - start`. Keep adjacent boundaries equal and the last end at 30.
+- `frameAt()` in that file contains absolute animation cues for the hero build, gallery filters and slip. If those shots move, update their cue times too; the timing is not entirely derived from `SHOTS` yet.
+- `site/about.html`: other text, bullets, cards and links.
+- `site/about.css`: typography, positioning and sizes, authored on a 1920 × 1080 stage.
+- `site/js/about.js`: photo/bullet entrance timing and hero/slip camera poses. `site/js/about-gallery.js`: tile size, camera elevation and spin speed.
+- Preview with a local HTTP server, not `file://`. `about.html?t=9` opens a paused frame; the scrubber and Space/arrow keys work too.
+- Keep total duration at 30 for simple edits. Changing it also requires `DURATION`, the HTML range maximum, time display and 30-second labels.
+- Public updates use the existing commit/push-to-main Pages workflow. If cached JS/CSS persists, hard-refresh or increment the module/style query versions.
+
 ## Scientific boundaries and sources
 
 - Hero/gallery height is terrain only, never LOS uplift. Gallery relief ×1–5, independent tile scales;
@@ -75,8 +86,16 @@ The stopped extended QA sweep was **not resumed**. Focused checks only:
   ordered layer reveal, six type highlights and deterministic fades, six-second split-screen model,
   final hold, reversible seeking and zero LOS-as-height.
 - Public-document renderer's built-in link/HTML/code/heading/table checks passed.
-- Browser integration check: pending publication. The managed browser's policy does not allow the
-  loopback preview, so no local-browser visual result is claimed.
+- Published-page integration checked through `5c7dced` at 1440 × 1000: readiness reported twelve
+  actual 3D terrains; no broken images or page errors. Inspected the opening, four-stage process,
+  story overlays, filtered terrain gallery and findings/future split.
+- Clicking the header action ran the full cut once: all seven shots, all four hero-layer states
+  and all six gallery categories appeared. The final frame held at 30 s; the observation clock
+  measured 30.067 s. No audio/video elements or page errors. This is not a CFR-export certification.
+- A subsequent small gallery-framing adjustment increases tile occupancy (lower camera elevation,
+  more viewport height and a tighter fitted margin). Syntax/diff checked; the full run above precedes
+  that cosmetic adjustment. No further extended sweep was started.
+- The managed browser blocks loopback previews; the visual observations above are from public Pages.
 
 Earlier-release full playback, phone-layout and 37-test results are historical (recorded at `f836df9`);
 they are not new proof for this changed cut. No broad Python suite, real-phone GPU/touch matrix,

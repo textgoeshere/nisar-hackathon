@@ -114,7 +114,7 @@ function enableControls(enabled){[playButton,headerPlay,restartButton,slider].fo
 function fail(error){cancelAnimationFrame(raf);playing=false;ready=false;viewer?.stop();document.body.classList.remove('ready','capture');player.classList.remove('ready');enableControls(false);playButton.textContent='Unavailable';status.textContent='Presentation could not load. '+(error?.message||String(error))+' The text and links below still work.';$('#retry-film').hidden=false;revealControls();console.error('About presentation:',error);}
 $('#event-grid').addEventListener('galleryerror',event=>fail(event.detail??new Error('The event gallery lost its graphics context.')));
 async function boot(){
-  const loaded=await withTimeout(Promise.all([json(base+'meta.json'),json(base+'stories.json'),json('events/index.json'),json('about/photo-source.json'),import('./viewer.js?v=5'),import('./slip.js'),import('three'),import('./about-gallery.js?v=5'),document.fonts.ready]),35000,'Presentation assets');
+  const loaded=await withTimeout(Promise.all([json(base+'meta.json'),json(base+'stories.json'),json('events/index.json'),json('about/photo-source.json'),import('./viewer.js?v=5'),import('./slip.js'),import('three'),import('./about-gallery.js?v=6'),document.fonts.ready]),35000,'Presentation assets');
   meta=loaded[0];story=loaded[1].items.find(s=>s.id==='kumamoto-01');shrine=loaded[1].items.find(s=>s.id==='kumamoto-02');const slugs=loaded[2];photo=loaded[3];
   if(!story?.nisar?.inside||!story.nisar.measured||!story.show_image||story.status==='rejected'||!shrine?.nisar?.inside)throw new Error('The sourced school and shrine stories are unavailable.');
   if(!Array.isArray(slugs)||!slugs.length)throw new Error('The event catalogue is empty.');
