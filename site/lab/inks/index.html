@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#efe6d2">
+<link rel="icon" href="data:,">
+<title>Three inks · Either side of the line</title>
+<link rel="preload" href="fonts/Jost-VF.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="inks.css">
+</head>
+<body>
+<header class="top">
+  <a class="back" href="../">&larr; Lab</a>
+  <nav id="tabs" aria-label="Events">
+    <a href="?e=kumamoto-quake" data-e="kumamoto-quake">Kumamoto</a>
+    <a href="?e=mexico-city-subsidence" data-e="mexico-city-subsidence">Mexico City</a>
+    <a href="?e=etna-eruption" data-e="etna-eruption">Etna</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div id="stage-wrap">
+    <section class="poster" id="poster" aria-label="Poster map">
+      <div class="ptitle">
+        <h1 id="title">&nbsp;</h1>
+        <p id="sub" class="sub"></p>
+      </div>
+      <div class="stage" id="stage">
+        <div class="typeblock" id="typeblock">
+          <p class="bignum" id="bignum" aria-live="polite"><span id="num"></span><span id="unit"></span></p>
+          <div class="capcol">
+            <p id="cap" class="cap"></p>
+            <p id="src" class="srcline"></p>
+          </div>
+        </div>
+        <div class="mapbox" id="mapbox" data-mode="move">
+          <canvas id="cv" aria-hidden="true"></canvas>
+          <svg id="ov" role="img" aria-label="Map with the line, story pins and the cut"></svg>
+          <p id="hint" class="hint" hidden></p>
+          <div class="mapbtns"><button type="button" id="btn-zin" aria-label="Zoom in">+</button><button type="button" id="btn-zout" aria-label="Zoom out">&minus;</button></div>
+          <div class="mapbar">
+            <button type="button" id="btn-whole" class="wholebtn" aria-pressed="false">Whole scene</button>
+            <div class="seg" role="group" aria-label="What a drag on the map does">
+              <button type="button" id="btn-move" aria-pressed="true"><i aria-hidden="true">&#10021;</i> Move</button>
+              <button type="button" id="btn-cut" aria-pressed="false"><i aria-hidden="true">&#9988;</i> Cut</button>
+            </div>
+          </div>
+          <div class="gutter" aria-hidden="true"></div>
+        </div>
+        <svg id="leader" aria-hidden="true"></svg>
+      </div>
+      <div class="band" id="key"></div>
+    </section>
+    <section class="slider" id="slider" aria-label="Before to after">
+      <div class="slider-row">
+        <button type="button" id="play" aria-label="Play before to after">&#9654;</button>
+        <div class="slider-mid">
+          <div class="ends"><span id="s-before">BEFORE</span><span id="s-read" class="read"></span><span id="s-after">AFTER</span></div>
+          <input type="range" id="t" min="0" max="1000" value="1000" aria-label="How much of the measured change to show">
+        </div>
+      </div>
+    </section>
+    <p id="slider-note" class="note slidernote"></p>
+  </div>
+
+  <section class="cutpanel" id="cutpanel" aria-label="The cut">
+    <h2>The cut</h2>
+    <p id="cuthelp" class="lede"></p>
+    <div id="cutbody" hidden>
+      <p id="cutsentence" class="sentence"></p>
+      <svg id="section" role="img" aria-label="Section along the cut"></svg>
+      <p class="note">Trace in black. The line is red: solid where NISAR measured it, dashed where it did not. The bar under the plot is black where NISAR has a reading and blank where it has none; the trace is broken there, never joined. Drag over the plot to read a value; the ring on the map shows where.</p>
+    </div>
+    <div class="presets" id="presets"></div>
+  </section>
+
+  <section id="cards" class="cards" aria-label="Stories"></section>
+
+  <section class="caveat" id="caveat"><h2>What the line is, and is not</h2><p id="caveat-text"></p><p id="line-means" class="note"></p></section>
+
+  <footer class="credits" id="credits"></footer>
+</div>
+<script type="module" src="js/page.js"></script>
+</body>
+</html>

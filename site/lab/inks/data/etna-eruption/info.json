@@ -1,0 +1,1 @@
+{"slug": "etna-eruption", "nx": 375, "ny": 375, "layers": ["signal", "line"], "nodata": -32768, "line_nodata": 255, "pair": ["2026-07-23", "2026-08-16"], "stack": [43, 21, "A"]}
