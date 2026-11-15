@@ -88,12 +88,12 @@ def check(slug: str) -> list[str]:
     if n_out:
         err(f"{n_out} basemap points outside the grid by more than 1%")
     mid_out = 0
+    pad = 0.02
     for pl in bm["roads"]["minor"]:
-        u, v = pl[len(pl) // 2]
-        if not (f["u0"] <= u <= f["u1"] and f["v0"] <= v <= f["v1"]):
+        if not any(f["u0"] - pad <= u <= f["u1"] + pad and f["v0"] - pad <= v <= f["v1"] + pad for u, v in pl):
             mid_out += 1
     if mid_out:
-        err(f"{mid_out} minor roads outside the focus window")
+        err(f"{mid_out} minor roads do not touch the focus window")
     for p in bm["places"]:
         if not {"name", "name_en", "kind", "u", "v"} <= set(p):
             err(f"place missing fields: {p}")

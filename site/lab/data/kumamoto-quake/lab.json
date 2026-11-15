@@ -1,0 +1,454 @@
+{
+ "slug": "kumamoto-quake",
+ "name": "Kumamoto M6.8 earthquake, Japan",
+ "kind": "quake",
+ "date": "2026-07-28",
+ "grid": {
+  "epsg": 32652,
+  "left": 631440.0,
+  "top": 3647360.0,
+  "dx": 80.0,
+  "nx": 750,
+  "ny": 750,
+  "bounds_lonlat": [
+   130.39783942199256,
+   32.406882047898286,
+   131.04794638948542,
+   32.95666084860936
+  ]
+ },
+ "focus": {
+  "u0": 0.25333,
+  "v0": 0.66667,
+  "u1": 0.56,
+  "v1": 0.89333,
+  "label": "Hikawa to Yatsushiro, 18 km across"
+ },
+ "signal": {
+  "file": "../../../events/kumamoto-quake/los.i16",
+  "dtype": "int16",
+  "scale": 0.1,
+  "unit": "cm",
+  "label": "Motion toward the satellite",
+  "valid": "../../../events/kumamoto-quake/valid.u8",
+  "positive": "toward the satellite",
+  "noise": 0.3,
+  "noise_method": "robust scatter of differences between neighbouring measured cells; includes real gradients, so it is an upper-ish bound"
+ },
+ "line": {
+  "kind": "rupture",
+  "name": "the rupture",
+  "raster": "line.u8",
+  "raster_scale": 0.2,
+  "raster_unit": "cm within 500 m",
+  "threshold": 10.0,
+  "threshold_raw": 50,
+  "valid": "line-valid.u8",
+  "vector": "line.json",
+  "measured_means": "the radar sees a step of 10 cm or more in ground motion within 1 km of this part of the line",
+  "dashed_means": "the line is drawn from the field survey only: the radar has no reading, or sees less than 10 cm of step, near this part of the line",
+  "caveat": "The line is straight segments between field-survey sites, not a trace of the break. The sites are placed by place name (location confidence in line.json), good to about 1 km. Sites located only by town name (confidence 'low') are listed but left off the line. The line is not extended beyond the surveyed sites. Where the plain gave no radar signal the line is dashed.",
+  "present": true
+ },
+ "headline": {
+  "value": "184 cm",
+  "caption": "sideways, across one road",
+  "source": "field survey, GSJ",
+  "u": 0.44609,
+  "v": 0.73669
+ },
+ "stories": [
+  {
+   "id": "kumamoto-01",
+   "n": 1,
+   "kind": "story",
+   "title": "Fault offset 94 cm across the playground of Ryuho Elementary School",
+   "short": "School playground: 94 cm",
+   "side": "affected",
+   "u": 0.4132,
+   "v": 0.7827,
+   "measured_at_spot": true,
+   "on_line": true,
+   "distance_m": 30,
+   "nearest_line_uv": [
+    0.41361,
+    0.78297
+   ],
+   "cut": [
+    [
+     0.37978,
+     0.75782
+    ],
+    [
+     0.44662,
+     0.80758
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "Radar here: 2.7 cm away from the satellite; up to 13 cm of change within 500 m."
+  },
+  {
+   "id": "kumamoto-02",
+   "n": 2,
+   "kind": "story",
+   "title": "Yatsushiro Shrine (Myoken-gu) torn by the fault: approach path offset 95 cm",
+   "short": "Shrine path: 95 cm",
+   "side": "affected",
+   "u": 0.3788,
+   "v": 0.8386,
+   "measured_at_spot": true,
+   "on_line": true,
+   "distance_m": 5,
+   "nearest_line_uv": [
+    0.37873,
+    0.83856
+   ],
+   "cut": [
+    [
+     0.34588,
+     0.81305
+    ],
+    [
+     0.41172,
+     0.86415
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "Radar here: 4.5 cm away from the satellite; up to 14 cm of change within 500 m."
+  },
+  {
+   "id": "kumamoto-03",
+   "n": 3,
+   "kind": "story",
+   "title": "Expressway viaduct dropped where the rupture passes under Myoken Daiichi Bridge (Yatsushiro JCT)",
+   "short": "Viaduct dropped",
+   "side": "affected",
+   "u": 0.3849,
+   "v": 0.8348,
+   "measured_at_spot": false,
+   "on_line": true,
+   "distance_m": 230,
+   "nearest_line_uv": [
+    0.38148,
+    0.83308
+   ],
+   "cut": [
+    [
+     0.34897,
+     0.81369
+    ],
+    [
+     0.42083,
+     0.85591
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "No radar reading at this spot (the surface changed or the signal was lost)."
+  },
+  {
+   "id": "kumamoto-04",
+   "n": 4,
+   "kind": "story",
+   "title": "Nippon Paper Yatsushiro mill: chimney collapse killed nine, 2 km off the fault",
+   "short": "Paper mill: nine died",
+   "side": "affected",
+   "u": 0.3475,
+   "v": 0.8267,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 1780,
+   "nearest_line_uv": [
+    0.36715,
+    0.84884
+   ],
+   "cut": [
+    [
+     0.33949,
+     0.81768
+    ],
+    [
+     0.39481,
+     0.88
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "Radar here: 3.5 cm toward the satellite; up to 11 cm of change within 500 m."
+  },
+  {
+   "id": "kumamoto-05",
+   "n": 5,
+   "kind": "story",
+   "title": "AEON Mall Kumamoto: second floor collapsed with ~3,000 shoppers inside",
+   "short": "Mall: floor collapsed",
+   "side": "affected",
+   "u": 0.5327,
+   "v": 0.3934,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 6220,
+   "nearest_line_uv": [
+    0.55335,
+    0.49493
+   ],
+   "cut": [
+    [
+     0.52524,
+     0.46417
+    ],
+    [
+     0.58145,
+     0.52569
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "Radar here: 13.6 cm toward the satellite; up to 5 cm of change within 500 m."
+  },
+  {
+   "id": "kumamoto-06",
+   "n": 6,
+   "kind": "story",
+   "title": "Kumamoto Castle: Nishi-demaru stone walls down again, 13 km from the rupture",
+   "short": "Castle walls down",
+   "side": "affected",
+   "u": 0.4707,
+   "v": 0.2726,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 14230,
+   "nearest_line_uv": [
+    0.55335,
+    0.49493
+   ],
+   "cut": [
+    [
+     0.52524,
+     0.46417
+    ],
+    [
+     0.58145,
+     0.52569
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "Radar here: 1.1 cm toward the satellite; up to 2 cm of change within 500 m."
+  },
+  {
+   "id": "kumamoto-07",
+   "n": 7,
+   "kind": "story",
+   "title": "AEON Mall Uki: ceiling collapse right where NISAR's step crosses Ogawa",
+   "short": "Mall Uki: ceiling fell",
+   "side": "affected",
+   "u": 0.4791,
+   "v": 0.6586,
+   "measured_at_spot": false,
+   "on_line": false,
+   "distance_m": 1240,
+   "nearest_line_uv": [
+    0.45841,
+    0.6598
+   ],
+   "cut": [
+    [
+     0.41681,
+     0.6622
+    ],
+    [
+     0.50001,
+     0.65739
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "No radar reading at this spot (the surface changed or the signal was lost)."
+  },
+  {
+   "id": "site-gsj-07",
+   "n": null,
+   "kind": "site",
+   "title": "氷川町大野, paddy S of 道の駅竜北, 115 cm",
+   "short": "Paddy: 115 cm",
+   "side": "affected",
+   "u": 0.46047,
+   "v": 0.6954,
+   "measured_at_spot": false,
+   "on_line": true,
+   "distance_m": 0,
+   "nearest_line_uv": [
+    0.46047,
+    0.6954
+   ],
+   "cut": [
+    [
+     0.41919,
+     0.68973
+    ],
+    [
+     0.50175,
+     0.70106
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "No radar reading at this spot (the surface changed or the signal was lost).",
+   "source": "field survey, GSJ",
+   "value": "115 cm right-lateral, 19 cm NW-side down",
+   "location_confidence": "medium"
+  },
+  {
+   "id": "site-gsj-08",
+   "n": null,
+   "kind": "site",
+   "title": "氷川町宮原 road, 184 cm (the largest offset)",
+   "short": "Road: 184 cm",
+   "side": "affected",
+   "u": 0.44609,
+   "v": 0.73669,
+   "measured_at_spot": true,
+   "on_line": true,
+   "distance_m": 0,
+   "nearest_line_uv": [
+    0.44609,
+    0.73669
+   ],
+   "cut": [
+    [
+     0.40875,
+     0.71821
+    ],
+    [
+     0.48343,
+     0.75518
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "Radar here: 0.1 cm toward the satellite; up to 27 cm of change within 500 m.",
+   "source": "field survey, GSJ",
+   "value": "184 cm right-lateral (maximum measured), W side down",
+   "location_confidence": "medium"
+  },
+  {
+   "id": "site-gsj-09",
+   "n": null,
+   "kind": "site",
+   "title": "八代市岡町中 road → paddy, 120 cm",
+   "short": "Road to paddy: 120 cm",
+   "side": "affected",
+   "u": 0.42318,
+   "v": 0.77148,
+   "measured_at_spot": true,
+   "on_line": true,
+   "distance_m": 0,
+   "nearest_line_uv": [
+    0.42318,
+    0.77148
+   ],
+   "cut": [
+    [
+     0.38969,
+     0.74668
+    ],
+    [
+     0.45667,
+     0.79627
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "Radar here: 1.4 cm away from the satellite; up to 21 cm of change within 500 m.",
+   "source": "field survey, GSJ",
+   "value": "120 cm right-lateral, 16 cm E-side down",
+   "location_confidence": "medium"
+  },
+  {
+   "id": "site-gsj-11",
+   "n": null,
+   "kind": "site",
+   "title": "八代市上片町 near 八代JCT, ~130 cm vertical",
+   "short": "Ground dropped: 130 cm",
+   "side": "affected",
+   "u": 0.3852,
+   "v": 0.82569,
+   "measured_at_spot": true,
+   "on_line": true,
+   "distance_m": 0,
+   "nearest_line_uv": [
+    0.3852,
+    0.82569
+   ],
+   "cut": [
+    [
+     0.34923,
+     0.80466
+    ],
+    [
+     0.42116,
+     0.84673
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "Radar here: 2.9 cm away from the satellite; up to 12 cm of change within 500 m.",
+   "source": "field survey, GSJ",
+   "value": "about 130 cm vertical",
+   "location_confidence": "medium"
+  }
+ ],
+ "files": {
+  "basemap": "basemap.json",
+  "hillshade": "hillshade.png",
+  "sea": "sea.png",
+  "line_raster": "line.u8",
+  "line_valid": "line-valid.u8",
+  "line_vector": "line.json",
+  "proof_focus": "proof-focus.jpg",
+  "proof_scene": "proof-scene.jpg"
+ },
+ "hillshade": {
+  "file": "hillshade.png",
+  "scale": 2,
+  "light": "north-west, 45 degrees",
+  "z": 2.0,
+  "flat_ground": 180
+ },
+ "sea": {
+  "file": "sea.png",
+  "present": true,
+  "share": 0.21
+ },
+ "basemap": {
+  "file": "basemap.json",
+  "bytes": 1066957,
+  "minor_classes": [
+   "unclassified",
+   "residential"
+  ],
+  "note": "minor roads only inside the focus window"
+ },
+ "credits": [
+  "Radar: NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC",
+  "Field offsets: Geological Survey of Japan (GSJ), AIST, 2026 Kumamoto earthquake field photos",
+  "Map data: © OpenStreetMap contributors (ODbL), via the Overpass API",
+  "Relief: from the DEM in the event data (see the main CREDITS.md)"
+ ],
+ "provisional": true,
+ "checks": {
+  "step_at_184cm_site": 26.7,
+  "step_at_school_94cm": 13.9,
+  "line_km": 26.6,
+  "measured_fraction": 0.5,
+  "raster_clipped_cells": 0,
+  "sites_on_polyline": [
+   "gsj-03",
+   "gsj-04",
+   "gsj-07",
+   "gsj-08",
+   "gsj-09",
+   "gsj-10",
+   "gsj-11",
+   "gsj-12",
+   "gsj-13",
+   "gsj-14"
+  ],
+  "sites_off_polyline": [
+   "gsj-01",
+   "gsj-GSJ-第6報-山出-trench-甲佐"
+  ]
+ }
+}

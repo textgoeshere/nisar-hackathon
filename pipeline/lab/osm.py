@@ -54,7 +54,7 @@ def fetch(query: str, name: str) -> dict:
         for url in ENDPOINTS:
             try:
                 req = urllib.request.Request(url + "?" + urllib.parse.urlencode({"data": query}), headers={"User-Agent": UA})
-                raw = urllib.request.urlopen(req, timeout=200).read()
+                raw = urllib.request.urlopen(req, timeout=100).read()
                 data = json.loads(raw)
                 if "elements" not in data:
                     raise ValueError("no elements: " + str(data)[:200])
@@ -93,7 +93,7 @@ def _clip(pts: np.ndarray, margin=0.004):
 
 
 # outside the focus window, short pieces of these classes are dropped (metres): at scene scale they are clutter and weight
-MIN_LEN_OUTSIDE_M = {"tertiary": 600.0, "river": 800.0, "canal": 1000.0, "rail": 0.0}
+MIN_LEN_OUTSIDE_M = {"motorway": 100.0, "primary": 150.0, "secondary": 300.0, "tertiary": 600.0, "river": 800.0, "canal": 1000.0}
 
 
 def build_vectors(ev: Event, main: dict, minor: dict | None, focus: dict, eps_m: float = 10.0, eps_minor_m: float = 12.0,
@@ -190,6 +190,24 @@ def window_bounds(ev: Event, focus: dict, pad: float = 0.0):
     return (round(min(lons) - pad, 4), round(min(lats) - pad, 4), round(max(lons) + pad, 4), round(max(lats) + pad, 4))
 
 
+def _tile_elements(b, classes, name, els, depth=0):
+    """Fetch one tile; if Overpass keeps failing, split it into four and try those (up to two levels)."""
+    try:
+        d = fetch(minor_query(b, classes), name)
+    except RuntimeError:
+        if depth >= 2:
+            raise
+        w, s, e, n = b
+        for i in range(2):
+            for j in range(2):
+                sub = (round(w + (e - w) * i / 2, 4), round(s + (n - s) * j / 2, 4),
+                       round(w + (e - w) * (i + 1) / 2, 4), round(s + (n - s) * (j + 1) / 2, 4))
+                _tile_elements(sub, classes, f"{name}{i}{j}", els, depth + 1)
+        return
+    for el in d["elements"]:
+        els[(el["type"], el["id"])] = el
+
+
 def minor_elements(bounds, classes, name: str, tiles=(3, 2)) -> dict:
     """Minor roads for a window, fetched as tiles (a single query for a city window times out), merged and de-duplicated."""
     w, s, e, n = bounds
@@ -199,7 +217,5 @@ def minor_elements(bounds, classes, name: str, tiles=(3, 2)) -> dict:
         for j in range(ny):
             b = (round(w + (e - w) * i / nx, 4), round(s + (n - s) * j / ny, 4),
                  round(w + (e - w) * (i + 1) / nx, 4), round(s + (n - s) * (j + 1) / ny, 4))
-            d = fetch(minor_query(b, classes), f"{name}-minor-{i}{j}")
-            for el in d["elements"]:
-                els[(el["type"], el["id"])] = el
+            _tile_elements(b, classes, f"{name}-minor-{i}{j}", els)
     return {"elements": list(els.values())}

@@ -1,0 +1,301 @@
+{
+ "slug": "mexico-city-subsidence",
+ "name": "Mexico City subsidence",
+ "kind": "subsidence",
+ "date": null,
+ "grid": {
+  "epsg": 32614,
+  "left": 461360.0,
+  "top": 2173440.0,
+  "dx": 80.0,
+  "nx": 625,
+  "ny": 625,
+  "bounds_lonlat": [
+   -99.36859239439556,
+   19.20399438736265,
+   -98.89163459857267,
+   19.656225924917504
+  ]
+ },
+ "focus": {
+  "u0": 0.7008,
+  "v0": 0.6992,
+  "u1": 0.9888,
+  "v1": 0.8784,
+  "label": "Tláhuac and Valle de Chalco, 14 km across"
+ },
+ "signal": {
+  "file": "signal.i16",
+  "dtype": "int16",
+  "scale": 0.01,
+  "unit": "cm a year",
+  "label": "Sinking rate (negative = away from the satellite)",
+  "valid": "../../../events/mexico-city-subsidence/valid.u8",
+  "positive": "toward the satellite (rising); negative = sinking, along the line of sight, so true vertical sinking is a little more",
+  "noise": 0.8,
+  "noise_method": "robust scatter of differences between neighbouring measured cells (includes real gradients)",
+  "zero": {
+   "method": "median rate over the highest 15% of the terrain (dem >= p85)",
+   "offset_cm_yr": 0.63,
+   "dem_p85_m": 2632.0,
+   "cells": 53560,
+   "meaning": "signal = (los / 10 / years) minus offset_cm_yr; years = pair[1] - pair[0] in days / 365.25",
+   "years": 0.9528,
+   "pair": [
+    "2025-10-30",
+    "2026-10-13"
+   ]
+  }
+ },
+ "line": {
+  "kind": "bend",
+  "name": "the edge of the sinking ground",
+  "raster": "line.u8",
+  "raster_scale": 6e-06,
+  "raster_unit": "per year (tilt: change in sinking rate per metre; 1 in N a year with N = 1 / (count * raster_scale))",
+  "threshold": 0.00017857142857142857,
+  "threshold_raw": 30,
+  "valid": "line-valid.u8",
+  "vector": "line.json",
+  "edge_level_cm_yr": -5.0,
+  "measured_means": "the sinking rate changes faster across the edge than the noise on stable ground (tilt above 1 in 5,600 a year)",
+  "dashed_means": "the edge is there (the ground passes the -5 cm a year mark) but the rate changes too gently across it for the radar to tell from noise",
+  "caveat": "Not a crack or a fault: the contour where the smoothed sinking rate reaches 5 cm a year relative to stable ground. The sharp bend near the Tláhuac story is short (about 1 km); most of the contour is gentle (dashed). Rates are zeroed on the highest 15% of the terrain, which leaves the Sierra de Santa Catarina reading about +2 cm a year, so the zero is uncertain by about 2 cm a year. Solid rings around cinder cones are probably steep-slope artifacts, not sinking. Contours shorter than 4 km with less than 0.5 km of solid line were dropped as noise. Motion is along the radar's slanted view.",
+  "present": true
+ },
+ "headline": {
+  "value": "21 cm a year",
+  "caption": "the fastest the ground sinks here, along the radar's line of sight",
+  "source": "NISAR (provisional), figure as on the main page",
+  "u": 0.6744,
+  "v": 0.4136
+ },
+ "stories": [
+  {
+   "id": "mexico-01",
+   "n": 1,
+   "kind": "story",
+   "title": "A kilometre-long crack runs under homes on the Tláhuac / Valle de Chalco line",
+   "short": "Cracked street, Tláhuac",
+   "side": "affected",
+   "u": 0.8453,
+   "v": 0.764,
+   "measured_at_spot": true,
+   "on_line": true,
+   "distance_m": 140,
+   "nearest_line_uv": [
+    0.8481,
+    0.76429
+   ],
+   "cut": [
+    [
+     0.7973,
+     0.74999
+    ],
+    [
+     0.8933,
+     0.77801
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "Radar here: -0.7 cm a year relative to stable ground; the steepest change within 500 m is 1 in 2,200 a year."
+  },
+  {
+   "id": "mexico-02",
+   "n": 2,
+   "kind": "story",
+   "title": "Sierra de Santa Catarina: the volcanic ridge that doesn't sink",
+   "short": "Santa Catarina ridge",
+   "side": "unaffected",
+   "u": 0.7028,
+   "v": 0.7515,
+   "measured_at_spot": false,
+   "on_line": false,
+   "distance_m": 2060,
+   "nearest_line_uv": [
+    0.7096,
+    0.79204
+   ],
+   "cut": [
+    [
+     0.69584,
+     0.74397
+    ],
+    [
+     0.72336,
+     0.84011
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "No radar reading at this spot (the surface changed or the signal was lost)."
+  },
+  {
+   "id": "mexico-03",
+   "n": 3,
+   "kind": "story",
+   "title": "Templo de la Santísima Trinidad: a church now below street level",
+   "short": "Church below street",
+   "side": "affected",
+   "u": 0.5069,
+   "v": 0.4936,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 1520,
+   "nearest_line_uv": [
+    0.47666,
+    0.4904
+   ],
+   "cut": [
+    [
+     0.42688,
+     0.49506
+    ],
+    [
+     0.52644,
+     0.48574
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "Radar here: -7.1 cm a year relative to stable ground; the steepest change within 500 m is 1 in 15,100 a year."
+  },
+  {
+   "id": "mexico-04",
+   "n": 4,
+   "kind": "story",
+   "title": "The Metropolitan Cathedral, sinking unevenly into the lake-bed",
+   "short": "Cathedral sinking",
+   "side": "affected",
+   "u": 0.4934,
+   "v": 0.4908,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 840,
+   "nearest_line_uv": [
+    0.47666,
+    0.4904
+   ],
+   "cut": [
+    [
+     0.42688,
+     0.49506
+    ],
+    [
+     0.52644,
+     0.48574
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "Radar here: -5.9 cm a year relative to stable ground; the steepest change within 500 m is 1 in 17,500 a year."
+  },
+  {
+   "id": "mexico-05",
+   "n": 5,
+   "kind": "story",
+   "title": "Ángel de la Independencia: 14 steps added as the ground fell away",
+   "short": "Angel: 14 steps added",
+   "side": "affected",
+   "u": 0.4197,
+   "v": 0.5077,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 1920,
+   "nearest_line_uv": [
+    0.45814,
+    0.5097
+   ],
+   "cut": [
+    [
+     0.40912,
+     0.49987
+    ],
+    [
+     0.50717,
+     0.51953
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "Radar here: -1.5 cm a year relative to stable ground; the steepest change within 500 m is 1 in 5,900 a year."
+  },
+  {
+   "id": "mexico-06",
+   "n": 6,
+   "kind": "story",
+   "title": "Ciudad Universitaria on the Pedregal lava: the stable south",
+   "short": "UNAM: stable lava",
+   "side": "unaffected",
+   "u": 0.3772,
+   "v": 0.7156,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 8080,
+   "nearest_line_uv": [
+    0.49221,
+    0.60209
+   ],
+   "cut": [
+    [
+     0.44453,
+     0.61715
+    ],
+    [
+     0.53989,
+     0.58702
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "Radar here: +2.9 cm a year relative to stable ground; the steepest change within 500 m is 1 in 16,700 a year."
+  }
+ ],
+ "files": {
+  "basemap": "basemap.json",
+  "hillshade": "hillshade.png",
+  "sea": "sea.png",
+  "line_raster": "line.u8",
+  "line_valid": "line-valid.u8",
+  "line_vector": "line.json",
+  "proof_focus": "proof-focus.jpg",
+  "proof_scene": "proof-scene.jpg"
+ },
+ "hillshade": {
+  "file": "hillshade.png",
+  "scale": 2,
+  "light": "north-west, 45 degrees",
+  "z": 4.0,
+  "flat_ground": 180
+ },
+ "sea": {
+  "file": "sea.png",
+  "present": false,
+  "share": 0.0
+ },
+ "basemap": {
+  "file": "basemap.json",
+  "bytes": 1007765,
+  "minor_classes": [
+   "unclassified",
+   "residential"
+  ],
+  "note": "minor roads only inside the focus window"
+ },
+ "credits": [
+  "Radar: NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC (28 chained pairs, track 19)",
+  "Map data: © OpenStreetMap contributors (ODbL), via the Overpass API",
+  "Relief: from the DEM in the event data (see the main CREDITS.md)"
+ ],
+ "provisional": true,
+ "checks": {
+  "offset_cm_yr": 0.63,
+  "stable_cells": 53560,
+  "dem_p85_m": 2632.0,
+  "rate_ridge_west_cm_yr": 2.3,
+  "rate_480m_east_cm_yr": -14.0,
+  "east_minus_ridge_cm_yr": -16.4,
+  "tilt_near_story_1_in": 2235,
+  "tilt_p95_valid_1_in": 7726,
+  "edge_km": 110.8,
+  "solid_fraction": 0.21,
+  "raster_clipped_cells": 0,
+  "signal_min_cm_yr": -78.3,
+  "signal_p01_cm_yr": -21.2
+ }
+}
