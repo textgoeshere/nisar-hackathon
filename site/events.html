@@ -2,14 +2,14 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Either side of the line · NISAR</title>
+<title>All events · Either side of the line · NISAR</title>
 <link rel="stylesheet" href="style.css">
 <header>
   <h1>Either side of the line</h1>
   <p class="lede">Two neighbours, one earthquake, different fates. From the ground it looks like luck; from orbit
   you can see the line between them. NISAR L-band radar (NASA/ISRO) shows the boundary in the ground that
   explains what happened to the people standing on it.</p>
-  <p><a href="demo.html">▶ Demo mode</a> <span class="muted small">fullscreen flyover of every event, for a screen at the stand</span></p>
+  <p><a href="./">▶ Start the tour</a> <span class="muted small">full-screen flyover of every event, one after another</span></p>
 </header>
 <main>
   <h2>Events</h2>
@@ -31,7 +31,13 @@ for (const e of cov) {
     : e.gcov?.before ? `${e.gcov.before} passes before, ${e.gcov.after} after` : "none";
   const tr = tb.insertRow();
   tr.className = e.score > 0 ? "" : "muted";
-  tr.innerHTML = `<td>${page ? `<a href="event.html?e=${e.slug}">${e.name}</a>` : e.name}</td><td>${e.kind}</td><td>${e.date ?? "ongoing"}</td><td>${what}</td>`;
+  tr.innerHTML = `<td>${page ? `<a href="e/${e.slug}.html">${e.name}</a>` : e.name}</td><td>${e.kind}</td><td>${e.date ?? "ongoing"}</td><td>${what}</td>`;
 }
+// Picking an event here is a visit (demo mode off there); "Start the tour" turns it on.
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a");
+  if (!a) return;
+  try { if (a.closest("#events")) sessionStorage.setItem("nisar.demo", "0"); else if (a.getAttribute("href") === "./") sessionStorage.setItem("nisar.demo", "1"); } catch {}
+});
 </script>
 </html>
