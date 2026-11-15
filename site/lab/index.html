@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lab · Either side of the line</title>
+<style>
+  body { margin: 0; background: #f3eee2; color: #1a1815; font: 17px/1.5 system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 1.25rem; }
+  h1 { font-size: 1.7rem; margin: .5rem 0; } h2 { font-size: 1.2rem; margin: 1.6rem 0 .3rem; }
+  a { color: #b3261e; } .muted { color: #6b655a; font-size: .92rem; }
+  ul { padding-left: 1.1rem; } li { margin: .35rem 0; }
+</style>
+<main>
+  <p class="muted"><a href="../">← Main site</a></p>
+  <h1>Lab: two ways to draw the line</h1>
+  <p>Trial pages for three events. Each draws the line the title promises on a flat map and lets you
+  cut across it: switch to <strong>Cut</strong>, drag from one side to the other, and the page plots what the
+  radar measured along your stroke. Nothing in the main site links here or depends on these pages.</p>
+  <p class="muted">NISAR data are provisional. Solid red = measured by radar; dashed = not measured by radar;
+  blank = no reading.</p>
+
+  <h2>Atlas</h2>
+  <p class="muted">A paper street atlas: relief, streets, local place names, the line in red, labels written on the map.</p>
+  <ul>
+    <li><a href="atlas/?e=kumamoto-quake">Kumamoto earthquake</a> · <a href="atlas/?e=kumamoto-quake&cut=site-gsj-08">with a cut at the 184 cm road</a></li>
+    <li><a href="atlas/?e=mexico-city-subsidence">Mexico City subsidence</a> · <a href="atlas/?e=mexico-city-subsidence&cut=1">with a cut at the cracked street</a></li>
+    <li><a href="atlas/?e=etna-eruption">Etna eruption</a> · <a href="atlas/?e=etna-eruption&cut=3">with a cut at the new vent</a></li>
+  </ul>
+
+  <h2>Three inks</h2>
+  <p class="muted">A three-ink poster: the radar measurement printed as dots sized by how much changed, bare paper where there is no reading, one big number.</p>
+  <ul>
+    <li><a href="inks/?e=kumamoto-quake">Kumamoto earthquake</a> · <a href="inks/?e=kumamoto-quake&cut=site-gsj-08">with a cut at the 184 cm road</a></li>
+    <li><a href="inks/?e=mexico-city-subsidence">Mexico City subsidence</a> · <a href="inks/?e=mexico-city-subsidence&cut=1">with a cut at the cracked street</a></li>
+    <li><a href="inks/?e=etna-eruption">Etna eruption</a> · <a href="inks/?e=etna-eruption&cut=3">with a cut at the new vent</a></li>
+  </ul>
+
+  <p class="muted">Streets: © OpenStreetMap contributors. NISAR: NASA/JPL-Caltech and ISRO, provisional products via the ASF DAAC.
+  Terrain: Copernicus GLO-30 DEM. Full credits: <a href="CREDITS.md">lab</a> and the main site's CREDITS.md.</p>
+</main>
+</html>
