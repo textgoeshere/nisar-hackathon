@@ -1,0 +1,77 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Kumamoto",
+   "place": "city",
+   "population": 738865,
+   "lon": 130.70827,
+   "lat": 32.80339,
+   "u": 0.475,
+   "v": 0.2763
+  },
+  {
+   "name": "Yatsushiro",
+   "place": "city",
+   "population": 123067,
+   "lon": 130.60202,
+   "lat": 32.50814,
+   "u": 0.3175,
+   "v": 0.8245
+  },
+  {
+   "name": "Tamana",
+   "place": "city",
+   "population": 64292,
+   "lon": 130.56281,
+   "lat": 32.93526,
+   "u": 0.2444,
+   "v": 0.0361
+  },
+  {
+   "name": "Koshi",
+   "place": "city",
+   "population": 61772,
+   "lon": 130.78974,
+   "lat": 32.88602,
+   "u": 0.5996,
+   "v": 0.1215
+  },
+  {
+   "name": "Uki",
+   "place": "city",
+   "population": 59756,
+   "lon": 130.68397,
+   "lat": 32.64718,
+   "u": 0.4417,
+   "v": 0.5656
+  },
+  {
+   "name": "Kikuyo",
+   "place": "town",
+   "population": 40984,
+   "lon": 130.82838,
+   "lat": 32.86257,
+   "u": 0.6606,
+   "v": 0.1638
+  },
+  {
+   "name": "Uto",
+   "place": "city",
+   "population": 36122,
+   "lon": 130.65982,
+   "lat": 32.68792,
+   "u": 0.4028,
+   "v": 0.4909
+  },
+  {
+   "name": "Mashiki",
+   "place": "town",
+   "population": 33611,
+   "lon": 130.81642,
+   "lat": 32.79163,
+   "u": 0.6442,
+   "v": 0.2952
+  }
+ ]
+}

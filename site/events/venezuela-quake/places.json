@@ -1,0 +1,77 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "San Felipe",
+   "place": "city",
+   "population": 112085,
+   "lon": -68.7417,
+   "lat": 10.33948,
+   "u": 0.1315,
+   "v": 0.632
+  },
+  {
+   "name": "Nirgua",
+   "place": "city",
+   "population": 77438,
+   "lon": -68.56489,
+   "lat": 10.15248,
+   "u": 0.3738,
+   "v": 0.8902
+  },
+  {
+   "name": "Moron",
+   "place": "city",
+   "population": 71327,
+   "lon": -68.20272,
+   "lat": 10.48617,
+   "u": 0.8686,
+   "v": 0.428
+  },
+  {
+   "name": "Bejuma",
+   "place": "town",
+   "population": 50000,
+   "lon": -68.25786,
+   "lat": 10.17402,
+   "u": 0.7942,
+   "v": 0.8597
+  },
+  {
+   "name": "Cocorote",
+   "place": "city",
+   "population": 0,
+   "lon": -68.78309,
+   "lat": 10.31948,
+   "u": 0.0749,
+   "v": 0.6597
+  },
+  {
+   "name": "Marín",
+   "place": "city",
+   "population": 0,
+   "lon": -68.69246,
+   "lat": 10.3853,
+   "u": 0.1988,
+   "v": 0.5686
+  },
+  {
+   "name": "Yumare",
+   "place": "town",
+   "population": 30000,
+   "lon": -68.67386,
+   "lat": 10.59749,
+   "u": 0.224,
+   "v": 0.2753
+  },
+  {
+   "name": "Salom",
+   "place": "town",
+   "population": 0,
+   "lon": -68.48655,
+   "lat": 10.17702,
+   "u": 0.481,
+   "v": 0.8561
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Tonosí",
+   "place": "town",
+   "population": 0,
+   "lon": -80.4377,
+   "lat": 7.40869,
+   "u": 0.4486,
+   "v": 0.7649
+  },
+  {
+   "name": "Pocrí",
+   "place": "town",
+   "population": 0,
+   "lon": -80.11867,
+   "lat": 7.66059,
+   "u": 0.8881,
+   "v": 0.4161
+  },
+  {
+   "name": "Guararé",
+   "place": "town",
+   "population": 0,
+   "lon": -80.28134,
+   "lat": 7.82066,
+   "u": 0.6634,
+   "v": 0.1953
+  },
+  {
+   "name": "Macaracas",
+   "place": "town",
+   "population": 0,
+   "lon": -80.55205,
+   "lat": 7.73176,
+   "u": 0.2904,
+   "v": 0.3186
+  },
+  {
+   "name": "La Villa de Los Santos",
+   "place": "town",
+   "population": 0,
+   "lon": -80.41501,
+   "lat": 7.93783,
+   "u": 0.479,
+   "v": 0.0336
+  },
+  {
+   "name": "Los Pozos",
+   "place": "town",
+   "population": 0,
+   "lon": -80.64538,
+   "lat": 7.78856,
+   "u": 0.1617,
+   "v": 0.2403
+  },
+  {
+   "name": "Las Tablas",
+   "place": "city",
+   "population": 3097,
+   "lon": -80.27642,
+   "lat": 7.76779,
+   "u": 0.6703,
+   "v": 0.2683
+  },
+  {
+   "name": "Pesé",
+   "place": "town",
+   "population": 2771,
+   "lon": -80.6149,
+   "lat": 7.90778,
+   "u": 0.2036,
+   "v": 0.0755
+  }
+ ]
+}

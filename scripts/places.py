@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from pipeline.context import Grid  # noqa: E402
 
 EVENTS = Path(__file__).resolve().parents[1] / "site" / "events"
-URLS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"]
+URL = "https://overpass-api.de/api/interpreter"
 UA = "nisar-hackathon-places/0.1 (NISAR hackathon research; dpdnolan.office@gmail.com)"
 SIZE = {"city": 50000, "town": 10000, "village": 500}   # assumed population when OSM has none
 KEEP = 8
@@ -35,10 +35,11 @@ def places(slug):
     g = meta["grid"]
     grid = Grid(g["epsg"], g["left"], g["top"], g["dx"], g["nx"], g["ny"])
     w, s, e, n = g["bounds_lonlat"]
-    q = f'[out:json][timeout:60];node["place"~"^(city|town|village)$"]["name"]({s},{w},{n},{e});out;'
-    for k, wait in enumerate((5, 15, 30, 0)):  # Overpass is busy at times: back off and retry, alternating mirrors
+    box = f"({s},{w},{n},{e})"
+    q = "[out:json][timeout:120];(" + "".join(f"node[place={k}][name]{box};" for k in SIZE) + ");out;"
+    for wait in (10, 30, 0):  # Overpass is busy at times: back off and retry
         try:
-            r = requests.post(URLS[k % 2], data={"data": q}, headers={"User-Agent": UA}, timeout=90)
+            r = requests.post(URL, data={"data": q}, headers={"User-Agent": UA}, timeout=150)
             if r.ok or not wait:
                 break
         except requests.RequestException:
@@ -64,7 +65,11 @@ def main(slugs):
     slugs = slugs or json.loads((EVENTS / "index.json").read_text())
     for slug in slugs:
         time.sleep(1.1)
-        ps = places(slug)
+        try:
+            ps = places(slug)
+        except requests.RequestException as err:
+            print(slug, "failed:", err)
+            continue
         doc = {"source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API", "places": ps}
         (EVENTS / slug / "places.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
         print(slug, [p["name"] for p in ps])

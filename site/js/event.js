@@ -52,7 +52,7 @@ hero.addEventListener("wheel", (e) => {
 const north = document.createElement("div");
 north.className = "north";
 north.title = "North";
-north.innerHTML = `<svg viewBox="-14 -14 28 28" aria-hidden="true"><circle r="13"/><path d="M0-5.5 3.5 6.5 0 4-3.5 6.5Z"/><text y="-7">N</text></svg>`;
+north.innerHTML = `<svg viewBox="-14 -14 28 28" aria-hidden="true"><circle r="13"/><path d="M0-6.5 3 0H-3Z"/><path class="s" d="M0 6.5 3 0H-3Z"/><text y="-9.2">N</text></svg>`;
 hero.appendChild(north);
 const needle = north.firstChild, look = v.camera.position.clone();
 v.onFrame(() => {

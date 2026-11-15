@@ -1,0 +1,41 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Mbay",
+   "place": "city",
+   "population": 22725,
+   "lon": 121.26543,
+   "lat": -8.56651,
+   "u": 0.3147,
+   "v": 0.593
+  },
+  {
+   "name": "Boawae",
+   "place": "town",
+   "population": 0,
+   "lon": 121.16256,
+   "lat": -8.76027,
+   "u": 0.1744,
+   "v": 0.8615
+  },
+  {
+   "name": "Nangaroro",
+   "place": "town",
+   "population": 0,
+   "lon": 121.39152,
+   "lat": -8.78538,
+   "u": 0.4895,
+   "v": 0.8948
+  },
+  {
+   "name": "Ropa",
+   "place": "town",
+   "population": 0,
+   "lon": 121.70932,
+   "lat": -8.50482,
+   "u": 0.9252,
+   "v": 0.5053
+  }
+ ]
+}

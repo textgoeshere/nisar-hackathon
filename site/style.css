@@ -90,7 +90,7 @@ figcaption { font-size: .9rem; }
 .north { position: absolute; right: 12px; bottom: 12px; width: 34px; height: 34px; z-index: 2; pointer-events: none; opacity: .75; }
 .north svg { display: block; width: 100%; height: 100%; }
 .north circle { fill: #0b0f1999; stroke: #fff3; stroke-width: 1; }
-.north path { fill: var(--fg); }
+.north path { fill: var(--fg); } .north path.s { fill: #8a90a2aa; }
 .north text { fill: var(--fg); font: 700 7.5px system-ui, sans-serif; text-anchor: middle; dominant-baseline: central; }
 .places { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
 .place { position: absolute; left: 0; top: -9px; height: 18px; line-height: 18px; padding-left: 9px; white-space: nowrap; font: 500 11px system-ui, sans-serif;

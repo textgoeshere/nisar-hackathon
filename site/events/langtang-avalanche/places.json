@@ -1,0 +1,77 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Shyaphru",
+   "place": "village",
+   "population": 0,
+   "lon": 85.33725,
+   "lat": 28.16367,
+   "u": 0.2227,
+   "v": 0.5967
+  },
+  {
+   "name": "Labi",
+   "place": "village",
+   "population": 0,
+   "lon": 85.40256,
+   "lat": 28.32031,
+   "u": 0.3888,
+   "v": 0.165
+  },
+  {
+   "name": "Brabal",
+   "place": "village",
+   "population": 0,
+   "lon": 85.33916,
+   "lat": 28.14357,
+   "u": 0.2266,
+   "v": 0.6524
+  },
+  {
+   "name": "Chaggang",
+   "place": "village",
+   "population": 0,
+   "lon": 85.43953,
+   "lat": 28.36093,
+   "u": 0.4809,
+   "v": 0.0536
+  },
+  {
+   "name": "Sêrqung",
+   "place": "village",
+   "population": 0,
+   "lon": 85.42913,
+   "lat": 28.33851,
+   "u": 0.4546,
+   "v": 0.1154
+  },
+  {
+   "name": "Goba",
+   "place": "village",
+   "population": 0,
+   "lon": 85.45657,
+   "lat": 28.36552,
+   "u": 0.5228,
+   "v": 0.0415
+  },
+  {
+   "name": "Aamachhodingmo",
+   "place": "village",
+   "population": 0,
+   "lon": 85.31309,
+   "lat": 28.17058,
+   "u": 0.1637,
+   "v": 0.5768
+  },
+  {
+   "name": "Gosaikunda",
+   "place": "village",
+   "population": 0,
+   "lon": 85.29852,
+   "lat": 28.11036,
+   "u": 0.1256,
+   "v": 0.7431
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Mexico City",
+   "place": "city",
+   "population": 9209944,
+   "lon": -99.13318,
+   "lat": 19.43263,
+   "u": 0.4932,
+   "v": 0.4947
+  },
+  {
+   "name": "Ecatepec de Morelos",
+   "place": "city",
+   "population": 1645352,
+   "lon": -99.04873,
+   "lat": 19.59941,
+   "u": 0.6706,
+   "v": 0.1257
+  },
+  {
+   "name": "Nezahualcóyotl",
+   "place": "city",
+   "population": 1077208,
+   "lon": -99.01815,
+   "lat": 19.4079,
+   "u": 0.7347,
+   "v": 0.5496
+  },
+  {
+   "name": "Naucalpan de Juárez",
+   "place": "city",
+   "population": 792211,
+   "lon": -99.2328,
+   "lat": 19.47884,
+   "u": 0.2842,
+   "v": 0.3923
+  },
+  {
+   "name": "Tlalnepantla",
+   "place": "city",
+   "population": 653410,
+   "lon": -99.19551,
+   "lat": 19.537,
+   "u": 0.3626,
+   "v": 0.2636
+  },
+  {
+   "name": "Chimalhuacán",
+   "place": "city",
+   "population": 612383,
+   "lon": -98.95801,
+   "lat": 19.43393,
+   "u": 0.8609,
+   "v": 0.492
+  },
+  {
+   "name": "Atizapán de Zaragoza",
+   "place": "city",
+   "population": 523674,
+   "lon": -99.23537,
+   "lat": 19.54433,
+   "u": 0.279,
+   "v": 0.2473
+  },
+  {
+   "name": "Ciudad López Mateos",
+   "place": "city",
+   "population": 489160,
+   "lon": -99.24395,
+   "lat": 19.5734,
+   "u": 0.2611,
+   "v": 0.1829
+  }
+ ]
+}

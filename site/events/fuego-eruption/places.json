@@ -1,0 +1,77 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Ciudad Vieja",
+   "place": "town",
+   "population": 21016,
+   "lon": -90.76186,
+   "lat": 14.52361,
+   "u": 0.9291,
+   "v": 0.3194
+  },
+  {
+   "name": "Alotenango",
+   "place": "town",
+   "population": 0,
+   "lon": -90.80453,
+   "lat": 14.48626,
+   "u": 0.7733,
+   "v": 0.4548
+  },
+  {
+   "name": "Pastores",
+   "place": "town",
+   "population": 0,
+   "lon": -90.75512,
+   "lat": 14.59329,
+   "u": 0.9576,
+   "v": 0.0624
+  },
+  {
+   "name": "Acatenango",
+   "place": "town",
+   "population": 0,
+   "lon": -90.94231,
+   "lat": 14.55389,
+   "u": 0.2817,
+   "v": 0.1966
+  },
+  {
+   "name": "Yepocapa",
+   "place": "town",
+   "population": 0,
+   "lon": -90.95481,
+   "lat": 14.50038,
+   "u": 0.2333,
+   "v": 0.3935
+  },
+  {
+   "name": "San Antonio Aguas Calientes",
+   "place": "town",
+   "population": 9446,
+   "lon": -90.78123,
+   "lat": 14.54755,
+   "u": 0.8609,
+   "v": 0.2298
+  },
+  {
+   "name": "San Miguel Dueñas",
+   "place": "town",
+   "population": 7392,
+   "lon": -90.79894,
+   "lat": 14.52267,
+   "u": 0.7956,
+   "v": 0.3206
+  },
+  {
+   "name": "San Andrés Osuna",
+   "place": "village",
+   "population": 4563,
+   "lon": -90.92111,
+   "lat": 14.37496,
+   "u": 0.3467,
+   "v": 0.8589
+  }
+ ]
+}
