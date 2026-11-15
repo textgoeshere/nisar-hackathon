@@ -133,7 +133,7 @@ def make(ev: Event) -> dict:
               "noise_method": "robust scatter of differences between neighbouring measured cells; includes real gradients, so it is an upper-ish bound"}
     line = {"kind": "rupture", "name": "the rupture", "raster": "line.u8", "raster_scale": SCALE,
             "raster_unit": "cm within 500 m", "threshold": THRESHOLD_CM, "threshold_raw": int(THRESHOLD_CM / SCALE),
-            "valid": "line-valid.u8", "vector": "line.json",
+            "valid": "line-valid.u8", "vector": "line.json", "measured_reach_m": REACH_M,
             "measured_means": f"the radar sees a step of {THRESHOLD_CM:.0f} cm or more in ground motion within 1 km of this part of the line",
             "dashed_means": "the line is drawn from the field survey only: the radar has no reading, or sees less than "
                             f"{THRESHOLD_CM:.0f} cm of step, near this part of the line",

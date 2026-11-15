@@ -195,10 +195,27 @@ def segments_cross(a, b, c, d) -> bool:
 
 
 def cut_crosses(cut, polylines) -> bool:
+    """True if the stroke `cut` crosses any polyline transversally: the line passes from one side of the stroke to the other
+    inside the stroke's extent.  Touching a tip or a corner without passing through does not count."""
+    a, b = np.array(cut[0], float), np.array(cut[1], float)
+    d = b - a
+    L2 = float(d @ d)
     for pl in polylines:
-        P = np.asarray(pl, float)
-        for i in range(len(P) - 1):
-            if segments_cross(cut[0], cut[1], P[i][:2], P[i + 1][:2]):
+        P = np.asarray(pl, float)[:, :2]
+        s = d[0] * (P[:, 1] - a[1]) - d[1] * (P[:, 0] - a[0])
+        sg = np.sign(s)
+        nz = np.nonzero(sg)[0]
+        if not len(nz):
+            continue
+        sg[:nz[0]] = sg[nz[0]]
+        for i in range(1, len(sg)):
+            if sg[i] == 0:
+                sg[i] = sg[i - 1]
+        for i in np.nonzero(sg[:-1] * sg[1:] < 0)[0]:
+            den = s[i] - s[i + 1]
+            t = s[i] / den if den != 0 else 0.0
+            p = P[i] + (P[i + 1] - P[i]) * t
+            if -1e-9 <= ((p - a) @ d) / L2 <= 1 + 1e-9:
                 return True
     return False
 

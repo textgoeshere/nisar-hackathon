@@ -45,6 +45,7 @@
   "threshold_raw": 50,
   "valid": "line-valid.u8",
   "vector": "line.json",
+  "measured_reach_m": 1000.0,
   "measured_means": "the radar sees a step of 10 cm or more in ground motion within 1 km of this part of the line",
   "dashed_means": "the line is drawn from the field survey only: the radar has no reading, or sees less than 10 cm of step, near this part of the line",
   "caveat": "The line is straight segments between field-survey sites, not a trace of the break. The sites are placed by place name (location confidence in line.json), good to about 1 km. Sites located only by town name (confidence 'low') are listed but left off the line. The line is not extended beyond the surveyed sites. Where the plain gave no radar signal the line is dashed.",
@@ -76,11 +77,11 @@
    ],
    "cut": [
     [
-     0.37978,
+     0.37977,
      0.75782
     ],
     [
-     0.44662,
+     0.44663,
      0.80758
     ]
    ],
@@ -135,11 +136,11 @@
    "cut": [
     [
      0.34897,
-     0.81369
+     0.8137
     ],
     [
      0.42083,
-     0.85591
+     0.8559
     ]
    ],
    "cut_through": "the story",
@@ -159,16 +160,16 @@
    "distance_m": 1780,
    "nearest_line_uv": [
     0.36715,
-    0.84884
+    0.84885
    ],
    "cut": [
     [
      0.33949,
-     0.81768
+     0.81769
     ],
     [
      0.39481,
-     0.88
+     0.88001
     ]
    ],
    "cut_through": "the nearest point of the line",
@@ -192,15 +193,15 @@
    ],
    "cut": [
     [
-     0.52524,
-     0.46417
+     0.54505,
+     0.4541
     ],
     [
-     0.58145,
-     0.52569
+     0.56165,
+     0.53576
     ]
    ],
-   "cut_through": "the nearest point of the line",
+   "cut_through": "the nearest point of the line (aimed from the story, because the nearest point is a tip of the line)",
    "radar": "Radar here: 13.6 cm toward the satellite; up to 5 cm of change within 500 m."
   },
   {
@@ -221,15 +222,15 @@
    ],
    "cut": [
     [
-     0.52524,
-     0.46417
+     0.51295,
+     0.4754
     ],
     [
-     0.58145,
-     0.52569
+     0.56914,
+     0.53694
     ]
    ],
-   "cut_through": "the nearest point of the line",
+   "cut_through": "a point of the line 1 km along it from the nearest point (the nearest point is an end of the line)",
    "radar": "Radar here: 1.1 cm toward the satellite; up to 2 cm of change within 500 m."
   },
   {
@@ -246,16 +247,16 @@
    "distance_m": 1240,
    "nearest_line_uv": [
     0.45841,
-    0.6598
+    0.65978
    ],
    "cut": [
     [
      0.41681,
-     0.6622
+     0.66219
     ],
     [
-     0.50001,
-     0.65739
+     0.5,
+     0.65738
     ]
    ],
    "cut_through": "the nearest point of the line",
@@ -315,8 +316,8 @@
      0.71821
     ],
     [
-     0.48343,
-     0.75518
+     0.48344,
+     0.75517
     ]
    ],
    "cut_through": "the story",
@@ -343,12 +344,12 @@
    ],
    "cut": [
     [
-     0.38969,
+     0.3897,
      0.74668
     ],
     [
-     0.45667,
-     0.79627
+     0.45666,
+     0.79628
     ]
    ],
    "cut_through": "the story",
@@ -414,7 +415,7 @@
  },
  "basemap": {
   "file": "basemap.json",
-  "bytes": 1066957,
+  "bytes": 1006833,
   "minor_classes": [
    "unclassified",
    "residential"

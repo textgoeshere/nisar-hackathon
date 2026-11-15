@@ -7,7 +7,7 @@ import re
 import numpy as np
 from scipy import ndimage
 
-from .common import Event, make_cut, nearest_line, shown_stories
+from .common import Event, cut_crosses, make_cut, nearest_line, shown_stories
 
 ON_LINE_M = 600.0
 CUT_M = 5000.0
@@ -66,7 +66,7 @@ def _digits(s: str) -> set[str]:
 
 
 def build(ev: Event, prod: dict) -> list[dict]:
-    lines = prod["lines_uv"]
+    lines = [np.round(np.asarray(l, float)[:, :2], 5) for l in prod["lines_uv"]]      # as stored, so the crossing test matches check.py
     out = []
     items = shown_stories(ev)
     entries = []
@@ -92,9 +92,31 @@ def build(ev: Event, prod: dict) -> list[dict]:
             dist, q, tan, _ = near
             on = dist <= ON_LINE_M
             centre = (u, v) if on else q
+            cut = make_cut(ev, centre, tan, CUT_M)
+            note = "the story" if on else "the nearest point of the line"
+            if not cut_crosses(cut, lines):
+                # the nearest point is a tip or an end of the line, where "square to the line" cannot cross it
+                w, h = ev.extent_m
+                found = False
+                if dist > 0:
+                    d = np.array([(q[0] - u) * w, (q[1] - v) * h])
+                    d = d / np.hypot(*d)
+                    cand = make_cut(ev, centre, np.array([d[1], -d[0]]), CUT_M)         # aimed from the story at that point
+                    if cut_crosses(cand, lines):
+                        cut, found = cand, True
+                        note += " (aimed from the story, because the nearest point is a tip of the line)"
+                for shift in (1000.0, 2000.0, 3000.0) if not found else ():
+                    for sgn in (1, -1):
+                        c2 = (centre[0] + sgn * tan[0] * shift / w, centre[1] + sgn * tan[1] * shift / h)
+                        cand = make_cut(ev, c2, tan, CUT_M)
+                        if cut_crosses(cand, lines):
+                            cut, found = cand, True
+                            note = f"a point of the line {int(shift / 1000)} km along it from the nearest point (the nearest point is an end of the line)"
+                            break
+                    if found:
+                        break
             rec |= {"on_line": on, "distance_m": int(round(dist, -1)) if dist >= 100 else int(round(dist)),
-                    "nearest_line_uv": [round(q[0], 5), round(q[1], 5)], "cut": make_cut(ev, centre, tan, CUT_M),
-                    "cut_through": "the story" if on else "the nearest point of the line"}
+                    "nearest_line_uv": [round(q[0], 5), round(q[1], 5)], "cut": cut, "cut_through": note}
         else:
             rec |= {"on_line": None, "distance_m": None, "nearest_line_uv": None, "cut": None, "cut_through": None}
         rec["radar"] = radar

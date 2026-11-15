@@ -1,0 +1,277 @@
+{
+ "slug": "etna-eruption",
+ "name": "Etna fissure eruption, Italy",
+ "kind": "volcano",
+ "date": "2026-08-07",
+ "grid": {
+  "epsg": 32633,
+  "left": 485040.0,
+  "top": 4193040.0,
+  "dx": 80.0,
+  "nx": 375,
+  "ny": 375,
+  "bounds_lonlat": [
+   14.829873567772083,
+   37.61433731394812,
+   15.171036195526636,
+   37.88485889031689
+  ]
+ },
+ "focus": {
+  "u0": 0.45333,
+  "v0": 0.4,
+  "u1": 0.8,
+  "v1": 0.66667,
+  "label": "Valle del Bove, 10 km across"
+ },
+ "signal": {
+  "file": "../../../events/etna-eruption/coh.u8",
+  "dtype": "uint8",
+  "scale": 0.00392156862745098,
+  "unit": "coherence (0 to 1)",
+  "label": "Radar coherence across the event",
+  "valid": null,
+  "positive": "1 = the surface looks the same in both passes",
+  "noise": 0.05,
+  "noise_method": "robust scatter of differences between neighbouring cells (includes real gradients)"
+ },
+ "line": {
+  "kind": "front",
+  "name": "the edge of the new lava",
+  "raster": "line.u8",
+  "raster_scale": 0.00392156862745098,
+  "raster_unit": "coherence lost, 0 to 1 (a copy of cohdrop.u8)",
+  "threshold": 0.35,
+  "threshold_raw": 89,
+  "valid": null,
+  "vector": "line.json",
+  "measured_means": "a patch where coherence loss reaches 0.5: the radar clearly stopped matching itself there",
+  "dashed_means": "a patch of coherence loss above 0.35 that never reaches 0.5: possible lava, possible noise",
+  "caveat": "Coherence loss is not lava: snow, ash, vegetation and steep slopes also break the match. The outline is the 0.35 contour of the coherence loss (lightly smoothed), kept only for patches of 25 cells or more within 2.5 km of the three stories that sit on the new lava. Dropped: the noisy radial streaks on the north-east and south flanks, which follow gullies and are not tied to any story. The tongue toward the lava-front story is thin (a few cells, about 400 m) and its loss only reaches about 0.4.",
+  "present": true
+ },
+ "headline": {
+  "value": "1.7%",
+  "caption": "of the scene lost its radar match (coherence drop), per the main page",
+  "source": "NISAR (provisional)",
+  "u": 0.58,
+  "v": 0.49467
+ },
+ "stories": [
+  {
+   "id": "etna-01",
+   "n": 1,
+   "kind": "story",
+   "title": "Lava front at the foot of Rocca Capra, burning broom and pine",
+   "short": "Lava front, Rocca Capra",
+   "side": "affected",
+   "u": 0.6947,
+   "v": 0.5293,
+   "measured_at_spot": false,
+   "on_line": false,
+   "distance_m": 1360,
+   "nearest_line_uv": [
+    0.65323,
+    0.51067
+   ],
+   "cut": [
+    [
+     0.57721,
+     0.47652
+    ],
+    [
+     0.72925,
+     0.54482
+    ]
+   ],
+   "cut_through": "the nearest point of the line (aimed from the story, because the nearest point is a tip of the line)",
+   "radar": "Radar here: coherence 0.09; the radar lost its match. Coherence loss reaches 0.38 within 400 m."
+  },
+  {
+   "id": "etna-02",
+   "n": 2,
+   "kind": "story",
+   "title": "Rocca Capra ridge: the island the lava flowed around",
+   "short": "Rocca Capra ridge",
+   "side": "unaffected",
+   "u": 0.6983,
+   "v": 0.5299,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 1470,
+   "nearest_line_uv": [
+    0.65323,
+    0.51067
+   ],
+   "cut": [
+    [
+     0.57658,
+     0.47797
+    ],
+    [
+     0.72988,
+     0.54337
+    ]
+   ],
+   "cut_through": "the nearest point of the line (aimed from the story, because the nearest point is a tip of the line)",
+   "radar": "Radar here: coherence 0.45. Coherence loss reaches 0.38 within 400 m."
+  },
+  {
+   "id": "etna-03",
+   "n": 3,
+   "kind": "story",
+   "title": "New vent at Monte Rittmann: cone collapse and small pyroclastic flows",
+   "short": "New vent, Monte Rittmann",
+   "side": "affected",
+   "u": 0.5793,
+   "v": 0.4783,
+   "measured_at_spot": false,
+   "on_line": true,
+   "distance_m": 20,
+   "nearest_line_uv": [
+    0.57943,
+    0.47894
+   ],
+   "cut": [
+    [
+     0.56206,
+     0.39677
+    ],
+    [
+     0.59654,
+     0.55983
+    ]
+   ],
+   "cut_through": "the story",
+   "radar": "Radar here: coherence 0.11; the radar lost its match. Coherence loss reaches 0.81 within 400 m."
+  },
+  {
+   "id": "etna-04",
+   "n": 4,
+   "kind": "story",
+   "title": "Zafferana Etnea: ash, not lava",
+   "short": "Zafferana: ash, not lava",
+   "side": "unaffected",
+   "u": 0.8115,
+   "v": 0.7083,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 7520,
+   "nearest_line_uv": [
+    0.63067,
+    0.53481
+   ],
+   "cut": [
+    [
+     0.57054,
+     0.47712
+    ],
+    [
+     0.6908,
+     0.5925
+    ]
+   ],
+   "cut_through": "the nearest point of the line (aimed from the story, because the nearest point is a tip of the line)",
+   "radar": "Radar here: coherence 0.63. Coherence loss reaches 0.33 within 400 m."
+  },
+  {
+   "id": "etna-05",
+   "n": 5,
+   "kind": "story",
+   "title": "Fissure activity on the Voragine, seen from Pizzi Deneri",
+   "short": "Voragine fissure",
+   "side": "unaffected",
+   "u": 0.5491,
+   "v": 0.4436,
+   "measured_at_spot": true,
+   "on_line": false,
+   "distance_m": 1090,
+   "nearest_line_uv": [
+    0.55387,
+    0.47978
+   ],
+   "cut": [
+    [
+     0.51403,
+     0.40658
+    ],
+    [
+     0.5937,
+     0.55298
+    ]
+   ],
+   "cut_through": "the nearest point of the line",
+   "radar": "Radar here: coherence 0.34. Coherence loss reaches 0.18 within 400 m."
+  }
+ ],
+ "files": {
+  "basemap": "basemap.json",
+  "hillshade": "hillshade.png",
+  "sea": "sea.png",
+  "line_raster": "line.u8",
+  "line_valid": "line-valid.u8",
+  "line_vector": "line.json",
+  "proof_focus": "proof-focus.jpg",
+  "proof_scene": "proof-scene.jpg"
+ },
+ "hillshade": {
+  "file": "hillshade.png",
+  "scale": 2,
+  "light": "north-west, 45 degrees",
+  "z": 3.0,
+  "flat_ground": 180
+ },
+ "sea": {
+  "file": "sea.png",
+  "present": false,
+  "share": 0.0
+ },
+ "basemap": {
+  "file": "basemap.json",
+  "bytes": 67159,
+  "minor_classes": [
+   "unclassified",
+   "residential"
+  ],
+  "note": "minor roads only inside the focus window"
+ },
+ "credits": [
+  "Radar: NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC",
+  "Map data: © OpenStreetMap contributors (ODbL), via the Overpass API",
+  "Relief: from the DEM in the event data (see the main CREDITS.md)"
+ ],
+ "provisional": true,
+ "checks": {
+  "patches_kept": [
+   {
+    "cells": 352,
+    "peak": 0.83,
+    "row": 185,
+    "col": 217,
+    "near_story_m": 23
+   },
+   {
+    "cells": 51,
+    "peak": 0.76,
+    "row": 193,
+    "col": 203,
+    "near_story_m": 1262
+   }
+  ],
+  "patches_dropped_n": 3,
+  "rings": 3,
+  "kept_cells": 403,
+  "kept_area_km2": 2.58,
+  "coh_at_front_story": 0.09,
+  "cohdrop_pct": [
+   0.01,
+   0.16,
+   0.34
+  ],
+  "cd_etna-01": 0.38,
+  "cd_etna-02": 0.38,
+  "cd_etna-03": 0.81,
+  "cd_etna-04": 0.33,
+  "cd_etna-05": 0.18
+ }
+}
