@@ -259,7 +259,9 @@ Everything each event page shows, from `site/events/<slug>/meta.json` and `stori
 | Story: Las Tablas: the provincial hospital stayed fit to treat patients while Tonosí's was shut | TVN (Panamá); OPS/OMS https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama | news, link only | [tvn-2.com](https://www.tvn-2.com/nacionales/temblor-panama-instalaciones-salud-afectadas-cocle-chitre-lastablas_1_2265992.html) |
 | Establishing shot (not of the event): Parque Belisario Porras Barahona, popularmente llamado Parque Porras, Ciudad de Las Tablas, Provincia de Los Santos, República de Panamá. (2025).jpg | SportingVVE | CC0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Parque_Belisario_Porras_Barahona,_popularmente_llamado_Parque_Porras,_Ciudad_de_Las_Tablas,_Provincia_de_Los_Santos,_Rep%C3%BAblica_de_Panam%C3%A1._(2025).jpg) |
 | Story: Cañas: the mainland village took in the families from the island that sank | OPS/OMS (Pan American Health Organization) | news, link only | [paho.org](https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama) |
+| Establishing shot (not of the event): Camino para Isla Caña.jpg | Ayaita | CC BY-SA 3.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Camino_para_Isla_Ca%C3%B1a.jpg) |
 | Story: Cambutal: across the fault from Tonosí, considered as a place to move Tonosí's patients | TVN (Panamá) | news, link only | [tvn-2.com](https://www.tvn-2.com/nacionales/temblor-panama-instalaciones-salud-afectadas-cocle-chitre-lastablas_1_2265992.html) |
+| Establishing shot (not of the event): PuebloCambutal Los Santos Panama 07.jpg | Ayaita | CC BY-SA 3.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:PuebloCambutal_Los_Santos_Panama_07.jpg) |
 
 ### Yaracuy M7.2 + M7.5 doublet, Venezuela (`venezuela-quake`)
 

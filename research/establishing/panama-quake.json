@@ -46,5 +46,29 @@
   "distance_m": null,
   "found_by": "category: Category:Las Tablas",
   "description": "Belisario Porras Park, Barahona, popularly known as Porras Park, is where the incomparable Tableño carnival converges and takes place for four days."
+ },
+ "panama-08": {
+  "title": "File:Camino para Isla Caña.jpg",
+  "place": "Tonosí",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Camino_para_Isla_Ca%C3%B1a.jpg/960px-Camino_para_Isla_Ca%C3%B1a.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Camino_para_Isla_Ca%C3%B1a.jpg",
+  "credit": "Ayaita",
+  "licence": "CC BY-SA 3.0",
+  "date": "2013-11-02",
+  "distance_m": 7434,
+  "found_by": "pinned",
+  "description": "Road to Cana Island, Los Santos province, Republic of Panama."
+ },
+ "panama-09": {
+  "title": "File:PuebloCambutal Los Santos Panama 07.jpg",
+  "place": "Cambutal",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/PuebloCambutal_Los_Santos_Panama_07.jpg/960px-PuebloCambutal_Los_Santos_Panama_07.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:PuebloCambutal_Los_Santos_Panama_07.jpg",
+  "credit": "Ayaita",
+  "licence": "CC BY-SA 3.0",
+  "date": "2013-12-28",
+  "distance_m": 3297,
+  "found_by": "pinned",
+  "description": "Pueblo de Cambutal, Provincia de los Santos, Panamá."
  }
 }
