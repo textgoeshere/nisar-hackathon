@@ -26,6 +26,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .finish{background:var(--paper);color:#14202a}
 .finish-heading{position:absolute;top:65px;left:78px;font-size:31px;letter-spacing:.13em;font-weight:650;color:#58656b}
 .next-actions{position:absolute;top:158px;left:78px;right:78px;bottom:180px;display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.next-col{min-width:0;display:flex;flex-direction:column}
+.next-url{display:block;margin-top:22px;font-size:30px;letter-spacing:-.01em;color:#375969;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;overflow-wrap:anywhere}
+.next-url:hover{color:#14202a}
 .next-action{display:block;text-decoration:none;border-top:2px solid #14202a30;padding-top:24px;min-width:0}
 .action-preview{height:366px;background:#1a2830;overflow:hidden;position:relative}
 .mini-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:5px}
