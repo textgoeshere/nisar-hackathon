@@ -1,0 +1,18 @@
+{
+  "slug": "kumamoto-quake",
+  "about": "GPS ground movement at the 2026-07-28 Kumamoto earthquake: the input to pipeline/slip.py. Steps in cm: east, north, up.",
+  "source": "research/validation-sources.md, section 2b (NGL GNSS stations, checked by the parent). The steps are NOT published values: they are the median of 7 daily positions before 2026-07-28 against the median of the 7 after (G071 has only 5 after), from Nevada Geodetic Laboratory (NGL) daily positions. The post-event week includes some early afterslip. NGL station ID = GEONET station (J/G + last three digits of the GEONET code); that mapping is inferred from the two agreeing, not looked up.",
+  "gsi_note": "gsi_cm is the value published by the Geospatial Information Authority of Japan (GSI), as quoted in the HERP PDF in the same section: a text string kept as found (size and direction, plus the vertical where given). NGL and GSI agree to within about 1-2 cm.",
+  "stations": [
+    {"id": "J093", "name": "千丁 Senchō", "lat": 32.5464, "lon": 130.6456, "east_cm": 62.3, "north_cm": 61.7, "up_cm": -32.7, "gsi_cm": "86.6 cm NE, -31.7 up"},
+    {"id": "G071", "name": "城南 Jōnan", "lat": 32.7092, "lon": 130.7484, "east_cm": 4.4, "north_cm": 44.6, "up_cm": 10.7, "gsi_cm": "43.1 cm N, +9.6 up",
+     "beyond_line_end": true, "note": "Sits about 2.8 km beyond the north-east end of the drawn line, where the break continued but was located only by town name. Left out of the fit; its miss is reported."},
+    {"id": "J702", "name": "泉 Izumi", "lat": 32.5767, "lon": 130.7949, "east_cm": -5.6, "north_cm": -17.0, "up_cm": 2.9, "gsi_cm": "17.5 cm S, +3.4 up"},
+    {"id": "J773", "name": "大矢野 Ōyano", "lat": 32.5817, "lon": 130.4304, "east_cm": 12.2, "north_cm": 4.7, "up_cm": -0.2, "gsi_cm": "12.6 cm"},
+    {"id": "J465", "name": "熊本 Kumamoto", "lat": 32.8421, "lon": 130.7648, "east_cm": -1.0, "north_cm": 10.6, "up_cm": 0.4, "gsi_cm": "10.0 cm"},
+    {"id": "J464", "name": "玉名 Tamana", "lat": 32.9335, "lon": 130.5477, "east_cm": -1.5, "north_cm": 5.6, "up_cm": -0.6, "gsi_cm": "5.5 cm"},
+    {"id": "J701", "name": "長陽 Chōyō", "lat": 32.8707, "lon": 130.9962, "east_cm": -2.4, "north_cm": -0.7, "up_cm": -0.3, "gsi_cm": "2.3 cm"},
+    {"id": "G225", "name": "G225", "lat": 32.6927, "lon": 130.9886, "east_cm": -7.6, "north_cm": -2.2, "up_cm": 1.8, "gsi_cm": null}
+  ],
+  "not_used": "Just outside the frame, so not used: G075 (球磨) +1.9 E / -11.9 N (GSI 11.3 cm); G265 (installed 2026-07-08) +1.7 / -8.8; J700 -0.4 / +3.3; J466 -4.1 / -1.2. G072 and G169 ended in 2008 and 2018."
+}
