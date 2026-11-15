@@ -1,0 +1,62 @@
+{
+ "slug": "mexico-city-subsidence",
+ "notes": "NISAR stack 2025-10-30 -> 2026-10-13 (0.95 yr); values are line-of-sight rates. The boundary text's '-45 cm' peaks in Chalco/Tlahuac are real pixels but come from patchy, low-coherence ground (35-46% measured within 1 km), so the Chalco fact gives the band average and flags the peaks. The 'hills +2 to +3 cm' reading is kept as 'effectively stable, likely a reference offset'. The Angel de la Independencia (14 steps since 1910) reads only -0.9 cm/yr now, so it is left out of the patch facts.",
+ "facts": [
+  {
+   "title": "Valle de Chalco and Tláhuac: the fastest-sinking lakebed",
+   "text": "Across the old Chalco lakebed from Tláhuac to Valle de Chalco, NISAR sees the ground sinking about 14 cm a year on average along its line of sight, and over 25 cm a year in the fastest twentieth. A few patches read 45 cm or more in the year, but those come from patchy, poorly measured ground.",
+   "kind": "motion", "side": "affected",
+   "shape": {"box": [-99.06, 19.25, -98.96, 19.28]},
+   "check": {"rate_mean_cm_yr": [-20, -8]},
+   "source": "NISAR analysis | Chaussard et al. 2021, JGR Solid Earth, doi:10.1029/2020JB020648 (rates up to 50 cm/yr)"
+  },
+  {
+   "title": "Old Lake Texcoco by Neza and the airport sinks ~20 cm/yr",
+   "text": "The old Texcoco lakebed between Nezahualcóyotl and the airport sinks about 20 cm a year along NISAR's line of sight, up to about 27 cm a year. Groundwater pumped out of the clay lets it compact, and it doesn't come back.",
+   "kind": "motion", "side": "affected",
+   "shape": {"box": [-99.06, 19.42, -98.99, 19.46]},
+   "check": {"rate_mean_cm_yr": [-25, -15]},
+   "source": "NISAR analysis | NASA/JPL PIA26709 NISAR subsidence map https://commons.wikimedia.org/wiki/File:US-Indian_Spacecraft_Captures_Mexico_City_Subsidence_(PIA26709).jpg"
+  },
+  {
+   "title": "GPS at the airport: 27 cm down in a year",
+   "text": "The MMX1 GPS station beside the airport dropped about 27 cm over the same year (24.5 cm between its first and last week). NISAR reads about 18 cm a year around it. A radar line of sight that leans away from vertical sees only part of a straight drop, so the two agree in kind.",
+   "kind": "measurement", "side": "affected",
+   "shape": {"circle": [-99.0684, 19.4317], "radius_km": 1},
+   "check": {"rate_mean_cm_yr": [-24, -12]},
+   "source": "NISAR analysis | Nevada Geodetic Laboratory station MMX1 (own linear fit over the NISAR window; MIDAS https://geodesy.unr.edu/velocities/midas.IGS.txt)"
+  },
+  {
+   "title": "The historic centre sinks ~6 cm/yr, unevenly",
+   "text": "Around the Zócalo, the Metropolitan Cathedral and the Templo de la Santísima Trinidad, now below street level, the ground sinks about 6 cm a year along NISAR's line of sight, up to about 8 cm. The cathedral has settled unevenly into the lakebed for centuries.",
+   "kind": "damage", "side": "affected",
+   "shape": {"circle": [-99.13, 19.433], "radius_km": 1},
+   "check": {"rate_mean_cm_yr": [-9, -4]},
+   "source": "NISAR analysis | Wikimedia Commons https://commons.wikimedia.org/wiki/File:Catedral_Metropolitana_de_la_Ciudad_de_M%C3%A9xico_1.jpg"
+  },
+  {
+   "title": "Where the lakebed meets the hill, the ground cracks",
+   "text": "At the edge of the Tláhuac / Valle de Chalco lakebed, sinking ground pulls away from the volcanic hill beside it, and a kilometre-long crack runs under homes. Within 1 km NISAR's rate changes by about 19 cm a year, from near zero on the hill to about -16 cm a year on the clay.",
+   "kind": "boundary", "side": "affected",
+   "shape": {"circle": [-98.9655, 19.311], "radius_km": 1},
+   "check": {"step_min": 12},
+   "source": "NISAR analysis | Milenio 2021 https://www.milenio.com/politica/comunidad/tlahuac-valle-chalco-enorme-grieta-afecta-calles-viviendas (crack located to about 300 m)"
+  },
+  {
+   "title": "Pedregal lava and Ciudad Universitaria stay put",
+   "text": "The Xitle lava under the Pedregal and Ciudad Universitaria isn't clay, so it doesn't sink. NISAR reads about +3 cm a year here, which is most likely an offset in the reference rather than real uplift: effectively stable.",
+   "kind": "motion", "side": "unaffected",
+   "shape": {"circle": [-99.19, 19.33], "radius_km": 1.5},
+   "check": {"rate_mean_cm_yr": [0, 5]},
+   "source": "NISAR analysis"
+  },
+  {
+   "title": "Sierra de Santa Catarina: a volcanic island that holds",
+   "text": "The volcanic ridge of the Sierra de Santa Catarina rises between the Texcoco and Chalco lakebeds. NISAR reads about +2 cm a year on it (the same likely reference offset as the other hills), while the lakebeds either side sink 14-20 cm a year.",
+   "kind": "motion", "side": "unaffected",
+   "shape": {"circle": [-99.033, 19.317], "radius_km": 2},
+   "check": {"rate_mean_cm_yr": [-1, 5]},
+   "source": "NISAR analysis"
+  }
+ ]
+}
