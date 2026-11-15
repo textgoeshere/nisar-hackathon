@@ -146,6 +146,21 @@ patches cost the fires under 0.5 points of perimeter overlap (Aspen Acres 13.2% 
 Little Giant 20.1% → 19.8%) and cut the area mapped outside the perimeter (0.63% → 0.60%,
 0.15% → 0.10%).
 
+**New land at sea (volcanic islands, `"newland": true`).** At Anak Krakatau coherence is ~0 over
+both the sea and the fresh lava, so it can't say where the coast grew. Backscatter can: calm sea is
+radar-dark (HH ~ -20 dB) and rock bright (~ -5 dB). [`pipeline/newland.py`](../pipeline/newland.py)
+reads every GCOV pass June-October from both stacks (ascending track 10, descending track 119) on a
+20 m grid, takes the median HH per stack before and after, calls land > -15.5 dB on both stacks,
+and keeps the land patch under the vent (gaps closed, holes filled, so a dark crater isn't sea).
+New land = island after minus island before: **26.5 ha**, nearly all on the W-SW-S shore, dark on
+every pass to 2 Sep and bright from the first pass after the eruption (6 Sep) on; Sentinel-2 shows
+the same cells water-coloured before (99%) and not after (11%). Badan Geologi's figure is 32.8 ha.
+The two reported islets don't show (no new bright cell within 500 m of either pin). The Copernicus
+DEM can't stand in for the old coast: it predates the 2018 flank collapse. The north flank also went
+~5 dB darker on both stacks after the eruption (land, likely a fresh ash cover), so "island after"
+is smaller than "before": only the gain is used. The result is a figure (`new-land.png`) and the
+page note; the 3D layers are unchanged.
+
 In monsoon floods every Sentinel-2 scene can be clouded out, so the draped ground image falls back
 to the before composite, then to radar brightness.
 

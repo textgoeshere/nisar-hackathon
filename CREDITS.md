@@ -108,6 +108,7 @@ Everything each event page shows, from `site/events/<slug>/meta.json` and `stori
 |---|---|---|---|
 | NISAR ground motion and coherence | NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC | free and open (NASA Earth science data policy) | [search.asf.alaska.edu](https://search.asf.alaska.edu) |
 | Optical imagery (draped ground) | Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search | Copernicus Sentinel data terms (free and open, with attribution) | [earth-search.aws.element84.com](https://earth-search.aws.element84.com/v1) |
+| NISAR radar backscatter | NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC | free and open (NASA Earth science data policy) | [search.asf.alaska.edu](https://search.asf.alaska.edu) |
 | Story: 32.8 ha of new land on the west shore of Anak Krakatau | DW Indonesia / detikNews, quoting PVMBG head Rita Susilawati (Badan Geologi) | news, link only | [dw.com](https://www.dw.com/id/analisis-badan-geologi-soal-munculnya-daratan-baru-di-dekat-gunung-anak-krakatau/a-79405451) |
 | Establishing shot (not of the event): Anak Krakatau, january 2016.jpg | Tyke | CC BY-SA 4.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Anak_Krakatau,_january_2016.jpg) |
 | Story: New islet 760 m off the northwest coast | M. Riezko Bima Elko Prasetyo / ANTARA, quoting Badan Geologi | news, link only | [babel.antaranews.com](https://babel.antaranews.com/berita/584019/badan-geologi-deteksi-kemunculan-dua-pulau-baru-di-sekitar-krakatau) |
