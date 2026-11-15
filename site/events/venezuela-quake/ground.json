@@ -1,0 +1,1141 @@
+{
+ "slug": "venezuela-quake",
+ "facts": [
+  {
+   "id": "venezuela-quake-g1",
+   "title": "A sharp E-W step in the radar north of Urama and Morón",
+   "text": "At about 10.51-10.52°N, from 68.45°W east to Morón, NISAR's motion jumps by up to about 30 cm over 1.5-2 km, with a thin low-coherence seam. Copernicus EMS's Sentinel-1 map shows a step of the same size here (its sign convention is not resolved). GEER found no surface rupture in the field in this area.",
+   "kind": "boundary",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -68.45013,
+       10.5037
+      ],
+      [
+       -68.20014,
+       10.5007
+      ],
+      [
+       -68.19986,
+       10.5233
+      ],
+      [
+       -68.44987,
+       10.5263
+      ],
+      [
+       -68.45013,
+       10.5037
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.5301,
+     0.4045
+    ],
+    [
+     0.8721,
+     0.408
+    ],
+    [
+     0.8724,
+     0.3767
+    ],
+    [
+     0.5304,
+     0.3733
+    ],
+    [
+     0.5301,
+     0.4045
+    ]
+   ],
+   "anchor": [
+    0.7005,
+    0.3905
+   ],
+   "values": {
+    "pixels": 11055,
+    "measured_pct": 64.5,
+    "coherence_mean": 0.35,
+    "coherence_drop_pct": 1.8,
+    "coherence_drop_km2": 1.24,
+    "los_mean_cm": 1.6,
+    "los_p5_cm": -21.8,
+    "los_p95_cm": 14.8,
+    "step_cm": 36.6
+   },
+   "source": "NISAR analysis | Copernicus EMS EMSR884 AOI00 GRM https://rapidmapping.emergency.copernicus.eu/backend/EMSR884/AOI00/GRM_PRODUCT/EMSR884_AOI00_GRM_PRODUCT_v2.zip"
+  },
+  {
+   "id": "venezuela-quake-g2",
+   "title": "North of the step, the coastal plain moved ~20 cm toward",
+   "text": "On the Boca de Aroa / Tucacas side, the coastal plain moved about +22 cm along NISAR's line of sight (16 to 33 cm). About half of it is measured. At Boca de Aroa sand and water boiled up through cracks during the shaking.",
+   "kind": "motion",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -68.4,
+       10.65
+      ],
+      [
+       -68.2,
+       10.65
+      ],
+      [
+       -68.2,
+       10.53
+      ],
+      [
+       -68.4,
+       10.53
+      ],
+      [
+       -68.4,
+       10.65
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.5983,
+     0.2022
+    ],
+    [
+     0.8717,
+     0.2016
+    ],
+    [
+     0.8722,
+     0.3675
+    ],
+    [
+     0.5986,
+     0.3681
+    ],
+    [
+     0.5983,
+     0.2022
+    ]
+   ],
+   "anchor": [
+    0.7355,
+    0.2845
+   ],
+   "values": {
+    "pixels": 45764,
+    "measured_pct": 49.8,
+    "coherence_mean": 0.31,
+    "coherence_drop_pct": 5.6,
+    "coherence_drop_km2": 16.49,
+    "los_mean_cm": 21.7,
+    "los_p5_cm": 15.7,
+    "los_p95_cm": 33.0,
+    "step_cm": 17.3
+   },
+   "source": "NISAR analysis | GEER-087 https://geerassociation.org/?view=geerreports&id=117 (Boca de Aroa ejecta, StEER media)"
+  },
+  {
+   "id": "venezuela-quake-g3",
+   "title": "South of the step, Urama to Morón moved ~17 cm away",
+   "text": "South of the step, from Urama to Morón, the ground moved about 17 cm away from the satellite (10 to 25 cm), and most of it is measured.",
+   "kind": "motion",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -68.4,
+       10.5
+      ],
+      [
+       -68.18,
+       10.5
+      ],
+      [
+       -68.18,
+       10.4
+      ],
+      [
+       -68.4,
+       10.4
+      ],
+      [
+       -68.4,
+       10.5
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.5987,
+     0.4095
+    ],
+    [
+     0.8996,
+     0.4088
+    ],
+    [
+     0.9,
+     0.5471
+    ],
+    [
+     0.599,
+     0.5477
+    ],
+    [
+     0.5987,
+     0.4095
+    ]
+   ],
+   "anchor": [
+    0.7495,
+    0.4785
+   ],
+   "values": {
+    "pixels": 42046,
+    "measured_pct": 83.1,
+    "coherence_mean": 0.44,
+    "coherence_drop_pct": 0.4,
+    "coherence_drop_km2": 1.1,
+    "los_mean_cm": -17.4,
+    "los_p5_cm": -25.1,
+    "los_p95_cm": -9.6,
+    "step_cm": 15.5
+   },
+   "source": "NISAR analysis"
+  },
+  {
+   "id": "venezuela-quake-g4",
+   "title": "Morón: 8 buildings destroyed, 39 damaged, on the step",
+   "text": "Copernicus EMS mapped 8 destroyed and 39 damaged buildings in Morón from satellite images; in Las Colinas de Morón 16 houses fell and two women were killed. The damage sits right where NISAR's motion jumps, from about -28 to -6 cm within this area.",
+   "kind": "damage",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -68.25,
+       10.52
+      ],
+      [
+       -68.18,
+       10.52
+      ],
+      [
+       -68.18,
+       10.47
+      ],
+      [
+       -68.25,
+       10.47
+      ],
+      [
+       -68.25,
+       10.52
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.8038,
+     0.3814
+    ],
+    [
+     0.8996,
+     0.3812
+    ],
+    [
+     0.8997,
+     0.4503
+    ],
+    [
+     0.804,
+     0.4506
+    ],
+    [
+     0.8038,
+     0.3814
+    ]
+   ],
+   "anchor": [
+    0.8515,
+    0.4155
+   ],
+   "values": {
+    "pixels": 6790,
+    "measured_pct": 78.8,
+    "coherence_mean": 0.43,
+    "coherence_drop_pct": 2.8,
+    "coherence_drop_km2": 1.24,
+    "los_mean_cm": -21.8,
+    "los_p5_cm": -27.7,
+    "los_p95_cm": -5.9,
+    "step_cm": 21.8
+   },
+   "source": "NISAR analysis | Copernicus EMS EMSR884 AOI06 https://rapidmapping.emergency.copernicus.eu/backend/EMSR884/AOI06/GRA_MONIT01/EMSR884_AOI06_GRA_MONIT01_v2.zip; Diario de Los Andes https://diariodelosandes.com/carabobo-16-viviendas-colapsaron-en-las-colinas-de-moron-y-250-familias-siguen-sin-volver-a-sus-casas/"
+  },
+  {
+   "id": "venezuela-quake-g5",
+   "title": "Pueblo Farriar: a 380 m crack along the river bank",
+   "text": "At Pueblo Farriar a fissure about 380 m long opened within 3 m of the river channel: the bank spread toward the river, not a fault offset. NISAR sees smooth ground here, about +3 cm, with almost no step within 1 km.",
+   "kind": "damage",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -68.5526,
+       10.46569
+      ],
+      [
+       -68.55267,
+       10.46687
+      ],
+      [
+       -68.5529,
+       10.46803
+      ],
+      [
+       -68.55329,
+       10.46915
+      ],
+      [
+       -68.55381,
+       10.47021
+      ],
+      [
+       -68.55448,
+       10.47119
+      ],
+      [
+       -68.55526,
+       10.47208
+      ],
+      [
+       -68.55616,
+       10.47287
+      ],
+      [
+       -68.55715,
+       10.47352
+      ],
+      [
+       -68.55823,
+       10.47405
+      ],
+      [
+       -68.55936,
+       10.47443
+      ],
+      [
+       -68.56053,
+       10.47466
+      ],
+      [
+       -68.56172,
+       10.47474
+      ],
+      [
+       -68.56291,
+       10.47467
+      ],
+      [
+       -68.56409,
+       10.47444
+      ],
+      [
+       -68.56522,
+       10.47406
+      ],
+      [
+       -68.56629,
+       10.47354
+      ],
+      [
+       -68.56729,
+       10.47288
+      ],
+      [
+       -68.56819,
+       10.4721
+      ],
+      [
+       -68.56898,
+       10.47121
+      ],
+      [
+       -68.56964,
+       10.47023
+      ],
+      [
+       -68.57017,
+       10.46917
+      ],
+      [
+       -68.57056,
+       10.46805
+      ],
+      [
+       -68.57079,
+       10.46689
+      ],
+      [
+       -68.57087,
+       10.46571
+      ],
+      [
+       -68.57079,
+       10.46453
+      ],
+      [
+       -68.57056,
+       10.46337
+      ],
+      [
+       -68.57018,
+       10.46225
+      ],
+      [
+       -68.56965,
+       10.46119
+      ],
+      [
+       -68.56899,
+       10.4602
+      ],
+      [
+       -68.5682,
+       10.45931
+      ],
+      [
+       -68.56731,
+       10.45853
+      ],
+      [
+       -68.56631,
+       10.45787
+      ],
+      [
+       -68.56524,
+       10.45735
+      ],
+      [
+       -68.56411,
+       10.45697
+      ],
+      [
+       -68.56294,
+       10.45673
+      ],
+      [
+       -68.56175,
+       10.45665
+      ],
+      [
+       -68.56055,
+       10.45673
+      ],
+      [
+       -68.55938,
+       10.45696
+      ],
+      [
+       -68.55825,
+       10.45734
+      ],
+      [
+       -68.55718,
+       10.45786
+      ],
+      [
+       -68.55618,
+       10.45852
+      ],
+      [
+       -68.55528,
+       10.45929
+      ],
+      [
+       -68.55449,
+       10.46018
+      ],
+      [
+       -68.55383,
+       10.46116
+      ],
+      [
+       -68.5533,
+       10.46223
+      ],
+      [
+       -68.55291,
+       10.46334
+      ],
+      [
+       -68.55268,
+       10.4645
+      ],
+      [
+       -68.5526,
+       10.46569
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.39,
+     0.4573
+    ],
+    [
+     0.3899,
+     0.4557
+    ],
+    [
+     0.3896,
+     0.4541
+    ],
+    [
+     0.3891,
+     0.4525
+    ],
+    [
+     0.3884,
+     0.4511
+    ],
+    [
+     0.3874,
+     0.4497
+    ],
+    [
+     0.3864,
+     0.4485
+    ],
+    [
+     0.3851,
+     0.4474
+    ],
+    [
+     0.3838,
+     0.4465
+    ],
+    [
+     0.3823,
+     0.4458
+    ],
+    [
+     0.3808,
+     0.4452
+    ],
+    [
+     0.3792,
+     0.4449
+    ],
+    [
+     0.3775,
+     0.4448
+    ],
+    [
+     0.3759,
+     0.4449
+    ],
+    [
+     0.3743,
+     0.4452
+    ],
+    [
+     0.3727,
+     0.4458
+    ],
+    [
+     0.3713,
+     0.4465
+    ],
+    [
+     0.3699,
+     0.4474
+    ],
+    [
+     0.3687,
+     0.4485
+    ],
+    [
+     0.3676,
+     0.4497
+    ],
+    [
+     0.3667,
+     0.4511
+    ],
+    [
+     0.366,
+     0.4525
+    ],
+    [
+     0.3655,
+     0.4541
+    ],
+    [
+     0.3651,
+     0.4557
+    ],
+    [
+     0.365,
+     0.4573
+    ],
+    [
+     0.3651,
+     0.4589
+    ],
+    [
+     0.3655,
+     0.4605
+    ],
+    [
+     0.366,
+     0.4621
+    ],
+    [
+     0.3667,
+     0.4636
+    ],
+    [
+     0.3676,
+     0.4649
+    ],
+    [
+     0.3687,
+     0.4661
+    ],
+    [
+     0.3699,
+     0.4672
+    ],
+    [
+     0.3713,
+     0.4681
+    ],
+    [
+     0.3727,
+     0.4689
+    ],
+    [
+     0.3743,
+     0.4694
+    ],
+    [
+     0.3759,
+     0.4697
+    ],
+    [
+     0.3775,
+     0.4698
+    ],
+    [
+     0.3792,
+     0.4697
+    ],
+    [
+     0.3808,
+     0.4694
+    ],
+    [
+     0.3823,
+     0.4689
+    ],
+    [
+     0.3838,
+     0.4681
+    ],
+    [
+     0.3851,
+     0.4672
+    ],
+    [
+     0.3864,
+     0.4661
+    ],
+    [
+     0.3874,
+     0.4649
+    ],
+    [
+     0.3884,
+     0.4636
+    ],
+    [
+     0.3891,
+     0.4621
+    ],
+    [
+     0.3896,
+     0.4605
+    ],
+    [
+     0.3899,
+     0.4589
+    ],
+    [
+     0.39,
+     0.4573
+    ]
+   ],
+   "anchor": [
+    0.3775,
+    0.4575
+   ],
+   "values": {
+    "pixels": 535,
+    "measured_pct": 93.6,
+    "coherence_mean": 0.48,
+    "coherence_drop_pct": 0.0,
+    "coherence_drop_km2": 0.0,
+    "los_mean_cm": 2.9,
+    "los_p5_cm": 2.2,
+    "los_p95_cm": 3.7,
+    "step_cm": 1.5
+   },
+   "source": "NISAR analysis | GEER-087 figs 9-17, 11-16 https://geerassociation.org/?view=geerreports&id=117"
+  },
+  {
+   "id": "venezuela-quake-g6",
+   "title": "San Felipe barely moved, yet 13 homes were wrecked",
+   "text": "San Felipe moved only about 2.5 cm in NISAR's view, 45 km from the step. Thirteen homes were still heavily damaged there: shaking, not ground displacement, did it.",
+   "kind": "motion",
+   "side": "unaffected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -68.72343,
+       10.33946
+      ],
+      [
+       -68.72359,
+       10.34183
+      ],
+      [
+       -68.72405,
+       10.34415
+      ],
+      [
+       -68.72482,
+       10.34639
+      ],
+      [
+       -68.72587,
+       10.34851
+      ],
+      [
+       -68.7272,
+       10.35048
+      ],
+      [
+       -68.72877,
+       10.35226
+      ],
+      [
+       -68.73057,
+       10.35382
+      ],
+      [
+       -68.73255,
+       10.35514
+      ],
+      [
+       -68.7347,
+       10.35619
+      ],
+      [
+       -68.73696,
+       10.35695
+      ],
+      [
+       -68.7393,
+       10.35741
+      ],
+      [
+       -68.74169,
+       10.35757
+      ],
+      [
+       -68.74407,
+       10.35742
+      ],
+      [
+       -68.74641,
+       10.35696
+      ],
+      [
+       -68.74868,
+       10.3562
+      ],
+      [
+       -68.75082,
+       10.35515
+      ],
+      [
+       -68.75281,
+       10.35384
+      ],
+      [
+       -68.75461,
+       10.35228
+      ],
+      [
+       -68.75618,
+       10.3505
+      ],
+      [
+       -68.75751,
+       10.34854
+      ],
+      [
+       -68.75857,
+       10.34642
+      ],
+      [
+       -68.75934,
+       10.34418
+      ],
+      [
+       -68.75981,
+       10.34186
+      ],
+      [
+       -68.75997,
+       10.33949
+      ],
+      [
+       -68.75981,
+       10.33713
+      ],
+      [
+       -68.75935,
+       10.33481
+      ],
+      [
+       -68.75858,
+       10.33257
+      ],
+      [
+       -68.75753,
+       10.33045
+      ],
+      [
+       -68.7562,
+       10.32848
+      ],
+      [
+       -68.75463,
+       10.3267
+      ],
+      [
+       -68.75283,
+       10.32514
+      ],
+      [
+       -68.75085,
+       10.32382
+      ],
+      [
+       -68.7487,
+       10.32277
+      ],
+      [
+       -68.74644,
+       10.32201
+      ],
+      [
+       -68.7441,
+       10.32155
+      ],
+      [
+       -68.74171,
+       10.32139
+      ],
+      [
+       -68.73933,
+       10.32154
+      ],
+      [
+       -68.73699,
+       10.322
+      ],
+      [
+       -68.73472,
+       10.32276
+      ],
+      [
+       -68.73258,
+       10.32381
+      ],
+      [
+       -68.73059,
+       10.32512
+      ],
+      [
+       -68.72879,
+       10.32668
+      ],
+      [
+       -68.72722,
+       10.32846
+      ],
+      [
+       -68.72589,
+       10.33042
+      ],
+      [
+       -68.72483,
+       10.33254
+      ],
+      [
+       -68.72406,
+       10.33478
+      ],
+      [
+       -68.72359,
+       10.3371
+      ],
+      [
+       -68.72343,
+       10.33946
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.1565,
+     0.632
+    ],
+    [
+     0.1563,
+     0.6288
+    ],
+    [
+     0.1556,
+     0.6255
+    ],
+    [
+     0.1546,
+     0.6225
+    ],
+    [
+     0.1531,
+     0.6195
+    ],
+    [
+     0.1513,
+     0.6168
+    ],
+    [
+     0.1492,
+     0.6143
+    ],
+    [
+     0.1467,
+     0.6122
+    ],
+    [
+     0.144,
+     0.6104
+    ],
+    [
+     0.1411,
+     0.6089
+    ],
+    [
+     0.138,
+     0.6079
+    ],
+    [
+     0.1347,
+     0.6072
+    ],
+    [
+     0.1315,
+     0.607
+    ],
+    [
+     0.1282,
+     0.6072
+    ],
+    [
+     0.125,
+     0.6079
+    ],
+    [
+     0.1219,
+     0.6089
+    ],
+    [
+     0.119,
+     0.6104
+    ],
+    [
+     0.1163,
+     0.6122
+    ],
+    [
+     0.1138,
+     0.6143
+    ],
+    [
+     0.1117,
+     0.6168
+    ],
+    [
+     0.1098,
+     0.6195
+    ],
+    [
+     0.1084,
+     0.6225
+    ],
+    [
+     0.1073,
+     0.6255
+    ],
+    [
+     0.1067,
+     0.6288
+    ],
+    [
+     0.1065,
+     0.632
+    ],
+    [
+     0.1067,
+     0.6353
+    ],
+    [
+     0.1073,
+     0.6385
+    ],
+    [
+     0.1084,
+     0.6416
+    ],
+    [
+     0.1098,
+     0.6445
+    ],
+    [
+     0.1117,
+     0.6472
+    ],
+    [
+     0.1138,
+     0.6497
+    ],
+    [
+     0.1163,
+     0.6519
+    ],
+    [
+     0.119,
+     0.6537
+    ],
+    [
+     0.1219,
+     0.6551
+    ],
+    [
+     0.125,
+     0.6562
+    ],
+    [
+     0.1282,
+     0.6568
+    ],
+    [
+     0.1315,
+     0.657
+    ],
+    [
+     0.1347,
+     0.6568
+    ],
+    [
+     0.138,
+     0.6562
+    ],
+    [
+     0.1411,
+     0.6551
+    ],
+    [
+     0.144,
+     0.6537
+    ],
+    [
+     0.1467,
+     0.6519
+    ],
+    [
+     0.1492,
+     0.6497
+    ],
+    [
+     0.1513,
+     0.6472
+    ],
+    [
+     0.1531,
+     0.6445
+    ],
+    [
+     0.1546,
+     0.6416
+    ],
+    [
+     0.1556,
+     0.6385
+    ],
+    [
+     0.1563,
+     0.6353
+    ],
+    [
+     0.1565,
+     0.632
+    ]
+   ],
+   "anchor": [
+    0.1315,
+    0.6325
+   ],
+   "values": {
+    "pixels": 2052,
+    "measured_pct": 96.4,
+    "coherence_mean": 0.62,
+    "coherence_drop_pct": 0.1,
+    "coherence_drop_km2": 0.02,
+    "los_mean_cm": 2.5,
+    "los_p5_cm": 1.6,
+    "los_p95_cm": 3.4,
+    "step_cm": 1.8
+   },
+   "source": "NISAR analysis | Wikipedia, 2026 Venezuela earthquakes https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"
+  }
+ ]
+}

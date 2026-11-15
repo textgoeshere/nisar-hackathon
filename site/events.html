@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All events · Either side of the line · NISAR</title>
+<link rel="stylesheet" href="style.css">
+<header>
+  <h1>Either side of the line</h1>
+  <p class="lede">Two neighbours, one earthquake, different fates. From the ground it looks like luck; from orbit
+  you can see the line between them. NISAR L-band radar (NASA/ISRO) shows the boundary in the ground that
+  explains what happened to the people standing on it.</p>
+  <p><a href="about.html">About · 30 seconds</a> · <a href="create.html">Create your event</a></p>
+  <p><a href="./">▶ Start the tour</a> <span class="muted small">full-screen flyover of every event, one after another</span></p>
+</header>
+<main>
+  <h2>Events</h2>
+  <p class="muted">Candidate news events ranked by NISAR before/after coverage. Events with a page are live.</p>
+  <table id="events"><thead><tr><th>Event</th><th>Type</th><th>Date</th><th>NISAR coverage</th></tr></thead><tbody></tbody></table>
+</main>
+<footer><a href="https://github.com/textgoeshere/nisar-hackathon">Source and method</a> · <a href="credits.html">Credits</a> · NISAR data: NASA/JPL-Caltech and ISRO, provisional products via ASF DAAC.</footer>
+<script type="module">
+const [cov, live] = await Promise.all([
+  fetch("data/coverage.json").then((r) => r.json()),
+  fetch("events/index.json").then((r) => (r.ok ? r.json() : []), () => []),
+]);
+const tb = document.querySelector("#events tbody");
+for (const e of cov) {
+  const page = live.includes(e.slug);
+  const sp = e.spanning?.[0];
+  const what = e.kind === "subsidence" ? `${e.chain?.pairs ?? 0} interferograms in a chain`
+    : sp ? `interferogram ${sp.pair[0]} → ${sp.pair[1]} (${sp.days} days)`
+    : e.gcov?.before ? `${e.gcov.before} passes before, ${e.gcov.after} after` : "none";
+  const tr = tb.insertRow();
+  tr.className = e.score > 0 ? "" : "muted";
+  tr.innerHTML = `<td>${page ? `<a href="e/${e.slug}.html">${e.name}</a>` : e.name}</td><td>${e.kind}</td><td>${e.date ?? "ongoing"}</td><td>${what}</td>`;
+}
+// Picking an event here is a visit (demo mode off there); "Start the tour" turns it on.
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a");
+  if (!a) return;
+  try { if (a.closest("#events")) sessionStorage.setItem("nisar.demo", "0"); else if (a.getAttribute("href") === "./") sessionStorage.setItem("nisar.demo", "1"); } catch {}
+});
+</script>
+</html>

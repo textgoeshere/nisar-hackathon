@@ -82,3 +82,33 @@ a file; a turned-down file goes into `REJECT` so it is never offered again.
   domain, agency CC). CC BY-ND images are shown unmodified. **News photos are linked, never
   hosted.** Credit every image.
 - **People:** places and published quotes only; no private individuals' details.
+
+## On-the-ground facts as patches (step 5c)
+
+```sh
+.venv/bin/python -m pipeline.ground kumamoto-quake    # -> site/events/<slug>/ground.json
+```
+
+The one-paragraph `boundary` text is split into separate facts, each tied to an **area**, not a
+point, so the viewer can highlight the region and pin a card on it. Facts are curated by hand in
+[`research/ground/<slug>.json`](../research/ground/) from the boundary text, `meta.json` and
+[`research/validation-sources.md`](../research/validation-sources.md). Each gives its area in the
+simplest form the source supports: a band along a trace (`line` + `width_km`), a band beside it
+(`line` + `offset_km`, positive = left of the line's direction), a `circle`, a `box` or a
+`polygon`.
+
+[`pipeline/ground.py`](../pipeline/ground.py) turns each area into a GeoJSON polygon and the same
+polygon in grid UV, picks a label `anchor` inside it, and samples NISAR over every pixel of it
+(`values`: mean and 5th/95th percentile LOS, their spread as `step_cm`, coherence, share measured;
+rates for subsidence, backscatter change for floods). Each fact carries a `check` the data must
+pass (for example `"los_mean_cm": [10, 30]`), and `tests/test_ground.py` fails if one does not, so
+a sentence the data contradicts is reworded or dropped before it ships.
+
+Output, per fact: `id`, `title` (≤60 chars), `text`, `kind`
+(boundary/motion/damage/measurement/context), `side` (affected/unaffected/null), `patch`,
+`uv_polygon`, `anchor`, `values`, `source`.
+
+Kumamoto shows why the check matters: the boundary text gave the SE hills as −5 to −25 cm, but
+NISAR has that only on the north-east stretch (Kosa/Mifune, ~8% of pixels measured). Along
+Hikawa–Yatsushiro the SE side reads about +1 cm, so the step there is the NW plain moving. The
+patches say so separately.

@@ -1,0 +1,46 @@
+{
+ "slug": "anak-krakatau",
+ "notes": "The interferogram measures nothing here (sea and fresh lava both decorrelate), so values come from pipeline.newland: GCOV HH backscatter medians on both stacks, 20 m cells (new_land_ha, new_bright_cells_at_sea). The boundary text expected the new land 'along the W shore'; NISAR finds most of it on the S and SW shore, so the W/NW fact says Badan Geologi reported it there and NISAR sees only a little. Islet positions are distance-and-bearing estimates (+-a few hundred m), so their patches are 500 m circles.",
+ "facts": [
+  {
+   "title": "New land on the south and south-west shore",
+   "text": "After the 4-6 September eruption, NISAR's backscatter shows about 23 ha of new land along the cone's south and south-west shore: sea-dark on every pass before, rock-bright from the first pass after (6 September) on. Sentinel-2 agrees.",
+   "kind": "measurement", "side": "affected",
+   "shape": {"box": [105.412, -6.113, 105.433, -6.1045]},
+   "check": {"new_land_ha": [15, 30]},
+   "source": "NISAR analysis (GCOV backscatter, ascending and descending)"
+  },
+  {
+   "title": "West and north-west shore: less new land than reported",
+   "text": "Badan Geologi measured 32.8 ha of new land on the NW-W-SW shore from Sentinel images. On the west and north-west shore NISAR finds only about 3.6 ha; its 26.5 ha in all sit mostly further south.",
+   "kind": "measurement", "side": "affected",
+   "shape": {"box": [105.410, -6.1045, 105.4195, -6.094]},
+   "check": {"new_land_ha": [1, 8]},
+   "source": "NISAR analysis | Badan Geologi via detik https://news.detik.com/berita/d-8676571/analisis-badan-geologi-soal-munculnya-daratan-baru-di-dekat-anak-krakatau"
+  },
+  {
+   "title": "A new islet ~760 m off the NW coast: NISAR doesn't see it",
+   "text": "Badan Geologi reported a new islet about 760 m off the north-west coast, confirmed by sailors and Sentinel images by 23 September. NISAR finds no new bright target at sea within 500 m of the estimated spot. It may be too small or low, or lie elsewhere: only its distance from the coast was published.",
+   "kind": "context", "side": "affected",
+   "shape": {"circle": [105.41226, -6.08749], "radius_km": 0.5},
+   "check": {"new_bright_cells_at_sea": [0, 0]},
+   "source": "NISAR analysis | Antara https://babel.antaranews.com/berita/584019/badan-geologi-deteksi-kemunculan-dua-pulau-baru-di-sekitar-krakatau"
+  },
+  {
+   "title": "A new islet ~495 m off the SE coast: not seen either",
+   "text": "A second islet was reported about 495 m off the south-east coast. NISAR finds no new bright target within 500 m of the estimated spot. A rock a few tens of metres across, 770 m off the SE shore, shows on most passes both before and after, so it is not new.",
+   "kind": "context", "side": "affected",
+   "shape": {"circle": [105.43728, -6.10814], "radius_km": 0.5},
+   "check": {"new_bright_cells_at_sea": [0, 0]},
+   "source": "NISAR analysis | Antara https://babel.antaranews.com/berita/584019/badan-geologi-deteksi-kemunculan-dua-pulau-baru-di-sekitar-krakatau"
+  },
+  {
+   "title": "North-east and east shore: no new land",
+   "text": "The north, north-east and east shore gained no new land, as Badan Geologi also reported: NISAR finds 0.1 ha here.",
+   "kind": "measurement", "side": "unaffected",
+   "shape": {"box": [105.426, -6.104, 105.442, -6.088]},
+   "check": {"new_land_ha": [0, 1]},
+   "source": "NISAR analysis | Badan Geologi via detik https://news.detik.com/berita/d-8676571/analisis-badan-geologi-soal-munculnya-daratan-baru-di-dekat-anak-krakatau"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "slug": "venezuela-quake",
+ "notes": "Step line traced from the NISAR LOS map (median on 3 km blocks): the jump sits at 10.51-10.52 N from about 68.45 W to Moron. Copernicus EMS's Sentinel-1 GRM shows the same ~30 cm step with the opposite sign; the legend was not checked, so the facts say 'sign convention unresolved' rather than claiming agreement. GEER mapped no surface rupture in this frame, so the line is called a step in the radar, not a fault trace.",
+ "facts": [
+  {
+   "title": "A sharp E-W step in the radar north of Urama and Morón",
+   "text": "At about 10.51-10.52°N, from 68.45°W east to Morón, NISAR's motion jumps by up to about 30 cm over 1.5-2 km, with a thin low-coherence seam. Copernicus EMS's Sentinel-1 map shows a step of the same size here (its sign convention is not resolved). GEER found no surface rupture in the field in this area.",
+   "kind": "boundary", "side": "affected",
+   "shape": {"line": [[-68.45, 10.515], [-68.20, 10.512]], "width_km": 2.5},
+   "check": {"step_min": 25},
+   "source": "NISAR analysis | Copernicus EMS EMSR884 AOI00 GRM https://rapidmapping.emergency.copernicus.eu/backend/EMSR884/AOI00/GRM_PRODUCT/EMSR884_AOI00_GRM_PRODUCT_v2.zip"
+  },
+  {
+   "title": "North of the step, the coastal plain moved ~20 cm toward",
+   "text": "On the Boca de Aroa / Tucacas side, the coastal plain moved about +22 cm along NISAR's line of sight (16 to 33 cm). About half of it is measured. At Boca de Aroa sand and water boiled up through cracks during the shaking.",
+   "kind": "motion", "side": "affected",
+   "shape": {"box": [-68.40, 10.53, -68.20, 10.65]},
+   "check": {"los_mean_cm": [10, 30]},
+   "source": "NISAR analysis | GEER-087 https://geerassociation.org/?view=geerreports&id=117 (Boca de Aroa ejecta, StEER media)"
+  },
+  {
+   "title": "South of the step, Urama to Morón moved ~17 cm away",
+   "text": "South of the step, from Urama to Morón, the ground moved about 17 cm away from the satellite (10 to 25 cm), and most of it is measured.",
+   "kind": "motion", "side": "affected",
+   "shape": {"box": [-68.40, 10.40, -68.18, 10.50]},
+   "check": {"los_mean_cm": [-25, -10]},
+   "source": "NISAR analysis"
+  },
+  {
+   "title": "Morón: 8 buildings destroyed, 39 damaged, on the step",
+   "text": "Copernicus EMS mapped 8 destroyed and 39 damaged buildings in Morón from satellite images; in Las Colinas de Morón 16 houses fell and two women were killed. The damage sits right where NISAR's motion jumps, from about -28 to -6 cm within this area.",
+   "kind": "damage", "side": "affected",
+   "shape": {"box": [-68.25, 10.47, -68.18, 10.52]},
+   "check": {"step_min": 15},
+   "source": "NISAR analysis | Copernicus EMS EMSR884 AOI06 https://rapidmapping.emergency.copernicus.eu/backend/EMSR884/AOI06/GRA_MONIT01/EMSR884_AOI06_GRA_MONIT01_v2.zip; Diario de Los Andes https://diariodelosandes.com/carabobo-16-viviendas-colapsaron-en-las-colinas-de-moron-y-250-familias-siguen-sin-volver-a-sus-casas/"
+  },
+  {
+   "title": "Pueblo Farriar: a 380 m crack along the river bank",
+   "text": "At Pueblo Farriar a fissure about 380 m long opened within 3 m of the river channel: the bank spread toward the river, not a fault offset. NISAR sees smooth ground here, about +3 cm, with almost no step within 1 km.",
+   "kind": "damage", "side": "affected",
+   "shape": {"circle": [-68.561734, 10.465698], "radius_km": 1},
+   "check": {"los_mean_cm": [-2, 6], "measured_min": 80},
+   "source": "NISAR analysis | GEER-087 figs 9-17, 11-16 https://geerassociation.org/?view=geerreports&id=117"
+  },
+  {
+   "title": "San Felipe barely moved, yet 13 homes were wrecked",
+   "text": "San Felipe moved only about 2.5 cm in NISAR's view, 45 km from the step. Thirteen homes were still heavily damaged there: shaking, not ground displacement, did it.",
+   "kind": "motion", "side": "unaffected",
+   "shape": {"circle": [-68.7417, 10.33948], "radius_km": 2},
+   "check": {"los_mean_cm": [-2, 6]},
+   "source": "NISAR analysis | Wikipedia, 2026 Venezuela earthquakes https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes"
+  }
+ ]
+}

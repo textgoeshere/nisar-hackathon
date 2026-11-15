@@ -1,42 +1,14 @@
 <!doctype html>
 <html lang="en">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Demo · Either side of the line</title>
-<link rel="stylesheet" href="style.css">
-<script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
-<style>
-  html, body { height: 100%; overflow: hidden; background: #000; touch-action: none; user-select: none; -webkit-user-select: none; overscroll-behavior: none; }
-  .stage { position: fixed; inset: 0; opacity: 0; transition: opacity 2s ease; }
-  .stage.on { opacity: 1; }
-  #label { position: fixed; left: 1.5rem; bottom: 1.2rem; font-size: .95rem; color: #fffc; text-shadow: 0 1px 4px #000;
-    opacity: 0; transition: opacity 2s ease; pointer-events: none; }
-  #label .row { display: flex; align-items: center; gap: .6em; }
-  #credit { font-size: .72rem; color: #fff9; margin-top: .25rem; }
-  #label.on { opacity: 1; }
-  #label.on #next, #label.on #name a { pointer-events: auto; }
-  #name a { color: inherit; text-decoration: none; border-bottom: 1px solid #fff5; }
-  #next { font: inherit; font-size: .85rem; color: #fffc; background: #0006; border: 1px solid #fff4; border-radius: 999px;
-    padding: .3em .9em; margin-left: .6em; cursor: pointer; }
-  #next:active { background: #fff3; }
-  #label small { color: #fff8; margin-left: .6em; }
-  #scrub { position: fixed; right: 1.5rem; bottom: 1.2rem; display: flex; align-items: center; gap: .6em; font-size: .8rem;
-    color: #fffc; text-shadow: 0 1px 3px #000; opacity: 0; transition: opacity 2s ease; pointer-events: none; }
-  #scrub.on { opacity: 1; pointer-events: auto; }
-  #scrub input { width: min(28vw, 360px); accent-color: #ffd257; height: 2rem; touch-action: none; }
-  #hint { position: fixed; right: 1.5rem; bottom: 3.6rem; font-size: .85rem; color: #fff8; transition: opacity 1.5s ease; pointer-events: none; }
-  #hint.off { opacity: 0; }
-  #key { position: fixed; top: 1.2rem; right: 1.5rem; font-size: .85rem; color: #fffd; background: #0008; padding: .45rem .7rem;
-    border-radius: 6px; text-shadow: 0 1px 3px #000; opacity: 0; transition: opacity 2s ease; pointer-events: none; }
-  #key.on { opacity: 1; }
-  #key i { display: inline-block; width: 2.2em; height: .8em; border-radius: 2px; vertical-align: -.05em; margin-right: .5em; }
-  body.idle, body.idle * { cursor: none !important; }
-</style>
-<body>
-<div id="label"><div class="row"><span id="name"></span><button id="next" type="button" aria-label="Next event">Next ›</button></div><div id="credit"></div></div>
-<div id="scrub"><span id="s0"></span><input id="t" type="range" min="0" max="1000" value="0" aria-label="Before to after"><span id="s1"></span></div>
-<div id="key"></div>
-<div id="hint">F fullscreen · touch or drag to explore, the tour resumes after 30 s · Esc back to events</div>
-<script type="module" src="js/demo.js"></script>
-</body>
+<meta name="robots" content="noindex">
+<!-- The kiosk tour is now the event pages' demo mode: this forwards old links (demo.html?e=<slug>) there. -->
+<meta http-equiv="refresh" content="0; url=./">
+<script>
+  try { sessionStorage.setItem("nisar.demo", "1"); } catch {}
+  const e = new URLSearchParams(location.search).get("e");
+  location.replace(e && /^[\w-]+$/.test(e) ? `e/${e}.html` : "./");
+</script>
+<p><a href="./">Continue to the tour</a></p>
 </html>

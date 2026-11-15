@@ -1,0 +1,62 @@
+{
+ "slug": "kumamoto-quake",
+ "notes": "Trace vertices are the field-mapped line in site/events/kumamoto-quake/slip.json (GSJ survey sites joined NE to SW). Walking the trace NE->SW, positive offset_km = SE (hills), negative = NW (plain). The original boundary text gave the SE hills as -5 to -25 cm; NISAR has that only on the northern (Kosa/Mifune) stretch, and few pixels are measured there. Along Hikawa-Yatsushiro the SE side reads about +1 cm, so the SE side is split into two facts.",
+ "facts": [
+  {
+   "title": "The Hinagu fault broke the surface for ~35 km",
+   "text": "The rupture runs NE-SW along the foot of the hills from Mifune and Uki through Hikawa to Yatsushiro Junction. Inside this 2 km band NISAR's line-of-sight motion spans about 32 cm (5th to 95th percentile), and coherence is lost on 17% of it where the ground broke.",
+   "kind": "boundary", "side": "affected",
+   "shape": {"line": [[130.7561, 32.6844], [130.7258, 32.6617], [130.6955, 32.6391], [130.6926, 32.6178], [130.6943, 32.5839], [130.6884, 32.5624], [130.6757, 32.5429], [130.6603, 32.5254], [130.6453, 32.5069], [130.6386, 32.4982], [130.6244, 32.4893]], "width_km": 2},
+   "check": {"step_min": 20},
+   "source": "NISAR analysis | AIST GSJ field survey (5th report) https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html; GSI SAR displacement-boundary map (CC BY 4.0) https://commons.wikimedia.org/wiki/File:2026_Kumamoto_Earthquick_Ground_displacement_interpreted_from_SAR.png"
+  },
+  {
+   "title": "The Uki-Yatsushiro plain moved ~17 cm toward the satellite",
+   "text": "Within 4 km north-west of the rupture the plain moved about +17 cm along NISAR's line of sight on average, up to about +29 cm. Only about a third of these pixels are measured; the rest of the smooth surface is interpolated. GSI's ALOS-2 radar, on the same kind of ascending pass, saw up to about 50 cm toward the satellite on this side.",
+   "kind": "motion", "side": "affected",
+   "shape": {"line": [[130.7561, 32.6844], [130.7258, 32.6617], [130.6955, 32.6391], [130.6926, 32.6178], [130.6943, 32.5839], [130.6884, 32.5624], [130.6757, 32.5429], [130.6603, 32.5254], [130.6453, 32.5069], [130.6386, 32.4982], [130.6244, 32.4893]], "offset_km": [-4, -0.3]},
+   "check": {"los_mean_cm": [10, 30]},
+   "source": "NISAR analysis | HERP evaluation, ALOS-2 InSAR p.17 https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf"
+  },
+  {
+   "title": "Hills SE of Kosa and Mifune moved ~25 cm away",
+   "text": "On the north-east stretch of the rupture, the hills just south-east of it moved about 23 to 30 cm away from the satellite. Few pixels here are measured (about 8%), so this is a handful of readings, not a mapped area.",
+   "kind": "motion", "side": "affected",
+   "shape": {"line": [[130.7561, 32.6844], [130.7258, 32.6617], [130.6955, 32.6391], [130.6926, 32.6178]], "offset_km": [0.3, 3]},
+   "check": {"los_mean_cm": [-32, -15]},
+   "source": "NISAR analysis"
+  },
+  {
+   "title": "Hills SE of Hikawa and Yatsushiro barely moved",
+   "text": "South-east of the rupture between Hikawa and Yatsushiro, NISAR sees about +1 cm on average (-3 to +4 cm) and most pixels are measured. Here the step across the fault comes almost entirely from the north-west side moving.",
+   "kind": "motion", "side": "unaffected",
+   "shape": {"line": [[130.6943, 32.5839], [130.6884, 32.5624], [130.6757, 32.5429], [130.6603, 32.5254], [130.6453, 32.5069], [130.6386, 32.4982]], "offset_km": [0.3, 3]},
+   "check": {"los_mean_cm": [-4, 5], "measured_min": 70},
+   "source": "NISAR analysis"
+  },
+  {
+   "title": "A ~20 cm jump at Ryuho school and Yatsushiro Shrine",
+   "text": "Near Yatsushiro NISAR's motion jumps by about 20 cm over 1.5 km, and the jump lands on the mapped rupture. Field teams measured 94 cm of sideways offset across the Ryuho Elementary schoolyard, 95 cm sideways and 39 cm down at Yatsushiro Shrine (Myoken-gu), and about 130 cm of vertical offset near Yatsushiro Junction.",
+   "kind": "measurement", "side": "affected",
+   "shape": {"line": [[130.668, 32.534], [130.6386, 32.4982]], "width_km": 1.5},
+   "check": {"step_min": 15},
+   "source": "NISAR analysis | AIST GSJ field photos 10-12 https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html"
+  },
+  {
+   "title": "The largest offset: 184 cm across a road in Hikawa",
+   "text": "At Miyahara in Hikawa, field teams taped 184 cm of right-lateral offset across a road, the most anywhere along the rupture, with the west side down. NISAR's motion within 1 km spans about 33 cm. The location is from the survey's town name, good to about 1 km.",
+   "kind": "measurement", "side": "affected",
+   "shape": {"circle": [130.685, 32.5546], "radius_km": 1},
+   "check": {"step_min": 15},
+   "source": "NISAR analysis | AIST GSJ field photo 8 https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html"
+  },
+  {
+   "title": "GPS at Senchō: the ground moved 87 cm NE and 32 cm down",
+   "text": "The GEONET station at Senchō, 2.5 km north-west of the rupture, moved about 87 cm north-east and dropped about 32 cm, the largest GPS shift of the quake (GSI warns part may be local ground deformation). NISAR reads about +22 cm along its line of sight around the station. Across the fault, the Izumi station moved only about 17.5 cm south.",
+   "kind": "measurement", "side": "affected",
+   "shape": {"circle": [130.6456, 32.5464], "radius_km": 1},
+   "check": {"los_mean_cm": [15, 30]},
+   "source": "NISAR analysis | GSI GEONET via HERP evaluation p.12 https://www.static.jishin.go.jp/resource/monthly/2026/20260728_kumamoto_1.pdf; NGL station J093"
+  }
+ ]
+}

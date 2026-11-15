@@ -1,0 +1,825 @@
+{
+ "slug": "panama-quake",
+ "facts": [
+  {
+   "id": "panama-quake-g1",
+   "title": "A landslide-scarred band where the radar lost the ground",
+   "text": "South of the Azuero-Soná fault rupture, a band from the south-west corner of the frame to the coast between Búcaro and Isla Cañas is decorrelated: coherence averages 0.2 and only about 7% of it is measured. The University of Panama's Institute of Geosciences counted 4,822 landslides in the epicentral zone.",
+   "kind": "boundary",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -80.76,
+       7.47
+      ],
+      [
+       -80.55,
+       7.47
+      ],
+      [
+       -80.47,
+       7.41
+      ],
+      [
+       -80.36,
+       7.395
+      ],
+      [
+       -80.33,
+       7.37
+      ],
+      [
+       -80.36,
+       7.355
+      ],
+      [
+       -80.47,
+       7.375
+      ],
+      [
+       -80.55,
+       7.385
+      ],
+      [
+       -80.76,
+       7.41
+      ],
+      [
+       -80.76,
+       7.47
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.004,
+     0.6806
+    ],
+    [
+     0.2937,
+     0.6804
+    ],
+    [
+     0.4041,
+     0.7631
+    ],
+    [
+     0.5559,
+     0.7837
+    ],
+    [
+     0.5973,
+     0.8182
+    ],
+    [
+     0.5559,
+     0.839
+    ],
+    [
+     0.4041,
+     0.8115
+    ],
+    [
+     0.2938,
+     0.7978
+    ],
+    [
+     0.0041,
+     0.7635
+    ],
+    [
+     0.004,
+     0.6806
+    ]
+   ],
+   "anchor": [
+    0.2575,
+    0.7505
+   ],
+   "values": {
+    "pixels": 47875,
+    "measured_pct": 7.2,
+    "coherence_mean": 0.22,
+    "coherence_drop_pct": 26.1,
+    "coherence_drop_km2": 79.88,
+    "los_mean_cm": 44.9,
+    "los_p5_cm": -10.6,
+    "los_p95_cm": 151.2,
+    "step_cm": 161.8
+   },
+   "source": "NISAR analysis | Instituto de Geociencias, Universidad de Panamá, via https://uphacialaluz.com/2026/10/29/instituto-de-geociencias-de-la-universidad-de-panama-identifica-9553-deslizamientos-asociados-al-terremoto-de-azuero/"
+  },
+  {
+   "id": "panama-quake-g2",
+   "title": "The hills NW of Tonosí moved over a metre",
+   "text": "North of the rupture, the hills north-west of Tonosí moved about 1.3 m toward the satellite on average, up to about 1.7 m: the largest motion in any of our scenes. USGS range offsets on the same NISAR pair read about 2 m here, so the phase-based values may undercount.",
+   "kind": "motion",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -80.7,
+       7.56
+      ],
+      [
+       -80.48,
+       7.56
+      ],
+      [
+       -80.48,
+       7.46
+      ],
+      [
+       -80.7,
+       7.46
+      ],
+      [
+       -80.7,
+       7.56
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.0867,
+     0.5562
+    ],
+    [
+     0.3901,
+     0.5559
+    ],
+    [
+     0.3902,
+     0.6941
+    ],
+    [
+     0.0868,
+     0.6943
+    ],
+    [
+     0.0867,
+     0.5562
+    ]
+   ],
+   "anchor": [
+    0.2385,
+    0.6245
+   ],
+   "values": {
+    "pixels": 42528,
+    "measured_pct": 42.1,
+    "coherence_mean": 0.32,
+    "coherence_drop_pct": 32.4,
+    "coherence_drop_km2": 88.18,
+    "los_mean_cm": 127.1,
+    "los_p5_cm": 66.0,
+    "los_p95_cm": 172.3,
+    "step_cm": 106.3
+   },
+   "source": "NISAR analysis | USGS finite-fault model us6000u18k (NISAR range offsets) https://earthquake.usgs.gov/product/finite-fault/us6000u18k_1/us/1792710177789/"
+  },
+  {
+   "id": "panama-quake-g3",
+   "title": "Tonosí moved ~60 cm, but few buildings fell",
+   "text": "The Tonosí plain moved about 64 cm toward the satellite (45 to 86 cm). The town's hotel collapsed and patients were treated in tents, but Copernicus EMS found only 3 of 958 buildings damaged in its post-quake satellite images.",
+   "kind": "damage",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -80.47,
+       7.45
+      ],
+      [
+       -80.4,
+       7.45
+      ],
+      [
+       -80.4,
+       7.39
+      ],
+      [
+       -80.47,
+       7.39
+      ],
+      [
+       -80.47,
+       7.45
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.404,
+     0.7079
+    ],
+    [
+     0.5006,
+     0.7077
+    ],
+    [
+     0.5007,
+     0.7907
+    ],
+    [
+     0.4041,
+     0.7908
+    ],
+    [
+     0.404,
+     0.7079
+    ]
+   ],
+   "anchor": [
+    0.4525,
+    0.7495
+   ],
+   "values": {
+    "pixels": 8148,
+    "measured_pct": 50.8,
+    "coherence_mean": 0.38,
+    "coherence_drop_pct": 8.1,
+    "coherence_drop_km2": 4.21,
+    "los_mean_cm": 63.5,
+    "los_p5_cm": 45.4,
+    "los_p95_cm": 85.9,
+    "step_cm": 40.5
+   },
+   "source": "NISAR analysis | Copernicus EMS EMSR934 AOI05 https://rapidmapping.emergency.copernicus.eu/backend/EMSR934/AOI05/GRA_PRODUCT/EMSR934_AOI05_GRA_PRODUCT_v1.zip"
+  },
+  {
+   "id": "panama-quake-g4",
+   "title": "At Búcaro the ground broke 1 m up and 1 m sideways",
+   "text": "Field geologist Isaac Guerra Araúz measured 1-1.2 m of horizontal and about 1 m of vertical surface rupture at Búcaro (preliminary). On Búcaro's longitude NISAR's motion drops by about 60 cm across the decorrelated band, from about +80 cm at 7.42°N to +17 cm at the coast.",
+   "kind": "measurement",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -80.34294,
+       7.335
+      ],
+      [
+       -80.34294,
+       7.43
+      ],
+      [
+       -80.36106,
+       7.43
+      ],
+      [
+       -80.36106,
+       7.335
+      ],
+      [
+       -80.34294,
+       7.335
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.5795,
+     0.8666
+    ],
+    [
+     0.5793,
+     0.7353
+    ],
+    [
+     0.5543,
+     0.7353
+    ],
+    [
+     0.5545,
+     0.8666
+    ],
+    [
+     0.5795,
+     0.8666
+    ]
+   ],
+   "anchor": [
+    0.5665,
+    0.8005
+   ],
+   "values": {
+    "pixels": 3432,
+    "measured_pct": 8.2,
+    "coherence_mean": 0.16,
+    "coherence_drop_pct": 5.4,
+    "coherence_drop_km2": 1.18,
+    "los_mean_cm": 52.1,
+    "los_p5_cm": 16.4,
+    "los_p95_cm": 80.0,
+    "step_cm": 63.6
+   },
+   "source": "NISAR analysis | La Estrella de Panamá https://www.laestrella.com.pa/vida-y-cultura/ciencia/cientifico-chiricano-estudia-las-rupturas-que-dejo-el-sismo-AH26746251"
+  },
+  {
+   "id": "panama-quake-g5",
+   "title": "Isla Cañas sank 15-30 cm and was cut in two",
+   "text": "Isla Cañas sank 15-30 cm and the sea cut a channel through it, splitting the island in two (preliminary field figures). NISAR has no measurement here: none of the island's pixels stayed coherent between the passes.",
+   "kind": "damage",
+   "side": "affected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -80.31241,
+       7.40398
+      ],
+      [
+       -80.31252,
+       7.40575
+      ],
+      [
+       -80.31287,
+       7.40749
+      ],
+      [
+       -80.31343,
+       7.40917
+      ],
+      [
+       -80.31422,
+       7.41077
+      ],
+      [
+       -80.3152,
+       7.41224
+      ],
+      [
+       -80.31637,
+       7.41358
+      ],
+      [
+       -80.31771,
+       7.41475
+      ],
+      [
+       -80.31919,
+       7.41574
+      ],
+      [
+       -80.32078,
+       7.41653
+      ],
+      [
+       -80.32246,
+       7.4171
+      ],
+      [
+       -80.32421,
+       7.41745
+      ],
+      [
+       -80.32598,
+       7.41757
+      ],
+      [
+       -80.32775,
+       7.41745
+      ],
+      [
+       -80.3295,
+       7.41711
+      ],
+      [
+       -80.33118,
+       7.41654
+      ],
+      [
+       -80.33278,
+       7.41576
+      ],
+      [
+       -80.33426,
+       7.41478
+      ],
+      [
+       -80.3356,
+       7.41361
+      ],
+      [
+       -80.33677,
+       7.41228
+      ],
+      [
+       -80.33776,
+       7.4108
+      ],
+      [
+       -80.33855,
+       7.40921
+      ],
+      [
+       -80.33912,
+       7.40753
+      ],
+      [
+       -80.33947,
+       7.40579
+      ],
+      [
+       -80.33959,
+       7.40402
+      ],
+      [
+       -80.33948,
+       7.40225
+      ],
+      [
+       -80.33913,
+       7.40051
+      ],
+      [
+       -80.33856,
+       7.39883
+      ],
+      [
+       -80.33778,
+       7.39723
+      ],
+      [
+       -80.3368,
+       7.39576
+      ],
+      [
+       -80.33563,
+       7.39442
+      ],
+      [
+       -80.33429,
+       7.39325
+      ],
+      [
+       -80.33281,
+       7.39226
+      ],
+      [
+       -80.33122,
+       7.39147
+      ],
+      [
+       -80.32954,
+       7.3909
+      ],
+      [
+       -80.32779,
+       7.39055
+      ],
+      [
+       -80.32602,
+       7.39043
+      ],
+      [
+       -80.32425,
+       7.39055
+      ],
+      [
+       -80.3225,
+       7.39089
+      ],
+      [
+       -80.32082,
+       7.39146
+      ],
+      [
+       -80.31922,
+       7.39224
+      ],
+      [
+       -80.31774,
+       7.39322
+      ],
+      [
+       -80.3164,
+       7.39439
+      ],
+      [
+       -80.31523,
+       7.39572
+      ],
+      [
+       -80.31424,
+       7.3972
+      ],
+      [
+       -80.31345,
+       7.39879
+      ],
+      [
+       -80.31288,
+       7.40047
+      ],
+      [
+       -80.31253,
+       7.40221
+      ],
+      [
+       -80.31241,
+       7.40398
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.6215,
+     0.7712
+    ],
+    [
+     0.6213,
+     0.7687
+    ],
+    [
+     0.6209,
+     0.7663
+    ],
+    [
+     0.6201,
+     0.764
+    ],
+    [
+     0.619,
+     0.7618
+    ],
+    [
+     0.6176,
+     0.7598
+    ],
+    [
+     0.616,
+     0.7579
+    ],
+    [
+     0.6142,
+     0.7563
+    ],
+    [
+     0.6121,
+     0.7549
+    ],
+    [
+     0.6099,
+     0.7538
+    ],
+    [
+     0.6076,
+     0.7531
+    ],
+    [
+     0.6052,
+     0.7526
+    ],
+    [
+     0.6027,
+     0.7524
+    ],
+    [
+     0.6003,
+     0.7526
+    ],
+    [
+     0.5979,
+     0.7531
+    ],
+    [
+     0.5956,
+     0.7538
+    ],
+    [
+     0.5934,
+     0.7549
+    ],
+    [
+     0.5913,
+     0.7563
+    ],
+    [
+     0.5895,
+     0.7579
+    ],
+    [
+     0.5879,
+     0.7598
+    ],
+    [
+     0.5865,
+     0.7618
+    ],
+    [
+     0.5854,
+     0.764
+    ],
+    [
+     0.5846,
+     0.7663
+    ],
+    [
+     0.5842,
+     0.7687
+    ],
+    [
+     0.584,
+     0.7712
+    ],
+    [
+     0.5842,
+     0.7736
+    ],
+    [
+     0.5846,
+     0.776
+    ],
+    [
+     0.5854,
+     0.7783
+    ],
+    [
+     0.5865,
+     0.7805
+    ],
+    [
+     0.5879,
+     0.7826
+    ],
+    [
+     0.5895,
+     0.7844
+    ],
+    [
+     0.5913,
+     0.786
+    ],
+    [
+     0.5934,
+     0.7874
+    ],
+    [
+     0.5956,
+     0.7885
+    ],
+    [
+     0.5979,
+     0.7893
+    ],
+    [
+     0.6003,
+     0.7898
+    ],
+    [
+     0.6027,
+     0.7899
+    ],
+    [
+     0.6052,
+     0.7898
+    ],
+    [
+     0.6076,
+     0.7893
+    ],
+    [
+     0.6099,
+     0.7885
+    ],
+    [
+     0.6121,
+     0.7874
+    ],
+    [
+     0.6142,
+     0.786
+    ],
+    [
+     0.616,
+     0.7844
+    ],
+    [
+     0.6176,
+     0.7826
+    ],
+    [
+     0.619,
+     0.7805
+    ],
+    [
+     0.6201,
+     0.7783
+    ],
+    [
+     0.6209,
+     0.776
+    ],
+    [
+     0.6213,
+     0.7736
+    ],
+    [
+     0.6215,
+     0.7712
+    ]
+   ],
+   "anchor": [
+    0.6025,
+    0.7715
+   ],
+   "values": {
+    "pixels": 1174,
+    "measured_pct": 0.0,
+    "coherence_mean": 0.12,
+    "coherence_drop_pct": 17.4,
+    "coherence_drop_km2": 1.31
+   },
+   "source": "La Estrella de Panamá https://www.laestrella.com.pa/panama/nacional/terremoto-hundio-30-centimetros-de-isla-canas-de-acuerdo-a-estudios-preliminares-MB26639225"
+  },
+  {
+   "id": "panama-quake-g6",
+   "title": "Across the fault, the Cambutal coast moved far less",
+   "text": "South of the rupture, along the coast past Cambutal, NISAR sees about +18 cm (12 to 25 cm): a fraction of the metre-plus on the north side.",
+   "kind": "motion",
+   "side": "unaffected",
+   "patch": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -80.76,
+       7.32
+      ],
+      [
+       -80.42,
+       7.32
+      ],
+      [
+       -80.42,
+       7.245
+      ],
+      [
+       -80.76,
+       7.245
+      ],
+      [
+       -80.76,
+       7.32
+      ]
+     ]
+    ]
+   },
+   "uv_polygon": [
+    [
+     0.0041,
+     0.8879
+    ],
+    [
+     0.4732,
+     0.8874
+    ],
+    [
+     0.4734,
+     0.9911
+    ],
+    [
+     0.0042,
+     0.9915
+    ],
+    [
+     0.0041,
+     0.8879
+    ]
+   ],
+   "anchor": [
+    0.2385,
+    0.9395
+   ],
+   "values": {
+    "pixels": 49350,
+    "measured_pct": 59.0,
+    "coherence_mean": 0.36,
+    "coherence_drop_pct": 0.8,
+    "coherence_drop_km2": 2.62,
+    "los_mean_cm": 18.1,
+    "los_p5_cm": 12.3,
+    "los_p95_cm": 24.8,
+    "step_cm": 12.5
+   },
+   "source": "NISAR analysis"
+  }
+ ]
+}
