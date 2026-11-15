@@ -163,6 +163,11 @@ const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } 
 const pixelated = (src, page, credit, alt) => `<a href="${esc(page)}" target="_blank" rel="noopener"><img class="pix" src="${esc(base + src)}" alt="${esc(alt)}" loading="lazy"></a>
   <p class="small muted">Pixelated preview — <a href="${esc(page)}" target="_blank" rel="noopener">view original at ${esc(credit || host(page))}</a></p>`;
 
+// A story with no photo of its own gets an establishing shot: a recent open-licence Commons photo of the
+// place, labelled as context so it never passes for the event.
+const establishing = (e) => `<figure class="est"><a href="${esc(e.page_url)}" target="_blank" rel="noopener"><img src="${esc(e.thumb_url)}" alt="${esc(e.place)}" loading="lazy" referrerpolicy="no-referrer"></a>
+  <figcaption class="small muted">Establishing shot: ${esc(e.place)}${e.date ? ` (${esc(e.date.slice(0, 4))})` : ""}, not of the event · ${esc(e.credit || "Wikimedia Commons")} · ${esc(e.licence)} · <a href="${esc(e.page_url)}" target="_blank" rel="noopener">Commons</a></figcaption></figure>`;
+
 // ---------- on the ground: editor-selected stories, pinned in 3D ----------
 const stories = await fetch(base + "stories.json").then((r) => (r.ok ? r.json() : null), () => null);
 if (stories) {
@@ -185,7 +190,7 @@ if (stories) {
   <h3><span class="num">${k + 1}</span>${esc(it.title)}</h3>
   <p class="small muted">${esc(it.place)} · ${esc(it.date)}</p>
   ${it.show_image ? `<a href="${esc(it.page_url)}" target="_blank" rel="noopener"><img src="${esc(it.image_url)}" alt="${esc(it.what_it_shows)}" loading="lazy" referrerpolicy="no-referrer"></a>`
-    : it.preview_url ? pixelated(it.preview_url, it.page_url, it.credit, it.what_it_shows) : ""}
+    : it.preview_url ? pixelated(it.preview_url, it.page_url, it.credit, it.what_it_shows) : it.establishing ? establishing(it.establishing) : ""}
   <p>${esc(it.caption || it.what_it_shows)}</p>
   <p class="nisar small">${nisarLine(it.nisar)}</p>
   <p class="small muted"><a href="${esc(it.page_url)}" target="_blank" rel="noopener">Source</a> · ${esc(it.credit)}${it.show_image ? ` · ${esc(it.licence)}` : ""}</p>

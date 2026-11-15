@@ -27,9 +27,21 @@
     "local_step_cm": 1.1
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Sunrise over the clouds on Acatenango.jpg",
+    "place": "Volcán de Fuego",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Sunrise_over_the_clouds_on_Acatenango.jpg/960px-Sunrise_over_the_clouds_on_Acatenango.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Sunrise_over_the_clouds_on_Acatenango.jpg",
+    "credit": "Bex Walton",
+    "licence": "CC BY 4.0",
+    "date": "2025-11-27",
+    "distance_m": null,
+    "found_by": "category: Category:Volcán de Fuego",
+    "description": "Volcán de Fuego - Guatemala"
+   }
   },
   {
    "title": "Panimaché I and II: ash on the roofs, families evacuated, homes standing",
@@ -56,9 +68,21 @@
     "local_step_cm": 1.2
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Up early to watch the sunrise over Fuego from Acatenango summit.jpg",
+    "place": "Volcán de Fuego",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Up_early_to_watch_the_sunrise_over_Fuego_from_Acatenango_summit.jpg/960px-Up_early_to_watch_the_sunrise_over_Fuego_from_Acatenango_summit.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Up_early_to_watch_the_sunrise_over_Fuego_from_Acatenango_summit.jpg",
+    "credit": "Bex Walton",
+    "licence": "CC BY 4.0",
+    "date": "2025-11-27",
+    "distance_m": null,
+    "found_by": "category: Category:Volcán de Fuego",
+    "description": "Volcán de Fuego - Guatemala"
+   }
   },
   {
    "title": "Morelia: ashfall and evacuation, no flow damage",
@@ -87,7 +111,19 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:It was cloudy when we arrived but Fuego showed its face from time to time.jpg",
+    "place": "Volcán de Fuego",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/It_was_cloudy_when_we_arrived_but_Fuego_showed_its_face_from_time_to_time.jpg/960px-It_was_cloudy_when_we_arrived_but_Fuego_showed_its_face_from_time_to_time.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:It_was_cloudy_when_we_arrived_but_Fuego_showed_its_face_from_time_to_time.jpg",
+    "credit": "Bex Walton",
+    "licence": "CC BY 4.0",
+    "date": "2025-11-26",
+    "distance_m": null,
+    "found_by": "category: Category:Volcán de Fuego",
+    "description": "Volcán de Fuego - Guatemala"
+   }
   },
   {
    "title": "El Porvenir: preventive evacuation on the west flank",
@@ -114,9 +150,21 @@
     "local_step_cm": 1.4
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Guatemala 2024 10.jpg",
+    "place": "Volcán de Fuego",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Guatemala_2024_10.jpg/960px-Guatemala_2024_10.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Guatemala_2024_10.jpg",
+    "credit": "Iro Bosero",
+    "licence": "CC BY-SA 4.0",
+    "date": "2023-12-05",
+    "distance_m": null,
+    "found_by": "category: Category:Volcán de Fuego",
+    "description": "Volcán"
+   }
   },
   {
    "title": "Barranca Las Lajas: flows down the southeast flank",
@@ -143,9 +191,23 @@
     "local_step_cm": 1.5
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:200904-volcanes-luna.jpg",
+    "place": "Volcán de Fuego",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/200904-volcanes-luna.jpg/960px-200904-volcanes-luna.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:200904-volcanes-luna.jpg",
+    "credit": "Luisfi",
+    "licence": "CC BY-SA 4.0",
+    "date": "2020-09-04",
+    "distance_m": null,
+    "found_by": "category: Category:Volcán de Fuego",
+    "description": "Los volcanes de Agua, de Fuego y Acatenango junto a la ciudad de Guatemala; y la Luna."
+   }
   }
- ]
+ ],
+ "media": [],
+ "media_status": {}
 }

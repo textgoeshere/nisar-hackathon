@@ -54,6 +54,28 @@ On-rupture sites combine a large step with low coherence. The mill also sits nea
 good coherence: its damage came from shaking, not from the ground breaking under it. The castle
 sits on quiet ground.
 
+## Establishing shots
+
+A story with no photo of its own (nothing openly licensed, nothing to pixelate) gets an
+**establishing shot**: a recent, openly licensed Wikimedia Commons photo of the place it is about.
+It is context, never evidence, and the card says so: "Establishing shot: <place> (<year>), not of
+the event", muted and smaller than real event media, with credit, licence and a link to Commons.
+
+```sh
+.venv/bin/python -m pipeline.establishing --all      # -> research/establishing/<slug>.json
+.venv/bin/python -m pipeline.stories <slug>          # attaches it to the story as `establishing`
+```
+
+[`pipeline/establishing.py`](../pipeline/establishing.py) tries Commons geosearch within 2 km of the
+story's point, then the Commons category and full-text search for the story's main place (a
+hand-written `PLACES` list, since `place` is a precise locator rather than a search term), then
+geosearch within 8 km. Only CC BY / BY-SA / CC0 / public domain raster photos in landscape format,
+taken within ~15 years before the event; maps, logos, arms, documents, plants and animals, and
+anything mentioning damage or disasters are skipped. For an *affected* story a photo taken after the
+event is never used (it could show the damage and pass as the event); for an *unaffected* one the
+most recent wins. To review: delete an entry or set `"rejected": true`; `"pin": "File:..."` forces
+a file; a turned-down file goes into `REJECT` so it is never offered again.
+
 ## Rules
 
 - **Licensing:** show images only with an open licence (Wikimedia Commons CC BY / CC BY-SA, public

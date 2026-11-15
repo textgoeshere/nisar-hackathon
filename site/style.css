@@ -24,6 +24,9 @@ figcaption { font-size: .9rem; }
 .card.hot { outline: 2px solid var(--accent); }
 .card h3 { margin: .2rem 0; font-size: 1.05rem; }
 .card img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 4px; }
+.card .est { margin: 0; }
+.card .est img { max-height: 160px; filter: saturate(.55) brightness(.85); opacity: .9; }
+.card .est figcaption { font-size: .8rem; font-style: italic; margin-top: .15rem; }
 .card .nisar { background: #fff1; padding: .4rem .6rem; border-radius: 4px; }
 .num { display: inline-grid; place-items: center; width: 1.6em; height: 1.6em; border-radius: 50%; background: var(--side); color: #000; font-weight: 700; margin-right: .45em; font-size: .9rem; }
 .pin { position: absolute; left: 0; top: 0; width: 24px; height: 24px; padding: 0; border-radius: 50%; background: var(--side); border: 2px solid #000; cursor: pointer; display: grid; place-items: center; z-index: 2; box-shadow: 0 2px 6px #000a; }

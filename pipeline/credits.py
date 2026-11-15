@@ -53,6 +53,9 @@ def event_rows(d: Path) -> list[tuple[str, str, str, str]]:
             if it.get("status") == "rejected":
                 continue
             rows.append((f"Story: {it['title']}", it.get("credit") or "", it.get("licence") or "", link(it.get("page_url"))))
+            if e := it.get("establishing"):
+                rows.append((f"Establishing shot (not of the event): {e['title'].removeprefix('File:')}", e.get("credit") or "",
+                             e.get("licence") or "", link(e.get("page_url"))))
         for it in st.get("media", []):
             rows.append((f"Media: {it.get('title')}", it.get("credit") or "", it.get("licence") or "", link(it.get("page_url"))))
     return rows

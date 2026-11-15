@@ -17,7 +17,7 @@ captions written by a researcher are not always right for the page. The editor:
      as cards without a pin.
 2. Marks each one *selected*, *rejected* or *undecided*, sets an order, and optionally writes a
    caption in their own words. Decisions autosave in the browser.
-3. Downloads the decisions and commits them as `editorial/<slug>.json`:
+3. Downloads the decisions and commits them as `research/editorial/<slug>.json`:
    `{"boundary": ..., "items": {<story id>: {status, caption, order}}, "media": {<media id>: {status, caption, order}}}`.
 4. Runs `.venv/bin/python -m pipeline.stories <slug>` to merge them into the published
    `stories.json`: stories as before, plus `media` (the selected media, ordered, with credit, licence,

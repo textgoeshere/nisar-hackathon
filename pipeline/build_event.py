@@ -454,6 +454,14 @@ def build(slug: str, refetch=False):
         extra["footprint_rule"] = footprint[1]
     if ev.get("note"):
         extra["note"] = ev["note"]
+    if ev.get("newland"):
+        # Volcanic island: coherence is ~0 over both sea and fresh lava, so new land is read from
+        # GCOV backscatter instead (sea dark, rock bright). See pipeline/newland.py.
+        from . import newland
+        stories = json.loads((ROOT / "research" / "stories" / f"{slug}.json").read_text())["items"]
+        note, more = newland.add(ev, A, grid, add, stories)
+        extra["note"] = " ".join(filter(None, [extra.get("note"), note]))
+        stats |= more
     write_meta(ev, grid, out, layers, A, info, stats, images, still, extra)
 
 

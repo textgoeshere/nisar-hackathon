@@ -26,9 +26,11 @@
     "local_step_cm": 2.2
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/langtang-01.png",
+   "preview": "pixelated"
   },
   {
    "title": "Upper Syabrubesi: houses on the terrace above the debris line survived",
@@ -56,7 +58,9 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/langtang-02.png",
+   "preview": "pixelated"
   },
   {
    "title": "Timure: 'only six damaged houses remain standing'",
@@ -84,7 +88,9 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/langtang-03.png",
+   "preview": "pixelated"
   },
   {
    "title": "CCTV: the flood hits Gyirong Port at the border crossing",
@@ -142,7 +148,19 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Customs office.JPG",
+    "place": "Rasuwagadhi",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Customs_office.JPG/960px-Customs_office.JPG",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Customs_office.JPG",
+    "credit": "Krish Dulal",
+    "licence": "CC BY-SA 3.0",
+    "date": "2013-06-08",
+    "distance_m": null,
+    "found_by": "category: Category:Rasuwagadhi",
+    "description": "District Customs office of Rasuwa district."
+   }
   },
   {
    "title": "NH42 Trishuli Corridor road and suspension bridge between Syabrubesi and Timure (before)",
@@ -197,9 +215,13 @@
     "local_step_cm": 4.1
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/langtang-07.png",
+   "preview": "pixelated"
   }
- ]
+ ],
+ "media": [],
+ "media_status": {}
 }

@@ -97,6 +97,54 @@
    "confidence": "low",
    "notes": "The coordinates are the OSM node for Oria Arriba village. The bridge is where the Pedasí–Tonosí road crosses the Río Oria nearby, but it was not located exactly, so the position could be off by 1–2 km.",
    "id": "panama-06"
+  },
+  {
+   "title": "Las Tablas: the provincial hospital stayed fit to treat patients while Tonosí's was shut",
+   "place": "Hospital Joaquín Pablo Franco Sayas, Las Tablas, Los Santos",
+   "lat": 7.78722,
+   "lon": -80.27218,
+   "side": "unaffected",
+   "what_it_shows": "TVN, 14 Oct: Health Minister Fernando Boyd Galindo said 68 of Minsa's 842 facilities were affected, but 'el Hospital Aquilino Tejeira, Cecilio Castillero y Joaquín Pablo Franco, están en condiciones de atender a nuestra gente'; checks were of floor tiles and ceilings. The same report names Tonosí's hospital as one of the most compromised. OPS/OMS (15 Oct) found the Hospital Rural de Tonosí out of service with significant structural damage, about 45 km SW, while its mission went on to visit the Las Tablas hospital.",
+   "image_url": null,
+   "page_url": "https://www.tvn-2.com/nacionales/temblor-panama-instalaciones-salud-afectadas-cocle-chitre-lastablas_1_2265992.html",
+   "credit": "TVN (Panamá); OPS/OMS https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama",
+   "licence": "news, link only",
+   "date": "2026-10-14",
+   "confidence": "medium",
+   "notes": "The hospital was not untouched. A Telemetro headline on 11 Oct reports tents set up at the hospital to see patients (article not retrieved), and on the first night people from Las Tablas slept in the Roberto 'Flaco Bala' Hernández stadium for fear of aftershocks (Telemetro headline, 10 Oct). Damaged homes are reported in and around the town, e.g. 223 at La Enea de Guararé, 9 km NW. So 'unaffected' is relative: the building stayed usable while Tonosí's did not. Location is the OSM hospital (Hospital Joaquín Pablo Franco), good to about 100 m.",
+   "id": "panama-07"
+  },
+  {
+   "title": "Cañas: the mainland village took in the families from the island that sank",
+   "place": "Cañas village, Tonosí district, Los Santos (mainland, about 6 km NE of Isla Cañas)",
+   "lat": 7.44616,
+   "lon": -80.26223,
+   "side": "unaffected",
+   "what_it_shows": "OPS/OMS, 15 Oct: 'En Cañas se alojan familias desplazadas de Isla Cañas', in tents, with water pooling around some of them. Isla Cañas itself sank 15–30 cm and was cut in two (panama-04); the mainland village a few kilometres away was where its people were sheltered.",
+   "image_url": null,
+   "page_url": "https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama",
+   "credit": "OPS/OMS (Pan American Health Organization)",
+   "licence": "news, link only",
+   "date": "2026-10-15",
+   "confidence": "low",
+   "notes": "Evidence is indirect: being a shelter site implies the village was usable, not that it was undamaged. PAHO notes rural aqueducts in the area were affected, and a Metro Libre headline (9 Nov) says the M5.9 aftershock of 31 Oct left Cañas without power. NISAR here is not entirely quiet (local step ~7 cm, coherence ~0.4). Isla de Cañas is a separate corregimiento, so 'Cañas' is read as the mainland village. Location is the OSM village node; the camp itself was not located.",
+   "id": "panama-08"
+  },
+  {
+   "title": "Cambutal: across the fault from Tonosí, considered as a place to move Tonosí's patients",
+   "place": "Cambutal village, Tonosí district, Los Santos (Pacific coast, south of the rupture)",
+   "lat": 7.26533,
+   "lon": -80.48657,
+   "side": "unaffected",
+   "what_it_shows": "TVN, 14 Oct, quoting the health minister: Tonosí's hospital, which sees more than 100 people a day, is one of the most compromised, and Minsa 'contempla trasladar parte de la atención hacia Cambutal'. That points to Cambutal's health post still being usable, about 17 km SSW of Tonosí on the other side of the rupture.",
+   "image_url": null,
+   "page_url": "https://www.tvn-2.com/nacionales/temblor-panama-instalaciones-salud-afectadas-cocle-chitre-lastablas_1_2265992.html",
+   "credit": "TVN (Panamá)",
+   "licence": "news, link only",
+   "date": "2026-10-14",
+   "confidence": "low",
+   "notes": "A plan to move care there is the only evidence found; no report describes Cambutal's own damage either way. Treat it as a lead, not a finding. Location is the OSM village node; the health post (reopened 2012 per Telemetro) was not located.",
+   "id": "panama-09"
   }
  ]
 }

@@ -27,9 +27,21 @@
     "local_step_cm": 2.3
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Moron, edo. Carabobo.JPG",
+    "place": "Morón",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Moron%2C_edo._Carabobo.JPG/960px-Moron%2C_edo._Carabobo.JPG",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Moron,_edo._Carabobo.JPG",
+    "credit": "Eduardo Bonet",
+    "licence": "CC BY-SA 3.0",
+    "date": "2014-04-17",
+    "distance_m": null,
+    "found_by": "category: Category:Morón (Venezuela)",
+    "description": "La playa se encuentra ubicada dentro de las instalaciones del Complejo Petroquimico Moron, para el disfrute de los trabajadores."
+   }
   },
   {
    "title": "La Mar Suites, Tucacas: beachfront block collapsed, 12 dead",
@@ -56,9 +68,21 @@
     "local_step_cm": 1.4
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Tucacas, Estado Falcon, Venezuela..jpeg",
+    "place": "Tucacas",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Tucacas%2C_Estado_Falcon%2C_Venezuela..jpeg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Tucacas,_Estado_Falcon,_Venezuela..jpeg",
+    "credit": "Maria Gracia Quintero",
+    "licence": "CC BY-SA 3.0",
+    "date": "2014-05-13",
+    "distance_m": null,
+    "found_by": "category: Category:Tucacas",
+    "description": "Palmeras."
+   }
   },
   {
    "title": "Boca de Aroa: sand and water boiled up through cracks during the shaking",
@@ -85,9 +109,21 @@
     "local_step_cm": 1.9
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Amanecer en las playas de boca de aroa.jpg",
+    "place": "Boca de Aroa",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Amanecer_en_las_playas_de_boca_de_aroa.jpg/960px-Amanecer_en_las_playas_de_boca_de_aroa.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Amanecer_en_las_playas_de_boca_de_aroa.jpg",
+    "credit": "Maria e. villegas",
+    "licence": "CC BY-SA 3.0",
+    "date": "2011-07-22",
+    "distance_m": null,
+    "found_by": "category: Category:Boca de Aroa",
+    "description": "imagen de un amanecer en las playas de boca de aroa"
+   }
   },
   {
    "title": "Pueblo Farriar: a 380 m crack opened along the river bank",
@@ -97,13 +133,14 @@
    "side": "affected",
    "what_it_shows": "GEER Table 9-2 / Fig. 9-17 / Fig. 11-16: a river-parallel fissure about 380 m long, at most 3 m from the channel, photographed 12 July 2026 by R. Mata, E. Núñez et al. GEER also reports large, deep ground cracks between Agua Negra and Palmarejo (10.49–10.50°N, 68.51–68.53°W; LOS +5 to +6 cm, also smooth).",
    "image_url": null,
-   "page_url": "https://geerassociation.org/components/com_geer_reports/geerfiles/GEER%20report%20on%20June%2024%202026%20Venezuela%20Earthquake%2004.pdf",
-   "credit": "Ramón Mata, Eduardo Núñez et al., in GEER-087 (doi:10.18118/G6S95Q), Figs. 9-17 and 11-16",
-   "licence": "report, link only",
+   "page_url": "https://geerassociation.org/?view=geerreports&id=117",
+   "credit": "GEER Association, GEER-087 report (A. Cabas, J. Perri, R. B. Sancio, eds.; doi:10.18118/G6S95Q), Fig. 11-16a; photo R. Mata, E. Núñez et al.",
+   "licence": "GEER report figure; pixelated preview, link to source",
    "date": "2026-07-12",
    "confidence": "high",
-   "notes": "Coordinates are given in the GEER report (marker coordinates). GEER says the site is ~4 km from the 'M7.5 epicenter'; read that as the M7.2 San Felipe event, since the M7.5 was offshore near Catia La Mar.",
+   "notes": "Coordinates are given in the GEER report (marker coordinates). GEER says the site is ~4 km from the 'M7.5 epicenter'; read that as the M7.2 San Felipe event, since the M7.5 was offshore near Catia La Mar. Preview: photo panel (a) of Fig. 11-16 (report p. 281), cut from the English PDF (https://geerassociation.org/components/com_geer_reports/geerfiles/GEER%20report%20on%20June%2024%202026%20Venezuela%20Earthquake%2004.pdf), shrunk to 88 px on the long side and blown back up with nearest neighbour; only the pixelated derivative is stored.",
    "id": "venezuela-04",
+   "preview_file": "media/venezuela-04-geer.png",
    "nisar": {
     "u": 0.3775,
     "v": 0.4573,
@@ -114,9 +151,11 @@
     "local_step_cm": 1.4
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/venezuela-04-geer.png",
+   "preview": "pixelated"
   },
   {
    "title": "San Felipe: 13 homes heavily damaged, yet NISAR barely moved",
@@ -143,11 +182,102 @@
     "local_step_cm": 1.3
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Avenida Caracas - San Felipe.jpg",
+    "place": "San Felipe",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Avenida_Caracas_-_San_Felipe.jpg/960px-Avenida_Caracas_-_San_Felipe.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Avenida_Caracas_-_San_Felipe.jpg",
+    "credit": "Daniel Doffiny",
+    "licence": "CC BY-SA 4.0",
+    "date": "2017-08-16",
+    "distance_m": null,
+    "found_by": "category: Category:San Felipe (Venezuela)",
+    "description": "Avenida Caracas, San Felipe, Venezuela."
+   }
   }
  ],
  "media": [],
- "media_status": {}
+ "media_status": {
+  "venezuela-vali-746047d1": {
+   "status": "candidate"
+  },
+  "venezuela-vali-0d29cc1a": {
+   "status": "candidate"
+  },
+  "venezuela-vali-b41da48d": {
+   "status": "candidate"
+  },
+  "venezuela-comm-b511ab73": {
+   "status": "candidate"
+  },
+  "venezuela-comm-ea3b2159": {
+   "status": "candidate"
+  },
+  "venezuela-comm-ff47fec2": {
+   "status": "candidate"
+  },
+  "venezuela-comm-8395634c": {
+   "status": "candidate"
+  },
+  "venezuela-comm-f44c453b": {
+   "status": "candidate"
+  },
+  "venezuela-comm-674576de": {
+   "status": "candidate"
+  },
+  "venezuela-comm-b0ce617d": {
+   "status": "candidate"
+  },
+  "venezuela-mapi-6bff26bf": {
+   "status": "candidate"
+  },
+  "venezuela-mapi-d8887ff1": {
+   "status": "candidate"
+  },
+  "venezuela-mapi-f41d0dad": {
+   "status": "candidate"
+  },
+  "venezuela-mapi-5c3435a6": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-d50c2981": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-8433c0c8": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-9dee2c93": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-cd8177df": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-ee8d0fb5": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-6e1dea96": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-1420bbb6": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-7e09a13f": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-f6c81702": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-490d03d7": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-5d319286": {
+   "status": "candidate"
+  },
+  "venezuela-gdel-d5d12281": {
+   "status": "candidate"
+  }
+ }
 }

@@ -70,7 +70,7 @@ const meta = await (await fetch(base + "meta.json")).json();
 // Harvested media (step 5b): candidates + photos the harvest couldn't place in the frame.
 const media = await fetch(base + "media.json").then((r) => (r.ok ? r.json() : { items: [], unlocated: [] }), () => ({ items: [], unlocated: [] }));
 $("#name").textContent = meta.name;
-$("#path").textContent = `editorial/${slug}.json`;
+$("#path").textContent = `research/editorial/${slug}.json`;
 const key = `editorial:${slug}`;
 const saved = JSON.parse(localStorage.getItem(key) || "null");
 const state = saved || { boundary: data.boundary, items: Object.fromEntries(data.items.map((i) => [i.id, { status: i.status, caption: i.caption, order: i.order }])) };
