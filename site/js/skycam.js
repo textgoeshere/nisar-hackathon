@@ -35,8 +35,10 @@ const tgt = new THREE.Vector3(), probe = new THREE.PerspectiveCamera(40, 1, 0.00
 // a smoothed floor so the camera doesn't bob as it crosses ridges.
 function clearance(ev, cam) {
   const { v } = ev, cu = cam.position.x + 0.5, cv = cam.position.z / v.aspect + 0.5;
-  if (cu < -0.05 || cu > 1.05 || cv < -0.05 || cv > 1.05) return -Infinity;
-  let top = -Infinity;                                          // highest ground within ~6% of the scene
+  // Off the terrain: no clearance needed (0, never -Infinity: -Inf in the smoothing below gives NaN,
+  // and a NaN camera blanks the view for good).
+  if (cu < -0.05 || cu > 1.05 || cv < -0.05 || cv > 1.05) return 0;
+  let top = 0;                                          // highest ground within ~6% of the scene
   for (const [du, dv] of [[0, 0], [0.06, 0], [-0.06, 0], [0, 0.06], [0, -0.06], [0.04, 0.04], [-0.04, 0.04], [0.04, -0.04], [-0.04, -0.04]])
     top = Math.max(top, v.ceilingAt(Math.min(1, Math.max(0, cu + du)), Math.min(1, Math.max(0, cv + dv))));
   return top + 0.05;
@@ -135,7 +137,7 @@ function poseNow(v) {
   const { camera, controls } = v;
   const d = camera.position.clone().sub(controls.target), r = d.length();
   return { u: controls.target.x + 0.5, v: controls.target.z / v.aspect + 0.5,
-    az: Math.atan2(d.x, d.z), el: Math.asin(d.y / r), lr: Math.log(r) };
+    az: Math.atan2(d.x, d.z), el: Math.asin(Math.max(-1, Math.min(1, d.y / (r || 1)))), lr: Math.log(Math.max(1e-3, r)) };
 }
 
 // el: the element holding the canvas. survey() needs the change fully grown in: call with T = 1.
@@ -164,6 +166,12 @@ export function createSkycam(v, el, onStop) {
     const need = clearance(ev, v.camera);
     floorY = floorY == null ? need : floorY + (need - floorY) * k(need > floorY ? 4 : 0.5);
     place(ev, pose, v.camera, floorY, tgtY);
+    // Belt and braces: a non-finite pose would blank the view. Drop it and start a fresh flight.
+    if (![v.camera.position.x, v.camera.position.y, v.camera.position.z, tgt.x, tgt.y, tgt.z].every(Number.isFinite)) {
+      console.warn("skycam: non-finite pose, restarting flight");
+      v.camera.position.set(0, 0.6, 0.9 * Math.max(1, v.aspect)); tgt.set(0, 0, 0); v.camera.lookAt(tgt);
+      fresh(false);
+    }
     v.controls.target.copy(tgt);
   });
   return {

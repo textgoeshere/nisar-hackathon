@@ -200,6 +200,7 @@ export async function createViewer(el, base, meta, opts = {}) {
   }
   function resize() {
     const w = el.clientWidth, h = el.clientHeight;
+    if (!w || !h) return;                                 // hidden / collapsed: keep the last good size and aspect
     renderer.setSize(w, h, false);
     renderer.domElement.style.width = "100%";
     renderer.domElement.style.height = "100%";
@@ -210,11 +211,31 @@ export async function createViewer(el, base, meta, opts = {}) {
   const frameHooks = [];
   const ro = new ResizeObserver(resize);
   ro.observe(el);
+  // A throwing hook must not kill the loop (three stops requesting frames, and the next resize clears
+  // the canvas to blank); a NaN camera (e.g. from a bad orbit) is reset rather than rendered blank.
+  const home = camera.position.clone();
   const start = () => renderer.setAnimationLoop(() => {
     controls.update();
-    frameHooks.forEach((f) => f());
+    for (const f of frameHooks) { try { f(); } catch (e) { console.error(e); } }
+    const p = camera.position, t = controls.target;
+    if (![p.x, p.y, p.z, t.x, t.y, t.z].every(Number.isFinite)) { p.copy(home); t.set(0, 0, 0); controls.update(); }
     renderer.render(scene, camera);
   });
+  // GPU context lost (memory pressure, tab in the background on phones, GPU reset): ask the browser to
+  // restore it, and if it doesn't come back, offer a reload instead of a silent black box.
+  const cv = renderer.domElement;
+  cv.addEventListener("webglcontextlost", (e) => {
+    e.preventDefault();
+    console.warn("WebGL context lost");
+    setTimeout(() => {
+      if (!renderer.getContext().isContextLost() || el.querySelector(".gl-lost")) return;
+      const m = document.createElement("button");
+      m.className = "gl-lost"; m.type = "button"; m.textContent = "The 3D view was paused by the browser. Tap to reload it.";
+      m.onclick = () => location.reload();
+      el.appendChild(m);
+    }, 2000);
+  });
+  cv.addEventListener("webglcontextrestored", () => { el.querySelector(".gl-lost")?.remove(); console.warn("WebGL context restored"); });
   if (opts.autoStart !== false) start();
 
   // Coarse G x G grids: mean height (smooth camera targets) and max height (camera floor), bilinear.

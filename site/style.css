@@ -100,3 +100,4 @@ figcaption { font-size: .9rem; }
   letter-spacing: .03em; color: #e8eaf0cc; text-shadow: 0 0 3px #000, 0 1px 2px #000; transition: opacity .3s; }
 .place::before { content: ""; position: absolute; left: 0; top: 6.5px; width: 5px; height: 5px; border-radius: 50%; background: #e8eaf0aa; box-shadow: 0 0 2px #000; }
 .place.off { opacity: 0; }
+.gl-lost { position: absolute; inset: auto 1rem 1rem 1rem; z-index: 5; padding: .6rem 1rem; border-radius: 8px; border: 1px solid #fff3; background: #000c; color: var(--fg); font: inherit; cursor: pointer; }
