@@ -3,13 +3,13 @@ export const DURATION = 30;
 export const FPS = 30;
 export const EVENT_KINDS = Object.freeze(['quake','volcano','fire','flood','landslide','subsidence']);
 export const SHOTS = Object.freeze([
-  {id:'opening',start:0,end:4,caption:'Using NISAR orbital radar\nto understand human stories\non the ground.'},
-  {id:'passes',start:4,end:5.5,caption:'Repeated passes. Different signals. Ground evidence.'},
-  {id:'process',start:5.5,end:7,caption:'Find. Process. Contextualize. Visualize.'},
-  {id:'hero',start:7,end:14.5,caption:'Bring it together to visualize.'},
-  {id:'grid',start:14.5,end:20,caption:'One repeatable pipeline. Many kinds of change.'},
-  {id:'findings',start:20,end:26,caption:''},
-  {id:'finish',start:26,end:30,caption:''},
+  {id:'opening',start:0,end:2,caption:'Using NISAR orbital radar\nto understand human stories\non the ground.'},
+  {id:'passes',start:2,end:4,caption:'Repeated passes. Different signals. Ground evidence.'},
+  {id:'process',start:4,end:7,caption:'Find. Process. Contextualize. Visualize.'},
+  {id:'hero',start:7,end:14,caption:'Bring it together to visualize.'},
+  {id:'grid',start:14,end:20,caption:'One repeatable pipeline. Many kinds of change.'},
+  {id:'findings',start:20,end:29,caption:''},
+  {id:'finish',start:29,end:30,caption:''},
 ].map(Object.freeze));
 export const clamp = (x,lo=0,hi=1)=>Math.max(lo,Math.min(hi,x));
 export function smooth(x){const t=clamp(x);return t*t*(3-2*t);}
