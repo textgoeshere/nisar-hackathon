@@ -10,7 +10,14 @@ uniform float uDemExag, uLosExag, uT, uAspect, uDemBase, uWidth;
 varying vec2 vUv;
 varying float vLos;
 varying vec3 vNormal;
+#ifdef SLIP
+SLIP_GLSL
+#define S(p) slipSrc(p)
+#else
+#define S(p) (p)
+#endif
 float h(vec2 p) {
+  p = S(p);                                        // slip: where the ground now at p came from
   return ((texture2D(uDem, p).r - uDemBase) * uDemExag + texture2D(uLos, p).r * uT * uLosExag) / uWidth;
 }
 void main() {
@@ -20,7 +27,7 @@ void main() {
   float hz = h(p + vec2(0.0, e)) - h(p - vec2(0.0, e));
   vNormal = normalize(vec3(-hx / (2.0 * e), 1.0, -hz / (2.0 * e * uAspect)));
   vUv = p;
-  vLos = texture2D(uLos, p).r * uT;
+  vLos = texture2D(uLos, S(p)).r * uT;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(p.x - 0.5, h(p), (p.y - 0.5) * uAspect, 1.0);
 }`;
 
@@ -32,30 +39,38 @@ uniform vec3 uDropCol;
 varying vec2 vUv;
 varying float vLos;
 varying vec3 vNormal;
+#ifdef SLIP
+SLIP_GLSL
+SLIP_FRAG
+#define S(p) slipSrc(p)
+#else
+#define S(p) (p)
+#endif
 vec3 hsv(float h, float s, float v) {
   vec3 k = clamp(abs(mod(h * 6.0 + vec3(0.0, 4.0, 2.0), 6.0) - 3.0) - 1.0, 0.0, 1.0);
   return v * mix(vec3(1.0), k, s);
 }
 void main() {
+  vec2 q = S(vUv);                                 // slip: every lookup below goes through q
   float lit = 0.4 + 0.7 * max(dot(normalize(vNormal), normalize(vec3(-0.5, 0.8, -0.3))), 0.0);
-  vec3 base = uHasGround > 0.5 ? texture2D(uGround, vUv).rgb : vec3(0.6, 0.58, 0.54);
+  vec3 base = uHasGround > 0.5 ? texture2D(uGround, q).rgb : vec3(0.6, 0.58, 0.54);
   // Optional before image: the slider fades it into the after image. Cloud holes (black) keep the after.
   if (uHasGround > 0.5 && uHasGround0 > 0.5) {
-    vec3 b0 = texture2D(uGround0, vUv).rgb;
+    vec3 b0 = texture2D(uGround0, q).rgb;
     float ok = smoothstep(0.02, 0.06, max(b0.r, max(b0.g, b0.b)));
     base = mix(base, b0, ok * (1.0 - uT));
   }
   // Mute the satellite image a little so the artificial change colours stand out against it.
   base = mix(vec3(dot(base, vec3(0.299, 0.587, 0.114))), base, 0.65) * 0.9;
   vec3 col = base * lit;
-  float coh = texture2D(uCoh, vUv).r, valid = texture2D(uValid, vUv).r;
+  float coh = texture2D(uCoh, q).r, valid = texture2D(uValid, q).r;
   vec3 fr = hsv(fract(vLos / uCycle), 0.85, 1.0) * lit;
   if (uMode > 1.5) {
     // Change footprint, fading in with the before -> after slider. Landslide: coherence collapsed
     // (the surface was buried or torn up). Flood: ground turned radar-dark (open water). Fire:
     // vegetation backscatter fell (burn scar).
     // Neon fill plus a bright outline at the footprint's edge.
-    float x = texture2D(uDrop, vUv).r;
+    float x = texture2D(uDrop, q).r;
     float d = smoothstep(0.25, 0.5, x) * uT;
     col = mix(col, uDropCol * (0.6 + 0.4 * lit), d * 0.85);
     float edge = 1.0 - smoothstep(0.0, max(1.5 * fwidth(x), 1e-3), abs(x - 0.375));
@@ -72,6 +87,9 @@ void main() {
     col = mix(col, vec3(1.0, 0.6, 0.9), valid * line * 0.9 * step(0.02, -vLos));
   }
   col = mix(col, fr, 0.7 * uFringe * valid * smoothstep(0.3, 0.55, coh) * smoothstep(0.0, 0.003, abs(vLos)));
+#ifdef SLIP
+  col = slipDraw(col, vUv, q);                     // slip: the line and the moving grid
+#endif
   gl_FragColor = vec4(col, 1.0);
 }`;
 
@@ -105,6 +123,7 @@ function tex(data, w, h) {
 }
 
 // opts: segments (mesh resolution cap), pixelRatio cap, autoStart (false: call start() to begin rendering).
+// slip: optional { glsl, frag, uniforms, shift } from slip.js; absent, the shaders compile exactly as before.
 export async function createViewer(el, base, meta, opts = {}) {
   const { nx, ny, dx } = meta.grid;
   const width = nx * dx, aspect = ny / nx;
@@ -163,8 +182,11 @@ export async function createViewer(el, base, meta, opts = {}) {
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.maxPolarAngle = Math.PI * 0.48;
+  const sl = opts.slip;                                                                   // slip:
+  if (sl) { Object.assign(u, sl.uniforms); u.uSlipPx.value = renderer.getPixelRatio(); }   // slip:
+  const chunk = (s) => (sl ? s.replace(/SLIP_GLSL/g, sl.glsl).replace("SLIP_FRAG", sl.frag) : s); // slip:
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, Math.min(nx - 1, opts.segments ?? 1e9), Math.min(ny - 1, Math.round((opts.segments ?? 1e9) * aspect))),
-    new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, uniforms: u, extensions: { derivatives: true } }));
+    new THREE.ShaderMaterial({ vertexShader: chunk(VERT), fragmentShader: chunk(FRAG), uniforms: u, extensions: { derivatives: true }, ...(sl ? { defines: { SLIP: 1 } } : {}) })); // slip: chunk, defines
   mesh.frustumCulled = false;
   scene.add(mesh);
 
@@ -262,7 +284,8 @@ export async function createViewer(el, base, meta, opts = {}) {
     },
     // Screen position (CSS px within el) of the ground at (u, v); null when behind the camera.
     project([pu, pv], lift = 0.015) {
-      const p = new THREE.Vector3(pu - 0.5, heightAt(pu, pv) + lift, (pv - 0.5) * aspect).project(camera);
+      const [su, sv] = sl ? sl.shift(pu, pv, u.uT.value) : [pu, pv];                     // slip: rides with its ground
+      const p = new THREE.Vector3(su - 0.5, heightAt(pu, pv) + lift, (sv - 0.5) * aspect).project(camera); // slip: su, sv
       if (p.z > 1 || Math.abs(p.x) > 1 || Math.abs(p.y) > 1) return null;   // behind the camera or off the view
       return { x: ((p.x + 1) / 2) * el.clientWidth, y: ((1 - p.y) / 2) * el.clientHeight };
     },
