@@ -113,13 +113,15 @@ def stats(meta: dict, d: Path, mask: np.ndarray) -> dict:
 
 
 def run_checks(check: dict, vals: dict) -> list[str]:
-    """Return the failed checks. Keys: any `values` key: [lo, hi]; or step_min / measured_min / coherence_max."""
+    """Return the failed checks. Keys: any `values` key: [lo, hi]; or step_min / measured_min / measured_max / coherence_max."""
     bad = []
     for k, want in (check or {}).items():
         if k == "step_min":
             ok = vals.get("step_cm", -1) >= want
         elif k == "measured_min":
             ok = vals.get("measured_pct", -1) >= want
+        elif k == "measured_max":
+            ok = vals.get("measured_pct", 101) <= want
         elif k == "coherence_max":
             ok = vals.get("coherence_mean", 9) <= want
         else:
