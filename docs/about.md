@@ -70,8 +70,32 @@ GitHub paths and may require repository access until the owner publishes the sou
 
 The 10 timeline tests cover all 900 frames, cut boundaries, the six-second slip beat, final hold,
 monotonic movement, reversible seeking, zero LOS-as-height, scientific source separation and caption
-budget. The existing 19 Python tests cover pipeline/credits and slip contracts.
+budget. The current 27 Python tests cover pipeline/credits, slip and event-page contracts: **37 tests passed**
+(10 Node + 27 Python). JavaScript syntax, canonical credits freshness, public-doc rendering/freshness and
+whitespace checks also passed. The static page generator reproduced all twelve committed event pages
+and the landing page in memory; all seven guide shell blocks passed shell syntax checking.
 
-Browser release checks: full uninterrupted playback, arbitrary seeks, replay/pause, 1080p composition,
-portrait/landscape phone-sized readability, no console/network errors, actual Explore/Create destinations,
-public credits and the failure path. Browser checks are recorded after inspecting the published page.
+### Published-page QA — 15 November 2026
+
+Tested the actual public GitHub Pages presentation through build `f152033`, including its enlarged
+phone qualifiers and the new event-catalogue route. Browser: managed Chromium on macOS; not a local
+server preview and not a real-phone hardware test.
+
+| Check | Observed result |
+| --- | --- |
+| Full silent playback | Uninterrupted 0–30 s run at a 1920 × 1080 viewport/canvas. Final run reached 30 s after **30.001 s** wall time and held the last frame for another **1.118 s** without looping. All nine caption/cut states appeared at their authored boundaries. |
+| Composition | Inspected the opening, passes, process, terrain reveal, schoolyard, twelve-event grid, both slip states and final CTA screenshots. Both source arrows and school context survive the photo framing. Height remains terrain-only; the survey/GPS label and ×1,300 qualifier stay visible. |
+| Controls | Restart, pause, stable paused time, arbitrary slider seek (including 15.4 s), final-frame Replay and deterministic API seeks passed. Capture-mode “Read instead” exits capture and opens the visible transcript, including by keyboard. |
+| Phone-sized layouts | Inspected 390 × 844 and 360 × 800 portrait layouts and 844 × 390 landscape capture. No page-level horizontal overflow. Enlarged the model/exaggeration label and the Create guide qualifier after inspecting the first mobile rendering. Detailed source notes remain available in the readable transcript/credits. |
+| Real destinations | Clicked the final Explore and Create actions: `events.html` exposes twelve built event links; `create.html` displays the public operator guide and explicit developer/source-access caveat. Public `credits.html` includes the named photo authors, adaptation notice, model limitation and Marked attribution. No sign-in was required to read these pages. |
+| Existing viewer | Followed the catalogue to `e/kumamoto-quake.html`; the live 3D scene rendered and its before/after playback advanced. The optional viewer `stop()` addition did not change its default start behavior. |
+| Runtime/assets | Ready state only after assets loaded; no broken images, no page or console errors on the final run, and no HTTP error responses in its resource timings. No audio/video elements. |
+| Graphics recovery | Simulated WebGL context loss: playback disabled with a recovery message. Restoring the context re-enabled the controls and preserved the paused story frame. |
+| Public documents | Inspected Create and credits at desktop and phone widths. Code/table panels stay separately scrollable and keyboard-focusable; all local contents anchors resolve. The guide now includes `scripts/pages.py` for the current static event routes. |
+
+**Limits of this proof:** native Fullscreen requests were refused by the managed browser; the visible
+fallback message and clean capture mode worked. Native fullscreen on a normal user browser, Safari
+and real-phone GPU/touch behavior remain unverified. Browser animation-frame scheduling showed some
+pauses on static shots; this is not a certified constant-frame-rate export. No MP4, fresh end-to-end
+new-event build, or independent first-time-viewer comprehension study was performed. Those are
+separate from shipping this HTML presentation.

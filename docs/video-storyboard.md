@@ -76,10 +76,16 @@ No claim that an arbitrary event name already works as a single CLI argument, th
 
 - [x] Build `site/about.html` and its explicit 0–30 s timeline; 900-frame timing covered by tests.
 - [x] Preload images, data, fonts and the viewer before enabling Play; clean capture mode hides page controls.
-- [ ] Fixed viewport and deterministic camera/scene state. Main captions roughly 52–64 px at 1080p; legends/qualifiers at least 28 px. Check actual phone-sized readability, not just font-size rules.
-- [ ] Preserve no-data areas, source attribution, the distinction between LOS and field offset, and terrain-only height in the reveal.
-- [ ] Read/watch once with no prior context and no audio. The viewer should identify the problem, our work, the result and both next actions.
-- [ ] Verify the twelve-event grid and every displayed claim against current artifacts.
-- [ ] Follow the creation guide through the promised path; do not label the stretch UI as shipped.
-- [ ] After the owner publishes/renames the repository, verify both CTA destinations and full credits anonymously; update links, QR codes and repo screenshots together.
-- [ ] Export exactly 30 seconds; inspect the complete playback, final hold, crop, frame rate and absence of audio. At 30 fps the timeline contains 900 frames.
+- [x] Fixed 1920 × 1080 composition and deterministic camera/scene state. Main captions are 80 px; the critical model/exaggeration badge is 56–64 px and CTA qualifiers 54 px. Inspected 360/390 px portrait and 844 × 390 landscape browser viewports; these are not real-device tests.
+- [x] Preserve no-data areas, source attribution, LOS versus field offset, and terrain-only height. Opening/story crops retain both original photo arrows and school context.
+- [x] Run the complete silent presentation without interruption; final public run finished at 30.001 s wall time and held the end without looping. Inspect all shot screenshots and test pause, seek, restart, replay and the readable capture exit.
+- [x] Verify the twelve-event grid and displayed numerical claims against current artifacts and source notes.
+- [x] Publish the complete operator guide with source-access, coverage, manual setup/review and no-creation-UI caveats. Update it for static page generation; do not claim a fresh new-event build was proven.
+- [x] Follow both final CTAs and public credits without sign-in. Explore reaches the twelve built event links; Create reaches the actual guide. Smoke-test the existing Kumamoto viewer.
+- [x] Check runtime errors and missing assets; test WebGL loss/recovery. Native Fullscreen was refused by the managed browser; the fallback and clean capture view worked.
+- [ ] Optional independent cold-viewer comprehension check: can someone new identify the problem, our work, the result and both next actions? No user-understanding benefit has been demonstrated.
+- [ ] Separate pipeline validation: follow the guide for a genuinely new event end to end. This is not claimed by the documentation-only Create delivery.
+- [ ] If the owner later publishes/renames the repository, recheck source links and destinations; update URLs, QR codes and repo screenshots together.
+- [ ] Separate production step, not requested/exported here: produce exactly 30 seconds of MP4 and inspect encoded frame rate, final hold, crop and absence of audio. At 30 fps the authored timeline contains 900 frames.
+
+Detailed observed results and test limits: [published-page QA](about.md#published-page-qa--15-november-2026).

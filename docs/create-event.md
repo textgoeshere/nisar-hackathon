@@ -221,7 +221,13 @@ Optional lab/sideways-slip outputs are separate, not generated for arbitrary eve
 
 Checked source/CLI contracts, relative links and the committed Kumamoto fixture/asset sizes. Shell/JSON/
 Python examples pass syntax checks; metadata preview ran with mocked CMR for all six kinds. All 11
-pipeline tests and `pipeline.credits --check` passed. No authenticated fetch, rebuild, new event,
-live coverage check or browser render was run. Credentials, network, scientific review and human
-research/editorial remain prerequisites. No all-in-one creator, automatic scientific quality gate
-or generic new-event smoke test exists; a creation server/UI remains stretch scope.
+pipeline tests and `pipeline.credits --check` passed. After the static-route update, all seven shell
+blocks passed syntax checking and the page generator reproduced the twelve committed event pages
+and landing page in memory. The public guide and existing Kumamoto page were browser-checked;
+that is **not** a new-event build. The full repository suite passed (27 Python + 10 presentation tests).
+
+No authenticated fetch, rebuild, fresh new event or live coverage check was run. Credentials, network,
+scientific review and human research/editorial remain prerequisites. No all-in-one creator, automatic
+scientific quality gate or generic new-event smoke test exists; a creation server/UI remains stretch
+scope. See [the presentation QA record](about.md#published-page-qa--15-november-2026) for the browser
+checks and their limits.
