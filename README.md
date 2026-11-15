@@ -39,6 +39,7 @@ Each step is documented from first principles, with the commands to reproduce it
 
 ## Project guides
 
+- **ABOUT:** [30-second presentation](https://textgoeshere.github.io/nisar-hackathon/about.html) — silent, replayable and seekable, with a clean 16:9 capture mode. [Capture and verification](docs/about.md).
 - **CREATE:** [From an event name to a details page](docs/create-event.md) — coverage screening, registration, processing, story selection and validation. This is a documented developer workflow; a local/self-hosted creation UI remains a stretch goal.
 - **Submission video:** [30-second storyboard](docs/video-storyboard.md), with the Kumamoto hero, exact captions/timings and equally weighted Explore/Create calls to action.
 

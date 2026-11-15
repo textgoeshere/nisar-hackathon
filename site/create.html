@@ -1,0 +1,237 @@
+<!doctype html>
+<!-- Generated from docs/create-event.md by scripts/render-public-docs.mjs. Do not edit this HTML. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="The developer-operated guide to researching, building and reviewing a NISAR event page.">
+  <title>Create · Either side of the line</title>
+  <link rel="stylesheet" href="about-docs.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="./">Either side of the line <span>NISAR / NASA–ISRO</span></a>
+    <nav aria-label="Main navigation"><a href="./">Explore</a>
+        <a href="about.html">About</a>
+        <a href="create.html" aria-current="page">Create</a>
+        <a href="credits.html">Credits</a></nav>
+  </header>
+  <main id="content" tabindex="-1">
+    <header class="doc-heading">
+      <p class="eyebrow">Create / operator guide</p>
+      <h1 id="create-from-an-event-name-to-a-details-page">CREATE: from an event name to a details page</h1>
+      <aside class="doc-note" aria-label="Before you start"><strong>Before you start:</strong> this is a developer-operated workflow, not an all-in-one creation UI. Reading this guide needs no sign-in. Running it requires source repository access, granted by the owner, plus the setup and data access below. Repository-file links may require that access.</aside>
+    </header>
+    <div class="doc-layout">
+      <nav class="contents" aria-label="On this page">
+        <details open><summary>On this page</summary><ul><li><a href="#1-prepare-choose-rebuild-or-new-event">1. Prepare; choose rebuild or new event</a></li>
+            <li><a href="#2-turn-the-name-into-a-registered-candidate-manual">2. Turn the name into a registered candidate (manual)</a></li>
+            <li><a href="#3-screen-coverage-stop-if-it-cannot-answer-the-question">3. Screen coverage; stop if it cannot answer the question</a></li>
+            <li><a href="#4-build-radar-terrain-and-optical-layers">4. Build radar, terrain and optical layers</a></li>
+            <li><a href="#5-research-storiesmedia-then-make-human-selections">5. Research stories/media, then make human selections</a></li>
+            <li><a href="#6-validate-and-open-the-actual-details-page">6. Validate and open the actual details page</a></li></ul></details>
+      </nav>
+      <article class="prose" aria-label="Create document">
+<p><strong>Minimum deliverable:</strong> this operator guide, using the existing Python pipeline and static site.
+There is <strong>no free-text event-name command or creation server/UI</strong>. The browser editor selects
+stories for an already-built event; a local/self-hosted creation UI is a stretch, not implemented.
+An event name starts research, not a guaranteed build: suitable NISAR coverage and an interpretable
+signal are prerequisites. A valid outcome is “not suitable yet”, with the reason recorded.</p>
+<h2 id="1-prepare-choose-rebuild-or-new-event">1. Prepare; choose rebuild or new event</h2>
+<p>Run commands from the repository root. First-time setup (Python 3.12):</p>
+<pre tabindex="0" aria-label="Code sample"><code class="language-sh">python3.12 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+</code></pre>
+<p>Use a free <a href="https://urs.earthdata.nasa.gov/">Earthdata Login</a> bearer token in the environment variable
+<code>EARTHDATA_TOKEN</code> (set it privately in your shell; the pipeline reads the environment, not a <code>.env</code> file).</p>
+<p>Viewing the committed site and searching CMR need no login. A cache-miss build needs the token,
+network access to ASF, Copernicus DEM on AWS and Element 84 Earth Search; the browser needs WebGL
+and access to the three.js CDN. Dependencies are in <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/requirements.txt">requirements.txt</a>.
+Never put credentials, signed download URLs or raw HDF5 downloads in the repository.</p>
+<ul>
+<li><strong>Existing event:</strong> keep its registered slug and researched inputs. The supported worked example
+below is <code>kumamoto-quake</code>. You can skip new registration/research, but review coverage and outputs.</li>
+<li><strong>New event:</strong> do steps 2–6. A new name is not accepted until you register a structured candidate,
+check coverage, build the layers and supply researched, human-reviewed story inputs.</li>
+<li>Builds overwrite generated files and update the shared index/credits. Preserve unrelated changes;
+run builds serially. Serving a page locally does not publish it or require a Git commit.</li>
+</ul>
+<pre tabindex="0" aria-label="Code sample"><code class="language-sh">SLUG=kumamoto-quake  # existing worked recipe; replace with your registered slug for a new event
+</code></pre>
+<h2 id="2-turn-the-name-into-a-registered-candidate-manual">2. Turn the name into a registered candidate (manual)</h2>
+<p>Verify the exact event/year, onset date and affected footprint from original agency/news sources;
+record citations and uncertainty in research notes (see <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/research/validation-sources.md">validation sources</a>).
+Use the actual fire perimeter, debris corridor, flood area or vent, not just a nearby town&#39;s centroid.
+Choose a centre in decimal WGS84 latitude/longitude and a square window whose <strong>half-width</strong> is
+<code>half_km</code> in km. Include the whole footprint plus stable reference ground; start around 30–40 km
+for a large quake, 10–20 km for a local change, then inspect actual coverage.</p>
+<p>Append an object to <code>events</code> in <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/pipeline/candidates.json">pipeline/candidates.json</a>, keeping existing
+entries and a unique URL-safe slug. This is the existing example&#39;s schema, <strong>not a second entry</strong>:</p>
+<pre tabindex="0" aria-label="Code sample"><code class="language-json">{&quot;slug&quot;:&quot;kumamoto-quake&quot;, &quot;name&quot;:&quot;Kumamoto M6.8 earthquake, Japan&quot;,
+ &quot;kind&quot;:&quot;quake&quot;, &quot;lat&quot;:32.682, &quot;lon&quot;:130.722, &quot;date&quot;:&quot;2026-07-28&quot;, &quot;half_km&quot;:30}
+</code></pre>
+<p>Required: <code>slug, name, kind, lat, lon, date, half_km</code>. Use ISO <code>YYYY-MM-DD</code>; <code>date: null</code> is for ongoing
+subsidence, not an unknown event date. Supported kinds and actual selection rules:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="2. Turn the name into a registered candidate (manual) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">Kind</th>
+<th scope="col">Product and selection in <code>pipeline.build_event</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>quake</code>, <code>volcano</code>, <code>landslide</code></td>
+<td>GUNW: shortest pair with <code>start &lt; date &lt;= end</code> across all stacks; latest preceding pair on the same stack as baseline, if available.</td>
+</tr>
+<tr>
+<td><code>flood</code>, <code>fire</code></td>
+<td>GCOV HH/HV: same stack, at least two pre-event passes; take up to three before, first one after (flood) or up to two (fire). Choose earliest post-event coverage.</td>
+</tr>
+<tr>
+<td><code>subsidence</code> (<code>date: null</code>)</td>
+<td>GUNW: consecutive shortest pairs from the earliest date on the largest stack; cumulative LOS fitted to a steady rate. Inspect gaps and retained pairs.</td>
+</tr>
+</tbody></table>
+</div>
+<p>Optional fields: <code>after_from</code> (ISO date; delay GCOV post-event selection, e.g. until a fire&#39;s final scar),
+<code>reach_km</code> (documented volcanic run-out), <code>note</code> (GUNW page caveat; GCOV currently does not copy it).
+Do not copy <code>newland: true</code> to a new volcano: that extra GCOV analysis is Anak Krakatau-specific
+(fixed dates/projection/crop and a required stories file), not a generic new-land detector.
+Landslide thresholds are tuned to Himalayan monsoon valley floors; another setting needs validation,
+not just a changed name. Unknown kinds are not a supported extension point.</p>
+<h2 id="3-screen-coverage-stop-if-it-cannot-answer-the-question">3. Screen coverage; stop if it cannot answer the question</h2>
+<pre tabindex="0" aria-label="Code sample"><code class="language-sh">.venv/bin/python -m pipeline.coverage
+</code></pre>
+<p>This searches public CMR for <strong>all registered candidates</strong>, writes <code>site/data/coverage.json</code> and prints
+rankings. Collections are <code>NISAR_L2_GUNW_PROVISIONAL_V1</code> / <code>NISAR_L2_GCOV_PROVISIONAL_V1</code> in
+<a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/pipeline/cmr.py">pipeline/cmr.py</a>. It tests the centre point, <strong>not full-window coverage or signal quality</strong>.
+Compare only one (track, frame, ascending/descending direction) stack. Check granule footprints in
+<a href="https://search.asf.alaska.edu/">ASF Search</a> and later check the built grid/masks cover your footprint.</p>
+<p>Preview the builder&#39;s actual choices with public metadata only (no radar download):</p>
+<pre tabindex="0" aria-label="Code sample"><code class="language-sh">.venv/bin/python - &quot;$SLUG&quot; &lt;&lt;&#39;PY&#39;
+import sys
+from pipeline import build_event as b
+
+ev = b.candidates()[sys.argv[1]]
+if ev[&quot;date&quot;] is None:
+    chosen = b.chain(ev)
+elif ev[&quot;kind&quot;] in b.BACKSCATTER:
+    pre, post = b.pick_passes(ev)
+    chosen = pre + post
+else:
+    across, baseline = b.pick_pairs(ev)
+    if baseline is None:
+        print(&quot;WARNING: no quiet baseline; coherence-drop evidence is unavailable&quot;)
+    chosen = [g for g in (baseline, across) if g is not None]
+for g in chosen:
+    print(g.id, g.stack, g.start, g.end)
+PY
+</code></pre>
+<p>A coverage score is only a screen: GCOV scoring wants two passes on <strong>each</strong> side, whereas the builder
+accepts two before/one after; scoring ignores <code>after_from</code>. Subsidence scoring counts a stack, not its
+continuous chain. The builder does not enforce a score or choose the cleanest signal. There is no
+CLI track/granule override; a different scientific selection requires a reviewed code change.</p>
+<p><strong>Stop/defer</strong> for no spanning pair, no adequate same-stack passes, an unusable chain, or a flood
+already drained before the first post-event pass. Keep the candidate and document why; do not add a
+fake live page. Recheck later for archive/product lag, or choose another event. CMR errors are not
+proof of absent coverage: resolve the service error and rerun. A missing baseline prevents the
+baseline comparison/coherence-drop story even if the across-event motion layer builds.</p>
+<h2 id="4-build-radar-terrain-and-optical-layers">4. Build radar, terrain and optical layers</h2>
+<pre tabindex="0" aria-label="Code sample"><code class="language-sh">.venv/bin/python -m pipeline.build_event &quot;$SLUG&quot;
+# Only when deliberately refreshing acquisitions, or after changing date/centre/extent/kind:
+# .venv/bin/python -m pipeline.build_event &quot;$SLUG&quot; --refetch
+</code></pre>
+<p>First run reads HDF5 windows through HTTP ranges (not entire multi-GB granules); budget minutes and
+potentially substantial network traffic, especially for a chain. <code>cache/&lt;slug&gt;.npz</code> is reused by slug,
+<strong>not keyed by parameters</strong>. Use <code>--refetch</code> after scientific input changes. Only load trusted caches.
+A missing/expired Earthdata token or ASF access failure is an authentication blocker, not “no event”.</p>
+<p>The build reprojects Copernicus GLO-30 terrain and Sentinel-2 L2A onto the radar grid. Optical windows
+are event −75 to −1 days / +1 to +45 days; for subsidence the anchor is chain end minus 60 days.
+Cloud-masked composites use up to six dates each. Draping uses after, then before to fill holes;
+GCOV also falls back to radar brightness. Without optical, ordinary GUNW can have no ground texture.
+Missing DEM tiles become zero: check that land has real terrain, not a silent download/coverage gap.
+STAC/network failures may abort the build; fix them rather than treating an incomplete folder as ready.</p>
+<p>Outputs: <code>site/events/&lt;slug&gt;/meta.json</code> (grid, provenance, dates, stats, image credits), binary layers,
+images and ground texture when available. GUNW yields LOS/coherence and, with a baseline, coherence
+loss; GCOV yields backscatter change, not motion; subsidence yields fitted cumulative motion/rate.
+The build adds the slug to <code>site/events/index.json</code> automatically, but <strong>does not build stories</strong>.
+Inspect baseline versus event signal, valid area, cloud gaps and agreement with independent mapped
+extents. Low coherence is not proof of damage; explain mismatches in the page/story text, or stop.
+See <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/docs/3-ingest.md">ingest methods and limitations</a>; event animation is interpolation, not a recording.</p>
+<h2 id="5-research-storiesmedia-then-make-human-selections">5. Research stories/media, then make human selections</h2>
+<p>For a new event create <code>research/stories/&lt;slug&gt;.json</code> manually. Use
+<a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/research/stories/kumamoto-quake.json">the Kumamoto source</a> as the concrete schema example:
+top-level <code>slug</code>, <code>boundary</code> (one checked sentence), <code>items</code> (array). Every item needs a stable <code>id</code>,
+<code>title, place, lat, lon, side, what_it_shows, image_url, page_url, credit, licence, date, confidence, notes</code>.
+Use <code>side</code> = <code>affected</code> or <code>unaffected</code> only with evidence; <code>confidence</code> = high/medium/low.
+Verify source pages, event/year, location and rights yourself. Aim for a well-located hit/spared pair,
+not invented people, damage, sources or coordinates. An empty <code>items</code> array is a technical bootstrap,
+not a completed ground-story page. Approximate locations cannot prove opposite sides of a boundary.</p>
+<p>Optional enrichment (not needed for a radar + researched-story page):</p>
+<ul>
+<li>Media harvest requires a hand-written <code>research/media/seeds/&lt;slug&gt;.json</code> first; see
+<a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/docs/5b-media.md">seed schema, providers and outputs</a> and the four existing seed files. It is not generated
+from an event name. <code>.venv/bin/python -m pipeline.media &quot;$SLUG&quot; --only=commons,gdelt</code> avoids Mapillary;
+the default harvest&#39;s Mapillary provider needs <code>MAPILLARY_TOKEN</code>. Harvest rewrites candidates and may
+geocode/update seeds; inspect failures and wrong matches. Its relevance/tiering is quake/subsidence-
+oriented, not a validated generic hazard search.</li>
+<li><code>.venv/bin/python -m pipeline.establishing &quot;$SLUG&quot;</code> finds optional Commons place photos; review
+<code>research/establishing/&lt;slug&gt;.json</code> and mark bad choices <code>&quot;rejected&quot;: true</code>. These are labelled context,
+<strong>not pictures of the event</strong>. <code>.venv/bin/python scripts/places.py &quot;$SLUG&quot;</code> adds optional OSM labels.</li>
+</ul>
+<pre tabindex="0" aria-label="Code sample"><code class="language-sh">.venv/bin/python -m pipeline.stories &quot;$SLUG&quot;
+.venv/bin/python -m http.server 8000 --bind 127.0.0.1 --directory site
+</code></pre>
+<p>The first command samples radar at researched points and creates <code>site/events/&lt;slug&gt;/stories.json</code>.
+It may fetch image previews; it also regenerates per-event <code>CREDITS.md</code>. Keep the server running in
+this terminal. Open <code>http://localhost:8000/editor.html?e=kumamoto-quake</code> (substitute your slug), select/
+reject candidates, order and caption them, and <strong>download</strong> decisions into
+<code>research/editorial/&lt;slug&gt;.json</code>. Browser autosave alone never updates repository files. Decisions
+have <code>boundary</code> text plus <code>items</code>/<code>media</code> maps keyed by ID, with <code>status</code>, <code>caption</code> and <code>order</code>.
+In another terminal at the repo root, rerun <code>.venv/bin/python -m pipeline.stories kumamoto-quake</code>
+(or your slug) to apply them. The page falls back to non-rejected candidates marked <strong>unreviewed</strong>
+if no selected in-frame stories remain; do not mistake that for editorial approval.</p>
+<p>Retain source URLs, creators, licences and modification notices. News images may become pixelated
+linked previews in the current pipeline; pixelation is <strong>not permission</strong>. If rights are unclear,
+use link-only text with <code>image_url: null</code> and no <code>preview_file</code>. Review harvested previews too.
+Add any new dataset/software/service attribution to the hand-maintained part of
+<a href="credits.html">CREDITS.md</a>; regenerate its marked per-event block with <code>pipeline.stories</code> or
+<code>.venv/bin/python -m pipeline.credits</code>, never by hand. Selected Mapillary URLs can expire; see
+<a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/docs/6-editorial.md">editorial shipping checks</a>.</p>
+<h2 id="6-validate-and-open-the-actual-details-page">6. Validate and open the actual details page</h2>
+<p><strong>Worked example URL:</strong> <a href="http://localhost:8000/event.html?e=kumamoto-quake">http://localhost:8000/event.html?e=kumamoto-quake</a>.
+For a new event use <code>http://localhost:8000/event.html?e=&lt;slug&gt;</code>, <strong>not</strong> an events-directory URL or
+<code>file://</code>. The home page lists <code>site/data/coverage.json</code> and links only slugs in <code>site/events/index.json</code>;
+the demo uses the latter. Thus a new event needs both the coverage refresh and successful build.
+Neither file is an editorial-readiness gate. Generated folders alone do not register a candidate.</p>
+<pre tabindex="0" aria-label="Code sample"><code class="language-sh">PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_pipeline.py
+.venv/bin/python -m pipeline.credits --check
+# Optional macOS screenshot, with the server above still running and Chrome installed:
+PORT=8000 sh scripts/shot.sh &#39;event.html?e=kumamoto-quake&#39; /tmp/nisar-event.png
+</code></pre>
+<p>Before calling it ready, check the actual new slug, not just the example: metadata dates/extent/
+provenance, every referenced layer/image, binary sizes (<code>nx × ny</code> bytes for u8, twice that for i16),
+working 3D/slider, in-frame pins, reviewed stories/media, source links/credits, caveats and home-page
+link. Inspect the screenshot and browser console/network errors; automated tests do not establish
+scientific validity or rights. Changed grids also require resampling stories and refreshing optional
+media/places; existing media seeds&#39; computed <code>steps</code> are cached in the seed JSON, not auto-invalidated.
+Optional lab/sideways-slip outputs are separate, not generated for arbitrary events by this recipe.</p>
+<h3 id="verification-and-remaining-limits-15-november-2026">Verification and remaining limits (15 November 2026)</h3>
+<p>Checked source/CLI contracts, relative links and the committed Kumamoto fixture/asset sizes. Shell/JSON/
+Python examples pass syntax checks; metadata preview ran with mocked CMR for all six kinds. All 11
+pipeline tests and <code>pipeline.credits --check</code> passed. No authenticated fetch, rebuild, new event,
+live coverage check or browser render was run. Credentials, network, scientific review and human
+research/editorial remain prerequisites. No all-in-one creator, automatic scientific quality gate
+or generic new-event smoke test exists; a creation server/UI remains stretch scope.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <p>Static copy of <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/docs/create-event.md">docs/create-event.md</a>. Repository links may require access from the owner. Reading this page does not grant source access.</p>
+    <p><a href="./">Explore events</a> · <a href="about.html">About the project</a> · <a href="credits.html">Credits</a></p>
+  </footer>
+</body>
+</html>

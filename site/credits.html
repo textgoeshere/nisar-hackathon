@@ -1,0 +1,1212 @@
+<!doctype html>
+<!-- Generated from CREDITS.md by scripts/render-public-docs.mjs. Do not edit this HTML. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Data, media, software, services and AI attribution for Either side of the line.">
+  <title>Credits · Either side of the line</title>
+  <link rel="stylesheet" href="about-docs.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="./">Either side of the line <span>NISAR / NASA–ISRO</span></a>
+    <nav aria-label="Main navigation"><a href="./">Explore</a>
+        <a href="about.html">About</a>
+        <a href="create.html">Create</a>
+        <a href="credits.html" aria-current="page">Credits</a></nav>
+  </header>
+  <main id="content" tabindex="-1">
+    <header class="doc-heading">
+      <p class="eyebrow">Sources / acknowledgements</p>
+      <h1 id="credits">Credits</h1>
+      <aside class="doc-note" aria-label="About these credits">Data, media, software, services and AI attribution, reproduced from the canonical credits. Repository-file links may require source access; the owner controls availability.</aside>
+    </header>
+    <div class="doc-layout">
+      <nav class="contents" aria-label="On this page">
+        <details open><summary>On this page</summary><ul><li><a href="#satellite-and-map-data">Satellite and map data</a></li>
+            <li><a href="#reference-and-validation-sources">Reference and validation sources</a></li>
+            <li><a href="#ground-media-sources">Ground media sources</a></li>
+            <li><a href="#software">Software</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about-presentation">About presentation</a></li>
+            <li><a href="#ai-super-intelligence-disclosure">AI (&quot;Super Intelligence&quot;) disclosure</a></li>
+            <li><a href="#project-licence">Project licence</a></li>
+            <li><a href="#per-event">Per event</a></li></ul></details>
+      </nav>
+      <article class="prose" aria-label="Credits document">
+<p>This is the canonical list of everything this project uses: data, reference sources, media,
+software, services and AI. The site and the Space Apps submission take their credits from here.
+Everything above the generated section is maintained by hand. <code>tests/test_pipeline.py</code> fails if a
+Python dependency or a script loaded by the site is missing from it, or if the generated section is
+stale.</p>
+<h2 id="satellite-and-map-data">Satellite and map data</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Satellite and map data table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">Data</th>
+<th scope="col">Provider</th>
+<th scope="col">Used for</th>
+<th scope="col">Licence / terms</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR L2 GUNW (provisional): geocoded unwrapped interferograms</td>
+<td>NASA/JPL-Caltech and ISRO, distributed by the ASF DAAC (<a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a>), found through NASA CMR</td>
+<td>Ground motion, coherence and interferograms for quakes, volcanoes, landslides and subsidence</td>
+<td>Free and open (NASA Earth science data policy). Cite &quot;NASA/JPL-Caltech/ISRO, ASF DAAC&quot;</td>
+</tr>
+<tr>
+<td>NISAR L2 GCOV (provisional): geocoded backscatter</td>
+<td>NASA/JPL-Caltech and ISRO, distributed by the ASF DAAC</td>
+<td>Before/after radar brightness change for fires and floods</td>
+<td>As above</td>
+</tr>
+<tr>
+<td>Copernicus Sentinel-2 L2A</td>
+<td>ESA / European Commission (Copernicus), via <a href="https://earth-search.aws.element84.com/v1">Element 84 Earth Search</a> on AWS Open Data</td>
+<td>Cloud-masked optical composites draped on the 3D terrain</td>
+<td>Copernicus Sentinel data terms: free and open. Images say &quot;Contains modified Copernicus Sentinel-2 data&quot;</td>
+</tr>
+<tr>
+<td>Copernicus GLO-30 DEM</td>
+<td>ESA / Airbus (Copernicus), <a href="https://registry.opendata.aws/copernicus-dem/">AWS Open Data</a></td>
+<td>3D terrain</td>
+<td>Copernicus DEM licence: free, with attribution: &quot;© DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA&quot;</td>
+</tr>
+<tr>
+<td>OpenStreetMap, via <a href="https://nominatim.openstreetmap.org/">Nominatim</a></td>
+<td>OpenStreetMap contributors</td>
+<td>Placing stories, seed places and news headlines</td>
+<td>ODbL 1.0: &quot;© OpenStreetMap contributors&quot;</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="reference-and-validation-sources">Reference and validation sources</h2>
+<p>These were used to check NISAR against what happened on the ground and to place the stories. Each
+link is listed in <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/research/validation-sources.md"><code>research/validation-sources.md</code></a>; a value shown on
+the site is credited in the per-event table below.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Reference and validation sources table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">Source</th>
+<th scope="col">Events</th>
+<th scope="col">What it gave us</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Copernicus Emergency Management Service (<a href="https://rapidmapping.emergency.copernicus.eu/">rapidmapping.emergency.copernicus.eu</a>)</td>
+<td>Panama, Venezuela, Langtang, Fuego</td>
+<td>Damage grading, debris and pyroclastic-flow polygons, Sentinel-1 DInSAR polygons (Venezuela EMSR884)</td>
+</tr>
+<tr>
+<td>ESA Copernicus Sentinel-1 (via EMS, OPERA, EOS-RS and USGS products)</td>
+<td>Venezuela, Mexico City, Flores, Langtang, Bangladesh</td>
+<td>Independent C-band InSAR and flood extents to cross-check NISAR</td>
+</tr>
+<tr>
+<td>NASA/JPL OPERA (DISP-S1, DSWx-S1, DIST-ALERT)</td>
+<td>Mexico City, Bangladesh, Etna, Langtang, fires</td>
+<td>Systematic displacement, surface water and disturbance products</td>
+</tr>
+<tr>
+<td>USGS Earthquake Hazards Program (<a href="https://earthquake.usgs.gov/">earthquake.usgs.gov</a>)</td>
+<td>Quakes</td>
+<td>Event parameters, ShakeMaps, finite-fault models, ground-failure models</td>
+</tr>
+<tr>
+<td>Nevada Geodetic Laboratory (<a href="https://geodesy.unr.edu/">geodesy.unr.edu</a>)</td>
+<td>Kumamoto, Mexico City, Etna and others</td>
+<td>GNSS station time series (MIDAS rates, co-seismic offsets)</td>
+</tr>
+<tr>
+<td>Geological Survey of Japan, AIST (<a href="https://www.gsj.jp/">gsj.jp</a>)</td>
+<td>Kumamoto</td>
+<td>Field-measured fault offsets and field photos. GSJ Terms of Use, compatible with CC BY 4.0</td>
+</tr>
+<tr>
+<td>Headquarters for Earthquake Research Promotion / GSI GEONET (<a href="https://www.jishin.go.jp/">jishin.go.jp</a>, <a href="https://www.gsi.go.jp/">gsi.go.jp</a>)</td>
+<td>Kumamoto</td>
+<td>GNSS co-seismic offsets, slope-failure maps</td>
+</tr>
+<tr>
+<td>GEER Association (<a href="https://geerassociation.org/">geerassociation.org</a>)</td>
+<td>Venezuela</td>
+<td>Field reconnaissance (GEER-087, doi:10.18118/G6S95Q)</td>
+</tr>
+<tr>
+<td>UNOSAT (<a href="https://unosat.org/">unosat.org</a>), Sentinel Asia, International Charter Space and Major Disasters</td>
+<td>Panama, Langtang, Bangladesh</td>
+<td>Damage and flood assessments</td>
+</tr>
+<tr>
+<td>EOS Remote Sensing, Earth Observatory of Singapore</td>
+<td>Flores, Langtang</td>
+<td>Damage Proxy Maps (CC BY 4.0)</td>
+</tr>
+<tr>
+<td>INGV Osservatorio Etneo (<a href="https://www.ct.ingv.it/">ct.ingv.it</a>)</td>
+<td>Etna</td>
+<td>Lava-flow maps, bulletins, photos (CC BY-ND)</td>
+</tr>
+<tr>
+<td>INSIVUMEH, CONRED (Guatemala)</td>
+<td>Fuego</td>
+<td>Bulletins, drone photos, run-out distances</td>
+</tr>
+<tr>
+<td>BMKG, Badan Geologi, BIG (Indonesia)</td>
+<td>Flores, Anak Krakatau</td>
+<td>Event reports, new-land area, geodetic points</td>
+</tr>
+<tr>
+<td>BWDB (Bangladesh Water Development Board)</td>
+<td>Bangladesh</td>
+<td>River gauge levels</td>
+</tr>
+<tr>
+<td>ICIMOD, Humanitarian OpenStreetMap Team (<a href="https://data.humdata.org/">data.humdata.org</a>)</td>
+<td>Langtang</td>
+<td>Debris extent, bridge status points</td>
+</tr>
+<tr>
+<td>NIFC WFIGS interagency perimeters; USDA Forest Service BAER soil-burn-severity</td>
+<td>Aspen Acres, Little Giant</td>
+<td>Fire perimeters and burn severity to validate the backscatter change</td>
+</tr>
+<tr>
+<td>WA DNR / WALERT</td>
+<td>Little Giant</td>
+<td>Post-fire debris-flow observations</td>
+</tr>
+<tr>
+<td>Published science (e.g. Chaussard et al. 2021 on Mexico City subsidence; NASA PIA26709)</td>
+<td>Mexico City</td>
+<td>Subsidence rates and the NISAR reference map</td>
+</tr>
+<tr>
+<td>News outlets (cited per item, e.g. La Prensa, Telemetro, Infobae, Colorado Sun, The Daily Star, Kompas)</td>
+<td>All</td>
+<td>Ground stories, linked to the original. News images appear only as pixelated previews linked to the article</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="ground-media-sources">Ground media sources</h2>
+<p>Every photo or street view shown carries its own credit and licence on the event page, and is listed
+per event below. These are the services they come from.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Ground media sources table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">Source</th>
+<th scope="col">Licence of what we show</th>
+<th scope="col">How it is used</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://commons.wikimedia.org/">Wikimedia Commons</a></td>
+<td>As stated per file (CC BY, CC BY-SA, CC0, public domain)</td>
+<td>Photos, credited to the author with a link to the file page</td>
+</tr>
+<tr>
+<td><a href="https://openverse.org/">Openverse</a></td>
+<td>As stated per item (CC licences)</td>
+<td>Photo search across Flickr and other CC sources</td>
+</tr>
+<tr>
+<td><a href="https://www.mapillary.com/">Mapillary</a></td>
+<td>CC BY-SA 4.0, credited to the contributor</td>
+<td>Before/after street views</td>
+</tr>
+<tr>
+<td><a href="https://panoramax.fr/">Panoramax</a></td>
+<td>As stated per picture (usually CC BY-SA 4.0)</td>
+<td>Street views</td>
+</tr>
+<tr>
+<td><a href="https://www.gdeltproject.org/">GDELT Project</a> DOC API</td>
+<td>Index only; articles belong to their publishers</td>
+<td>Finding news articles. Their preview images are shown pixelated (56 px), linked to the source</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="software">Software</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Software table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">Software</th>
+<th scope="col">Licence</th>
+<th scope="col">Used for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://threejs.org/">three.js</a> 0.170.0 (via <a href="https://www.jsdelivr.com/">jsDelivr</a>)</td>
+<td>MIT</td>
+<td>3D viewer and About presentation</td>
+</tr>
+<tr>
+<td><a href="https://marked.js.org/">Marked</a> 18.0.11</td>
+<td>MIT</td>
+<td>Build-time rendering of the public Create guide and credits; no browser dependency</td>
+</tr>
+<tr>
+<td><a href="https://numpy.org/">NumPy</a></td>
+<td>BSD-3-Clause</td>
+<td>Raster processing</td>
+</tr>
+<tr>
+<td><a href="https://scipy.org/">SciPy</a></td>
+<td>BSD-3-Clause</td>
+<td>Filtering, interpolation</td>
+</tr>
+<tr>
+<td><a href="https://www.h5py.org/">h5py</a> / HDF5</td>
+<td>BSD-3-Clause / BSD-style</td>
+<td>Reading NISAR HDF5 products</td>
+</tr>
+<tr>
+<td><a href="https://rasterio.readthedocs.io/">rasterio</a> / GDAL</td>
+<td>BSD-3-Clause / MIT</td>
+<td>Reading the DEM and Sentinel-2 COGs, reprojection</td>
+</tr>
+<tr>
+<td><a href="https://pyproj4.github.io/pyproj/">pyproj</a> / PROJ</td>
+<td>MIT / MIT</td>
+<td>Coordinate transforms</td>
+</tr>
+<tr>
+<td><a href="https://python-pillow.org/">Pillow</a></td>
+<td>MIT-CMU (HPND)</td>
+<td>Image output, pixelated previews</td>
+</tr>
+<tr>
+<td><a href="https://requests.readthedocs.io/">Requests</a></td>
+<td>Apache-2.0</td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td><a href="https://pytest.org/">pytest</a></td>
+<td>MIT</td>
+<td>Tests</td>
+</tr>
+<tr>
+<td>Python 3.12</td>
+<td>PSF License</td>
+<td>Pipeline</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="services">Services</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Services table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">Service</th>
+<th scope="col">Used for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NASA Earthdata Login and <a href="https://cmr.earthdata.nasa.gov/">CMR</a></td>
+<td>NISAR granule search and authenticated download</td>
+</tr>
+<tr>
+<td>Alaska Satellite Facility DAAC</td>
+<td>NISAR data hosting</td>
+</tr>
+<tr>
+<td>AWS Open Data</td>
+<td>Sentinel-2 and Copernicus DEM hosting</td>
+</tr>
+<tr>
+<td>GitHub and GitHub Pages</td>
+<td>Code hosting and the public site</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="about-presentation">About presentation</h2>
+<p>The 30-second presentation at <code>site/about.html</code> reuses the event data and viewer. Its method diagrams
+are code-drawn schematics, not additional measurements. Full source-photo verification and provenance
+are in <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/site/about/README.md">site/about/README.md</a> and <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/site/about/photo-source.json">photo-source.json</a>.</p>
+<ul>
+<li><strong>Schoolyard photograph:</strong> Akai, Ota, Maruyama, Yoshimi, Azuma, Ninomiya / Geological Survey of Japan,
+AIST, Emergency field report No. 5, photo 10. <a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html">Source report</a>;
+<a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png">original photograph</a>;
+<a href="https://www.gsj.jp/license/license.html#01">GSJ Terms of Use</a>, CC BY 4.0 compatible. The original
+1021 × 767 PNG bytes and annotations are unchanged. Presentation crop/reframing and English caption
+by Dancing With The SARs; no GSJ endorsement is implied. The 94 cm value is the field survey, not NISAR.</li>
+<li><strong>Sideways-slip prototype:</strong> GSJ field offsets and Nevada Geodetic Laboratory daily positions for
+GSI GEONET stations. The field between observations is modelled, exaggerated and imperfect; vertical
+movement is omitted. See <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/docs/slip.md">the model and sources</a>. It is not radar-measured sideways motion.</li>
+<li>Radar, Sentinel-2 imagery and terrain carry the satellite-data credits and terms above. The twelve-event
+mosaic uses the committed radar-layer images, not twelve additional claims of scientific validation.</li>
+</ul>
+<h2 id="ai-super-intelligence-disclosure">AI (&quot;Super Intelligence&quot;) disclosure</h2>
+<p>We used a combination of AI models and coding agents throughout. They did research for candidate
+events and ground stories, wrote most of the pipeline and site code, and drafted the docs. Every
+value and source was checked against the original, and a person makes the editorial choices in the
+editor.</p>
+<p>No documentary photograph, satellite image or map data on the site was generated by AI. The About
+presentation’s code-drawn method schematics were authored with AI assistance and are labelled as
+schematics, not observations. Any generative-media image added later must carry a visible label
+on the image itself (e.g. &quot;SI-generated image via &lt;tool&gt;&quot;) and be listed here.</p>
+<h2 id="project-licence">Project licence</h2>
+<p>The project&#39;s own code and text are released under CC0 1.0 (see <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/LICENSE">LICENSE</a>). Third-party
+data and media keep their own licences, as listed above and per item.</p>
+<h2 id="per-event">Per event</h2>
+<p>Everything each event page shows, from <code>site/events/&lt;slug&gt;/meta.json</code> and <code>stories.json</code>. Rejected stories are left out; media appears once an editor selects it.</p>
+<h3 id="anak-krakatau-lava-flows-indonesia-anak-krakatau">Anak Krakatau lava flows, Indonesia (<code>anak-krakatau</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Anak Krakatau lava flows, Indonesia (anak-krakatau) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>NISAR radar backscatter</td>
+<td>NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Story: 32.8 ha of new land on the west shore of Anak Krakatau</td>
+<td>DW Indonesia / detikNews, quoting PVMBG head Rita Susilawati (Badan Geologi)</td>
+<td>news, link only</td>
+<td><a href="https://www.dw.com/id/analisis-badan-geologi-soal-munculnya-daratan-baru-di-dekat-gunung-anak-krakatau/a-79405451">dw.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Anak Krakatau, january 2016.jpg</td>
+<td>Tyke</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Anak_Krakatau,_january_2016.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: New islet 760 m off the northwest coast</td>
+<td>M. Riezko Bima Elko Prasetyo / ANTARA, quoting Badan Geologi</td>
+<td>news, link only</td>
+<td><a href="https://babel.antaranews.com/berita/584019/badan-geologi-deteksi-kemunculan-dua-pulau-baru-di-sekitar-krakatau">babel.antaranews.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Uprising-mt anak krakatau.jpg</td>
+<td>Uprising</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Uprising-mt_anak_krakatau.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: New islet 495 m off the southeast coast</td>
+<td>M. Riezko Bima Elko Prasetyo / ANTARA, quoting Badan Geologi</td>
+<td>news, link only</td>
+<td><a href="https://babel.antaranews.com/berita/584019/badan-geologi-deteksi-kemunculan-dua-pulau-baru-di-sekitar-krakatau">babel.antaranews.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Anak Krakatau volcano (50984292248).jpg</td>
+<td>Annamaria Luongo</td>
+<td>CC BY 2.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Anak_Krakatau_volcano_(50984292248).jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Lava fountain from the summit crater, 5 September</td>
+<td>Pemprov Lampung (Lampung Provincial Government), via Wikimedia Commons</td>
+<td>Public domain (per Wikimedia Commons)</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Mount_Anak_Krakatau_continuous_eruption_and_lava_fountain,_5_September_2026.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Northeast shore: no new land</td>
+<td>Badan Geologi (PVMBG), ESDM</td>
+<td>Indonesian government agency report; text cited, no image used</td>
+<td><a href="https://geologi.esdm.go.id/media-center/perkembangan-erupsi-gunungapi-anak-krakatau-tanggal-7-september-2026">geologi.esdm.go.id</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Anak Krakatau with some activity visible, Indonesia - April 17th, 2020 (49787256542).jpg</td>
+<td>Pierre Markuse from Hamm, Germany</td>
+<td>CC BY 2.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Anak_Krakatau_with_some_activity_visible,_Indonesia_-_April_17th,_2020_(49787256542).jpg">commons.wikimedia.org</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="aspen-acres-fire-colorado-aspen-acres-fire">Aspen Acres Fire, Colorado (<code>aspen-acres-fire</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Aspen Acres Fire, Colorado (aspen-acres-fire) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR radar backscatter</td>
+<td>NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 5 passes, track 19</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="moulvibazar-floods-bangladesh-bangladesh-flood">Moulvibazar floods, Bangladesh (<code>bangladesh-flood</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Moulvibazar floods, Bangladesh (bangladesh-flood) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR radar backscatter</td>
+<td>NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 3 passes, track 91</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: Manu embankment breaks at Uzirpur; villages of Tengra union go under</td>
+<td>Ajker Patrika (Bengali); also bdnews24 <a href="https://bdnews24.com/bangladesh/6ab2a50a67a0">https://bdnews24.com/bangladesh/6ab2a50a67a0</a> and Daily Country Today <a href="https://www.dailycountrytodaybd.com/story/embankment-breaches-put-100-villages-underwater-in-m%27bazar;-50,000-marooned">https://www.dailycountrytodaybd.com/story/embankment-breaches-put-100-villages-underwater-in-m%27bazar;-50,000-marooned</a></td>
+<td>news, link only</td>
+<td><a href="https://www.ajkerpatrika.com/bangladesh/moulvibazar/ajpjcscs423r5">ajkerpatrika.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Tarapasha High School and College (Cropped).jpg</td>
+<td>Ahmed Reza Khan</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Tarapasha_High_School_and_College_(Cropped).jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Defaloura and Rajnagar town: on the flood&#39;s edge, under threat but not reported flooded</td>
+<td>Daily Country Today, Moulvibazar correspondent</td>
+<td>news, link only</td>
+<td><a href="https://www.dailycountrytodaybd.com/story/embankment-breaches-put-100-villages-underwater-in-m%27bazar;-50,000-marooned">dailycountrytodaybd.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Tea garden of Moulvibazar.jpg</td>
+<td>Sujitpauldu</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Tea_garden_of_Moulvibazar.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Moulvibazar town holds behind its embankment as the Manu runs up to 84 cm above danger</td>
+<td>The Daily Star (9 Jul 2026); Daily Country Today <a href="https://dailycountrytodaybd.com/story/embankment-breaches-along-manu-river-:-40-villages-flooded-in-moulvibazar">https://dailycountrytodaybd.com/story/embankment-breaches-along-manu-river-:-40-villages-flooded-in-moulvibazar</a>; bdnews24</td>
+<td>news, link only</td>
+<td><a href="https://www.thedailystar.net/news/environment/weather/news/rivers-swell-habiganj-moulvibazar-raising-flood-fears-4219656">thedailystar.net</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Moulvibazar Govt. High School School house of the British Time..jpg</td>
+<td>Mr.smtanim</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Moulvibazar_Govt._High_School_School_house_of_the_British_Time..jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Kamarchak: water spills over the dam at Ward 2</td>
+<td>SK Sirajul Islam Siraj, Daily Country Today</td>
+<td>news, link only</td>
+<td><a href="https://dailycountrytodaybd.com/story/embankment-breaches-along-manu-river-:-40-villages-flooded-in-moulvibazar">dailycountrytodaybd.com</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="etna-fissure-eruption-italy-etna-eruption">Etna fissure eruption, Italy (<code>etna-eruption</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Etna fissure eruption, Italy (etna-eruption) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: Lava front at the foot of Rocca Capra, burning broom and pine</td>
+<td>Boris Behncke, INGV-Osservatorio Etneo (Figura 8)</td>
+<td>CC BY-ND 4.0 (INGVvulcani blog licence)</td>
+<td><a href="https://ingvvulcani.com/2026/08/22/etna-la-calda-estate-del-2026/">ingvvulcani.com</a></td>
+</tr>
+<tr>
+<td>Story: Rocca Capra ridge: the island the lava flowed around</td>
+<td>Boris Behncke, INGV-Osservatorio Etneo (Figura 8)</td>
+<td>CC BY-ND 4.0 (INGVvulcani blog licence)</td>
+<td><a href="https://ingvvulcani.com/2026/08/22/etna-la-calda-estate-del-2026/">ingvvulcani.com</a></td>
+</tr>
+<tr>
+<td>Story: New vent at Monte Rittmann: cone collapse and small pyroclastic flows</td>
+<td>Marco Firetto Carlino, INGV-Osservatorio Etneo (Figura 7)</td>
+<td>CC BY-ND 4.0 (INGVvulcani blog licence)</td>
+<td><a href="https://ingvvulcani.com/2026/08/22/etna-la-calda-estate-del-2026/">ingvvulcani.com</a></td>
+</tr>
+<tr>
+<td>Story: Zafferana Etnea: ash, not lava</td>
+<td>Daniele Andronico, INGV-Osservatorio Etneo (Figura 9)</td>
+<td>CC BY-ND 4.0 (INGVvulcani blog licence)</td>
+<td><a href="https://ingvvulcani.com/2026/08/22/etna-la-calda-estate-del-2026/">ingvvulcani.com</a></td>
+</tr>
+<tr>
+<td>Story: Fissure activity on the Voragine, seen from Pizzi Deneri</td>
+<td>Stefano Branca, INGV-Osservatorio Etneo (Figura 3)</td>
+<td>CC BY-ND 4.0 (INGVvulcani blog licence)</td>
+<td><a href="https://ingvvulcani.com/2026/08/22/etna-la-calda-estate-del-2026/">ingvvulcani.com</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="flores-sea-m78-earthquake-indonesia-flores-quake">Flores Sea M7.8 earthquake, Indonesia (<code>flores-quake</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Flores Sea M7.8 earthquake, Indonesia (flores-quake) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: Ground cracks spouting hot water at Tonggurambang</td>
+<td>Albert Aquinaldo / TribunFlores.com</td>
+<td>news, link only</td>
+<td><a href="https://flores.tribunnews.com/nagekeo/63995/warga-nagekeo-panik-air-panas-menyembur-dari-retakan-tanah-usai-gempa-flores-ntt">flores.tribunnews.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Kota Mbay, Nagekeo, Flores, NTT.jpg</td>
+<td>Ignas Kunda</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Kota_Mbay,_Nagekeo,_Flores,_NTT.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Five houses wrecked in Aeramo, Dusun V</td>
+<td>Arkadius Togo / FloresPos.net</td>
+<td>news, link only</td>
+<td><a href="https://florespos.net/2026/08/15/gempa-guncang-nagekeo-5-rumah-rusak-berat-warga-aeramo-mengungsi-ke-gunung/">florespos.net</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Bukit Weworowet Mbay-Nagekeo.jpg</td>
+<td>Novia Aziza</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Bukit_Weworowet_Mbay-Nagekeo.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Tsunami hits a 356-pupil scout camp on the beach at Kota Jogo, Anakoli</td>
+<td>Vokal Publika</td>
+<td>news, link only</td>
+<td><a href="https://vokalpublika.com/tangisan-di-bibir-pantai-kota-jogo-kepanikan-saat-gempa-menghentikan-kegiatan-pramuka/">vokalpublika.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): PANTAI KOTAJOGO.jpg</td>
+<td>Niko Segu Do</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:PANTAI_KOTAJOGO.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Degalea, on the south coast: 60 houses and two schools heavily damaged</td>
+<td>Ekora NTT</td>
+<td>news, link only</td>
+<td><a href="https://ekorantt.com/2026/08/18/puluhan-rumah-warga-dan-fasilitas-umum-di-pelosok-nagekeo-rusak-berat-dampak-gempa/">ekorantt.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Foto budaya Nagekeo.jpg</td>
+<td>Yohanes Jawa</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Foto_budaya_Nagekeo.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: RSUD Ende: patients moved into tents as a precaution</td>
+<td>Seraphinus Sandi Hayon Jehadu, Ihsanuddin / Kompas.com</td>
+<td>news, link only</td>
+<td><a href="https://regional.kompas.com/read/2026/08/15/230008578/gempa-ntt-15-pasien-dan-5-bayi-dirawat-di-tenda-darurat-rsud-ende">regional.kompas.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Penampakan Gunung Meja, Ende..jpg</td>
+<td>Pravda V. Wardhana</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Penampakan_Gunung_Meja,_Ende..jpg">commons.wikimedia.org</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="fuego-eruption-guatemala-fuego-eruption">Fuego eruption, Guatemala (<code>fuego-eruption</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Fuego eruption, Guatemala (fuego-eruption) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: Pyroclastic flows down the Taniluyá barranca, beside Panimaché and Morelia</td>
+<td>INSIVUMEH, Sección de Vulcanología</td>
+<td>Guatemalan government agency report; text cited, no image used</td>
+<td><a href="https://insivumeh.gob.gt/actualizacion-de-la-actividad-del-volcan-de-fuego-hoy-04-de-agosto/">insivumeh.gob.gt</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Sunrise over the clouds on Acatenango.jpg</td>
+<td>Bex Walton</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Sunrise_over_the_clouds_on_Acatenango.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Panimaché I and II: ash on the roofs, families evacuated, homes standing</td>
+<td>Rolando Alvarado / La Hora</td>
+<td>news, link only</td>
+<td><a href="https://lahora.gt/nacionales/ralvarado/2026/08/04/erupcion-volcan-de-fuego-patrullas-de-rescate-evacuan-a-familias-de-panimache-i-y-ii-y-morelia/">lahora.gt</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Up early to watch the sunrise over Fuego from Acatenango summit.jpg</td>
+<td>Bex Walton</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Up_early_to_watch_the_sunrise_over_Fuego_from_Acatenango_summit.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Morelia: ashfall and evacuation, no flow damage</td>
+<td>Rolando Alvarado / La Hora</td>
+<td>news, link only</td>
+<td><a href="https://lahora.gt/nacionales/ralvarado/2026/08/04/erupcion-volcan-de-fuego-patrullas-de-rescate-evacuan-a-familias-de-panimache-i-y-ii-y-morelia/">lahora.gt</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): It was cloudy when we arrived but Fuego showed its face from time to time.jpg</td>
+<td>Bex Walton</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:It_was_cloudy_when_we_arrived_but_Fuego_showed_its_face_from_time_to_time.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: El Porvenir: preventive evacuation on the west flank</td>
+<td>The Watchers; La Hora</td>
+<td>news, link only</td>
+<td><a href="https://watchers.news/2026/08/04/">watchers.news</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Guatemala 2024 10.jpg</td>
+<td>Iro Bosero</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Guatemala_2024_10.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Barranca Las Lajas: flows down the southeast flank</td>
+<td>IFRC GO field report / Cruz Roja Guatemalteca, via ReliefWeb</td>
+<td>ReliefWeb/IFRC report; text cited, no image used</td>
+<td><a href="https://reliefweb.int/report/guatemala/gtm-erupcion-volcanica-08-2026-actividad-volcan-fuego-guatemala-2026-08-05">reliefweb.int</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): 200904-volcanes-luna.jpg</td>
+<td>Luisfi</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:200904-volcanes-luna.jpg">commons.wikimedia.org</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="kumamoto-m68-earthquake-japan-kumamoto-quake">Kumamoto M6.8 earthquake, Japan (<code>kumamoto-quake</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Kumamoto M6.8 earthquake, Japan (kumamoto-quake) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: Fault offset 94 cm across the playground of Ryuho Elementary School</td>
+<td>Akai, Ota, Maruyama, Yoshimi, Azuma, Ninomiya / AIST Geological Survey of Japan (photo 10, 第5報)</td>
+<td>GSJ Terms of Use (CC BY 4.0 compatible)</td>
+<td><a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html">gsj.jp</a></td>
+</tr>
+<tr>
+<td>Story: Yatsushiro Shrine (Myoken-gu) torn by the fault: approach path offset 95 cm</td>
+<td>Katorisi / Wikimedia Commons (gate photo); offset figures from AIST GSJ photo 12 (<a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png">https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png</a>)</td>
+<td>CC BY-SA 4.0 (Commons photo); GSJ photo: GSJ Terms of Use (CC BY 4.0 compatible)</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Damage_to_the_sacred_gate_(shinmon)_of_Myoken-gu,_caused_by_the_2026_Kumamoto_Earthquake._Yatsushiro_City,_Japan.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Expressway viaduct dropped where the rupture passes under Myoken Daiichi Bridge (Yatsushiro JCT)</td>
+<td>Katorisi / Wikimedia Commons; MLIT closure photo also on Commons (File:Minami Kyushu Expwy Broken Bridge after 2026 Kumamoto Earthquake (Yatsushiro JCT - Yatsushiro Minami IC).png, CC BY 4.0, 国土交通省)</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Minami-Kyushu_Expressway,_Myoken_Dai-ichi_Bridge_northbound,_damage_from_the_2026_Kumamoto_earthquake,_and_the_cracks_in_the_surrounding_area._Yatsushiro_City,_Japan.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Nippon Paper Yatsushiro mill: chimney collapse killed nine, 2 km off the fault</td>
+<td>国土地理院 (Geospatial Information Authority of Japan) via Wikimedia Commons; ground rescue photo: 総務省消防庁 (File:Rescue at NPI Yatsushiro Plant (2026 Kumamoto Earthquake).jpg, CC BY 4.0)</td>
+<td>Attribution (GSI, per Commons)</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Aerial_photograph_of_the_Nippon_Paper_Industries_Yatsushiro_Plant,_which_collapsed_due_to_the_2026_Kumamoto_earthquake._Taken_on_July_29,_2026.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: AEON Mall Kumamoto: second floor collapsed with ~3,000 shoppers inside</td>
+<td>総務省消防庁 (Fire and Disaster Management Agency) via Wikimedia Commons; also JGSDF photo File:20260730 JGSDF Officers in AEON Mall Kumamoto after Earthquake.jpg (CC BY 4.0, 防衛省)</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Rescue_at_AEON_Mall_Kumamoto_(2026_Kumamoto_Earthquake).jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Kumamoto Castle: Nishi-demaru stone walls down again, 13 km from the rupture</td>
+<td>Katorisi / Wikimedia Commons</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Stone_walls_of_the_Nishi-demaru_of_Kumamoto_Castle_that_collapsed_due_to_the_2026_Kumamoto_Earthquake._Kumamoto_City,_Japan.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: AEON Mall Uki: ceiling collapse right where NISAR&#39;s step crosses Ogawa</td>
+<td>Wikipedia (text); AIST GSJ 第6報 <a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-03.html">https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-03.html</a></td>
+<td>no image found</td>
+<td><a href="https://en.wikipedia.org/wiki/2026_Kumamoto_earthquake">en.wikipedia.org</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Kumamoto prefectural road route 014, Uki, Matsubase.jpg</td>
+<td>運動会プロテインパワー</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Kumamoto_prefectural_road_route_014,_Uki,_Matsubase.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Media: GSJ photo 3: 城南町鰐瀬 paddy over the 鰐瀬 trench, 23 cm</td>
+<td>Source: Geological Survey of Japan web page (<a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html">https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html</a>), AIST GSJ 第5報 field photo</td>
+<td>GSJ Terms of Use (CC BY 4.0 compatible)</td>
+<td><a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html">gsj.jp</a></td>
+</tr>
+<tr>
+<td>Media: 20260730 Track Damage of Kagoshima Line (Matsubase - Ogawa)</td>
+<td>国土交通省</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:20260730_Track_Damage_of_Kagoshima_Line_(Matsubase_-_Ogawa).jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Media: 20260729 Inside AEON Mall Kumamoto Search and Rescue by Kumamoto Police (2026 Kumamoto Earthquake)</td>
+<td>警察庁</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:20260729_Inside_AEON_Mall_Kumamoto_Search_and_Rescue_by_Kumamoto_Police_(2026_Kumamoto_Earthquake).png">commons.wikimedia.org</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="langtang-ice-rock-avalanche-nepal-langtang-avalanche">Langtang ice-rock avalanche, Nepal (<code>langtang-avalanche</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Langtang ice-rock avalanche, Nepal (langtang-avalanche) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: Syabrubesi from the air: the town on the terrace stands, the valley floor below it is grey debris</td>
+<td>Onlinekhabar (aerial photo, published 31 Aug 2026)</td>
+<td>news, link only</td>
+<td><a href="https://english.onlinekhabar.com/syabrubesi-bhotekoshi-flood-photos.html">english.onlinekhabar.com</a></td>
+</tr>
+<tr>
+<td>Story: Upper Syabrubesi: houses on the terrace above the debris line survived</td>
+<td>Onlinekhabar (aerial photo, published 31 Aug 2026)</td>
+<td>news, link only</td>
+<td><a href="https://english.onlinekhabar.com/syabrubesi-bhotekoshi-flood-photos.html">english.onlinekhabar.com</a></td>
+</tr>
+<tr>
+<td>Story: Timure: &#39;only six damaged houses remain standing&#39;</td>
+<td>The Kathmandu Post (third-party photo)</td>
+<td>news, link only</td>
+<td><a href="https://kathmandupost.com/national/2026/09/16/the-august-26-floods-wiped-timure-off-the-map">kathmandupost.com</a></td>
+</tr>
+<tr>
+<td>Story: CCTV: the flood hits Gyirong Port at the border crossing</td>
+<td>CCTV footage, unknown author, via Wikimedia Commons</td>
+<td>Public domain (as tagged on Commons)</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Mudslide_at_Gyirong_Port_2_(screenshot).png">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Ghattekhola: settlement, immigration office and Rasuwagadhi hydro site &#39;disappeared&#39;</td>
+<td>The Kathmandu Post</td>
+<td>news, link only</td>
+<td><a href="https://kathmandupost.com/national/2026/09/16/the-august-26-floods-wiped-timure-off-the-map">kathmandupost.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Customs office.JPG</td>
+<td>Krish Dulal</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Customs_office.JPG">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: NH42 Trishuli Corridor road and suspension bridge between Syabrubesi and Timure (before)</td>
+<td>Curt1us / Wikimedia Commons</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:NH42_Trishuli_Corridor_towards_Syaphru.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Dhunche, the district HQ on the ridge, stayed out of the flood&#39;s path and became the access point</td>
+<td>Photo: Rajivkilanashrestha / Wikimedia Commons (2016). Status: Hiking Nepal, &#39;Rasuwa Flooding Update&#39;, 6 Sep 2026</td>
+<td>CC BY-SA 4.0 (photo); story text news, link only</td>
+<td><a href="https://www.hikingnepal.com/rasuwa-flood-august-2026-current-status-of-langtang-gosaikunda-and-tamang-heritage-routes">hikingnepal.com</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="little-giant-fire-washington-little-giant-fire">Little Giant Fire, Washington (<code>little-giant-fire</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Little Giant Fire, Washington (little-giant-fire) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR radar backscatter</td>
+<td>NISAR L2 GCOV (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 5 passes, track 71</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="mexico-city-subsidence-mexico-city-subsidence">Mexico City subsidence (<code>mexico-city-subsidence</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Mexico City subsidence (mexico-city-subsidence) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC: 28 chained interferograms, track 19</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: A kilometre-long crack runs under homes on the Tláhuac / Valle de Chalco line</td>
+<td>MILENIO</td>
+<td>news, link only</td>
+<td><a href="https://www.milenio.com/politica/comunidad/tlahuac-valle-chalco-enorme-grieta-afecta-calles-viviendas">milenio.com</a></td>
+</tr>
+<tr>
+<td>Story: Sierra de Santa Catarina: the volcanic ridge that doesn&#39;t sink</td>
+<td>Crater_sp (Flickr), via Wikimedia Commons</td>
+<td>CC BY-SA 2.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Iztapalapa_desde_el_cerro_de_la_Estrella.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Templo de la Santísima Trinidad: a church now below street level</td>
+<td>LBM1948, via Wikimedia Commons</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Ciudad_de_M%C3%A9xico,_edificios_1986_01.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: The Metropolitan Cathedral, sinking unevenly into the lake-bed</td>
+<td>ProtoplasmaKid, via Wikimedia Commons; text: en.wikipedia &#39;Mexico City Metropolitan Cathedral&#39;</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Catedral_Metropolitana_de_la_Ciudad_de_M%C3%A9xico_1.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Ángel de la Independencia: 14 steps added as the ground fell away</td>
+<td>Diego Delso, via Wikimedia Commons; text: en.wikipedia &#39;Angel of Independence&#39;</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Monumento_a_la_Independencia,_M%C3%A9xico_D.F.,_M%C3%A9xico,_2014-10-13,_DD_19.JPG">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Ciudad Universitaria on the Pedregal lava: the stable south</td>
+<td>ProtoplasmaKid, via Wikimedia Commons; text: es.wikipedia &#39;Ciudad Universitaria (UNAM)&#39;</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Ciudad_Universitaria_UNAM_-_Torre_de_Rector%C3%ADa_-_1.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Media: Inclinada - panoramio</td>
+<td>Carlos Perez Chavez</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Inclinada_-_panoramio.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Media: Muestra del hundimiento de la Ciudad de México</td>
+<td>User:Gengiskanhg</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Muestra_del_hundimiento_de_la_Ciudad_de_M%C3%A9xico.jpeg">commons.wikimedia.org</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="azuero-m77-earthquake-panama-panama-quake">Azuero M7.7 earthquake, Panama (<code>panama-quake</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Azuero M7.7 earthquake, Panama (panama-quake) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: Búcaro: the ground split 1–1.2 m sideways and 1 m up; the road &#39;lifted two to three metres&#39;</td>
+<td>La Prensa (Panamá), photos Alexander Arosemena; La Estrella de Panamá <a href="https://www.laestrella.com.pa/panama/nacional/terremoto-hundio-30-centimetros-de-isla-canas-de-acuerdo-a-estudios-preliminares-MB26639225">https://www.laestrella.com.pa/panama/nacional/terremoto-hundio-30-centimetros-de-isla-canas-de-acuerdo-a-estudios-preliminares-MB26639225</a>; OCHA SitRep 3 <a href="https://reliefweb.int/report/panama/panama-earthquake-azuero-veraguas-situation-report-no-03-12-october-2026-1430">https://reliefweb.int/report/panama/panama-earthquake-azuero-veraguas-situation-report-no-03-12-october-2026-1430</a></td>
+<td>news, link only</td>
+<td><a href="https://www.prensa.com/sociedad/secuelas-del-terremoto-la-grieta-de-bucaro-el-dilema-de-isla-canas-y-el-resurgir-de-la-colorada/">prensa.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Entrada de Pocri de Los Santos.jpg</td>
+<td>Villalaso</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Entrada_de_Pocri_de_Los_Santos.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Tonosí: hotel collapsed; patients treated in tents</td>
+<td>U.S. Army photo by Pfc. Carolyn Dodge (Commons); TVN <a href="https://www.tvn-2.com/nacionales/temblor-panama-tonosi-enfrenta-perdidas_1_2266543.html">https://www.tvn-2.com/nacionales/temblor-panama-tonosi-enfrenta-perdidas_1_2266543.html</a></td>
+<td>Public domain (US Government)</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:U_S_Ambassador_to_Panama_Visits_Tonosi_Panama_to_Deliver_Food_and_Supplies_(10038246).jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: El Cacao: a resident in front of his earthquake-damaged home</td>
+<td>World Central Kitchen (Flickr) via Wikimedia Commons</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Afectado_por_el_terremoto_de_Panam%C3%A1_en_El_Cacao.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Isla Cañas sank 15–30 cm and was cut in two by the sea</td>
+<td>La Estrella de Panamá; La Prensa (Ohigginis Arcia Jaramillo)</td>
+<td>news, link only</td>
+<td><a href="https://www.laestrella.com.pa/panama/nacional/terremoto-hundio-30-centimetros-de-isla-canas-de-acuerdo-a-estudios-preliminares-MB26639225">laestrella.com.pa</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Escuela presidente porras.jpg</td>
+<td>Maria Maarbes</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Escuela_presidente_porras.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Macaracas: a 68-year-old woman killed by a collapsing wall, far from the rupture</td>
+<td>Wikipedia (citing Panamanian press)</td>
+<td>no image found</td>
+<td><a href="https://en.wikipedia.org/wiki/2026_Panama_earthquake">en.wikipedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Río Oria bridge closed: residents carry supplies across on foot</td>
+<td>Telemetro Reporta</td>
+<td>news, link only</td>
+<td><a href="https://www.telemetro.com/nacionales/cierran-puente-el-rio-oria-pedasi-danos-estructurales-terremoto-n6095089">telemetro.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Playa en pedasi destiladeros.jpg</td>
+<td>Villarrealjj24</td>
+<td>CC BY 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Playa_en_pedasi_destiladeros.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Las Tablas: the provincial hospital stayed fit to treat patients while Tonosí&#39;s was shut</td>
+<td>TVN (Panamá); OPS/OMS <a href="https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama">https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama</a></td>
+<td>news, link only</td>
+<td><a href="https://www.tvn-2.com/nacionales/temblor-panama-instalaciones-salud-afectadas-cocle-chitre-lastablas_1_2265992.html">tvn-2.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Parque Belisario Porras Barahona, popularmente llamado Parque Porras, Ciudad de Las Tablas, Provincia de Los Santos, República de Panamá. (2025).jpg</td>
+<td>SportingVVE</td>
+<td>CC0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Parque_Belisario_Porras_Barahona,_popularmente_llamado_Parque_Porras,_Ciudad_de_Las_Tablas,_Provincia_de_Los_Santos,_Rep%C3%BAblica_de_Panam%C3%A1._(2025).jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Cañas: the mainland village took in the families from the island that sank</td>
+<td>OPS/OMS (Pan American Health Organization)</td>
+<td>news, link only</td>
+<td><a href="https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama">paho.org</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Camino para Isla Caña.jpg</td>
+<td>Ayaita</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Camino_para_Isla_Ca%C3%B1a.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Cambutal: across the fault from Tonosí, considered as a place to move Tonosí&#39;s patients</td>
+<td>TVN (Panamá)</td>
+<td>news, link only</td>
+<td><a href="https://www.tvn-2.com/nacionales/temblor-panama-instalaciones-salud-afectadas-cocle-chitre-lastablas_1_2265992.html">tvn-2.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): PuebloCambutal Los Santos Panama 07.jpg</td>
+<td>Ayaita</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:PuebloCambutal_Los_Santos_Panama_07.jpg">commons.wikimedia.org</a></td>
+</tr>
+</tbody></table>
+</div>
+<h3 id="yaracuy-m72-m75-doublet-venezuela-venezuela-quake">Yaracuy M7.2 + M7.5 doublet, Venezuela (<code>venezuela-quake</code>)</h3>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Yaracuy M7.2 + M7.5 doublet, Venezuela (venezuela-quake) table; scroll horizontally if needed"><table>
+<thead>
+<tr>
+<th scope="col">What</th>
+<th scope="col">Credit</th>
+<th scope="col">Licence</th>
+<th scope="col">Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NISAR ground motion and coherence</td>
+<td>NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC</td>
+<td>free and open (NASA Earth science data policy)</td>
+<td><a href="https://search.asf.alaska.edu/">search.asf.alaska.edu</a></td>
+</tr>
+<tr>
+<td>Optical imagery (draped ground)</td>
+<td>Contains modified Copernicus Sentinel-2 data (ESA), via Element 84 Earth Search</td>
+<td>Copernicus Sentinel data terms (free and open, with attribution)</td>
+<td><a href="https://earth-search.aws.element84.com/v1">earth-search.aws.element84.com</a></td>
+</tr>
+<tr>
+<td>Story: Las Colinas de Morón: 16 houses fell, two women killed, 250 families sleeping outside</td>
+<td>Dayrí Blanco / El Carabobeño (photos courtesy of residents)</td>
+<td>news, link only</td>
+<td><a href="https://diariodelosandes.com/carabobo-16-viviendas-colapsaron-en-las-colinas-de-moron-y-250-familias-siguen-sin-volver-a-sus-casas/">diariodelosandes.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Moron, edo. Carabobo.JPG</td>
+<td>Eduardo Bonet</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Moron,_edo._Carabobo.JPG">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: La Mar Suites, Tucacas: beachfront block collapsed, 12 dead</td>
+<td>El Nacional / El Carabobeño</td>
+<td>news, link only</td>
+<td><a href="https://www.elnacional.com/2026/06/hallan-12-cuerpos-entre-los-escombros-de-edificio-colapsado-en-tucacas/">elnacional.com</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Tucacas, Estado Falcon, Venezuela..jpeg</td>
+<td>Maria Gracia Quintero</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Tucacas,_Estado_Falcon,_Venezuela..jpeg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Boca de Aroa: sand and water boiled up through cracks during the shaking</td>
+<td>GEER-087 report (Cabas, Sancio et al.), citing StEER (2026) DesignSafe PRJ-6380</td>
+<td>report, link only</td>
+<td><a href="https://geerassociation.org/?view=geerreports&amp;id=117&amp;layout=default">geerassociation.org</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Amanecer en las playas de boca de aroa.jpg</td>
+<td>Maria e. villegas</td>
+<td>CC BY-SA 3.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Amanecer_en_las_playas_de_boca_de_aroa.jpg">commons.wikimedia.org</a></td>
+</tr>
+<tr>
+<td>Story: Pueblo Farriar: a 380 m crack opened along the river bank</td>
+<td>GEER Association, GEER-087 report (A. Cabas, J. Perri, R. B. Sancio, eds.; doi:10.18118/G6S95Q), Fig. 11-16a; photo R. Mata, E. Núñez et al.</td>
+<td>GEER report figure; pixelated preview, link to source</td>
+<td><a href="https://geerassociation.org/?view=geerreports&amp;id=117">geerassociation.org</a></td>
+</tr>
+<tr>
+<td>Story: San Felipe: 13 homes heavily damaged, yet NISAR barely moved</td>
+<td>Wikipedia</td>
+<td>no image found</td>
+<td><a href="https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes">en.wikipedia.org</a></td>
+</tr>
+<tr>
+<td>Establishing shot (not of the event): Avenida Caracas - San Felipe.jpg</td>
+<td>Daniel Doffiny</td>
+<td>CC BY-SA 4.0</td>
+<td><a href="https://commons.wikimedia.org/wiki/File:Avenida_Caracas_-_San_Felipe.jpg">commons.wikimedia.org</a></td>
+</tr>
+</tbody></table>
+</div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <p>Static copy of <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/CREDITS.md">CREDITS.md</a>. Repository links may require access from the owner. Reading this page does not grant source access.</p>
+    <p><a href="./">Explore events</a> · <a href="about.html">About the project</a> · <a href="create.html">Create guide</a></p>
+  </footer>
+</body>
+</html>

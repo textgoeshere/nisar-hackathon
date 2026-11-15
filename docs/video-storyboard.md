@@ -1,6 +1,6 @@
 # Thirty-second video storyboard
 
-Working production brief, updated 15 November 2026. This is a storyboard, not a rendered video or an implemented recording page.
+Working production brief, updated 15 November 2026. Implemented as the silent, replayable [about.html presentation](../site/about.html); [capture instructions](about.md). This is not yet an exported MP4.
 
 ## Decisions
 
@@ -23,11 +23,12 @@ Quoted copy is the main caption, not narration. Secondary labels and credits are
 | 06.5–09.0 | 2.5 s | Flat diagram: published phase/coherence → our corrected, masked map → located accounts. End on the Sentinel-2 before image at the same framing as the next shot. Icons carry the detail; no equations. | “We filter, map, and connect ground accounts.” | Distinguish our contribution from NASA/JPL processing. |
 | 09.0–13.0 | 4.0 s | Tilt the flat optical image into the terrain view during 09.0–10.0 only; reveal the NISAR colour layer, then stop the camera. Keep the school location pinned. | “From orbit: the wider movement pattern.” | The spatial reveal, with a readable measurement legend. |
 | 13.0–18.0 | 5.0 s | Same fixed map and pin; bring in one large, static schoolyard photo card beside it, connected to the location. Do not obscure the useful radar pattern. | “Field survey: the schoolyard was offset 94 cm.” | A sourced ground observation placed in its regional context. |
-| 18.0–21.0 | 3.0 s | Cut to a 3 × 4 grid of the twelve event views. Prefer prepared stills; no twelve simultaneous camera moves. The hero occupies one tile. | “One pipeline. Twelve events.” | Breadth and repeatability, not twelve independent validations. |
-| 21.0–26.0 | 5.0 s | Quiet, static layout: one map and its connected account, with room for the finding. | “We connect measured change to ground accounts.” | State the delivered capability. Secondary line: “Understanding benefit not yet tested.” |
+| 18.0–20.0 | 2.0 s | Cut to a 3-row × 4-column grid of the twelve committed radar-layer stills; no simultaneous camera moves. The hero occupies one tile. | “One pipeline. Twelve events.” | Breadth and repeatability, not twelve independent validations. |
+| 20.0–23.0 | 3.0 s | Separate prototype shot: fixed, steep view of the rupture, grid and GPS arrow. Start the survey/GPS sideways slide. Persistent label: “PROTOTYPE · Survey + GPS model · Exaggerated ×1,300” (factor derived from data). | “One radar view measures one direction.” | Finding: one viewing direction does not recover the full motion vector. This is not NISAR-measured sideways motion. |
+| 23.0–26.0 | 3.0 s | Continue the same slide and hold its end; same camera and source label. | “Next: test radar-derived sideways motion.” | Future work, not an implemented radar-offset result. |
 | 26.0–30.0 | 4.0 s | Equal split screen; matching type size, contrast and area. Left: event-grid preview. Right: the creation guide, not a fictional app or a generic repo screenshot. Hold both destinations through the final frame. | Left: “EXPLORE · 12 events”. Right: “CREATE · Your event”. | Two equally important next actions. Qualifier on the Create side: “Guide · NISAR coverage required”. |
 
-Do not add a separate conclusion, credits roll or title outside these intervals. The main captions total 52 words; place names, attribution and essential qualifiers add reading load too. If a silent phone-sized watch feels rushed, remove words rather than shrinking type.
+Do not add a separate conclusion, credits roll or title outside these intervals. The main captions total 56 words; place names, attribution and essential qualifiers add reading load too. If a silent phone-sized watch feels rushed, remove words rather than shrinking type.
 
 ## Hero evidence and scientific boundaries
 
@@ -44,9 +45,9 @@ Do not add a separate conclusion, credits roll or title outside these intervals.
 
 The optional `?e=kumamoto-quake&slip=1` view is based on **field-survey offsets and GPS**, with an interpolated, exaggerated movement model. It is not a NISAR measurement. See [slip.md](slip.md) and [the model notes](../research/slip/NOTES.md).
 
-**Default for this 30-second cut:** do not use the sideways-slip animation. Show terrain plus the NISAR colour layer, with LOS-as-height displacement disabled. In a purpose-built capture page, the existing viewer exposes `setLosExag(0)` and `setFringe(true)`; use an explicitly composed camera, not the unchanged event page’s default exaggerated motion. This preserves a 3D terrain reveal without depicting the radar’s slant-range measurement as physical uplift.
+**Approved revision:** keep the main 9–18 s proof as terrain plus the NISAR colour layer, with `setLosExag(0)`. Add the slip only as a distinct 20–26 s finding/future-work prototype, with the persistent **“Survey + GPS model · exaggerated”** label. Its six seconds replace the five-second summary finding and one second of the event grid; they do not extend the runtime or shorten the human story/CTAs. Height remains terrain only throughout.
 
-If the slip animation is substituted later, it needs a legible **“Survey + GPS model · motion exaggerated”** label and an explicit separation from the NISAR shot. It must replace existing time, not extend the runtime. Do not add it just because it is visually striking.
+Use the broken 5 km grid and measured GPS arrow to make movement legible. Do not say the survey “shows the rest”: the interpolated model is constrained by sparse observations and is imperfect. The Three inks style spike is omitted from this cut. The untested understanding-benefit hypothesis remains explicit in the page transcript and README.
 
 ## Method, assets and attribution
 
@@ -73,8 +74,8 @@ No claim that an arbitrary event name already works as a single CLI argument, th
 
 ## Capture and release checklist
 
-- [ ] Build the recording page and its explicit 0–30 s timeline. This storyboard does not create that page.
-- [ ] Preload images, data, fonts and the viewer before starting the clock; no network spinners or browser chrome in the capture.
+- [x] Build `site/about.html` and its explicit 0–30 s timeline; 900-frame timing covered by tests.
+- [x] Preload images, data, fonts and the viewer before enabling Play; clean capture mode hides page controls.
 - [ ] Fixed viewport and deterministic camera/scene state. Main captions roughly 52–64 px at 1080p; legends/qualifiers at least 28 px. Check actual phone-sized readability, not just font-size rules.
 - [ ] Preserve no-data areas, source attribution, the distinction between LOS and field offset, and terrain-only height in the reveal.
 - [ ] Read/watch once with no prior context and no audio. The viewer should identify the problem, our work, the result and both next actions.

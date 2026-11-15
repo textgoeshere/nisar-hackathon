@@ -1,0 +1,107 @@
+/* Standalone documentation theme: no web fonts, scripts or remote assets. */
+:root {
+  color-scheme: dark;
+  --bg: #0b0f19;
+  --panel: #131a28;
+  --fg: #e8eaf0;
+  --muted: #b2bacb;
+  --accent: #ffd257;
+  --line: #334055;
+  font: 17px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); }
+a { color: var(--accent); text-underline-offset: .18em; overflow-wrap: anywhere; }
+a:hover { color: #ffe59c; }
+a:focus-visible, summary:focus-visible, [tabindex="0"]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+::selection { color: var(--bg); background: var(--accent); }
+.site-header, main, .site-footer { width: min(100% - 3rem, 76rem); margin-inline: auto; }
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.brand { color: var(--fg); font-weight: 750; text-decoration: none; letter-spacing: -.02em; }
+.brand span { display: block; color: var(--muted); font-size: .7rem; font-weight: 500; letter-spacing: .08em; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; }
+.site-header nav a { padding-block: .45rem; font-size: .9rem; }
+.site-header [aria-current="page"] { color: var(--fg); font-weight: 750; text-decoration-thickness: 2px; }
+.skip-link { position: fixed; left: 1rem; top: -10rem; z-index: 10; padding: .6rem 1rem; background: var(--panel); }
+.skip-link:focus { top: .75rem; }
+main { padding-block: 2.5rem 3rem; }
+.doc-heading { max-width: 65rem; margin-bottom: 2.5rem; }
+.eyebrow { margin: 0 0 .7rem; color: var(--accent); font-size: .75rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+h1 { margin: 0; max-width: 24ch; font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.13; letter-spacing: -.04em; text-wrap: balance; }
+.doc-note { margin-top: 1.6rem; max-width: 78ch; padding: 1rem 1.25rem; background: var(--panel); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; color: var(--muted); font-size: .94rem; }
+.doc-note strong { color: var(--fg); }
+.doc-layout { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 3rem; align-items: start; }
+.prose { grid-column: 1; grid-row: 1; min-width: 0; overflow-wrap: anywhere; }
+.prose > p, .prose > ul, .prose > ol { max-width: 76ch; }
+.prose > :first-child { margin-top: 0; }
+.prose h2, .prose h3, .prose h4 { line-height: 1.3; letter-spacing: -.015em; scroll-margin-top: 1.5rem; }
+.prose h2 { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: 1.5rem; }
+.prose h3 { margin-top: 2.2rem; font-size: 1.2rem; }
+.prose p { margin-block: 1rem; }
+.prose ul, .prose ol { padding-left: 1.5rem; }
+.prose li { padding-left: .15rem; margin-block: .55rem; }
+.prose li > p { margin-block: .5rem; }
+.prose blockquote { margin: 1.5rem 0; padding: .1rem 1.25rem; border-left: 3px solid var(--accent); color: var(--muted); }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin-block: 2rem; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; }
+code { padding: .1em .3em; background: var(--panel); border-radius: 3px; }
+pre { max-width: 100%; margin-block: 1.4rem; padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: 6px; background: #080c14; line-height: 1.65; overflow: auto; white-space: pre; tab-size: 4; }
+pre code { padding: 0; background: none; border-radius: 0; font-size: 1em; white-space: pre; overflow-wrap: normal; }
+.table-scroll { max-width: 100%; margin-block: 1.5rem; overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; scrollbar-color: #64718b var(--panel); }
+table { width: 100%; min-width: 40rem; border-collapse: collapse; font-size: .86rem; line-height: 1.55; }
+th, td { padding: .7rem .85rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+th { background: var(--panel); color: var(--fg); font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+tr:nth-child(even) td { background: #ffffff03; }
+.contents { grid-column: 2; grid-row: 1; position: sticky; top: 1.25rem; max-height: calc(100vh - 2.5rem); overflow-y: auto; border-left: 1px solid var(--line); padding-left: 1.25rem; font-size: .82rem; }
+.contents summary { font-weight: 750; cursor: pointer; color: var(--fg); }
+.contents ul { list-style: none; padding: 0; margin-bottom: 0; }
+.contents li { margin-block: .7rem; }
+.contents a { color: var(--muted); text-decoration: none; display: inline-block; padding-block: .15rem; }
+.contents a:hover { color: var(--accent); text-decoration: underline; }
+.site-footer { border-top: 1px solid var(--line); padding-block: 1.3rem 2rem; color: var(--muted); font-size: .82rem; }
+.site-footer p { max-width: 90ch; }
+@media (max-width: 62rem) {
+  .doc-layout { display: flex; flex-direction: column; gap: 2rem; }
+  .prose, .contents { width: 100%; }
+  .contents { position: static; max-height: none; padding: 1rem 1.2rem; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; }
+  .contents ul { columns: 2; column-gap: 2rem; }
+  .contents li { break-inside: avoid; }
+}
+@media (max-width: 40rem) {
+  :root { font-size: 16px; }
+  .site-header, main, .site-footer { width: calc(100% - 2rem); }
+  .site-header { gap: .6rem; }
+  .site-header nav { width: 100%; justify-content: space-between; gap: .25rem .5rem; }
+  main { padding-top: 1.8rem; }
+  .doc-heading { margin-bottom: 1.5rem; }
+  .doc-note { padding: .85rem 1rem; }
+  .contents ul { columns: 1; }
+  .contents a { padding-block: .3rem; }
+  .prose h2 { font-size: 1.4rem; }
+  pre { padding: .85rem; }
+}
+@media print {
+  :root { color-scheme: light; --bg: white; --fg: #111; --muted: #333; --accent: #143966; --panel: #f4f4f4; --line: #ccc; font-size: 11pt; }
+  .site-header, .contents, .skip-link { display: none; }
+  main, .site-footer { width: 100%; }
+  .doc-layout { display: block; }
+  .doc-heading { margin-bottom: 1rem; }
+  .table-scroll, pre { overflow: visible; }
+  table { min-width: 0; font-size: .75rem; }
+  pre, pre code { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--panel); }
+  h2, h3 { break-after: avoid; }
+  tr { break-inside: avoid; }
+}

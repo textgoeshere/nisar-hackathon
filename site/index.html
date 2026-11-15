@@ -9,6 +9,7 @@
   <p class="lede">Two neighbours, one earthquake, different fates. From the ground it looks like luck; from orbit
   you can see the line between them. NISAR L-band radar (NASA/ISRO) shows the boundary in the ground that
   explains what happened to the people standing on it.</p>
+  <p><a href="about.html">About · 30 seconds</a> · <a href="create.html">Create your event</a></p>
   <p><a href="demo.html">▶ Demo mode</a> <span class="muted small">fullscreen flyover of every event, for a screen at the stand</span></p>
 </header>
 <main>
@@ -16,7 +17,7 @@
   <p class="muted">Candidate news events ranked by NISAR before/after coverage. Events with a page are live.</p>
   <table id="events"><thead><tr><th>Event</th><th>Type</th><th>Date</th><th>NISAR coverage</th></tr></thead><tbody></tbody></table>
 </main>
-<footer><a href="https://github.com/textgoeshere/nisar-hackathon">Source and method</a> · <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/CREDITS.md">Credits</a> · NISAR data: NASA/JPL-Caltech and ISRO, provisional products via ASF DAAC.</footer>
+<footer><a href="https://github.com/textgoeshere/nisar-hackathon">Source and method</a> · <a href="credits.html">Credits</a> · NISAR data: NASA/JPL-Caltech and ISRO, provisional products via ASF DAAC.</footer>
 <script type="module">
 const [cov, live] = await Promise.all([
   fetch("data/coverage.json").then((r) => r.json()),
