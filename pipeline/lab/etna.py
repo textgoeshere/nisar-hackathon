@@ -95,8 +95,10 @@ def make(ev: Event) -> dict:
             "dashed_means": "a patch of coherence loss above 0.35 that never reaches 0.5: possible lava, possible noise",
             "caveat": ("Coherence loss is not lava: snow, ash, vegetation and steep slopes also break the match. The outline is the 0.35 contour of "
                        "the coherence loss (lightly smoothed), kept only for patches of 25 cells or more within 2.5 km of the three stories that sit "
-                       "on the new lava. Dropped: the noisy radial streaks on the north-east and south flanks, which follow gullies and are not "
-                       "tied to any story. The tongue toward the lava-front story is thin (a few cells, about 400 m) and its loss only reaches about 0.4.")}
+                       "on the new lava. Dropped: the radial streaks on the north-east and south flanks, which follow gullies and are not tied to any "
+                       "story. The outline covers the vent area at Monte Rittmann and the flow's upper reach (about 4.4 km long, loss up to 0.8) but "
+                       "does not reach the lava-front story: the faint tongue toward it (a few cells, about 400 m wide, loss only 0.2 to 0.4) is "
+                       "below the 0.35 contour, so that story is off the line by about 1.4 km.")}
     return dict(signal=signal, raster=raster, raster_valid=np.ones(raster.shape, np.uint8), line=line, line_json=line_json,
                 headline=headline, checks=checks, short=SHORT, lines_uv=lines_uv, extra_site_ids=[], focus_label=FOCUS_LABEL,
                 credits=["Radar: NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, via ASF DAAC"], region=region, cd=cd, coh=coh)
