@@ -189,22 +189,29 @@ Add any new dataset/software/service attribution to the hand-maintained part of
 
 ## 6. Validate and open the actual details page
 
-**Worked example URL:** [http://localhost:8000/event.html?e=kumamoto-quake](http://localhost:8000/event.html?e=kumamoto-quake).
-For a new event use `http://localhost:8000/event.html?e=<slug>`, **not** an events-directory URL or
-`file://`. The home page lists `site/data/coverage.json` and links only slugs in `site/events/index.json`;
-the demo uses the latter. Thus a new event needs both the coverage refresh and successful build.
-Neither file is an editorial-readiness gate. Generated folders alone do not register a candidate.
+**Worked example URL:** [http://localhost:8000/e/kumamoto-quake.html](http://localhost:8000/e/kumamoto-quake.html).
+After building or changing stories, run `scripts/pages.py` below to regenerate the static event pages
+and their titles/descriptions. It reads `site/events/index.json`, writes `site/e/<slug>.html` and makes
+`site/index.html` the Kumamoto landing page. Edit `site/event.html`, not those generated copies.
+
+For a new event use `http://localhost:8000/e/<slug>.html`; the shared template also works at
+`http://localhost:8000/event.html?e=<slug>`. Do not open an events-directory URL or `file://`.
+The catalogue at `events.html` lists `site/data/coverage.json` and links built slugs from
+`site/events/index.json` to their static pages. A new event therefore needs the coverage refresh,
+a successful build **and** page generation. Neither JSON file is an editorial-readiness gate.
+Generated asset folders alone do not register a candidate.
 
 ```sh
+.venv/bin/python scripts/pages.py
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_pipeline.py
 .venv/bin/python -m pipeline.credits --check
 # Optional macOS screenshot, with the server above still running and Chrome installed:
-PORT=8000 sh scripts/shot.sh 'event.html?e=kumamoto-quake' /tmp/nisar-event.png
+PORT=8000 sh scripts/shot.sh 'e/kumamoto-quake.html' /tmp/nisar-event.png
 ```
 
 Before calling it ready, check the actual new slug, not just the example: metadata dates/extent/
 provenance, every referenced layer/image, binary sizes (`nx × ny` bytes for u8, twice that for i16),
-working 3D/slider, in-frame pins, reviewed stories/media, source links/credits, caveats and home-page
+working 3D/slider, in-frame pins, reviewed stories/media, source links/credits, caveats and catalogue
 link. Inspect the screenshot and browser console/network errors; automated tests do not establish
 scientific validity or rights. Changed grids also require resampling stories and refreshing optional
 media/places; existing media seeds' computed `steps` are cached in the seed JSON, not auto-invalidated.

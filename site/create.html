@@ -14,7 +14,7 @@
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="./">Either side of the line <span>NISAR / NASA–ISRO</span></a>
-    <nav aria-label="Main navigation"><a href="./">Explore</a>
+    <nav aria-label="Main navigation"><a href="events.html">Explore</a>
         <a href="about.html">About</a>
         <a href="create.html" aria-current="page">Create</a>
         <a href="credits.html">Credits</a></nav>
@@ -202,19 +202,25 @@ Add any new dataset/software/service attribution to the hand-maintained part of
 <code>.venv/bin/python -m pipeline.credits</code>, never by hand. Selected Mapillary URLs can expire; see
 <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/docs/6-editorial.md">editorial shipping checks</a>.</p>
 <h2 id="6-validate-and-open-the-actual-details-page">6. Validate and open the actual details page</h2>
-<p><strong>Worked example URL:</strong> <a href="http://localhost:8000/event.html?e=kumamoto-quake">http://localhost:8000/event.html?e=kumamoto-quake</a>.
-For a new event use <code>http://localhost:8000/event.html?e=&lt;slug&gt;</code>, <strong>not</strong> an events-directory URL or
-<code>file://</code>. The home page lists <code>site/data/coverage.json</code> and links only slugs in <code>site/events/index.json</code>;
-the demo uses the latter. Thus a new event needs both the coverage refresh and successful build.
-Neither file is an editorial-readiness gate. Generated folders alone do not register a candidate.</p>
-<pre tabindex="0" aria-label="Code sample"><code class="language-sh">PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_pipeline.py
+<p><strong>Worked example URL:</strong> <a href="http://localhost:8000/e/kumamoto-quake.html">http://localhost:8000/e/kumamoto-quake.html</a>.
+After building or changing stories, run <code>scripts/pages.py</code> below to regenerate the static event pages
+and their titles/descriptions. It reads <code>site/events/index.json</code>, writes <code>site/e/&lt;slug&gt;.html</code> and makes
+<code>site/index.html</code> the Kumamoto landing page. Edit <code>site/event.html</code>, not those generated copies.</p>
+<p>For a new event use <code>http://localhost:8000/e/&lt;slug&gt;.html</code>; the shared template also works at
+<code>http://localhost:8000/event.html?e=&lt;slug&gt;</code>. Do not open an events-directory URL or <code>file://</code>.
+The catalogue at <code>events.html</code> lists <code>site/data/coverage.json</code> and links built slugs from
+<code>site/events/index.json</code> to their static pages. A new event therefore needs the coverage refresh,
+a successful build <strong>and</strong> page generation. Neither JSON file is an editorial-readiness gate.
+Generated asset folders alone do not register a candidate.</p>
+<pre tabindex="0" aria-label="Code sample"><code class="language-sh">.venv/bin/python scripts/pages.py
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_pipeline.py
 .venv/bin/python -m pipeline.credits --check
 # Optional macOS screenshot, with the server above still running and Chrome installed:
-PORT=8000 sh scripts/shot.sh &#39;event.html?e=kumamoto-quake&#39; /tmp/nisar-event.png
+PORT=8000 sh scripts/shot.sh &#39;e/kumamoto-quake.html&#39; /tmp/nisar-event.png
 </code></pre>
 <p>Before calling it ready, check the actual new slug, not just the example: metadata dates/extent/
 provenance, every referenced layer/image, binary sizes (<code>nx × ny</code> bytes for u8, twice that for i16),
-working 3D/slider, in-frame pins, reviewed stories/media, source links/credits, caveats and home-page
+working 3D/slider, in-frame pins, reviewed stories/media, source links/credits, caveats and catalogue
 link. Inspect the screenshot and browser console/network errors; automated tests do not establish
 scientific validity or rights. Changed grids also require resampling stories and refreshing optional
 media/places; existing media seeds&#39; computed <code>steps</code> are cached in the seed JSON, not auto-invalidated.
@@ -231,7 +237,7 @@ or generic new-event smoke test exists; a creation server/UI remains stretch sco
   </main>
   <footer class="site-footer">
     <p>Static copy of <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/docs/create-event.md">docs/create-event.md</a>. Repository links may require access from the owner. Reading this page does not grant source access.</p>
-    <p><a href="./">Explore events</a> · <a href="about.html">About the project</a> · <a href="credits.html">Credits</a></p>
+    <p><a href="events.html">Explore events</a> · <a href="about.html">About the project</a> · <a href="credits.html">Credits</a></p>
   </footer>
 </body>
 </html>

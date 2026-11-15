@@ -18,7 +18,7 @@ const sourceOrigin = 'https://canonical.invalid';
 const localPages = new Map([
   ['docs/create-event.md', 'create.html'], ['CREDITS.md', 'credits.html'],
   ['site/create.html', 'create.html'], ['site/credits.html', 'credits.html'],
-  ['site/about.html', 'about.html'], ['site/index.html', './'],
+  ['site/about.html', 'about.html'], ['site/index.html', './'], ['site/events.html', 'events.html'],
   ['site/', './'], ['site', './'],
 ]);
 const documents = [
@@ -119,7 +119,7 @@ export function renderMarkdown(markdown, source, { Marked, Renderer }) {
 function page(document, rendered) {
   const { source, output, label, description, note } = document;
   const current = output.split('/').pop();
-  const navigation = [['./', 'Explore'], ['about.html', 'About'], ['create.html', 'Create'], ['credits.html', 'Credits']]
+  const navigation = [['events.html', 'Explore'], ['about.html', 'About'], ['create.html', 'Create'], ['credits.html', 'Credits']]
     .map(([href, name]) => '<a href="' + href + '"' + (href === current ? ' aria-current="page"' : '') + '>' + name + '</a>').join('\n        ');
   const contents = rendered.headings.map(({ id, label }) => '<li><a href="#' + escapeHtml(id) + '">'
     + escapeHtml(label) + '</a></li>').join('\n            ');
@@ -150,7 +150,7 @@ function page(document, rendered) {
     '  <footer class="site-footer">',
     '    <p>Static copy of <a href="' + sourceBase + source + '">' + source + '</a>. '
       + 'Repository links may require access from the owner. Reading this page does not grant source access.</p>',
-    '    <p><a href="./">Explore events</a> · <a href="about.html">About the project</a> · '
+    '    <p><a href="events.html">Explore events</a> · <a href="about.html">About the project</a> · '
       + '<a href="' + (label === 'Create' ? 'credits.html">Credits' : 'create.html">Create guide') + '</a></p>',
     '  </footer>', '</body>', '</html>', '',
   ].join('\n');

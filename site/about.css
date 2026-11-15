@@ -104,10 +104,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .paper h3{font-size:48px;line-height:1.1;font-weight:600;letter-spacing:-.035em;margin:16px 0 21px}
 .paper-rule{height:1px;background:#24343f33}
 .paper p{font-size:23px;color:#52616b;margin:11px 0}
-.next-action h2{font-size:70px;font-weight:750;letter-spacing:-.04em;margin:34px 0 18px;white-space:nowrap}
+.next-action h2{font-size:80px;font-weight:750;letter-spacing:-.04em;margin:34px 0 18px;white-space:nowrap}
 .next-action h2 span{font-weight:430;letter-spacing:-.04em}
 .next-action b{font-weight:inherit}
-.next-action>p{display:flex;align-items:center;justify-content:space-between;font-size:34px;letter-spacing:-.02em;margin:0;padding-top:20px;border-top:1px solid #14202a30;color:#3e525f}
+.next-action>p{display:flex;align-items:center;justify-content:space-between;font-size:54px;letter-spacing:-.02em;margin:0;padding-top:20px;border-top:1px solid #14202a30;color:#3e525f}
 .next-action>p>span{font-size:43px}
 .next-action:hover h2{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:10px}
 .team-strip{position:absolute;bottom:69px;left:78px;right:78px;display:flex;justify-content:space-between;gap:30px;font-size:27px;color:#56636c;border-top:1px solid #14202a30;padding-top:25px}
