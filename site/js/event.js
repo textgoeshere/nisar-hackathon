@@ -7,6 +7,13 @@ const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<
 const slug = new URLSearchParams(location.search).get("e");
 const base = `events/${slug}/`;
 const meta = await (await fetch(base + "meta.json")).json();
+// slip: sideways slip (docs/slip.md). SLIP: null = not offered, else whether it starts on. This is the line to
+// change to make it a remembered setting or the default for earthquakes; slip.js is only loaded when offered.
+const params = new URLSearchParams(location.search);                                     // slip:
+const SLIP = params.has("slip") ? params.get("slip") !== "0" : null;                      // slip:
+const slipMod = SLIP == null ? null : await import("./slip.js");                          // slip:
+const slipData = slipMod && await slipMod.load(base, meta);                               // slip: null when the event has no slip.json
+let slip = null;                                                                          // slip: { on, set(on), exag() } once mounted
 
 // Animation settings, global: one localStorage entry shared by every event page.
 const SETTINGS_KEY = "nisar.event.settings";
@@ -27,7 +34,8 @@ if (multi || (meta.still || STILL.includes(meta.kind))) $("#fringes").checked = 
 const hero = $("#hero");
 // Skycam renders like the demo kiosk does (mesh capped at 640 segments, pixel ratio 1.5) so the flight stays smooth.
 const before = (meta.images ?? []).some((i) => i.file === "optical-before.jpg") ? "optical-before.jpg" : null;
-const v = await createViewer(hero, base, meta, { groundBefore: before, ...(settings.autoplay ? { segments: 640, pixelRatio: 1.5 } : {}) });
+const v = await createViewer(hero, base, meta, { groundBefore: before, ...(settings.autoplay ? { segments: 640, pixelRatio: 1.5 } : {}),
+  ...(slipData ? { slip: slipData.viewer } : {}) });                                     // slip:
 v.setT(1); // the skycam judges its shots with the change fully grown in
 const sky = createSkycam(v, hero, () => { $("#opt-skycam").checked = false; }); // touching the view stops it
 sky.set(settings.autoplay);
@@ -110,7 +118,7 @@ if (settings.autoplay) { t.value = 0; setPlaying(true); }
 showT();
 
 const ex = $("#exag"), exOut = $("#exag-out");
-const setEx = () => { const x = v.losExag0 * 10 ** (ex.value / 100); v.setLosExag(x); exOut.textContent = `×${Math.round(x).toLocaleString()}`; };
+const setEx = () => { if (slip?.on) return slip.exag(); const x = v.losExag0 * 10 ** (ex.value / 100); v.setLosExag(x); exOut.textContent = `×${Math.round(x).toLocaleString()}`; }; // slip: guard
 ex.addEventListener("input", setEx);
 if ((meta.still || STILL.includes(meta.kind))) { ex.value = -100; exOut.textContent = "off (motion is not the signal here)"; ex.addEventListener("input", setEx, { once: true }); v.setLosExag(0); } else setEx();
 $("#fringes").addEventListener("change", (e) => v.setFringe(e.target.checked));
@@ -135,6 +143,8 @@ const placeLayer = document.createElement("div");
 placeLayer.className = "places";
 placeLayer.hidden = !settings.places;
 hero.appendChild(placeLayer);
+if (slipData) slip = slipMod.mount({ v, meta, data: slipData, on: SLIP, sky, setEx,          // slip:
+  t: params.has("t") ? +params.get("t") : null });                                      // slip:
 const pinUVs = []; // story and media pins: place names keep clear of them
 
 const s = meta.stats;
