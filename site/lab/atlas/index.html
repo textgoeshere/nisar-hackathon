@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3ecdb">
+<link rel="icon" href="data:,">
+<title>Atlas · Either side of the line</title>
+<link rel="preload" href="fonts/PublicSans-VF.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="atlas.css">
+<body>
+<header class="top">
+  <nav class="crumbs"><a href="../">← Lab</a><span class="sep">/</span><span>Atlas</span></nav>
+  <nav id="events" class="chips" aria-label="Events"></nav>
+  <h1 id="title">Loading…</h1>
+  <p id="meta" class="meta"></p>
+  <p id="lede" class="lede"></p>
+</header>
+
+<section class="stage">
+  <div class="mapcol">
+    <div id="map" class="map" data-mode="move">
+      <canvas id="base" aria-label="Map"></canvas>
+      <svg id="over" class="over" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="mapbtns">
+        <button id="zin" type="button" aria-label="Zoom in">+</button>
+        <button id="zout" type="button" aria-label="Zoom out">−</button>
+        <button id="scope" type="button" class="wide">Whole scene</button>
+      </div>
+      <p id="banner" class="banner" hidden></p>
+      <p id="loading" class="loading">Drawing the map…</p>
+    </div>
+    <div class="modebar" role="group" aria-label="What a drag does">
+      <button id="m-move" type="button" aria-pressed="true"><i class="ico ico-move"></i>Move the map</button>
+      <button id="m-cut" type="button" aria-pressed="false"><i class="ico ico-cut"></i>Cut across it</button>
+    </div>
+    <p class="small keyline"><span><i class="sw solid"></i>radar measured it</span><span><i class="sw dashed"></i>radar did not</span><span><i class="sw tick"></i>field survey</span><span><i class="sw disc"></i>story on the line</span><span><i class="sw sq"></i>story off it</span></p>
+    <p id="viewnote" class="small muted viewnote"></p>
+    <p id="firstcaveat" class="small firstcaveat"></p>
+  </div>
+
+  <aside class="side">
+    <section class="headline" id="headline" hidden>
+      <p class="hl-value" id="hl-value"></p>
+      <p class="hl-cap" id="hl-cap"></p>
+      <p class="hl-src small muted" id="hl-src"></p>
+    </section>
+    <section class="section" id="section" aria-live="polite">
+      <h2>Section</h2>
+      <div id="section-body"></div>
+    </section>
+  </aside>
+</section>
+
+<main>
+  <section id="stories-sec" hidden>
+    <h2>On the ground</h2>
+    <details class="bound small muted" id="bound-d" hidden><summary>What is hit and what is spared (from the main page)</summary><p id="boundary"></p></details>
+    <div id="cards" class="cards"></div>
+  </section>
+  <section id="sites-sec" hidden>
+    <h2>Field-survey points</h2>
+    <p class="small muted">Tape and photo measurements by field geologists, drawn on the map as small ticks. Radar readings are NISAR (provisional).</p>
+    <div id="sites" class="sites"></div>
+  </section>
+  <section id="caveat-sec">
+    <h2 id="caveat-h">What the line is not</h2>
+    <p id="caveat"></p>
+    <p id="line-key" class="small muted"></p>
+  </section>
+</main>
+
+<footer>
+  <p id="credits" class="small"></p>
+  <p class="small muted">NISAR data on this page are <strong>provisional</strong>. Experimental lab page: not an official product of NASA, ISRO or the Geological Survey of Japan.
+  Full credits: <a href="https://github.com/textgoeshere/nisar-hackathon/blob/main/CREDITS.md">CREDITS.md</a>.</p>
+</footer>
+<script type="module" src="app.js"></script>
