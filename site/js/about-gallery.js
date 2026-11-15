@@ -353,10 +353,10 @@ export async function createGallery(container, metas) {
     const cellWidth = (width - left - right - gx * (COLS - 1)) / COLS;
     const cellHeight = (height - top - bottom - gy * (ROWS - 1)) / ROWS;
     boxes = entries.map((entry, i) => {
-      // Reserve bottom label and a small kind heading, avoiding canvas cropping.
+      // Let the terrain fill the tile; small headings overlay the upper margin.
       const x = Math.round(left + (i % COLS) * (cellWidth + gx) + 6);
-      const y = Math.round(top + Math.floor(i / COLS) * (cellHeight + gy) + 25);
-      const w = Math.max(1, Math.round(cellWidth - 12)), h = Math.max(1, Math.round(cellHeight - 70));
+      const y = Math.round(top + Math.floor(i / COLS) * (cellHeight + gy) + 7);
+      const w = Math.max(1, Math.round(cellWidth - 12)), h = Math.max(1, Math.round(cellHeight - 45));
       entry.camera.aspect = w / h;
       entry.camera.updateProjectionMatrix();
       const halfY = THREE.MathUtils.degToRad(entry.camera.fov / 2);
@@ -389,7 +389,7 @@ export async function createGallery(container, metas) {
       entry.uniforms.uOpacity.value = opacity;
       for (const [material, alpha] of entry.fades) material.opacity = alpha * opacity;
       const azimuth = -0.68 + (i % COLS) * 0.18 + Math.floor(i / COLS) * 0.10 + seconds * 0.48;
-      const elevation = 0.63 + Math.sin(seconds * 0.48 + i * 0.7) * 0.045;
+      const elevation = 0.43 + Math.sin(seconds * 0.48 + i * 0.7) * 0.03;
       const sinA = Math.sin(azimuth), cosA = Math.cos(azimuth);
       const sinE = Math.sin(elevation), cosE = Math.cos(elevation);
       // Camera right/up/back vectors. The exact perspective condition for each
@@ -401,7 +401,7 @@ export async function createGallery(container, metas) {
         const z = sinA * cosE * p.x + sinE * p.y + cosA * cosE * p.z;
         distance = Math.max(distance, z + Math.abs(x) / entry.tanX, z + Math.abs(y) / entry.tanY);
       }
-      distance *= 1.10;
+      distance *= 1.035;
       entry.camera.position.set(entry.target.x + sinA * cosE * distance,
         entry.target.y + sinE * distance, entry.target.z + cosA * cosE * distance);
       entry.camera.lookAt(entry.target);
