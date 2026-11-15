@@ -16,6 +16,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .intro h1{font-size:clamp(26px,3vw,42px);letter-spacing:-.045em;margin:0 0 10px;font-weight:650}
 .intro p{color:var(--muted);margin:0;line-height:1.6}
 .player-shell{max-width:1440px;margin:auto}
+/* Fit the film and its Play button together on ordinary desktop windows; capture stays 1080p. */
+@media(min-width:900px){body:not(.capture) .player-shell:not(:fullscreen){max-width:min(1440px,max(640px,calc((100svh - 400px) * 16 / 9)))}}
 .viewport{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--ink);isolation:isolate}
 .film{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:top left;transform:scale(var(--film-scale,.5));overflow:hidden;background:var(--ink)}
 .film *{box-sizing:border-box}
@@ -142,7 +144,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .capture .viewport,#player:fullscreen .viewport{flex:none;width:min(100vw,177.777778vh);height:min(56.25vw,100vh);aspect-ratio:16/9}
 .capture .transport,#player:fullscreen .transport{position:absolute;left:20px;right:20px;bottom:16px;background:#111a23ec;z-index:10;opacity:0;transition:none;pointer-events:none}
 .capture .player-status,#player:fullscreen .player-status{position:absolute;top:12px;left:20px;right:20px;background:#111a23e8;z-index:10;opacity:0;pointer-events:none}
-.capture.controls-on .transport,.capture.controls-on .player-status,#player:fullscreen.controls-on .transport,#player:fullscreen.controls-on .player-status,.capture .transport:focus-within,#player:fullscreen .transport:focus-within{opacity:1;pointer-events:auto}
+.capture.controls-on .transport,.capture.controls-on .player-status,#player:fullscreen.controls-on .transport,#player:fullscreen.controls-on .player-status,.capture .transport:focus-within,#player:fullscreen .transport:focus-within,.capture .player-status:focus-within,#player:fullscreen .player-status:focus-within{opacity:1;pointer-events:auto}
 #player:fullscreen .keys{display:none}
 .capture:not(.ready) .player-status,#player:fullscreen:not(.ready) .player-status{opacity:1;pointer-events:auto}
 .capture .intro{display:none}
