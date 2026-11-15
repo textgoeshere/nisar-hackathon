@@ -102,6 +102,7 @@ def stats(meta: dict, d: Path, mask: np.ndarray) -> dict:
     if "cohdrop" in L:
         drop = layer(meta, d, "cohdrop", np.uint8)[mask] / 255.0
         out["coherence_drop_pct"] = round(100 * float((drop > 0.3).mean()), 1)
+        out["coherence_drop_km2"] = round(float((drop > 0.3).sum()) * (meta["grid"]["dx"] / 1000) ** 2, 2)
     v = los[valid]
     if len(v) < 5:
         return out

@@ -65,6 +65,7 @@
     "measured_pct": 0.0,
     "coherence_mean": 0.09,
     "coherence_drop_pct": 17.4,
+    "coherence_drop_km2": 0.44,
     "new_land_ha": 22.8,
     "new_bright_cells_at_sea": 0
    },
@@ -134,6 +135,7 @@
     "measured_pct": 0.0,
     "coherence_mean": 0.08,
     "coherence_drop_pct": 20.5,
+    "coherence_drop_km2": 0.28,
     "new_land_ha": 3.6,
     "new_bright_cells_at_sea": 7
    },
@@ -555,6 +557,7 @@
     "measured_pct": 0.0,
     "coherence_mean": 0.08,
     "coherence_drop_pct": 0.0,
+    "coherence_drop_km2": 0.0,
     "new_land_ha": 0.0,
     "new_bright_cells_at_sea": 0
    },
@@ -976,6 +979,7 @@
     "measured_pct": 0.0,
     "coherence_mean": 0.09,
     "coherence_drop_pct": 0.0,
+    "coherence_drop_km2": 0.0,
     "new_land_ha": 0.0,
     "new_bright_cells_at_sea": 0
    },
@@ -1045,6 +1049,7 @@
     "measured_pct": 0.0,
     "coherence_mean": 0.19,
     "coherence_drop_pct": 19.4,
+    "coherence_drop_km2": 0.68,
     "new_land_ha": 0.1,
     "new_bright_cells_at_sea": 0
    },
