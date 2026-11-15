@@ -28,12 +28,14 @@ from __future__ import annotations
 import json
 import math
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
 from pyproj import Transformer
 from rasterio.features import rasterize
 from rasterio.transform import from_origin
+from scipy import ndimage
 
 from .stories import layer, span_years
 
@@ -112,6 +114,36 @@ def stats(meta: dict, d: Path, mask: np.ndarray) -> dict:
     return out
 
 
+@lru_cache(maxsize=4)
+def _newland(slug: str):
+    """New-land events (pipeline.newland, GCOV backscatter on a 20 m grid): the gain mask and the
+    new bright-at-sea cells, from the cached passes. None when the cache is missing."""
+    from . import newland
+    ev = next(e for e in json.loads((ROOT / "pipeline" / "candidates.json").read_text())["events"] if e["slug"] == slug)
+    if not (newland.CACHE / f"{slug}-gcov.npz").exists():
+        return None
+    B = newland.fetch(ev)
+    R = newland.analyse(ev, B, [])
+    hh = np.nan_to_num(newland.gcov.db(B["hh"]), nan=-99) > -13
+    pre = B["dates"] < ev["date"]
+    sea = ~ndimage.binary_dilation(R["before"] | R["after"], iterations=3)
+    new_at_sea = (hh[~pre].sum(0) >= 3) & (hh[pre].sum(0) <= 1) & sea
+    dx = newland.DX
+    tf = from_origin(B["x"][0] - dx / 2, B["y"][0] + dx / 2, dx, dx)
+    return R["gain"], new_at_sea, tf, dx
+
+
+def newland_stats(slug: str, ring: np.ndarray) -> dict:
+    nl = _newland(slug)
+    if nl is None:
+        return {}
+    gain, new_at_sea, tf, dx = nl
+    m = rasterize([({"type": "Polygon", "coordinates": [np.vstack([ring, ring[:1]]).tolist()]}, 1)],
+                  out_shape=gain.shape, transform=tf, dtype=np.uint8).astype(bool)
+    return {"new_land_ha": round(float((gain & m).sum()) * dx ** 2 / 1e4, 1),
+            "new_bright_cells_at_sea": int((new_at_sea & m).sum())}
+
+
 def run_checks(check: dict, vals: dict) -> list[str]:
     """Return the failed checks. Keys: any `values` key: [lo, hi]; or step_min / measured_min / measured_max / coherence_max."""
     bad = []
@@ -164,6 +196,8 @@ def build(slug: str, write: bool = True) -> dict:
             n = np.argmin((iy - cy) ** 2 + (ix - cx) ** 2)
             au, av = (ix[n] + 0.5) / g["nx"], (iy[n] + 0.5) / g["ny"]
         vals = stats(meta, d, mask)
+        if "new_land_ha" in meta["stats"]:                 # GCOV new land: the interferogram sees nothing here
+            vals |= newland_stats(slug, ring)
         bad = run_checks(f.get("check"), vals)
         if bad:
             failed[fid] = bad
