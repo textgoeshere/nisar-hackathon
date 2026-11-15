@@ -30,6 +30,15 @@
    "status": "selected",
    "caption": null,
    "order": null
+  },
+  "panama-07": {
+   "status": "selected"
+  },
+  "panama-08": {
+   "status": "selected"
+  },
+  "panama-09": {
+   "status": "selected"
   }
  },
  "media": {
@@ -85,6 +94,90 @@
    "status": "candidate"
   },
   "panama-gdel-bdf165f5": {
+   "status": "candidate"
+  },
+  "panama-unl-a400863c": {
+   "status": "candidate"
+  },
+  "panama-unl-2eb82e63": {
+   "status": "candidate"
+  },
+  "panama-unl-b8c1778b": {
+   "status": "candidate"
+  },
+  "panama-unl-d0238c29": {
+   "status": "candidate"
+  },
+  "panama-unl-3423174a": {
+   "status": "candidate"
+  },
+  "panama-unl-5edbcc53": {
+   "status": "candidate"
+  },
+  "panama-unl-36dbb807": {
+   "status": "candidate"
+  },
+  "panama-unl-4fed3d43": {
+   "status": "candidate"
+  },
+  "panama-unl-4699e2b0": {
+   "status": "candidate"
+  },
+  "panama-unl-8c89137a": {
+   "status": "candidate"
+  },
+  "panama-unl-3ecab018": {
+   "status": "candidate"
+  },
+  "panama-unl-e377d6ee": {
+   "status": "candidate"
+  },
+  "panama-unl-706a5131": {
+   "status": "candidate"
+  },
+  "panama-unl-3fcc1327": {
+   "status": "candidate"
+  },
+  "panama-unl-476a9993": {
+   "status": "candidate"
+  },
+  "panama-unl-8ff2bd91": {
+   "status": "candidate"
+  },
+  "panama-unl-643e1c09": {
+   "status": "candidate"
+  },
+  "panama-unl-24d4c007": {
+   "status": "candidate"
+  },
+  "panama-unl-3f729520": {
+   "status": "candidate"
+  },
+  "panama-unl-91f82213": {
+   "status": "candidate"
+  },
+  "panama-unl-945f36f3": {
+   "status": "candidate"
+  },
+  "panama-unl-1c2d2cbf": {
+   "status": "candidate"
+  },
+  "panama-unl-e3dcd03d": {
+   "status": "candidate"
+  },
+  "panama-unl-7ce96c08": {
+   "status": "candidate"
+  },
+  "panama-unl-7b8fa4d4": {
+   "status": "candidate"
+  },
+  "panama-unl-011f464e": {
+   "status": "candidate"
+  },
+  "panama-unl-59f7fa15": {
+   "status": "candidate"
+  },
+  "panama-unl-2bbef2c0": {
    "status": "candidate"
   }
  }
