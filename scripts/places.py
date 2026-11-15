@@ -37,9 +37,13 @@ def places(slug):
     w, s, e, n = g["bounds_lonlat"]
     q = f'[out:json][timeout:60];node["place"~"^(city|town|village)$"]["name"]({s},{w},{n},{e});out;'
     for k, wait in enumerate((5, 15, 30, 0)):  # Overpass is busy at times: back off and retry, alternating mirrors
-        r = requests.post(URLS[k % 2], data={"data": q}, headers={"User-Agent": UA}, timeout=90)
-        if r.ok or not wait:
-            break
+        try:
+            r = requests.post(URLS[k % 2], data={"data": q}, headers={"User-Agent": UA}, timeout=90)
+            if r.ok or not wait:
+                break
+        except requests.RequestException:
+            if not wait:
+                raise
         time.sleep(wait)
     r.raise_for_status()
     out = []

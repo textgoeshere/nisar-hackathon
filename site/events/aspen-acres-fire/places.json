@@ -1,0 +1,32 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Colorado City",
+   "place": "village",
+   "population": 2193,
+   "lon": -104.83526,
+   "lat": 37.94529,
+   "u": 0.9479,
+   "v": 0.7261
+  },
+  {
+   "name": "Beulah",
+   "place": "village",
+   "population": 0,
+   "lon": -104.98665,
+   "lat": 38.07501,
+   "u": 0.6153,
+   "v": 0.3666
+  },
+  {
+   "name": "Rye",
+   "place": "village",
+   "population": 206,
+   "lon": -104.93027,
+   "lat": 37.92362,
+   "u": 0.7392,
+   "v": 0.7864
+  }
+ ]
+}

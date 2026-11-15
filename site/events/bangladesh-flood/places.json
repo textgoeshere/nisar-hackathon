@@ -1,0 +1,23 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Moulvibazar",
+   "place": "city",
+   "population": 0,
+   "lon": 91.76302,
+   "lat": 24.48808,
+   "u": 0.4766,
+   "v": 0.4698
+  },
+  {
+   "name": "Rajnagar",
+   "place": "town",
+   "population": 0,
+   "lon": 91.87223,
+   "lat": 24.52286,
+   "u": 0.8466,
+   "v": 0.3446
+  }
+ ]
+}

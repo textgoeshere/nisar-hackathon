@@ -1,0 +1,68 @@
+{
+ "source": "© OpenStreetMap contributors (ODbL 1.0), via the Overpass API",
+ "places": [
+  {
+   "name": "Biancavilla",
+   "place": "town",
+   "population": 22908,
+   "lon": 14.86141,
+   "lat": 37.64628,
+   "u": 0.0911,
+   "v": 0.882
+  },
+  {
+   "name": "Zafferana Etnea",
+   "place": "village",
+   "population": 9392,
+   "lon": 15.10646,
+   "lat": 37.69328,
+   "u": 0.8115,
+   "v": 0.7083
+  },
+  {
+   "name": "Santa Venerina",
+   "place": "village",
+   "population": 8414,
+   "lon": 15.14266,
+   "lat": 37.68897,
+   "u": 0.9179,
+   "v": 0.7241
+  },
+  {
+   "name": "Linguaglossa",
+   "place": "village",
+   "population": 4962,
+   "lon": 15.14372,
+   "lat": 37.84091,
+   "u": 0.9202,
+   "v": 0.1622
+  },
+  {
+   "name": "Santa Maria la Stella",
+   "place": "village",
+   "population": 4859,
+   "lon": 15.12459,
+   "lat": 37.62659,
+   "u": 0.8651,
+   "v": 0.9549
+  },
+  {
+   "name": "Ragalna",
+   "place": "village",
+   "population": 4238,
+   "lon": 14.94275,
+   "lat": 37.63466,
+   "u": 0.3303,
+   "v": 0.9252
+  },
+  {
+   "name": "Maletto",
+   "place": "village",
+   "population": 3556,
+   "lon": 14.86639,
+   "lat": 37.83116,
+   "u": 0.1068,
+   "v": 0.1983
+  }
+ ]
+}
