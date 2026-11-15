@@ -1,6 +1,6 @@
 # nisar-hackathon: visualize and contextualize world events with NISAR L-band (NASA/ISRO) radar data
 
-Catastrophic natural or anthropogenic events that make the news affect individual humans in different ways. Our hypothesis is that the stories on the ground can be contextualized when you see them from orbit. Two homes in an earthquake: one destroyed and one survived; the space data shows the geophysical boundary between them that explains the difference.
+Catastrophic natural or anthropogenic events affect people and places in different ways. We put measured ground change alongside sourced accounts from the people and places affected. Our hypothesis is that this context makes those stories easier to understand; that understanding benefit has not yet been user-tested.
 
 ## Outline plan
 
@@ -37,7 +37,22 @@ Each step is documented from first principles, with the commands to reproduce it
 5. [Ground stories and media](docs/5-stories.md)
 6. [Human editorial layer](docs/6-editorial.md)
 
+## Project guides
+
+- **CREATE:** [From an event name to a details page](docs/create-event.md) — coverage screening, registration, processing, story selection and validation. This is a documented developer workflow; a local/self-hosted creation UI remains a stretch goal.
+- **Submission video:** [30-second storyboard](docs/video-storyboard.md), with the Kumamoto hero, exact captions/timings and equally weighted Explore/Create calls to action.
+
 ## Run
+
+To **explore the already-built events**, no Earthdata login or processing setup is needed:
+
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1 --directory site
+```
+
+Open <http://localhost:8000/>. The viewer needs WebGL and access to its three.js CDN.
+
+To **rebuild an existing event**, use the commands below. For a new event, follow the [creation guide](docs/create-event.md) first; an unregistered event name is not a build argument.
 
 ```sh
 python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
