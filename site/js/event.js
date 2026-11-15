@@ -1,11 +1,18 @@
 import { createViewer, STILL } from "./viewer.js";
 import { renderHow } from "./how.js";
+import { createSkycam } from "./skycam.js";
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const slug = new URLSearchParams(location.search).get("e");
 const base = `events/${slug}/`;
 const meta = await (await fetch(base + "meta.json")).json();
+
+// Animation settings, global: one localStorage entry shared by every event page.
+const SETTINGS_KEY = "nisar.event.settings";
+const settings = { skycam: true, autoplay: true, places: true };
+try { Object.assign(settings, JSON.parse(localStorage.getItem(SETTINGS_KEY)) ?? {}); } catch {}
+const saveSettings = () => { try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); } catch {} };
 
 document.title = `${meta.name} · Either side of the line`;
 $("#demo-link").href = `demo.html?e=${encodeURIComponent(slug)}`; // tour starts on this event
@@ -17,14 +24,48 @@ $("#sub").textContent = bs ? `${meta.date} · ${meta.kind} · NISAR backscatter,
   : `${meta.date} · ${meta.kind} · NISAR pass ${meta.nisar.pair.join(" → ")}`;
 if (multi || (meta.still || STILL.includes(meta.kind))) $("#fringes").checked = false;
 
-const v = await createViewer($("#hero"), base, meta);
+const hero = $("#hero");
+// Skycam renders like the demo kiosk does (mesh capped at 640 segments, pixel ratio 1.5) so the flight stays smooth.
+const v = await createViewer(hero, base, meta, settings.skycam ? { segments: 640, pixelRatio: 1.5 } : {});
+v.setT(1); // the skycam judges its shots with the change fully grown in
+const sky = createSkycam(v, hero);
+sky.set(settings.skycam);
+
+// Wheel zoom only with ctrl/⌘ (trackpad pinch sends ctrl) or after clicking the view, until the pointer
+// leaves it; otherwise the wheel scrolls the page. Capture phase, so it runs before OrbitControls' listener.
+let armed = false, hintTimer;
+const hint = document.createElement("div");
+hint.className = "zoom-hint";
+hint.textContent = `${/Mac|iP/.test(navigator.platform) ? "⌘" : "Ctrl"} + scroll to zoom, or click the view first`;
+hero.appendChild(hint);
+hero.addEventListener("pointerdown", () => { armed = true; hint.classList.remove("on"); });
+hero.addEventListener("pointerleave", () => { armed = false; });
+hero.addEventListener("wheel", (e) => {
+  if (armed || e.ctrlKey || e.metaKey) { sky.takeOver(); return; }
+  e.stopPropagation();
+  hint.classList.add("on");
+  clearTimeout(hintTimer);
+  hintTimer = setTimeout(() => hint.classList.remove("on"), 1600);
+}, { capture: true, passive: true });
+
+// North arrow: the grid is UTM, so grid north (-z in the scene) is true north to within a degree or two.
+const north = document.createElement("div");
+north.className = "north";
+north.title = "North";
+north.innerHTML = `<svg viewBox="-14 -14 28 28" aria-hidden="true"><circle r="13"/><path d="M0-5.5 3.5 6.5 0 4-3.5 6.5Z"/><text y="-7">N</text></svg>`;
+hero.appendChild(north);
+const needle = north.firstChild, look = v.camera.position.clone();
+v.onFrame(() => {
+  v.camera.getWorldDirection(look);
+  needle.style.transform = `rotate(${-Math.atan2(look.x, -look.z)}rad)`;
+});
 const still = meta.still || STILL.includes(meta.kind);
 if (still) {
   const tint = { flood: "Cyan: ground that turned radar-dark between the passes, i.e. new open water (HH backscatter fell).",
     fire: "Red: ground whose vegetation backscatter (HV) fell between the passes, i.e. the burn scar." }[meta.kind]
     ?? "Magenta: ground that stopped matching itself between the radar passes (coherence drop), where the surface was buried or torn up.";
   $("#legend").innerHTML = `Terrain: Copernicus DEM, ground image Sentinel-2${bs ? " (radar brightness where clouds hid every scene)" : ""}. ${tint} `
-    + "The slider fades the change in. Drag to orbit, scroll to zoom.";
+    + "The slider fades the change in. Drag to orbit, ctrl/⌘ + scroll (or pinch) to zoom.";
 }
 $("#loading").remove();
 
@@ -40,17 +81,26 @@ const showT = () => {
   } else if (bs) tOut.textContent = x === 0 ? `before (${d0})` : x === 1 ? `after (${d1})` : "";
   else tOut.textContent = x === 0 ? `before (${d0})` : x === 1 ? `after (${d1})` : `${Math.round(x * 100)}% of the measured motion`;
 };
-t.addEventListener("input", () => { playing = false; play.textContent = "Play"; showT(); });
-let playing = false, last = 0;
-play.addEventListener("click", () => { playing = !playing; play.textContent = playing ? "Pause" : "Play"; if (t.value >= 1000) t.value = 0; });
+// Play runs before -> after in 4 s. Autoplay loops it: hold on "after", rewind, hold on "before", play again.
+let playing = false, last = 0, hold = 0, rewinding = false;
+const setPlaying = (x) => { playing = x; hold = 0; rewinding = false; play.textContent = x ? "Pause" : "Play"; };
+t.addEventListener("input", () => { setPlaying(false); showT(); });
+play.addEventListener("click", () => { const x = !playing; if (x && t.value >= 1000) t.value = 0; setPlaying(x); });
 v.onFrame(() => {
   const now = performance.now(), dt = Math.min(0.1, (now - last) / 1000);
   last = now;
   if (!playing) return;
-  t.value = Math.min(1000, +t.value + dt * 250);
+  if (hold > 0) { hold -= dt; return; }
+  if (rewinding) {
+    t.value = Math.max(0, +t.value - dt * 1000);
+    if (+t.value <= 0) { rewinding = false; hold = 1; }
+  } else {
+    t.value = Math.min(1000, +t.value + dt * 250);
+    if (+t.value >= 1000) { if (settings.autoplay) { rewinding = true; hold = 3; } else setPlaying(false); }
+  }
   showT();
-  if (+t.value >= 1000) { playing = false; play.textContent = "Play"; }
 });
+if (settings.autoplay) { t.value = 0; setPlaying(true); }
 showT();
 
 const ex = $("#exag"), exOut = $("#exag-out");
@@ -59,6 +109,20 @@ ex.addEventListener("input", setEx);
 if ((meta.still || STILL.includes(meta.kind))) { ex.value = -100; exOut.textContent = "off (motion is not the signal here)"; ex.addEventListener("input", setEx, { once: true }); v.setLosExag(0); } else setEx();
 $("#fringes").addEventListener("change", (e) => v.setFringe(e.target.checked));
 $("#ground").addEventListener("change", (e) => v.setGround(e.target.checked));
+
+const opt = (id, key, apply) => {
+  const box = $(id);
+  box.checked = settings[key];
+  box.addEventListener("change", () => { settings[key] = box.checked; saveSettings(); apply(box.checked); });
+};
+opt("#opt-skycam", "skycam", (on) => sky.set(on, true));
+opt("#opt-autoplay", "autoplay", (on) => { if (on) { if (t.value >= 1000) t.value = 0; setPlaying(true); } else { setPlaying(false); t.value = 1000; showT(); } });
+opt("#opt-places", "places", (on) => { placeLayer.hidden = !on; });
+const placeLayer = document.createElement("div");
+placeLayer.className = "places";
+placeLayer.hidden = !settings.places;
+hero.appendChild(placeLayer);
+const pinUVs = []; // story and media pins: place names keep clear of them
 
 const s = meta.stats;
 $("#numbers").innerHTML = `<table>
@@ -121,6 +185,7 @@ if (stories) {
     p.innerHTML = `<span>${k + 1}</span>`;
     p.onclick = () => { const c = $(`#story-${k + 1}`); c.scrollIntoView({ behavior: "smooth", block: "center" }); c.classList.add("hot"); setTimeout(() => c.classList.remove("hot"), 1800); };
     $("#hero").appendChild(p);
+    pinUVs.push([it.nisar.u, it.nisar.v]);
     return { p, uv: [it.nisar.u, it.nisar.v] };
   });
   document.querySelectorAll(".card").forEach((c) => {
@@ -172,6 +237,7 @@ if (media.length) {
     p.innerHTML = `<span>${letter(k)}</span>`;
     p.onclick = () => { const c = $(`#media-${k + 1}`); c.scrollIntoView({ behavior: "smooth", block: "center" }); c.classList.add("hot"); setTimeout(() => c.classList.remove("hot"), 1800); };
     $("#hero").appendChild(p);
+    pinUVs.push([m.nisar.u, m.nisar.v]);
     return { p, uv: [m.nisar.u, m.nisar.v] };
   });
   document.querySelectorAll("#media-cards .card").forEach((c) => {
@@ -190,4 +256,40 @@ if (media.length) {
   });
 }
 
-window.eventPage = { meta, viewer: v };
+// ---------- place names: at most three towns, kept clear of each other and of the pins ----------
+// places.json is made once offline from OpenStreetMap (scripts/places.py), largest first.
+const placesDoc = await fetch(base + "places.json").then((r) => (r.ok ? r.json() : null), () => null);
+const chosen = [];
+for (const p of placesDoc?.places ?? []) {
+  if (chosen.length >= 3) break;
+  const far = ([qu, qv], d) => Math.hypot(p.u - qu, (p.v - qv) * v.aspect) >= d;
+  if (chosen.every((c) => far([c.u, c.v], 0.2)) && pinUVs.every((q) => far(q, 0.05))) chosen.push(p);
+}
+if (chosen.length) {
+  $("#sources").insertAdjacentHTML("beforeend", "<li>Place names: © OpenStreetMap contributors (ODbL 1.0), via the Overpass API.</li>");
+  const labels = chosen.map((p) => {
+    const el = document.createElement("div");
+    el.className = "place";
+    el.textContent = p.name;
+    placeLayer.appendChild(el);
+    return { el, uv: [p.u, p.v], w: 0 };
+  });
+  // Each frame: hide a label (fade) when it would overlap a pin, the north arrow or a bigger town's label.
+  v.onFrame(() => {
+    if (placeLayer.hidden) return;
+    const W = hero.clientWidth, H = hero.clientHeight, boxes = [[W - 56, H - 56, W, H]];
+    for (const uv of pinUVs) { const s = v.project(uv); if (s) boxes.push([s.x - 15, s.y - 15, s.x + 15, s.y + 15]); }
+    for (const l of labels) {
+      const s = v.project(l.uv, 0.004);
+      l.w ||= l.el.offsetWidth;
+      const box = s && [s.x - 4, s.y - 9, s.x + l.w + 2, s.y + 9];
+      const show = box && box[0] > 0 && box[1] > 0 && box[2] < W && box[3] < H
+        && boxes.every((b) => box[2] < b[0] || box[0] > b[2] || box[3] < b[1] || box[1] > b[3]);
+      l.el.classList.toggle("off", !show);
+      if (s) l.el.style.transform = `translate(${s.x}px, ${s.y}px)`;
+      if (show) boxes.push(box);
+    }
+  });
+}
+
+window.eventPage = { meta, viewer: v, settings };
