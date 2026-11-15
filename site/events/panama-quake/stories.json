@@ -85,7 +85,7 @@
     "local_step_cm": 11.5
    },
    "show_image": true,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -112,7 +112,7 @@
     "measured": false
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -170,11 +170,66 @@
     "local_step_cm": 3.0
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   }
  ],
  "media": [],
- "media_status": {}
+ "media_status": {
+  "panama-vali-e590347e": {
+   "status": "candidate"
+  },
+  "panama-vali-920c2537": {
+   "status": "candidate"
+  },
+  "panama-vali-f17bb8a9": {
+   "status": "candidate"
+  },
+  "panama-vali-87be4511": {
+   "status": "candidate"
+  },
+  "panama-vali-c64492f7": {
+   "status": "candidate"
+  },
+  "panama-vali-92c666d0": {
+   "status": "candidate"
+  },
+  "panama-gdel-95d9a159": {
+   "status": "candidate"
+  },
+  "panama-comm-0a9835b3": {
+   "status": "candidate"
+  },
+  "panama-comm-7f8e0425": {
+   "status": "candidate"
+  },
+  "panama-comm-8b501752": {
+   "status": "candidate"
+  },
+  "panama-comm-e7feb1f7": {
+   "status": "candidate"
+  },
+  "panama-comm-b70105c2": {
+   "status": "candidate"
+  },
+  "panama-comm-09eeeb22": {
+   "status": "candidate"
+  },
+  "panama-gdel-d1b3e623": {
+   "status": "candidate"
+  },
+  "panama-gdel-c3d20c9e": {
+   "status": "candidate"
+  },
+  "panama-gdel-e07f6152": {
+   "status": "candidate"
+  },
+  "panama-gdel-38db671d": {
+   "status": "candidate"
+  },
+  "panama-gdel-bdf165f5": {
+   "status": "candidate"
+  }
+ }
 }

@@ -25,7 +25,7 @@
     "change": 0.0
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -52,7 +52,7 @@
     "change": 0.0
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -79,7 +79,7 @@
     "change": 0.0
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -110,5 +110,7 @@
    "caption": null,
    "order": null
   }
- ]
+ ],
+ "media": [],
+ "media_status": {}
 }

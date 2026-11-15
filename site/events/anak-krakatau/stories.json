@@ -25,7 +25,7 @@
     "measured": false
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -52,7 +52,7 @@
     "measured": false
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -79,7 +79,7 @@
     "measured": false
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -106,7 +106,7 @@
     "measured": false
    },
    "show_image": true,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -133,9 +133,11 @@
     "measured": false
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   }
- ]
+ ],
+ "media": [],
+ "media_status": {}
 }

@@ -181,6 +181,8 @@ Everything each event page shows, from `site/events/<slug>/meta.json` and `stori
 | Story: AEON Mall Kumamoto: second floor collapsed with ~3,000 shoppers inside | 総務省消防庁 (Fire and Disaster Management Agency) via Wikimedia Commons; also JGSDF photo File:20260730 JGSDF Officers in AEON Mall Kumamoto after Earthquake.jpg (CC BY 4.0, 防衛省) | CC BY 4.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Rescue_at_AEON_Mall_Kumamoto_(2026_Kumamoto_Earthquake).jpg) |
 | Story: Kumamoto Castle: Nishi-demaru stone walls down again, 13 km from the rupture | Katorisi / Wikimedia Commons | CC BY-SA 4.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Stone_walls_of_the_Nishi-demaru_of_Kumamoto_Castle_that_collapsed_due_to_the_2026_Kumamoto_Earthquake._Kumamoto_City,_Japan.jpg) |
 | Story: AEON Mall Uki: ceiling collapse right where NISAR's step crosses Ogawa | Wikipedia (text); AIST GSJ 第6報 https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-03.html | no image found | [en.wikipedia.org](https://en.wikipedia.org/wiki/2026_Kumamoto_earthquake) |
+| Media: GSJ photo 3: 城南町鰐瀬 paddy over the 鰐瀬 trench, 23 cm | Source: Geological Survey of Japan web page (https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html), AIST GSJ 第5報 field photo | GSJ Terms of Use (CC BY 4.0 compatible) | [gsj.jp](https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html) |
+| Media: 20260730 Track Damage of Kagoshima Line (Matsubase - Ogawa) | 国土交通省 | CC BY 4.0 | [commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:20260730_Track_Damage_of_Kagoshima_Line_(Matsubase_-_Ogawa).jpg) |
 
 ### Langtang ice-rock avalanche, Nepal (`langtang-avalanche`)
 

@@ -26,9 +26,11 @@
     "local_step_cm": 2.2
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/langtang-01.png",
+   "preview": "pixelated"
   },
   {
    "title": "Upper Syabrubesi: houses on the terrace above the debris line survived",
@@ -56,7 +58,9 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/langtang-02.png",
+   "preview": "pixelated"
   },
   {
    "title": "Timure: 'only six damaged houses remain standing'",
@@ -84,7 +88,9 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/langtang-03.png",
+   "preview": "pixelated"
   },
   {
    "title": "CCTV: the flood hits Gyirong Port at the border crossing",
@@ -197,9 +203,13 @@
     "local_step_cm": 4.1
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/langtang-07.png",
+   "preview": "pixelated"
   }
- ]
+ ],
+ "media": [],
+ "media_status": {}
 }

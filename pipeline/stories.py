@@ -4,7 +4,7 @@
 
 Input:  research/stories/<slug>.json    candidate stories and photos (see docs/5-stories.md)
         site/events/<slug>/media.json    step 5b: harvested media candidates (pipeline.media)
-        editorial/<slug>.json            step 6: the human editor's selections and captions
+        research/editorial/<slug>.json   step 6: the human editor's selections and captions
                                          (`items` for stories, `media` for harvested media)
 Output: site/events/<slug>/stories.json  stories + the selected media (`media`) + all media decisions
                                          (`media_status`, so the editor can reload them)
@@ -146,7 +146,7 @@ def build(slug: str):
     d = ROOT / "site" / "events" / slug
     meta = json.loads((d / "meta.json").read_text())
     research = json.loads((ROOT / "research" / "stories" / f"{slug}.json").read_text())
-    ed_path = ROOT / "editorial" / f"{slug}.json"
+    ed_path = ROOT / "research" / "editorial" / f"{slug}.json"
     editorial = json.loads(ed_path.read_text()) if ed_path.exists() else {}
     items = []
     for it in research["items"]:

@@ -27,7 +27,7 @@
     "local_step_cm": 1.1
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -56,7 +56,7 @@
     "local_step_cm": 1.2
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -114,7 +114,7 @@
     "local_step_cm": 1.4
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   },
@@ -143,9 +143,11 @@
     "local_step_cm": 1.5
    },
    "show_image": false,
-   "status": "candidate",
+   "status": "selected",
    "caption": null,
    "order": null
   }
- ]
+ ],
+ "media": [],
+ "media_status": {}
 }
