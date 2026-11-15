@@ -8,7 +8,7 @@ back to terrain only. The movement comes from tape measurements across the break
 not from NISAR, and the caption says so. Every number and sentence about it is read from `slip.json`; the page types none.
 
 **Data.** `site/events/<slug>/slip.json` + `slip.i16`, written by `pipeline/slip.py`; the contract is in
-`briefs/slip-contract.md`. Only Kumamoto has them. An event without `slip.json` ignores the switch.
+`docs/slip-contract.md`. Only Kumamoto has them. An event without `slip.json` ignores the switch.
 
 **The URL switch.**
 
@@ -57,4 +57,4 @@ const SLIP = params.has("slip") ? params.get("slip") !== "0" : null;   // null =
 
 **Removing it.** Delete `site/js/slip.js` and this page; in `event.js` delete the lines marked `slip:` and the
 `if (slip?.on) return slip.exag();` guard; in `viewer.js` delete the lines marked `slip:` and the two `#ifdef SLIP … #endif`
-blocks, then turn `S(p)` back into `p` and `q` back into `vUv` (or keep the `#define S(p) (p)` lines: they are harmless).
+blocks, then turn `S(p)` back into `p`, `q` back into `vUv` and drop `* B0` (or keep the `#define S(p) (p)` and `#define B0 1.0` lines: they are harmless). Delete `pipeline/slip.py`, `tests/test_slip.py`, `research/slip/`, `docs/slip-contract.md` and the event's `slip.json` and `slip.i16`.
