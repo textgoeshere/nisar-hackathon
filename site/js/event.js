@@ -17,7 +17,17 @@ const slug = document.body.dataset.slug || params.get("e") || "kumamoto-quake";
 const base = `events/${slug}/`;
 const pageUrl = (s) => `e/${encodeURIComponent(s)}.html`;   // relative to the site root (e/ pages set <base href="../">)
 const meta = await (await fetch(base + "meta.json")).json();
-const slugs = await fetch("events/index.json").then((r) => (r.ok ? r.json() : [slug]), () => [slug]);
+// Tour order (Next, demo mode, the event list): the hero first, then roughly strongest to weakest, with
+// the kinds mixed so two of a kind rarely follow each other. Events not listed here go on the end.
+const TOUR = ["kumamoto-quake", "mexico-city-subsidence", "panama-quake", "anak-krakatau", "venezuela-quake", "etna-eruption",
+  "little-giant-fire", "bangladesh-flood", "flores-quake", "fuego-eruption", "aspen-acres-fire", "langtang-avalanche"];
+const live = await fetch("events/index.json").then((r) => (r.ok ? r.json() : [slug]), () => [slug]);
+const slugs = [...TOUR.filter((s) => live.includes(s)), ...live.filter((s) => !TOUR.includes(s))];
+// Loading state: a spinner until the first frames are drawn; a plain message if the data never arrives.
+const loading = $("#loading");
+const loadFailed = () => { if (loading.isConnected && !loading.classList.contains("done")) { loading.classList.add("fail"); loading.querySelector("span").innerHTML = 'The 3D view could not load. <a href="">Try again</a>'; } };
+addEventListener("unhandledrejection", loadFailed);
+addEventListener("error", loadFailed);
 // slip: sideways slip (docs/slip.md). SLIP: null = not offered, else whether it starts on. This is the line to
 // change to make it a remembered setting or the default for earthquakes; slip.js is only loaded when offered.
 const SLIP = params.has("slip") ? params.get("slip") !== "0" : null;                      // slip:
@@ -99,7 +109,6 @@ if (meta.note) {                                          // honest caveats from
   n.className = "small muted"; n.id = "note"; n.textContent = meta.note;
   $("#legend").after(n);
 }
-$("#loading").remove();
 
 // ---------- before -> after slider and play ----------
 const t = $("#t"), tOut = $("#t-out"), play = $("#play");
@@ -584,6 +593,6 @@ else if (open === "people" || open === "radar") showLayer(open);
 else if (open === "cog" || open === "list") setPanel(open, true);
 
 // Fade in once the first frames (texture upload, shader compile) are done.
-requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add("on")));
+requestAnimationFrame(() => requestAnimationFrame(() => { hero.classList.add("on"); loading.classList.add("done"); setTimeout(() => loading.remove(), 800); }));
 
 window.eventPage = { meta, viewer: v, settings, get demo() { return demo; } };

@@ -123,3 +123,11 @@ body.info-open .bar, body.info-open #label, body.info-open #tr-sub, body.info-op
   .ev .north { width: 30px; height: 30px; }
 }
 .cardcol .card.open table.more { display: table; width: 100%; }
+
+/* loading state: shown until the first 3D frames are drawn */
+.ev #loading { position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .9rem;
+  color: #fffb; font-size: .9rem; pointer-events: none; transition: opacity .6s; }
+.ev #loading.done { opacity: 0; }
+.ev #loading i { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #fff3; border-top-color: #ffd257; animation: spin 0.9s linear infinite; }
+.ev #loading.fail { pointer-events: auto; } .ev #loading.fail i { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
