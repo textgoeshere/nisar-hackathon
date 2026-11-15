@@ -97,13 +97,14 @@
    "side": "affected",
    "what_it_shows": "GEER Table 9-2 / Fig. 9-17 / Fig. 11-16: a river-parallel fissure about 380 m long, at most 3 m from the channel, photographed 12 July 2026 by R. Mata, E. Núñez et al. GEER also reports large, deep ground cracks between Agua Negra and Palmarejo (10.49–10.50°N, 68.51–68.53°W; LOS +5 to +6 cm, also smooth).",
    "image_url": null,
-   "page_url": "https://geerassociation.org/components/com_geer_reports/geerfiles/GEER%20report%20on%20June%2024%202026%20Venezuela%20Earthquake%2004.pdf",
-   "credit": "Ramón Mata, Eduardo Núñez et al., in GEER-087 (doi:10.18118/G6S95Q), Figs. 9-17 and 11-16",
-   "licence": "report, link only",
+   "page_url": "https://geerassociation.org/?view=geerreports&id=117",
+   "credit": "GEER Association, GEER-087 report (A. Cabas, J. Perri, R. B. Sancio, eds.; doi:10.18118/G6S95Q), Fig. 11-16a; photo R. Mata, E. Núñez et al.",
+   "licence": "GEER report figure; pixelated preview, link to source",
    "date": "2026-07-12",
    "confidence": "high",
-   "notes": "Coordinates are given in the GEER report (marker coordinates). GEER says the site is ~4 km from the 'M7.5 epicenter'; read that as the M7.2 San Felipe event, since the M7.5 was offshore near Catia La Mar.",
+   "notes": "Coordinates are given in the GEER report (marker coordinates). GEER says the site is ~4 km from the 'M7.5 epicenter'; read that as the M7.2 San Felipe event, since the M7.5 was offshore near Catia La Mar. Preview: photo panel (a) of Fig. 11-16 (report p. 281), cut from the English PDF (https://geerassociation.org/components/com_geer_reports/geerfiles/GEER%20report%20on%20June%2024%202026%20Venezuela%20Earthquake%2004.pdf), shrunk to 88 px on the long side and blown back up with nearest neighbour; only the pixelated derivative is stored.",
    "id": "venezuela-04",
+   "preview_file": "media/venezuela-04-geer.png",
    "nisar": {
     "u": 0.3775,
     "v": 0.4573,
@@ -116,7 +117,9 @@
    "show_image": false,
    "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "preview_url": "media/venezuela-04-geer.png",
+   "preview": "pixelated"
   },
   {
    "title": "San Felipe: 13 homes heavily damaged, yet NISAR barely moved",

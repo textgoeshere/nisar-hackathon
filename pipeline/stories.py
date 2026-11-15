@@ -133,10 +133,15 @@ def merge_media(d: Path, editorial: dict) -> tuple[list[dict], dict]:
 
 
 def story_previews(slug: str, items: list[dict]):
-    """Link-only story photos (agency, news) get the same gently pixelated preview as harvested media."""
+    """Link-only story photos (agency, news) get the same gently pixelated preview as harvested media.
+    A story may instead name an already pixelated file (`preview_file`, relative to the event folder), for
+    photos cut from a report PDF where there is no image URL to fetch."""
     from .media import pixelate
     for it in items:
-        if it.get("image_url") and not it["show_image"]:
+        pf = it.get("preview_file")
+        if pf and (ROOT / "site" / "events" / slug / pf).exists():
+            it["preview_url"], it["preview"] = pf, "pixelated"
+        elif it.get("image_url") and not it["show_image"]:
             x = {"id": it["id"], "thumb_url": it["image_url"], "page_url": it.get("page_url")}
             if pixelate.preview(slug, x):
                 it["preview_url"], it["preview"] = x["preview_url"], x["preview"]

@@ -230,6 +230,9 @@ Everything each event page shows, from `site/events/<slug>/meta.json` and `stori
 | Story: Isla Cañas sank 15–30 cm and was cut in two by the sea | La Estrella de Panamá; La Prensa (Ohigginis Arcia Jaramillo) | news, link only | [laestrella.com.pa](https://www.laestrella.com.pa/panama/nacional/terremoto-hundio-30-centimetros-de-isla-canas-de-acuerdo-a-estudios-preliminares-MB26639225) |
 | Story: Macaracas: a 68-year-old woman killed by a collapsing wall, far from the rupture | Wikipedia (citing Panamanian press) | no image found | [en.wikipedia.org](https://en.wikipedia.org/wiki/2026_Panama_earthquake) |
 | Story: Río Oria bridge closed: residents carry supplies across on foot | Telemetro Reporta | news, link only | [telemetro.com](https://www.telemetro.com/nacionales/cierran-puente-el-rio-oria-pedasi-danos-estructurales-terremoto-n6095089) |
+| Story: Las Tablas: the provincial hospital stayed fit to treat patients while Tonosí's was shut | TVN (Panamá); OPS/OMS https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama | news, link only | [tvn-2.com](https://www.tvn-2.com/nacionales/temblor-panama-instalaciones-salud-afectadas-cocle-chitre-lastablas_1_2265992.html) |
+| Story: Cañas: the mainland village took in the families from the island that sank | OPS/OMS (Pan American Health Organization) | news, link only | [paho.org](https://www.paho.org/es/noticias/17-10-2026-ops-apoya-continuidad-atencion-tonosi-tras-terremoto-panama) |
+| Story: Cambutal: across the fault from Tonosí, considered as a place to move Tonosí's patients | TVN (Panamá) | news, link only | [tvn-2.com](https://www.tvn-2.com/nacionales/temblor-panama-instalaciones-salud-afectadas-cocle-chitre-lastablas_1_2265992.html) |
 
 ### Yaracuy M7.2 + M7.5 doublet, Venezuela (`venezuela-quake`)
 
@@ -240,7 +243,7 @@ Everything each event page shows, from `site/events/<slug>/meta.json` and `stori
 | Story: Las Colinas de Morón: 16 houses fell, two women killed, 250 families sleeping outside | Dayrí Blanco / El Carabobeño (photos courtesy of residents) | news, link only | [diariodelosandes.com](https://diariodelosandes.com/carabobo-16-viviendas-colapsaron-en-las-colinas-de-moron-y-250-familias-siguen-sin-volver-a-sus-casas/) |
 | Story: La Mar Suites, Tucacas: beachfront block collapsed, 12 dead | El Nacional / El Carabobeño | news, link only | [elnacional.com](https://www.elnacional.com/2026/06/hallan-12-cuerpos-entre-los-escombros-de-edificio-colapsado-en-tucacas/) |
 | Story: Boca de Aroa: sand and water boiled up through cracks during the shaking | GEER-087 report (Cabas, Sancio et al.), citing StEER (2026) DesignSafe PRJ-6380 | report, link only | [geerassociation.org](https://geerassociation.org/?view=geerreports&id=117&layout=default) |
-| Story: Pueblo Farriar: a 380 m crack opened along the river bank | Ramón Mata, Eduardo Núñez et al., in GEER-087 (doi:10.18118/G6S95Q), Figs. 9-17 and 11-16 | report, link only | [geerassociation.org](https://geerassociation.org/components/com_geer_reports/geerfiles/GEER%20report%20on%20June%2024%202026%20Venezuela%20Earthquake%2004.pdf) |
+| Story: Pueblo Farriar: a 380 m crack opened along the river bank | GEER Association, GEER-087 report (A. Cabas, J. Perri, R. B. Sancio, eds.; doi:10.18118/G6S95Q), Fig. 11-16a; photo R. Mata, E. Núñez et al. | GEER report figure; pixelated preview, link to source | [geerassociation.org](https://geerassociation.org/?view=geerreports&id=117) |
 | Story: San Felipe: 13 homes heavily damaged, yet NISAR barely moved | Wikipedia | no image found | [en.wikipedia.org](https://en.wikipedia.org/wiki/2026_Venezuela_earthquakes) |
 
 <!-- credits:end -->
