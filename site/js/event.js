@@ -67,6 +67,11 @@ if (still) {
   $("#legend").innerHTML = `Terrain: Copernicus DEM, ground image Sentinel-2${bs ? " (radar brightness where clouds hid every scene)" : ""}. ${tint} `
     + "The slider fades the change in. Drag to orbit, ctrl/⌘ + scroll (or pinch) to zoom.";
 }
+if (meta.note) {                                          // honest caveats from the pipeline (what NISAR does/doesn't show)
+  const n = document.createElement("p");
+  n.className = "small muted"; n.id = "note"; n.textContent = meta.note;
+  $("#legend").after(n);
+}
 $("#loading").remove();
 
 // Before → after slider (interpolated: two passes only).
