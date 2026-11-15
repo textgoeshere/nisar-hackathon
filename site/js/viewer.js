@@ -267,6 +267,8 @@ export async function createViewer(el, base, meta, opts = {}) {
     setGround(on) { u.uHasGround.value = on && u.uGround.value ? 1 : 0; },
     onFrame(f) { frameHooks.push(f); },
     camera, controls, aspect, heightAt,
+    // Deterministic presentation rendering; ordinary event viewers keep their default loop.
+    resize, renderOnce() { controls.update(); renderer.render(scene, camera); },
     start, stop: () => renderer.setAnimationLoop(null), smoothHeightAt: (pu, pv) => gridHeight(gMean, pu, pv), ceilingAt: (pu, pv) => gridHeight(gMax, pu, pv),
     // B x B blocks classed 1 = changed, 0 = unchanged, 2 = neither (no data / in between). Still kinds:
     // share of the block inside the change footprint. Motion kinds: mean |motion| over coherent pixels,

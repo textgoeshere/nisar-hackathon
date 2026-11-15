@@ -1,4 +1,6 @@
-# nisar-hackathon: visualize and contextualize world events with NISAR L-band (NASA/ISRO) radar data
+# groundstory
+
+Visualize and contextualize world events with NISAR L-band (NASA/ISRO) radar data.
 
 Catastrophic natural or anthropogenic events affect people and places in different ways. We put measured ground change alongside sourced accounts from the people and places affected. Our hypothesis is that this context makes those stories easier to understand; that understanding benefit has not yet been user-tested.
 

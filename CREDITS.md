@@ -94,11 +94,15 @@ are in [site/about/README.md](site/about/README.md) and [photo-source.json](site
   [GSJ Terms of Use](https://www.gsj.jp/license/license.html#01), CC BY 4.0 compatible. The original
   1021 × 767 PNG bytes and annotations are unchanged. Presentation crop/reframing and English caption
   by Dancing With The SARs; no GSJ endorsement is implied. The 94 cm value is the field survey, not NISAR.
+- **Additional animated field photographs:** GSJ/AIST report No. 5, [photo 11: Yatsushiro Junction](https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-18.png) and [photo 12: Yatsushiro Shrine](https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png). Same named report authors and GSJ terms as photo 10 above. Original source images are loaded unchanged; CSS reframing, animation and English captions are by Dancing With The SARs, without GSJ endorsement.
 - **Sideways-slip prototype:** GSJ field offsets and Nevada Geodetic Laboratory daily positions for
   GSI GEONET stations. The field between observations is modelled, exaggerated and imperfect; vertical
   movement is omitted. See [the model and sources](docs/slip.md). It is not radar-measured sideways motion.
 - Radar, Sentinel-2 imagery and terrain carry the satellite-data credits and terms above. The twelve-event
-  mosaic uses the committed radar-layer images, not twelve additional claims of scientific validation.
+  mosaic renders twelve actual Copernicus DEM meshes with the committed radar and optical layers in one
+  shared three.js context. Terrain relief is exaggerated ×1–5; plinths are illustrative, not geology.
+  Tile scales differ. Radar is colour, never vertical uplift. This is evidence of pipeline reuse,
+  not twelve independent scientific validations. Static radar previews remain only in the final CTA.
 
 ## AI ("Super Intelligence") disclosure
 

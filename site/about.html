@@ -3,102 +3,99 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="From satellite measurements to stories on the ground. A silent, 30-second introduction to Either side of the line.">
-  <title>About · Either side of the line</title>
-  <link rel="stylesheet" href="about.css?v=4">
+  <meta name="description" content="groundstory: using NISAR orbital radar to understand human stories on the ground. A silent, animated 30-second introduction.">
+  <title>About · groundstory</title>
+  <link rel="stylesheet" href="about.css?v=5">
   <link rel="preload" href="about/ryuho-school.png" as="image">
   <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 </head>
 <body>
-  <header class="page-head"><a href="./" class="wordmark">Either side of the line<span>Satellite change. Human context.</span></a><nav aria-label="Site"><a href="events.html">Explore</a><a href="create.html">Create</a></nav></header>
+  <header class="page-head"><div class="brand-cluster"><a href="./" class="wordmark">groundstory<span>Satellite change. Human context.</span></a><button id="header-play" type="button" disabled><span aria-hidden="true">▶</span> Play the 30s video</button></div><nav aria-label="Site"><a href="events.html">Explore</a><a href="create.html">Create</a></nav></header>
   <main>
-    <div class="intro"><h1>The project, in 30 seconds.</h1><p>No sound needed. One place, the wider picture, and what comes next.</p></div>
+    <h1 class="sr-only">groundstory — using NISAR orbital radar to understand human stories on the ground</h1>
     <div class="player-shell" id="player">
-      <div class="viewport" id="viewport" aria-label="Thirty-second project presentation">
+      <div class="viewport" id="viewport" aria-label="Thirty-second groundstory presentation">
         <div class="film" id="film" data-shot="opening">
-          <div id="terrain" aria-hidden="true"></div>
-          <div class="map-shade" id="map-shade" hidden></div>
-          <section class="shot opening" id="shot-opening" aria-label="The question">
-            <img class="opening-photo" src="about/ryuho-school.png" alt="The painted schoolyard lines at Ryuho Elementary School displaced across a surface rupture.">
-            <div class="photo-shade"></div>
-            <div class="opening-place"><span class="eyebrow">KUMAMOTO, JAPAN</span><p>Ryuho Elementary School</p></div>
+          <div id="terrain" aria-hidden="true"></div><div class="map-shade" id="map-shade" hidden></div>
+          <section class="shot opening" id="shot-opening" aria-label="Human stories, seen in ground context">
+            <img class="opening-photo" src="about/ryuho-school.png" alt="Displaced painted lines at Ryuho Elementary School, photographed by the GSJ field survey.">
+            <div class="photo-shade"></div><div class="opening-brand">groundstory<span>NISAR / NASA–ISRO</span></div>
+            <figure class="montage-card montage-shrine"><img src="https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png" alt="The displaced approach path at Yatsushiro Shrine, GSJ field photograph 12." referrerpolicy="no-referrer"><figcaption>Yatsushiro Shrine <span>GSJ field survey</span></figcaption></figure>
+            <figure class="montage-card montage-bridge"><img src="https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-18.png" alt="Surface rupture near Yatsushiro Junction, GSJ field photograph 11." referrerpolicy="no-referrer"><figcaption>Yatsushiro Junction <span>GSJ field survey</span></figcaption></figure>
+            <div class="opening-place">Ryuho Elementary School · Kumamoto, Japan</div>
           </section>
-          <section class="shot method" id="shot-passes" hidden aria-label="How the satellite measures change">
-            <div class="section-label">01 / THE MEASUREMENT <span>Method schematic</span></div>
+          <section class="shot method" id="shot-passes" hidden aria-label="How NISAR turns repeated radar passes into evidence">
+            <div class="section-label">01 / HOW IT WORKS <span>NASA / ISRO NISAR</span></div>
             <div class="pass-diagram">
-              <div class="pass"><svg viewBox="0 0 240 180" aria-hidden="true"><g transform="translate(120 75) rotate(-24)"><rect x="-25" y="-27" width="50" height="54" rx="9" fill="currentColor"/><path d="M-100-31H-39V31H-100ZM39-31H100V31H39Z"/><path d="M-80-31V31M-60-31V31M60-31V31M80-31V31M-100 0H-39M39 0H100" class="panel-lines"/><path d="M-12 37L-36 84M12 37L36 84" class="beam"/></g></svg><span>PASS 01</span><strong id="pass-before">Before</strong></div>
-              <div class="pass-link"><span>Same place.</span><svg viewBox="0 0 480 120" aria-hidden="true"><path d="M10 60H465M435 35L465 60L435 85"/><circle cx="240" cy="60" r="12"/></svg><span>Different dates.</span></div>
-              <div class="pass"><svg viewBox="0 0 240 180" aria-hidden="true"><g transform="translate(120 75) rotate(-24)"><rect x="-25" y="-27" width="50" height="54" rx="9" fill="currentColor"/><path d="M-100-31H-39V31H-100ZM39-31H100V31H39Z"/><path d="M-80-31V31M-60-31V31M60-31V31M80-31V31M-100 0H-39M39 0H100" class="panel-lines"/><path d="M-12 37L-36 84M12 37L36 84" class="beam"/></g></svg><span>PASS 02</span><strong id="pass-after">After</strong></div>
+              <div class="pass"><svg viewBox="0 0 240 180" aria-hidden="true"><g transform="translate(120 75) rotate(-24)"><rect x="-25" y="-27" width="50" height="54" rx="9" fill="currentColor"/><path d="M-100-31H-39V31H-100ZM39-31H100V31H39Z"/><path d="M-80-31V31M-60-31V31M60-31V31M80-31V31M-100 0H-39M39 0H100" class="panel-lines"/><path d="M-12 37L-36 84M12 37L36 84" class="beam"/></g></svg><span>BEFORE</span><strong id="pass-before">First pass</strong></div>
+              <div class="pass-link"><span>Same orbit. New echoes.</span><svg viewBox="0 0 600 140" aria-hidden="true"><path class="echo echo-before" d="M0 70Q25 5 50 70T100 70T150 70T200 70T250 70T300 70T350 70T400 70T450 70T500 70T550 70T600 70"/><path class="echo echo-after" d="M0 85Q25 20 50 85T100 85T150 85T200 85T250 85T300 85T350 85T400 85T450 85T500 85T550 85T600 85"/></svg><span class="pass-how">Aligned → compared → published</span></div>
+              <div class="pass"><svg viewBox="0 0 240 180" aria-hidden="true"><g transform="translate(120 75) rotate(-24)"><rect x="-25" y="-27" width="50" height="54" rx="9" fill="currentColor"/><path d="M-100-31H-39V31H-100ZM39-31H100V31H39Z"/><path d="M-80-31V31M-60-31V31M60-31V31M80-31V31M-100 0H-39M39 0H100" class="panel-lines"/><path d="M-12 37L-36 84M12 37L36 84" class="beam"/></g></svg><span>AFTER</span><strong id="pass-after">Repeat pass</strong></div>
             </div>
-            <div class="product-tag">NASA / ISRO NISAR <span>Published phase + coherence</span></div>
+            <div class="signal-strip"><div><b>Phase</b><span>Movement along the line of sight</span></div><div><b>Coherence</b><span>How well the surface still matches</span></div><div><b>Backscatter</b><span>Changes in radar brightness</span></div></div>
+            <div class="product-tag">NASA/JPL published products <span>GUNW + GCOV → our pipeline</span></div>
           </section>
-          <section class="shot method" id="shot-process" hidden aria-label="Our contribution">
-            <div class="section-label">02 / OUR CONTRIBUTION <span>From data to context</span></div>
+          <section class="shot method" id="shot-process" hidden aria-label="The four stages of our work">
+            <div class="section-label">02 / WHAT WE HAD TO DO <span>A reusable, event-aware pipeline</span></div>
             <div class="process-flow">
-              <div class="process-card"><span class="step-number">01</span><svg viewBox="0 0 200 140" aria-hidden="true"><path d="M5 70Q30 5 55 70T105 70T155 70T205 70M5 100Q30 35 55 100T105 100T155 100T205 100"/></svg><h2>Published data</h2><p>NISAR phase + coherence</p></div>
-              <span class="flow-arrow" aria-hidden="true">→</span>
-              <div class="process-card"><span class="step-number">02</span><svg viewBox="0 0 200 140" aria-hidden="true"><path d="M20 20H180V120H20ZM20 53H180M20 87H180M60 20V120M100 20V120M140 20V120"/><path d="M61 54H99V86H61Z M101 88H139V119H101Z" class="filled"/></svg><h2>Clean &amp; map</h2><p>Correct · mask · locate</p></div>
-              <span class="flow-arrow" aria-hidden="true">→</span>
-              <div class="process-card"><span class="step-number">03</span><svg viewBox="0 0 200 140" aria-hidden="true"><path d="M100 125S45 75 45 50a55 44 0 0 1 110 0c0 25-55 75-55 75Z"/><circle cx="100" cy="50" r="17"/></svg><h2>Place stories</h2><p>Sourced ground accounts</p></div>
+              <div class="process-column"><div class="process-card"><span class="step-number">01</span><svg viewBox="0 0 200 140" aria-hidden="true"><circle cx="78" cy="58" r="38"/><path d="M105 86L157 132M39 58H117M78 20V96"/></svg><h2>Find data</h2></div><ul><li>Research the event</li><li>Check NISAR coverage</li><li>Pick before + after</li><li>Stream local windows</li></ul></div>
+              <div class="process-column"><div class="process-card"><span class="step-number">02</span><svg viewBox="0 0 200 140" aria-hidden="true"><path d="M20 20H180V120H20ZM20 53H180M20 87H180M60 20V120M100 20V120M140 20V120"/><path d="M61 54H99V86H61ZM101 88H139V119H101Z" class="filled"/></svg><h2>Clean &amp; map</h2></div><ul><li>Correct the ionosphere</li><li>Mask unreliable pixels</li><li>Check a quiet baseline</li><li>Align terrain + optical</li></ul></div>
+              <div class="process-column"><div class="process-card"><span class="step-number">03</span><svg viewBox="0 0 200 140" aria-hidden="true"><path d="M100 125S45 75 45 50a55 44 0 0 1 110 0c0 25-55 75-55 75Z"/><circle cx="100" cy="50" r="17"/></svg><h2>Ground stories</h2></div><ul><li>Find primary sources</li><li>Locate each account</li><li>Sample radar at the site</li><li>Human editorial review</li></ul></div>
+              <div class="process-column"><div class="process-card"><span class="step-number">04</span><svg viewBox="0 0 200 140" aria-hidden="true"><path d="M15 78L80 28L185 62L120 120ZM15 93L120 135L185 77M46 87L88 57L152 77M78 102L111 72"/><path d="M80 28V10M120 120V135"/></svg><h2>Visualize</h2></div><ul><li>Drape Sentinel-2</li><li>Colour the radar change</li><li>Pin stories + explainers</li><li>Reuse across event types</li></ul></div>
             </div>
           </section>
-          <section class="shot world" id="shot-hero" hidden aria-label="Satellite measurements in terrain context">
-            <div class="section-label">03 / ORBIT TO GROUND</div>
-            <div class="radar-key"><i></i><strong>NISAR · line-of-sight motion</strong><span>Toward / away · 1 colour cycle = 10 cm</span></div>
-            <div class="terrain-note">Height is terrain only.</div>
+          <section class="shot world" id="shot-hero" hidden aria-label="Build the visualization from optical imagery, stories, radar interpretation and terrain">
+            <div class="section-label">03 / BRING IT TOGETHER</div>
+            <div class="layer-switch" aria-hidden="true"><span data-layer="optical">Sentinel-2</span><span data-layer="stories">+ ground stories</span><span data-layer="radar">+ radar interpretation</span><span data-layer="terrain">→ 3D terrain</span></div>
+            <div id="story-overlays">
+              <figure class="map-story school-story"><img src="about/ryuho-school.png" alt="GSJ field photo of the displaced schoolyard lines."><figcaption><b>Ryuho school</b><strong>94 cm sideways offset</strong><span>Independent field survey · not a NISAR value</span></figcaption></figure>
+              <figure class="map-story shrine-story"><img src="https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png" alt="GSJ photo of the shrine approach path." referrerpolicy="no-referrer"><figcaption><b>Yatsushiro Shrine</b><strong>95 cm field-survey offset</strong><span>A sourced account, located on the map</span></figcaption></figure>
+            </div>
+            <div id="radar-overlays"><div class="interpretation signal-card"><span>EVENT VS QUIET BASELINE</span><strong><b id="event-spread">30.7</b> vs <b id="baseline-spread">6.9</b> cm</strong><p>Regional line-of-sight spread<br>Signal stands out from the baseline.</p></div><div class="interpretation mask-card"><span>KEEP THE LIMITS VISIBLE</span><strong><b id="measured-share">59</b>% passes the mask</strong><p>Unreliable pixels are excluded.<br>No data is not “no change”.</p></div></div>
+            <div class="radar-key"><i></i><strong>NISAR · line-of-sight motion</strong><span>Toward / away · 1 colour cycle = 10 cm</span></div><div class="terrain-note">Height: terrain only · Sentinel-2 optical context</div>
           </section>
-          <section class="shot world" id="shot-story" hidden aria-label="A field survey at the school">
-            <div class="section-label">04 / A PLACE, NOT JUST A PIXEL</div>
-            <figure class="ground-card"><img src="about/ryuho-school.png" alt="Field photograph of the offset painted lines in the schoolyard."><figcaption>Ryuho Elementary School<span>Independent field measurement</span></figcaption></figure>
-            <div class="story-key"><i></i> NISAR: the regional context<span>Line of sight, not the 94 cm field offset</span></div>
+          <section class="shot breadth" id="shot-grid" hidden aria-label="Twelve animated 3D event terrains, grouped by event type">
+            <div class="section-label">04 / BUILT TO REPEAT <span><b class="event-count">12</b> events · 6 event types</span></div>
+            <div class="type-filter" aria-label="Highlighted event type"><span data-kind="quake">Earthquakes</span><span data-kind="volcano">Volcanoes</span><span data-kind="fire">Fires</span><span data-kind="flood">Floods</span><span data-kind="landslide">Landslides</span><span data-kind="subsidence">Subsidence</span></div>
+            <div id="event-grid" class="event-grid" aria-label="Live terrain renderings"></div>
           </section>
-          <section class="shot breadth" id="shot-grid" hidden aria-label="Twelve processed events">
-            <div class="section-label">05 / ONE PIPELINE, MANY PLACES</div><div id="event-grid" class="event-grid"></div>
+          <section class="shot findings" id="shot-findings" hidden aria-label="Findings alongside future work">
+            <div class="section-label">05 / WHAT WE LEARNED — WHAT COMES NEXT</div><div class="split-rule"></div>
+            <div class="findings-column"><h2>Findings</h2><article class="finding-card"><span>THE HYPOTHESIS</span><h3>Ground stories ↔ radar context</h3><p>Technical link demonstrated.<br>Understanding benefit not yet user-tested.</p></article><article class="finding-card"><span>VOLCANIC CHANGE</span><h3>Etna: <b id="etna-area">2.5</b> km² mapped lava</h3><p>Anak Krakatau: <b id="new-land-area">26.5</b> ha shoreline gain</p><small>Radar estimates · partial / provisional, not full validation</small></article><article class="finding-card"><span>TECHNIQUES WE COMBINED</span><h3>Dual-look shoreline detection</h3><p>Multi-pass radar + optical cross-checks.<br>Located stories sampled against the radar.</p></article></div>
+            <div class="future-column"><h2>Future work</h2><h3>Recover sideways motion</h3><p class="future-question">Next: test NISAR radar offsets.</p><div class="prototype-tag"><strong>Prototype: survey + GPS model</strong><span id="slip-exaggeration">Exaggerated motion · not radar-derived</span></div><div class="model-progress"><span>Illustrated slip</span><div><i id="model-progress-fill"></i></div><span>Not a recording</span></div><p class="future-limit">The animation is the current ground-constrained model,<br>not sideways motion recovered from NISAR.</p></div>
           </section>
-          <section class="shot world" id="shot-slip" hidden aria-label="Survey and GPS slip prototype, not NISAR-measured sideways motion">
-            <div class="section-label">06 / FINDING → FUTURE WORK</div>
-            <div class="prototype-tag"><span>PROTOTYPE</span><strong>Survey + GPS model</strong><span id="slip-exaggeration">Motion exaggerated</span></div>
-            <div class="slip-key"><i></i> Surface rupture <span>Grid: 5 km · height: terrain only</span></div>
-            <div class="model-progress"><span>Illustrated motion</span><div><i id="model-progress-fill"></i></div><span>Not a recording</span></div>
-          </section>
-          <svg id="world-annotations" viewBox="0 0 1920 1080" aria-hidden="true" hidden><path id="story-connector"/><g id="gps-arrow"><path class="arrow-shadow"/><path class="arrow-line"/><path class="arrow-head"/><circle r="7"/><text></text></g></svg>
-          <div id="school-pin" hidden><i></i><span>Ryuho school</span></div>
+          <svg id="world-annotations" viewBox="0 0 1920 1080" aria-hidden="true" hidden><path id="story-connector"/><path id="shrine-connector"/><g id="gps-arrow"><path class="arrow-shadow"/><path class="arrow-line"/><path class="arrow-head"/><circle r="7"/><text></text></g></svg><div id="school-pin" hidden><i></i><span>Ryuho school</span></div><div id="shrine-pin" hidden><i></i></div>
           <section class="shot finish" id="shot-finish" hidden aria-label="Explore existing events or create your own">
-            <div class="finish-heading">THE NEXT STEP IS YOURS.</div>
-            <div class="next-actions">
-              <a class="next-action" href="events.html" aria-label="Explore the event catalogue"><div class="action-preview mini-grid" id="finish-grid" aria-hidden="true"></div><h2>EXPLORE <span>· <b class="event-count">12</b> events</span></h2><p>See the working examples <span aria-hidden="true">↗</span></p></a>
-              <a class="next-action" href="create.html" aria-label="Create your event: open the operator guide"><div class="action-preview guide-preview" aria-hidden="true"><div class="paper"><span>THE OPERATOR GUIDE</span><h3>From an event name<br>to a details page.</h3><div class="paper-rule"></div><p>Research → coverage → processing</p><p>Editorial review → your event</p></div></div><h2>CREATE <span>· Your event</span></h2><p>Guide · NISAR coverage required <span aria-hidden="true">↗</span></p></a>
-            </div>
+            <div class="finish-heading">groundstory / YOUR NEXT STEP</div>
+            <div class="next-actions"><a class="next-action" href="events.html" aria-label="Explore the event catalogue"><div class="action-preview mini-grid" id="finish-grid" aria-hidden="true"></div><h2>EXPLORE <span>· <b class="event-count">12</b> events</span></h2><p>See the working examples <span aria-hidden="true">↗</span></p></a><a class="next-action" href="create.html" aria-label="Create your event: open the operator guide"><div class="action-preview guide-preview" aria-hidden="true"><div class="paper"><span>THE OPERATOR GUIDE</span><h3>From an event name<br>to a details page.</h3><div class="paper-rule"></div><p>Research → coverage → processing</p><p>Editorial review → your event</p></div></div><h2>CREATE <span>· Your event</span></h2><p>Guide · NISAR coverage required <span aria-hidden="true">↗</span></p></a></div>
             <div class="team-strip"><strong>Dancing With The SARs</strong><span>Optical is nice but NISAR is nicer</span><span>Plymouth, UK</span></div>
           </section>
-          <div class="main-caption" id="main-caption">What does ground change mean for everyday places?</div>
-          <div class="film-credit" id="film-credit">Field photograph: GSJ / AIST · source and full credits below</div>
+          <div class="main-caption" id="main-caption">Using NISAR orbital radar<br>to understand human stories<br>on the ground.</div><div class="film-credit" id="film-credit">Field photographs: Akai et al. / GSJ, AIST · full sources and terms below</div>
         </div>
       </div>
-      <div class="transport" id="transport">
-        <button id="play-film" type="button" disabled>Loading…</button><button id="restart-film" type="button" disabled aria-label="Restart presentation">↺</button>
-        <label class="scrubber"><span class="sr-only">Presentation time, in seconds</span><input id="film-time" type="range" min="0" max="30" step="0.01" value="0" disabled></label>
-        <output id="timecode" for="film-time">00:00 / 00:30</output><button id="fullscreen-film" type="button">Fullscreen</button>
-      </div>
-      <div class="player-status"><p id="load-status" role="status">Preparing the photo, twelve event views and the 3D scene…</p><a id="retry-film" href="about.html" hidden>Reload presentation</a><a href="about.html#transcript">Read instead ↓</a></div>
-      <p class="keys">Space: play / pause · ← →: seek · R: restart · F: fullscreen. Best viewed landscape. <a href="about.html?capture=1">Clean capture view</a></p>
-      <p class="sr-only" id="current-caption" aria-live="off"></p>
-      <noscript><p>This presentation needs JavaScript and WebGL. The full text and both next steps are available below.</p></noscript>
+      <div class="transport" id="transport"><button id="play-film" type="button" disabled>Loading…</button><button id="restart-film" type="button" disabled aria-label="Restart presentation">↺</button><label class="scrubber"><span class="sr-only">Presentation time, in seconds</span><input id="film-time" type="range" min="0" max="30" step="0.01" value="0" disabled></label><output id="timecode" for="film-time">00:00 / 00:30</output><button id="fullscreen-film" type="button">Fullscreen</button></div>
+      <div class="player-status"><p id="load-status" role="status">Preparing the photographs, twelve 3D terrains and the survey/GPS model…</p><a id="retry-film" href="about.html" hidden>Reload presentation</a><a href="about.html#transcript">Read instead ↓</a></div>
+      <p class="keys">Space: play / pause · ← →: seek · R: restart · F: fullscreen. Best viewed landscape. <a href="about.html?capture=1">Clean capture view</a></p><p class="sr-only" id="current-caption" aria-live="off"></p><noscript><p>This presentation needs JavaScript and WebGL. The full text and both next steps are available below.</p></noscript>
     </div>
-    <section class="reading" id="transcript">
-      <div><span class="eyebrow">THE SHORT VERSION</span><h2>Ground change.<br>Human context.</h2></div>
-      <div class="reading-copy"><p>What does ground change mean for everyday places? We put NISAR’s measured ground change alongside sourced accounts from the places affected.</p><p>At Ryuho Elementary School in Kumamoto, a Geological Survey of Japan field survey measured a <strong>94 cm sideways offset</strong> across the schoolyard. That is an independent ground measurement—not a NISAR pixel value. The radar supplies the wider, line-of-sight movement pattern.</p><p>The sideways-slip prototype makes a limitation tangible: one radar viewing direction cannot recover the full motion vector. Its animation is a <strong>survey + GPS model, exaggerated</strong>, not sideways motion measured by NISAR. The future-work question is whether radar offsets can recover that component.</p><p>We have connected the measurements and accounts. Whether that improves understanding remains a hypothesis, not a demonstrated user-study result.</p><div class="reading-actions"><a href="events.html">Explore the events ↗</a><a href="create.html">Create your event ↗</a></div></div>
-    </section>
+    <section class="reading" id="transcript"><div><span class="eyebrow">THE SHORT VERSION</span><h2>Ground change.<br>Human context.</h2></div><div class="reading-copy">
+      <p><strong>groundstory uses NISAR orbital radar to understand human stories on the ground.</strong> Repeated passes provide phase, coherence and radar brightness. We use NASA/JPL’s published GUNW and GCOV products—not raw echoes we processed ourselves.</p>
+      <p><strong>Find → clean and map → ground stories → visualize.</strong> We check coverage, stream local data windows, correct and mask the measurements, compare a quiet baseline, align terrain and Sentinel-2, locate sourced accounts and review them. Optical imagery, stories, radar interpretation and 3D terrain become views of the same place.</p>
+      <p>The schoolyard photograph, shrine and junction are GSJ/AIST field observations in Kumamoto. The school’s <strong>94 cm sideways offset</strong> and shrine’s <strong>95 cm offset</strong> are independent ground-survey figures—not NISAR pixel values. The radar supplies the wider line-of-sight movement pattern.</p>
+      <p><strong>One repeatable pipeline, twelve built events, six event types.</strong> The film shows twelve genuinely rotating terrain meshes using their own Copernicus DEM and radar/optical layers. Different event types need different signals: phase for motion, coherence loss for surface change, and backscatter for fires, floods and shoreline change. This demonstrates reuse across the existing catalogue, not unlimited throughput or automatic success on any event.</p>
+      <p><strong>Findings:</strong> located accounts can be connected to measured ground differences; whether this improves understanding remains an untested hypothesis. At Etna the mapped lava-associated change is about <strong>2.5 km²</strong>, missing the already-incoherent lower flow. The <strong>new coastal land is at Anak Krakatau, not Etna</strong>: dual-look, multi-pass backscatter estimates <strong>26.5 ha</strong> of shoreline gain, with an optical cross-check. The reported official estimate is 32.8 ha and provisional; no published comparison polygon is available. The area ratio is not a spatial-accuracy score.</p>
+      <p><strong>Future work:</strong> test radar-derived sideways motion. The split-screen animation is the current <strong>survey + GPS model, exaggerated</strong>, not a radar-derived result. One radar viewing direction does not recover the full motion vector. In-project techniques include dual-look shoreline differencing and sampling radar at located accounts; we are not claiming global methodological novelty.</p>
+      <div class="reading-actions"><a href="events.html">Explore the events ↗</a><a href="create.html">Create your event ↗</a></div>
+    </div></section>
     <details class="sources"><summary>Sources, scientific limits &amp; recording</summary><div>
-      <p><strong>Photo:</strong> <a id="photo-source-link" href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html">GSJ / AIST field report, photo 10</a>. <span id="photo-full-credit">Akai, Ota, Maruyama, Yoshimi, Azuma and Ninomiya / AIST Geological Survey of Japan.</span> Presentation crop/reframing and English caption by Dancing With The SARs; original photograph bytes and source arrows unchanged. <a id="photo-terms" href="https://www.gsj.jp/license/license.html">Reuse terms</a>.</p>
-      <p><strong>Radar:</strong> NISAR L2 GUNW (provisional), NASA/JPL-Caltech/ISRO, distributed by ASF DAAC. Phase and coherence are published products; our work corrects, masks, maps and connects them to ground accounts. Colours show toward/away motion; height in this presentation is terrain only. The colour scale is one cycle per 10 cm, not a native radar phase cycle. Blank/no-data areas are not measurements.</p>
-      <p><strong>Ground imagery:</strong> Contains modified Copernicus Sentinel-2 data (ESA). <strong>Terrain:</strong> © DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA.</p>
-      <p><strong>Slip:</strong> GSJ tape measurements at nine sites; Nevada Geodetic Laboratory positions for GSI GEONET stations. The interpolated model is imperfect and omits vertical movement. The white arrow is the measured GPS step, shown at the same exaggeration; it is not the model prediction. <a href="event.html?e=kumamoto-quake&amp;slip=1">Explore the prototype and its limitations</a>.</p>
+      <p><strong>Field photographs:</strong> <a id="photo-source-link" href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/kumamoto2026-02.html">GSJ / AIST Emergency field report No. 5, photos 10–12</a>. <span id="photo-full-credit">Akai, Ota, Maruyama, Yoshimi, Azuma and Ninomiya / AIST Geological Survey of Japan.</span> <a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-17.png">School (photo 10)</a>; <a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-18.png">Yatsushiro Junction (photo 11)</a>; <a href="https://www.gsj.jp/hazards/earthquake/kumamoto2026/images/kumamoto2026-19.png">shrine (photo 12)</a>. Presentation crop/reframing and English captions by Dancing With The SARs; original photograph bytes and source annotations unchanged. GSJ does not endorse this presentation. <a id="photo-terms" href="https://www.gsj.jp/license/license.html#01">Reuse terms (CC BY 4.0 compatible)</a>.</p>
+      <p><strong>Radar:</strong> NISAR L2 GUNW and GCOV (provisional), NASA/JPL-Caltech/ISRO, distributed by ASF DAAC. Phase, coherence and backscatter are published products; our work corrects, masks, maps and connects them to ground accounts. Kumamoto colours show toward/away motion, one cycle per 10 cm—not a native phase cycle. Blank/no-data areas are not measurements. Terrain height is never LOS uplift.</p>
+      <p><strong>Ground imagery:</strong> Contains modified Copernicus Sentinel-2 data (ESA). <strong>Terrain:</strong> © DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA. Terrain relief is exaggerated for legibility; event tiles have independent spatial scales and are not area comparisons.</p>
+      <p><strong>Findings:</strong> the <a href="e/etna-eruption.html">Etna event</a> states the partial footprint and missed lower flow; the <a href="e/anak-krakatau.html">Anak Krakatau event</a> gives the dual-look method, strict-threshold sensitivity and comparison with the reported 32.8 ha. Neither is a complete independent validation.</p>
+      <p><strong>Slip:</strong> GSJ tape measurements at nine sites; Nevada Geodetic Laboratory positions for GSI GEONET stations. The interpolated model is imperfect and omits vertical movement. The white arrow is the measured GPS step, at the same exaggeration; not the model prediction. Grid: 5 km. <a href="event.html?e=kumamoto-quake&amp;slip=1">Explore the prototype and limitations</a>.</p>
       <p><strong>Create:</strong> a documented developer-operated workflow, conditional on coverage and an interpretable signal. Not an all-in-one creation app. It requires source-repository access, Earthdata credentials, technical setup and human review; a fresh end-to-end new-event build has not yet been demonstrated.</p>
-      <p><strong>Recording:</strong> this page is the presentation, not a prerecorded MP4. Use clean capture view and a 1920 × 1080 viewport. Wait for “Ready”, press Space to play, record 30 seconds, and hold the final frame. The page is silent. <code>?t=20</code> opens a paused time; <code>?autoplay=1</code> starts only after all required assets are ready. Capture mode hides controls; move the pointer to reveal them. <a href="credits.html">Full data, media, software and AI credits</a>.</p>
+      <p><strong>Recording:</strong> this page is the presentation, not a prerecorded MP4. Use clean capture view and a 1920 × 1080 viewport. Wait for “Ready”, press Space, record 30 seconds and hold the final frame. Silent. <code>?t=20</code> opens a paused time; <code>?autoplay=1</code> starts after all required assets are ready. Capture hides controls; move the pointer to reveal them. <a href="credits.html">Full data, media, software and AI credits</a>.</p>
     </div></details>
   </main>
   <footer class="page-footer"><span>Dancing With The SARs · Plymouth, UK</span><a href="credits.html">Credits &amp; AI disclosure</a></footer>
-  <script type="module" src="js/about.js"></script>
+  <script type="module" src="js/about.js?v=5"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent / "site"
 URL = "https://textgoeshere.github.io/nisar-hackathon/"
 HOME = "kumamoto-quake"
-TAGLINE = "Either side of the line"
+TAGLINE = "groundstory"
 
 
 def describe(slug, meta):

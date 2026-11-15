@@ -43,3 +43,9 @@ The relevant original caption is:
 - Field offset and satellite line-of-sight motion are different quantities at different spatial scales. Do not infer building damage, safety, or casualties from the photograph or radar.
 - The source identifies the school but does not provide a surveyed crack coordinate in the caption. The existing `kumamoto-01` pin is an approximate school-level location, not the exact surveyed rupture position.
 - Preserve the broken ground, both original red arrows, and enough school-building context when reframing. The native image is approximately 4:3; full-screen 16:9 cover cropping necessarily loses some vertical context. The source is clear but only 1021 pixels wide, so do not claim a higher native resolution or add artificial sharpening.
+
+## Animated montage revision — 15 November 2026
+
+The groundstory revision also displays the original report’s **photo 11** (surface rupture near Yatsushiro Junction, filename `kumamoto2026-18.png`) and **photo 12** (shrine approach path, `kumamoto2026-19.png`). The report and these exact image links/captions were rechecked on 15 November. They share the named report authors and GSJ reuse terms above. The additional PNGs are currently loaded from their original GSJ URLs, not stored locally; both must decode before playback is enabled. No byte-level download comparison is claimed for these two images.
+
+Photo 11 reports about 130 cm of **vertical** offset near the junction; the film uses it as a place photograph without a numerical motion claim. Photo 12 reports 95 cm right-lateral and 39 cm west-side-down offset. The story overlay uses only the explicitly labelled 95 cm **field-survey** figure. Images are animated and CSS-reframed; original pixel content and annotations remain unchanged. Full source/terms links are in the page and canonical credits.

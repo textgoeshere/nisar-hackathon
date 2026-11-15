@@ -31,7 +31,7 @@ const documents = [
   },
   {
     source: 'CREDITS.md', output: 'site/credits.html', label: 'Credits',
-    description: 'Data, media, software, services and AI attribution for Either side of the line.',
+    description: 'Data, media, software, services and AI attribution for groundstory.',
     note: 'Data, media, software, services and AI attribution, reproduced from the canonical credits. '
       + 'Repository-file links may require source access; the owner controls availability.',
   },
@@ -131,11 +131,11 @@ function page(document, rendered) {
     '  <meta name="referrer" content="no-referrer">',
     '  <meta http-equiv="Content-Security-Policy" content="default-src \'none\'; style-src \'self\'; base-uri \'none\'; form-action \'none\'">',
     '  <meta name="description" content="' + escapeHtml(description) + '">',
-    '  <title>' + label + ' · Either side of the line</title>',
+    '  <title>' + label + ' · groundstory</title>',
     '  <link rel="stylesheet" href="about-docs.css">', '</head>', '<body>',
     '  <a class="skip-link" href="#content">Skip to content</a>',
     '  <header class="site-header">',
-    '    <a class="brand" href="./">Either side of the line <span>NISAR / NASA–ISRO</span></a>',
+    '    <a class="brand" href="./">groundstory <span>NISAR / NASA–ISRO</span></a>',
     '    <nav aria-label="Main navigation">' + navigation + '</nav>', '  </header>',
     '  <main id="content" tabindex="-1">',
     '    <header class="doc-heading">',

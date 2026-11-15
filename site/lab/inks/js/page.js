@@ -19,7 +19,7 @@ let T = P.has("t") ? Math.max(0, Math.min(1, +P.get("t"))) : 1;
 // ---------- title, headline, key ----------
 const dshort = (iso, year = false) => new Date(iso + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", ...(year ? { year: "numeric" } : {}), timeZone: "UTC" }).toUpperCase();
 const pair = ev.info.pair, multi = lab.line.kind === "bend";
-document.title = `${lab.name} · Three inks · Either side of the line`;
+document.title = `${lab.name} · Three inks · groundstory`;
 $("#title").textContent = lab.name;
 $("#sub").textContent = `${lab.date ? dshort(lab.date, true) + " · " : ""}NISAR provisional data`;
 const hv = lab.headline.value, hm = /^([−\-+]?\d[\d.,]*)\s*(.*)$/.exec(hv);

@@ -20,7 +20,7 @@ $("#events").innerHTML = EVENTS.map(([s, n]) => `<a href="?e=${s}"${s === slug ?
 const lab = await getJson(new URL("lab.json", dataBase));
 const { nx: NX, ny: NY, dx: DX } = lab.grid;
 const kind = lab.line.kind;
-document.title = `${lab.name} · Atlas · Either side of the line`;
+document.title = `${lab.name} · Atlas · groundstory`;
 $("#title").textContent = lab.name;
 $("#meta").textContent = `${lab.date ? lab.date + " · " : ""}${lab.focus.label} · NISAR radar, provisional`;
 const LEDE = {

@@ -1,6 +1,8 @@
 # Naming the project
 
-Decision brief, 15 November 2026. Candidates only: no repository rename or visibility change.
+**Selected by David, 15 November 2026: groundstory.** Use the lowercase name in public branding. The existing repository/Pages URL is retained; no repository rename or visibility change is authorized.
+
+The candidate brief below is retained as decision history, not an open naming question.
 
 **Brief:** name a project connecting satellite-observed ground change with sourced ground accounts, with equal invitations to explore and create.
 

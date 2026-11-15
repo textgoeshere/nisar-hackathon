@@ -47,7 +47,7 @@ const store = { get: () => { try { return sessionStorage.getItem(DEMO_KEY); } ca
   set: (x) => { try { sessionStorage.setItem(DEMO_KEY, x); } catch {} } };
 let demo = params.has("demo") ? params.get("demo") !== "0" : store.get() !== "0";
 
-document.title = `${meta.name} · Either side of the line`;
+document.title = `${meta.name} · groundstory`;
 if (!document.querySelector("link[rel=canonical]")) {
   const l = document.createElement("link");
   l.rel = "canonical"; l.href = new URL(pageUrl(slug), document.baseURI).href;
