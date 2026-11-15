@@ -29,7 +29,19 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Entrada de Pocri de Los Santos.jpg",
+    "place": "Los Santos Province",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Entrada_de_Pocri_de_Los_Santos.jpg/960px-Entrada_de_Pocri_de_Los_Santos.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Entrada_de_Pocri_de_Los_Santos.jpg",
+    "credit": "Villalaso",
+    "licence": "CC BY-SA 4.0",
+    "date": "2022-01-12",
+    "distance_m": null,
+    "found_by": "category: Category:Los Santos Province",
+    "description": "Entrada a Pocrí, Los Santos, en la carretera de Pedasí-Las Tablas."
+   }
   },
   {
    "title": "Tonosí: hotel collapsed; patients treated in tents",
@@ -114,7 +126,19 @@
    "show_image": false,
    "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Escuela presidente porras.jpg",
+    "place": "Los Santos Province",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Escuela_presidente_porras.jpg/960px-Escuela_presidente_porras.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Escuela_presidente_porras.jpg",
+    "credit": "Maria Maarbes",
+    "licence": "CC BY-SA 3.0",
+    "date": "2013-09-19",
+    "distance_m": null,
+    "found_by": "category: Category:Los Santos Province",
+    "description": "Escuela Presidente Porras en Los Santos"
+   }
   },
   {
    "title": "Macaracas: a 68-year-old woman killed by a collapsing wall, far from the rupture",
@@ -172,7 +196,19 @@
    "show_image": false,
    "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Playa en pedasi destiladeros.jpg",
+    "place": "Pedasí",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Playa_en_pedasi_destiladeros.jpg/960px-Playa_en_pedasi_destiladeros.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Playa_en_pedasi_destiladeros.jpg",
+    "credit": "Villarrealjj24",
+    "licence": "CC BY 4.0",
+    "date": "2026-07-01",
+    "distance_m": null,
+    "found_by": "search: Pedasí",
+    "description": "Playa Los destiladeros, Pedasi, Panama"
+   }
   },
   {
    "title": "Las Tablas: the provincial hospital stayed fit to treat patients while Tonosí's was shut",
@@ -201,7 +237,19 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Parque Belisario Porras Barahona, popularmente llamado Parque Porras, Ciudad de Las Tablas, Provincia de Los Santos, República de Panamá. (2025).jpg",
+    "place": "Las Tablas",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Parque_Belisario_Porras_Barahona%2C_popularmente_llamado_Parque_Porras%2C_Ciudad_de_Las_Tablas%2C_Provincia_de_Los_Santos%2C_Rep%C3%BAblica_de_Panam%C3%A1._%282025%29.jpg/960px-Parque_Belisario_Porras_Barahona%2C_popularmente_llamado_Parque_Porras%2C_Ciudad_de_Las_Tablas%2C_Provincia_de_Los_Santos%2C_Rep%C3%BAblica_de_Panam%C3%A1._%282025%29.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Parque_Belisario_Porras_Barahona,_popularmente_llamado_Parque_Porras,_Ciudad_de_Las_Tablas,_Provincia_de_Los_Santos,_Rep%C3%BAblica_de_Panam%C3%A1._(2025).jpg",
+    "credit": "SportingVVE",
+    "licence": "CC0",
+    "date": "2025-04-19",
+    "distance_m": null,
+    "found_by": "category: Category:Las Tablas",
+    "description": "Belisario Porras Park, Barahona, popularly known as Porras Park, is where the incomparable Tableño carnival converges and takes place for four days."
+   }
   },
   {
    "title": "Cañas: the mainland village took in the families from the island that sank",

@@ -1,0 +1,26 @@
+{
+ "aspen-03": {
+  "title": "File:Wetmtns.JPG",
+  "place": "Wet Mountains",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Wetmtns.JPG/960px-Wetmtns.JPG",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Wetmtns.JPG",
+  "credit": "Hogs555",
+  "licence": "CC BY-SA 3.0",
+  "date": "2013-03-28",
+  "distance_m": null,
+  "found_by": "category: Category:Wet Mountains",
+  "description": "Rock Formation in the wet mountains"
+ },
+ "aspen-04": {
+  "title": "File:Wetmore Post Office.JPG",
+  "place": "Wet Mountains",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Wetmore_Post_Office.JPG/960px-Wetmore_Post_Office.JPG",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Wetmore_Post_Office.JPG",
+  "credit": "Jeffrey Beall",
+  "licence": "CC BY-SA 3.0",
+  "date": "2012-01-01",
+  "distance_m": 3598,
+  "found_by": "geosearch 8000 m",
+  "description": "The Wetmore Post Office, located in Wetmore, Colorado. The property is listed on the National Register of Historic Places."
+ }
+}

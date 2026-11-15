@@ -1,0 +1,50 @@
+{
+ "krakatau-01": {
+  "title": "File:Anak Krakatau, january 2016.jpg",
+  "place": "Anak Krakatau",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Anak_Krakatau%2C_january_2016.jpg/960px-Anak_Krakatau%2C_january_2016.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Anak_Krakatau,_january_2016.jpg",
+  "credit": "Tyke",
+  "licence": "CC BY-SA 4.0",
+  "date": "2016-01-03",
+  "distance_m": null,
+  "found_by": "search: Anak Krakatau",
+  "description": "Anak Krakatau, january 2016"
+ },
+ "krakatau-02": {
+  "title": "File:Uprising-mt anak krakatau.jpg",
+  "place": "Anak Krakatau",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Uprising-mt_anak_krakatau.jpg/960px-Uprising-mt_anak_krakatau.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Uprising-mt_anak_krakatau.jpg",
+  "credit": "Uprising",
+  "licence": "CC BY-SA 3.0",
+  "date": "2012-09-09",
+  "distance_m": null,
+  "found_by": "search: Anak Krakatau",
+  "description": "Mount Anak Krakatau"
+ },
+ "krakatau-03": {
+  "title": "File:Anak Krakatau volcano (50984292248).jpg",
+  "place": "Krakatoa",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Anak_Krakatau_volcano_%2850984292248%29.jpg/960px-Anak_Krakatau_volcano_%2850984292248%29.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Anak_Krakatau_volcano_(50984292248).jpg",
+  "credit": "Annamaria Luongo",
+  "licence": "CC BY 2.0",
+  "date": "2021-02-27",
+  "distance_m": null,
+  "found_by": "category: Category:Krakatoa",
+  "description": "Sentinel2, 26 February"
+ },
+ "krakatau-05": {
+  "title": "File:Anak Krakatau with some activity visible, Indonesia - April 17th, 2020 (49787256542).jpg",
+  "place": "Krakatoa",
+  "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Anak_Krakatau_with_some_activity_visible%2C_Indonesia_-_April_17th%2C_2020_%2849787256542%29.jpg/960px-Anak_Krakatau_with_some_activity_visible%2C_Indonesia_-_April_17th%2C_2020_%2849787256542%29.jpg",
+  "page_url": "https://commons.wikimedia.org/wiki/File:Anak_Krakatau_with_some_activity_visible,_Indonesia_-_April_17th,_2020_(49787256542).jpg",
+  "credit": "Pierre Markuse from Hamm, Germany",
+  "licence": "CC BY 2.0",
+  "date": "2020-04-18",
+  "distance_m": null,
+  "found_by": "category: Category:Krakatoa",
+  "description": "Contains modified Copernicus Sentinel data [2020], processed by &lt;a href=\" https://twitter.com/Pierre_Markuse \" rel=\"noreferrer nofollow\"&gt;Pierre Markuse&lt;/a&gt; Anak Krakatau with some activity visible, Indonesia - April 17th, 2020 Image is about 12 kilometers wide. Sentinel-2 images of volca"
+ }
+}

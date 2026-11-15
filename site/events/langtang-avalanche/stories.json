@@ -148,7 +148,19 @@
    "show_image": false,
    "status": "candidate",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Customs office.JPG",
+    "place": "Rasuwagadhi",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Customs_office.JPG/960px-Customs_office.JPG",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Customs_office.JPG",
+    "credit": "Krish Dulal",
+    "licence": "CC BY-SA 3.0",
+    "date": "2013-06-08",
+    "distance_m": null,
+    "found_by": "category: Category:Rasuwagadhi",
+    "description": "District Customs office of Rasuwa district."
+   }
   },
   {
    "title": "NH42 Trishuli Corridor road and suspension bridge between Syabrubesi and Timure (before)",

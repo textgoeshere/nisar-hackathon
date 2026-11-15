@@ -27,7 +27,19 @@
    "show_image": false,
    "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Tarapasha High School and College (Cropped).jpg",
+    "place": "Rajnagar Upazila",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Tarapasha_High_School_and_College_%28Cropped%29.jpg/960px-Tarapasha_High_School_and_College_%28Cropped%29.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Tarapasha_High_School_and_College_(Cropped).jpg",
+    "credit": "Ahmed Reza Khan",
+    "licence": "CC BY-SA 4.0",
+    "date": "2025-10-28",
+    "distance_m": null,
+    "found_by": "category: Category:Rajnagar Upazila",
+    "description": "Tarapasha High School and College"
+   }
   },
   {
    "title": "Defaloura and Rajnagar town: on the flood's edge, under threat but not reported flooded",
@@ -54,7 +66,19 @@
    "show_image": false,
    "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Tea garden of Moulvibazar.jpg",
+    "place": "Moulvibazar",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Tea_garden_of_Moulvibazar.jpg/960px-Tea_garden_of_Moulvibazar.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Tea_garden_of_Moulvibazar.jpg",
+    "credit": "Sujitpauldu",
+    "licence": "CC BY-SA 4.0",
+    "date": "2017-05-07",
+    "distance_m": null,
+    "found_by": "search: Moulvibazar",
+    "description": "Most beautiful tea garden of Moulvibazar District in Bangladesh"
+   }
   },
   {
    "title": "Moulvibazar town holds behind its embankment as the Manu runs up to 84 cm above danger",
@@ -81,7 +105,19 @@
    "show_image": false,
    "status": "selected",
    "caption": null,
-   "order": null
+   "order": null,
+   "establishing": {
+    "title": "File:Moulvibazar Govt. High School School house of the British Time..jpg",
+    "place": "Moulvibazar",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Moulvibazar_Govt._High_School_School_house_of_the_British_Time..jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Moulvibazar_Govt._High_School_School_house_of_the_British_Time..jpg",
+    "credit": "Mr.smtanim",
+    "licence": "CC BY-SA 4.0",
+    "date": "2014-12-07",
+    "distance_m": null,
+    "found_by": "search: Moulvibazar",
+    "description": "Moulvibazar Govt. High School School, building dating from the British time"
+   }
   },
   {
    "title": "Kamarchak: water spills over the dam at Ward 2",

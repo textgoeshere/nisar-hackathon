@@ -6,6 +6,8 @@ Input:  research/stories/<slug>.json    candidate stories and photos (see docs/5
         site/events/<slug>/media.json    step 5b: harvested media candidates (pipeline.media)
         research/editorial/<slug>.json   step 6: the human editor's selections and captions
                                          (`items` for stories, `media` for harvested media)
+        research/establishing/<slug>.json  establishing shots (pipeline.establishing) for stories
+                                         with no image of their own
 Output: site/events/<slug>/stories.json  stories + the selected media (`media`) + all media decisions
                                          (`media_status`, so the editor can reload them)
 
@@ -160,13 +162,19 @@ def build(slug: str):
         items.append(it | {"nisar": s, "show_image": show_image(it),
                            "status": e.get("status", "candidate"), "caption": e.get("caption"), "order": e.get("order")})
     story_previews(slug, items)
+    from .establishing import load as establishing
+    est = establishing(slug)                       # context photo of the place, only for stories with no image
+    for it in items:
+        if it["id"] in est and not it["show_image"] and not it.get("preview_url"):
+            it["establishing"] = est[it["id"]]
     media, media_status = merge_media(d, editorial)
     out = {"slug": slug, "boundary": editorial.get("boundary") or research.get("boundary"), "items": items,
            "media": media, "media_status": media_status}
     (d / "stories.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     sel = sum(i["status"] == "selected" for i in items)
     print(f"{slug}: {len(items)} candidates, {sel} selected; media {len(media)} selected "
-          f"({sum(i.get('preview') == 'pixelated' for i in items)} story photos with a pixelated preview)")
+          f"({sum(i.get('preview') == 'pixelated' for i in items)} story photos with a pixelated preview, "
+          f"{sum('establishing' in i for i in items)} establishing shots)")
     for it in items:
         n = it["nisar"]
         if "change" in n:
