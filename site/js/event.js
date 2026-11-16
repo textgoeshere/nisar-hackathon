@@ -187,7 +187,6 @@ const setPanel = (name, open) => {
   b.setAttribute("aria-expanded", open);
   document.body.classList.toggle(`${name}-open`, open);
   if (open) for (const k in panels) if (k !== name) setPanel(k, false);
-  if (open && name === "list") fillList();
 };
 $("#b-cog").addEventListener("click", () => setPanel("cog", $("#cog").hidden));
 $("#name").addEventListener("click", () => setPanel("list", $("#list").hidden));
@@ -197,17 +196,17 @@ addEventListener("pointerdown", (e) => {
 
 // ---------- the event list (title) and Next ----------
 const nextSlug = slugs[(slugs.indexOf(slug) + 1) % slugs.length] ?? slug;
-let listed = false;
+// The generated pages (scripts/pages.py) bake the list into the HTML; event.html?e=<slug> fills it here on load.
 async function fillList() {
-  if (listed) return;
-  listed = true;
   const ul = $("#list-ul");
+  // Choosing from the list is a visit, not the tour: demo mode stays off there.
+  ul.addEventListener("click", (e) => { if (e.target.closest("a")) store.set("0"); });
+  if (ul.querySelector("li")) return;
   const metas = await Promise.all(slugs.map((s) => (s === slug ? meta : fetch(`events/${s}/meta.json`).then((r) => r.json()).catch(() => null))));
   ul.innerHTML = slugs.map((s, i) => `<li><a href="${pageUrl(s)}"${s === slug ? ' aria-current="page"' : ""}>${esc(metas[i]?.name ?? s)}
     <small>${esc([metas[i]?.kind, metas[i]?.date].filter(Boolean).join(" · "))}</small></a></li>`).join("");
-  // Choosing from the list is a visit, not the tour: demo mode stays off there.
-  ul.addEventListener("click", (e) => { if (e.target.closest("a")) store.set("0"); });
 }
+fillList();
 function go(url) {
   document.body.classList.add("leaving");
   setTimeout(() => { location.href = url; }, 700);

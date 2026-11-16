@@ -45,8 +45,26 @@ def head(slug, meta, path):
     ]))
 
 
-def page(template, slug, meta, path, base):
+def tour(slugs):
+    """The event list in js/event.js's TOUR order (listed events first, the rest on the end)."""
+    src = (SITE / "js" / "event.js").read_text()
+    order = re.findall(r'"([^"]+)"', re.search(r"const TOUR = \[(.*?)\];", src, re.S).group(1))
+    return [s for s in order if s in slugs] + [s for s in slugs if s not in order]
+
+
+def event_list(slug, metas):
+    """The title menu's <li>s, baked in so the list is there before any fetch (js/event.js matches this)."""
+    e = lambda s: html.escape(str(s), quote=True)
+    cur = ' aria-current="page"'
+    return "".join(
+        f'<li><a href="e/{e(s)}.html"{cur if s == slug else ""}>{e(m.get("name", s))}\n'
+        f'    <small>{e(" · ".join(filter(None, [m.get("kind"), m.get("date")])))}</small></a></li>'
+        for s, m in metas.items())
+
+
+def page(template, slug, meta, path, base, metas):
     out = re.sub(r"<!-- page:head.*?<!-- /page:head -->", lambda _: head(slug, meta, path), template, count=1, flags=re.S)
+    out = re.sub(r"<!-- page:list -->.*?<!-- /page:list -->", lambda _: event_list(slug, metas), out, count=1, flags=re.S)
     out = out.replace('<body class="ev" data-slug="">', f'<body class="ev" data-slug="{slug}">', 1)
     if base:
         out = out.replace('<meta charset="utf-8">', f'<meta charset="utf-8">\n<base href="{base}">', 1)
@@ -56,17 +74,18 @@ def page(template, slug, meta, path, base):
 
 def main():
     template = (SITE / "event.html").read_text()
-    assert "<!-- page:head" in template and 'data-slug=""' in template, "event.html is missing the page markers"
+    assert "<!-- page:head" in template and "<!-- page:list" in template and 'data-slug=""' in template, \
+        "event.html is missing the page markers"
     slugs = json.loads((SITE / "events" / "index.json").read_text())
+    metas = {s: json.loads((SITE / "events" / s / "meta.json").read_text()) for s in tour(slugs)}
     (SITE / "e").mkdir(exist_ok=True)
     for old in (SITE / "e").glob("*.html"):
         if old.stem not in slugs:
             old.unlink()
-    for slug in slugs:
-        meta = json.loads((SITE / "events" / slug / "meta.json").read_text())
-        (SITE / "e" / f"{slug}.html").write_text(page(template, slug, meta, f"e/{slug}.html", "../"))
+    for slug, meta in metas.items():
+        (SITE / "e" / f"{slug}.html").write_text(page(template, slug, meta, f"e/{slug}.html", "../", metas))
         if slug == HOME:
-            (SITE / "index.html").write_text(page(template, slug, meta, "", None))
+            (SITE / "index.html").write_text(page(template, slug, meta, "", None, metas))
     print(f"wrote index.html and {len(slugs)} pages in site/e/")
 
 
